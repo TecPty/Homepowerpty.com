@@ -42,9 +42,10 @@ export async function generateClickbaitTitles(
     const articleContent = await response.text()
 
     // 2. Instanciar el modelo y preparar el prompt
-    const model = google('gemini-2.0-flash-001', {
+const model = google('gemini-2.0-flash-001', {
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,
 });
+
 
     const prompt = `
       Eres un experto en SEO y marketing digital con 20 años de experiencia,
