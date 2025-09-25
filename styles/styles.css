@@ -191,6 +191,223 @@
             align-items: center;
         }
 
+        /* Botón Hamburguesa */
+.menu-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+}
+
+.menu-burger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #333;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu-burger:hover span {
+    background: #faaa01;
+}
+
+/* Menú Fullscreen Overlay */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Header del menú */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-logo {
+    width: 150px;
+}
+
+.menu-logo img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.menu-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.menu-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Navegación del menú */
+.fullscreen-nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.fullscreen-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.fullscreen-menu-item {
+    margin: 30px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.fullscreen-menu-item:nth-child(1) { animation-delay: 0.1s; }
+.fullscreen-menu-item:nth-child(2) { animation-delay: 0.2s; }
+.fullscreen-menu-item:nth-child(3) { animation-delay: 0.3s; }
+.fullscreen-menu-item:nth-child(4) { animation-delay: 0.4s; }
+.fullscreen-menu-item:nth-child(5) { animation-delay: 0.5s; }
+
+.fullscreen-menu-link {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.fullscreen-menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #faaa01;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.fullscreen-menu-link:hover {
+    color: #faaa01;
+}
+
+.fullscreen-menu-link:hover::after {
+    width: 100%;
+}
+
+/* Footer del menú */
+.menu-footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid #faaa01;
+    color: #faaa01;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-cta-button:hover {
+    background: #faaa01;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(250, 170, 1, 0.3);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-burger {
+        display: flex;
+    }
+    
+    .fullscreen-menu-link {
+        font-size: 24px;
+    }
+    
+    .menu-header {
+        padding: 20px;
+    }
+    
+    .fullscreen-menu-item {
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .fullscreen-menu-link {
+        font-size: 20px;
+    }
+    
+    .menu-logo {
+        width: 120px;
+    }
+    
+    .menu-cta-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+/* Prevenir scroll cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden;
+}
         .menu {
             display: flex;
             align-items: center;
