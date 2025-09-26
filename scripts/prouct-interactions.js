@@ -76,4 +76,23 @@ document.addEventListener('DOMContentLoaded', function() {
             preloadImg.src = boxSrc;
         }
     });
+    
+    // Lazy loading para imágenes
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('loading' in HTMLImageElement.prototype) {
+        images.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Fallback para navegadores que no soportan lazy loading
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js';
+        document.body.appendChild(script);
+        
+        script.onload = function() {
+            const observer = lozad();
+            observer.observe();
+        }
+    }
 });

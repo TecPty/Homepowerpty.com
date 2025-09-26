@@ -1,4 +1,3 @@
-
 .header {
     width: 100%;
     height: 100px;
@@ -47,44 +46,61 @@
     list-style: none;
 }
 
-.menu_link {
-    color: #2c3e50;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
+.menu_item {
     position: relative;
+}
+
+.menu_link {
+    color: var(--color_black);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
     transition: color 0.3s ease;
 }
 
 .menu_link::after {
     content: '';
-    width: 0;
-    height: 3px;
-    background: #faaa01;
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color_orange);
     transition: width 0.3s ease;
+}
+
+.menu_link:hover {
+    color: var(--color_orange);
 }
 
 .menu_link:hover::after {
     width: 100%;
 }
 
+/* Estilos para el botón de contacto */
 .contact_btn {
-    background: #faaa01;
-    color: #ffffff;
-    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color_orange);
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 25px;
+    color: white;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(250, 170, 1, 0.2);
 }
 
 .contact_btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(250, 170, 1, 0.3);
+    box-shadow: 0 5px 15px rgba(250, 170, 1, 0.3);
+}
+
+.contact_btn_icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
 }
 
 /* Mobile menu */
@@ -145,5 +161,19 @@
         width: calc(100% - 40px);
         text-align: center;
         margin: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav_bar {
+        display: none;
+    }
+
+    .menu-burger {
+        display: flex;
+    }
+    
+    .contact_btn {
+        display: none;
     }
 }

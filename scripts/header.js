@@ -1,3 +1,36 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBurger = document.getElementById('menuBurger');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
+    const menuClose = document.getElementById('menuClose');
+    const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
+
+    // Abrir menú
+    menuBurger.addEventListener('click', () => {
+        fullscreenMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+    });
+
+    // Cerrar menú
+    const closeMenu = () => {
+        fullscreenMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    };
+
+    menuClose.addEventListener('click', closeMenu);
+
+    // Cerrar menú al hacer clic en un enlace
+    menuLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Cerrar menú con la tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+});
+
 (function(){
     const header = document.getElementById('header');
     const socialHeader = document.querySelector('.social_header_bar');

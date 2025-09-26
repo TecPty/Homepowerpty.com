@@ -68,6 +68,9 @@
     <link rel="stylesheet" href="styles/templates/footer.css">
     <link rel="stylesheet" href="styles/templates/social_header.css">
     <title>Home Power</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.homepowerpty.com/testimonios">
+    <meta name="description" content="Lee las experiencias reales de nuestros clientes con los productos de Home Power PTY. Testimonios verificados de compradores satisfechos.">
 </head>
 
 <body>
@@ -121,52 +124,43 @@
 <div class="overlay" id="overlay"></div>
 
 <header class="header" id="header">
-<!-- Botón para abrir el menú (en tu header) -->
-<button class="menu-burger" id="menuBurger" aria-label="Abrir menú">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-
-<!-- Menú Fullscreen Overlay -->
-<div class="fullscreen-menu" id="fullscreenMenu">
-    <div class="menu-header">
-        <a href="/" class="menu-logo">
-            <img src="media/icons/logo/logo.png" alt="Home Power">
-        </a>
-        <button class="menu-close" id="menuClose" aria-label="Cerrar menú">
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                <path d="M22.5 7.5L7.5 22.5M7.5 7.5L22.5 22.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
+    <div class="logo_container">
+        <img src="media/icons/logo/logo.png" alt="Home Power" class="logo_icon">
     </div>
-    
-    <nav class="fullscreen-nav">
-        <ul class="fullscreen-menu-list">
-            <li class="fullscreen-menu-item">
-                <a href="#inicio" class="fullscreen-menu-link">Inicio</a>
+
+    <!-- Menú de escritorio -->
+    <nav class="nav_bar">
+        <ul class="menu">
+            <li class="menu_item">
+                <a href="#inicio" class="menu_link">Inicio</a>
             </li>
-            <li class="fullscreen-menu-item">
-                <a href="#productos" class="fullscreen-menu-link">Electrodomésticos</a>
+            <li class="menu_item">
+                <a href="#productos" class="menu_link">Electrodomésticos</a>
             </li>
-            <li class="fullscreen-menu-item">
-                <a href="#nosotros" class="fullscreen-menu-link">Nosotros</a>
+            <li class="menu_item">
+                <a href="#nosotros" class="menu_link">Nosotros</a>
             </li>
-            <li class="fullscreen-menu-item">
-                <a href="#clientes" class="fullscreen-menu-link">Clientes</a>
+            <li class="menu_item">
+                <a href="#clientes" class="menu_link">Clientes</a>
             </li>
-            <li class="fullscreen-menu-item">
-                <a href="#testimonio" class="fullscreen-menu-link">Testimonio</a>
+            <li class="menu_item">
+                <a href="#testimonio" class="menu_link">Testimonios</a>
             </li>
         </ul>
     </nav>
-    
-    <div class="menu-footer">
-        <a href="https://wa.me/50769838322" class="menu-cta-button">
-            Consultar Stock
-        </a>
-    </div>
-</div>
+
+    <!-- Botón de contacto -->
+    <a href="https://wa.me/50769838322" class="contact_btn">
+        <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="contact_btn_icon">
+        <span>Contactar</span>
+    </a>
+
+    <!-- Botón menú móvil -->
+    <button class="menu-burger" id="menuBurger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </header>
 
     <main class="main">
