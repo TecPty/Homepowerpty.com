@@ -4,7 +4,7 @@
     
     // Configuration
     const CONFIG = {
-        popupDelay: 3000, // Show popup after 3 seconds
+        popupDelay: 500, // Show popup after 0.5 seconds (much faster)
         remindDelay: 24 * 60 * 60 * 1000, // Remind after 24 hours
         countdownEndDate: new Date('2024-12-06T23:59:59').getTime(), // Black Week end date
         storageKeys: {
@@ -59,18 +59,15 @@
     
     function shouldShowPopup() {
         const dismissed = getLocalStorageItem(CONFIG.storageKeys.dismissed);
-        const remindLater = getLocalStorageItem(CONFIG.storageKeys.remindLater);
         const now = Date.now();
         
-        // Don't show if permanently dismissed
+        // Only don't show if permanently dismissed (but still show for "remind later")
         if (dismissed && dismissed.value === true) {
             return false;
         }
         
-        // Don't show if "remind later" is still active
-        if (remindLater && (now - remindLater.timestamp) < CONFIG.remindDelay) {
-            return false;
-        }
+        // ALWAYS SHOW for Black Week promotion - ignore "remind later"
+        // This ensures maximum visibility for the promotional campaign
         
         // Don't show if countdown has ended
         if (now > CONFIG.countdownEndDate) {
@@ -125,6 +122,123 @@
         
         // Show confirmation message
         showMessage('Te recordaremos mañana sobre esta increíble oferta! 🔔', 'success');
+    }
+    
+    // Carousel Functions
+    function initCarousel() {
+        console.log('Initializing carousel...');
+        const slides = bannersContainer ? bannersContainer.querySelectorAll('.banner-slide') : [];
+        console.log('Found slides:', slides.length);
+        
+        if (slides.length === 0) {
+            console.warn('No banner slides found');
+            return;
+        }
+        
+        // Store slides for reference
+        slides.forEach((slide, index) => {
+            bannerSlides.push(slide);
+            console.log(`Added slide ${index}:`, slide);
+        });
+        
+        // Create indicators
+        createIndicators();
+        
+        // Start auto-slide
+        startAutoSlide();
+        
+        console.log('Carousel initialized successfully');
+    }
+    
+    function createIndicators() {
+        console.log('Creating indicators...');
+        if (!indicatorsContainer || bannerSlides.length === 0) {
+            console.warn('No indicators container found or no slides available');
+            return;
+        }
+        
+        // Clear existing indicators
+        indicatorsContainer.innerHTML = '';
+        
+        bannerSlides.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.className = index === 0 ? 'indicator active' : 'indicator';
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+            console.log(`Created indicator ${index}`);
+        });
+        
+        console.log(`Created ${bannerSlides.length} indicators`);
+    }
+    
+    function goToSlide(slideIndex) {
+        if (!bannersContainer || bannerSlides.length === 0) return;
+        
+        // Remove active class from current slide
+        bannerSlides[currentSlide].classList.remove('active');
+        
+        // Add prev class for animation
+        if (slideIndex > currentSlide) {
+            bannerSlides[currentSlide].classList.add('prev');
+        }
+        
+        // Update current slide
+        currentSlide = slideIndex;
+        
+        // Add active class to new slide
+        bannerSlides[currentSlide].classList.add('active');
+        
+        // Update indicators
+        updateIndicators();
+        
+        // Clean up classes after animation
+        setTimeout(() => {
+            bannerSlides.forEach(slide => {
+                slide.classList.remove('prev');
+            });
+        }, 500);
+        
+        // Reset auto-slide
+        resetAutoSlide();
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % bannerSlides.length;
+        goToSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+        const prevIndex = currentSlide === 0 ? bannerSlides.length - 1 : currentSlide - 1;
+        goToSlide(prevIndex);
+    }
+    
+    function updateIndicators() {
+        if (!indicatorsContainer) return;
+        
+        const indicators = indicatorsContainer.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    function startAutoSlide() {
+        if (bannerSlides.length <= 1) return;
+        
+        autoSlideInterval = setInterval(() => {
+            nextSlide();
+        }, 4000); // Change slide every 4 seconds
+    }
+    
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+    }
+    
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
     }
     
     function updateCountdown() {
@@ -223,6 +337,55 @@
             primaryCTA.addEventListener('click', trackCTAClick);
         }
         
+        // Carousel controls
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prevSlide();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                nextSlide();
+            });
+        }
+        
+        // Pause auto-slide on hover
+        if (bannersContainer) {
+            bannersContainer.addEventListener('mouseenter', stopAutoSlide);
+            bannersContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+        
+        // Show popup on "Inicio" button clicks
+        const inicioLinks = document.querySelectorAll('a[href="#inicio"]');
+        inicioLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Small delay to let the scroll animation finish
+                setTimeout(() => {
+                    if (shouldShowPopup()) {
+                        showPopup();
+                    } else {
+                        // Even if dismissed permanently, show once when clicking Inicio during Black Week
+                        console.log('Showing Black Week popup on Inicio click');
+                        showPopup();
+                    }
+                }, 500);
+            });
+        });
+        
+        // Also trigger on logo click (goes to inicio)
+        const logoLinks = document.querySelectorAll('.logo_icon, .footer_logo');
+        logoLinks.forEach(logo => {
+            logo.addEventListener('click', (e) => {
+                setTimeout(() => {
+                    console.log('Showing Black Week popup on logo click');
+                    showPopup();
+                }, 500);
+            });
+        });
+        
         // Close on overlay click
         if (popup) {
             popup.addEventListener('click', (e) => {
@@ -249,18 +412,26 @@
         
         setupEventListeners();
         
+        // Initialize carousel
+        initCarousel();
+        
         // Start countdown
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 60000); // Update every minute
         
-        // Show popup if conditions are met
+        // ALWAYS show popup immediately on page load during Black Week campaign
+        console.log('Black Week campaign active - showing popup immediately');
+        setTimeout(showPopup, CONFIG.popupDelay);
+        
+        // Also show if normal conditions are met (backup)
         if (shouldShowPopup()) {
-            setTimeout(showPopup, CONFIG.popupDelay);
+            setTimeout(showPopup, CONFIG.popupDelay + 1000);
         }
         
         // Clean up interval when page unloads
         window.addEventListener('beforeunload', () => {
             clearInterval(countdownInterval);
+            stopAutoSlide();
         });
     }
     
@@ -276,9 +447,19 @@
         show: showPopup,
         hide: hidePopup,
         dismiss: dismissPopup,
+        nextSlide: nextSlide,
+        prevSlide: prevSlide,
+        goToSlide: goToSlide,
+        currentSlide: () => currentSlide,
+        slideCount: () => bannerSlides.length,
+        forceShow: () => {
+            console.log('Forcing Black Week popup to show');
+            showPopup();
+        },
         resetStorage: () => {
             localStorage.removeItem(CONFIG.storageKeys.dismissed);
             localStorage.removeItem(CONFIG.storageKeys.remindLater);
+            console.log('Black Week popup storage cleared');
         }
     };
 })();
