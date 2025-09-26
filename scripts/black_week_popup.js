@@ -5,24 +5,15 @@
     // Configuration
     const CONFIG = {
         popupDelay: 500, // Show popup after 0.5 seconds (much faster)
-        remindDelay: 24 * 60 * 60 * 1000, // Remind after 24 hours
         countdownEndDate: new Date('2024-12-06T23:59:59').getTime(), // Black Week end date
         storageKeys: {
-            dismissed: 'blackWeek2024Dismissed',
-            remindLater: 'blackWeek2024RemindLater'
+            dismissed: 'blackWeek2024Dismissed'
         }
     };
     
     // DOM Elements
     const popup = document.getElementById('blackWeekPopup');
     const closeBtn = document.getElementById('closePopup');
-    const remindBtn = document.getElementById('remindLater');
-    const primaryCTA = document.querySelector('.popup-cta-primary');
-    
-    // Countdown elements
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
     
     // Carousel elements
     const bannersContainer = document.getElementById('bannersContainer');
@@ -114,14 +105,6 @@
                 value: permanent ? 'permanent' : 'temporary'
             });
         }
-    }
-    
-    function remindLater() {
-        setLocalStorageItem(CONFIG.storageKeys.remindLater, true);
-        dismissPopup(false);
-        
-        // Show confirmation message
-        showMessage('Te recordaremos mañana sobre esta increíble oferta! 🔔', 'success');
     }
     
     // Carousel Functions
@@ -241,34 +224,6 @@
         startAutoSlide();
     }
     
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = CONFIG.countdownEndDate - now;
-        
-        if (distance < 0) {
-            // Countdown finished
-            if (daysEl) daysEl.textContent = '00';
-            if (hoursEl) hoursEl.textContent = '00';
-            if (minutesEl) minutesEl.textContent = '00';
-            
-            // Hide popup if countdown is over
-            setTimeout(() => {
-                dismissPopup(true);
-            }, 5000);
-            return;
-        }
-        
-        // Calculate time units
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        
-        // Update DOM
-        if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-        if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-    }
-    
     function showMessage(message, type = 'info') {
         // Create message element
         const messageEl = document.createElement('div');
@@ -325,16 +280,6 @@
         // Close button
         if (closeBtn) {
             closeBtn.addEventListener('click', () => dismissPopup(false));
-        }
-        
-        // Remind later button
-        if (remindBtn) {
-            remindBtn.addEventListener('click', remindLater);
-        }
-        
-        // Primary CTA tracking
-        if (primaryCTA) {
-            primaryCTA.addEventListener('click', trackCTAClick);
         }
         
         // Carousel controls
@@ -415,10 +360,6 @@
         // Initialize carousel
         initCarousel();
         
-        // Start countdown
-        updateCountdown();
-        const countdownInterval = setInterval(updateCountdown, 60000); // Update every minute
-        
         // ALWAYS show popup immediately on page load during Black Week campaign
         console.log('Black Week campaign active - showing popup immediately');
         setTimeout(showPopup, CONFIG.popupDelay);
@@ -428,9 +369,8 @@
             setTimeout(showPopup, CONFIG.popupDelay + 1000);
         }
         
-        // Clean up interval when page unloads
+        // Clean up when page unloads
         window.addEventListener('beforeunload', () => {
-            clearInterval(countdownInterval);
             stopAutoSlide();
         });
     }
@@ -458,7 +398,6 @@
         },
         resetStorage: () => {
             localStorage.removeItem(CONFIG.storageKeys.dismissed);
-            localStorage.removeItem(CONFIG.storageKeys.remindLater);
             console.log('Black Week popup storage cleared');
         }
     };

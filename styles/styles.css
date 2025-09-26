@@ -481,10 +481,10 @@ body.menu-open {
             justify-content: flex-end;
             padding: 80px 5% 0;
             background: linear-gradient(135deg, 
-                rgba(26, 32, 44, 0.3) 0%, 
-                rgba(45, 55, 72, 0.25) 30%,
-                rgba(255, 159, 28, 0.1) 70%,
-                rgba(255, 179, 71, 0.15) 100%
+                rgba(26, 32, 44, 0.1) 0%, 
+                rgba(45, 55, 72, 0.05) 30%,
+                rgba(255, 159, 28, 0.05) 70%,
+                rgba(255, 179, 71, 0.1) 100%
             );
             overflow: hidden;
             box-sizing: border-box;
@@ -498,10 +498,10 @@ body.menu-open {
             right: 0;
             bottom: 0;
             background-image: url('../../media/images/banner/banner_img.png');
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: left center;
-            opacity: 0.5;
+            background-position: center center;
+            opacity: 0.7;
             z-index: 1;
         }
 
@@ -514,6 +514,9 @@ body.menu-open {
             margin-top: -20px;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
 
         .banner_img {
@@ -2285,55 +2288,29 @@ body.menu-open {
     50% { transform: scale(1.05); }
 }
 
-.popup-countdown {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.countdown-text {
-    color: var(--color_orange);
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 15px 0;
-}
-
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.time-unit {
-    background: var(--color_orange);
-    color: #ffffff;
-    padding: 10px;
-    border-radius: 8px;
-    min-width: 50px;
-    text-align: center;
-}
-
-.time-number {
-    display: block;
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.time-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-top: 2px;
-}
-
 .popup-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.popup-cta-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.popup-cta-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
 
 .popup-cta-primary {
@@ -2436,18 +2413,5 @@ body.menu-open {
     
     .offer-text {
         font-size: 14px;
-    }
-    
-    .countdown-timer {
-        gap: 8px;
-    }
-    
-    .time-unit {
-        min-width: 40px;
-        padding: 6px;
-    }
-    
-    .time-number {
-        font-size: 16px;
     }
 }
