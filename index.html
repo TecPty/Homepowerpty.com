@@ -89,7 +89,8 @@
         <div class="contact_group">
             <img src="media/icons/socials_networks/email_icon.png" alt="Email" class="contact_icon">
             <div class="contact_emails">
-                <a href="mailto:jharari@hgroupcapital.com" class="contact_link">jharari@hgroupcapital.com</a>
+                <a href="mailto:josephharari@homepowerpty.com" class="contact_link">josephharari@homepowerpty.com</a>
+                <a href="mailto:davidazran@homepowerpty.com" class="contact_link">davidazran@homepowerpty.com</a>
             </div>
         </div>
     </div>
@@ -143,6 +144,12 @@
             <li class="menu_item">
                 <a href="#testimonio" class="menu_link">Testimonios</a>
             </li>
+            <li class="menu_item">
+                <a href="#contacto" class="menu_link">Consulta</a>
+            </li>
+            <li class="menu_item">
+                <a href="#contacto" class="menu_link">Oportunidades</a>
+            </li>
         </ul>
     </nav>
 
@@ -163,10 +170,6 @@
             <div class="banner_content">
                 <h1 class="title">Potencia e Innovación para tu hogar</h1>
                 <h2 class="sub_title">Stock exclusivo para negocios que buscan lo mejor en calidad y tecnología.</h2>
-                <a href="https://wa.me/+50769838322" class="cta">
-                    <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="cta_icon">
-                    <span class="cta_text">Consigue tu cotización ahora</span>
-                </a>
             </div>
             <img src="media/images/banner/banner_img.png" alt="electrodomésticos" class="banner_img">
         </section>
@@ -327,8 +330,8 @@
 
             <li class="product" data-category="blender">
                 <div class="product_image_wrapper">
-                    <img src="media/images/products/LICUADORA AZUL 4.png" 
-                         data-box="media/images/products/LICUADORA AZUL 4 CAJA.png" 
+                    <img src="media/images/products/LICUADORA AZUL 4.png"
+                         data-box="media/images/products/LICUADORA AZUL 4 CAJA.png"
                          alt="Licuadora Azul" class="product_img" loading="lazy">
                 </div>
                 <div class="product_content">
@@ -1281,33 +1284,98 @@
             </div>
         </section>
         
-        <section class="section_contact" id="contacto">
-            <h2 class="section_contact_title">Resolvemos tus inquietudes</h2>
+        <!-- Sección de Formularios -->
+        <section class="section_forms" id="contacto">
+            <div class="forms_container">
+                <!-- Formulario de Contacto -->
+                <div class="form_wrapper contact_wrapper">
+                    <h2 class="form_title">Resolvemos tus inquietudes</h2>
+                    
+                    <form class="contact_form" id="form">
+                        <input type="hidden" name="form_type" value="contact">
+                        <div class="form_item">
+                            <input type="text" class="form_input" name="name">
+                            <label for="" class="form_label">Nombre</label>
+                        </div>
+                        <div class="form_item">
+                            <input type="text" class="form_input" name="number">
+                            <label for="" class="form_label">Teléfono</label>
+                        </div>
+                        <div class="form_item">
+                            <textarea class="form_input form_textarea" name="message"></textarea>
+                            <label for="" class="form_label">Mensaje</label>
+                        </div>
+                        <div class="form_item">
+                            <p class="form_msg" id="form_msg"></p>
+                        </div>
+                        <div class="form_item">
+                            <input type="submit" class="form_input form_submit" value="Contactar">
+                        </div>
+                    </form>
+                    <a href="https://wa.me/+50769838322" class="contact_text_container">
+                        <p class="contact_text">Envianos un WhatsApp</p>
+                        <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="contact_icon">
+                    </a>
+                </div>
 
-            <form class="contact_form" id="form">
-                <div class="form_item">
-                    <input type="text" class="form_input" name="name">
-                    <label for="" class="form_label">Nombre</label>
+                <!-- Formulario de Empleo -->
+                <div class="form_wrapper careers_wrapper">
+                    <h2 class="form_title">Oportunidades de Empleo</h2>
+                    <p class="form_subtitle">
+                        ¿Te gustaría formar parte del equipo de Home Power? Envíanos tu información y nos pondremos en contacto contigo.
+                            </p>
+                    
+                    <form class="careers_form" id="careers_form">
+                        <input type="hidden" name="form_type" value="careers">
+                        <div class="form_item">
+                            <input type="text" class="form_input" name="full_name" required>
+                            <label for="" class="form_label">Nombre completo</label>
+                        </div>
+                        <div class="form_item">
+                            <input type="email" class="form_input" name="email" required>
+                            <label for="" class="form_label">Correo electrónico</label>
+                        </div>
+                        <div class="form_item">
+                            <input type="tel" class="form_input" name="phone" required>
+                            <label for="" class="form_label">Teléfono</label>
+                        </div>
+                        <div class="form_item">
+                            <select class="form_input form_select" name="position" required>
+                                <option value="" disabled selected></option>
+                                <option value="vendedor">Vendedor/a</option>
+                                <option value="administracion">Administración</option>
+                                <option value="logistica">Logística y Almacén</option>
+                                <option value="marketing">Marketing Digital</option>
+                                <option value="contabilidad">Contabilidad</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <label for="" class="form_label">Posición de interés</label>
+                        </div>
+                        <div class="form_item">
+                            <textarea class="form_input form_textarea" name="experience" rows="4"></textarea>
+                            <label for="" class="form_label">Experiencia laboral relevante</label>
+                        </div>
+                        <div class="form_item">
+                            <textarea class="form_input form_textarea" name="motivation" rows="3"></textarea>
+                            <label for="" class="form_label">¿Por qué te gustaría trabajar con nosotros?</label>
+                        </div>
+                        <div class="form_item">
+                            <p class="form_msg" id="careers_form_msg"></p>
+                        </div>
+                        <div class="form_item">
+                            <input type="submit" class="form_input form_submit careers_submit" value="Enviar Aplicación">
+                        </div>
+                    </form>
+                    
+                    <!-- Link para enviar CV -->
+                    <div class="cv_upload_container">
+                        <p class="cv_upload_text">¿Prefieres enviar tu CV completo?</p>
+                        <a href="mailto:josephharari@homepowerpty.com,davidazran@homepowerpty.com?subject=Curriculum%20Vitae%20-%20Home%20Power&body=Hola,%0A%0AAdjunto%20mi%20curriculum%20vitae%20para%20su%20consideración.%0A%0ASaludos," class="cv_upload_link">
+                            <span>📄 Enviar CV (PDF/Word)</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="form_item">
-                    <input type="text" class="form_input" name="number">
-                    <label for="" class="form_label">Teléfono</label>
-                </div>
-                <div class="form_item">
-                    <textarea class="form_input form_textarea" name="message"></textarea>
-                    <label for="" class="form_label">Mensaje</label>
-                </div>
-                <div class="form_item">
-                    <p class="form_msg" id="form_msg"></p>
-                </div>
-                <div class="form_item">
-                    <input type="submit" class="form_input form_submit" value="Contactar">
-                </div>
-            </form>
-            <a href="https://wa.me/+50769838322" class="contact_text_container">
-                <p class="contact_text">Envianos un WhatsApp</p>
-                <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="contact_icon">
-            </a>
+            </div>
         </section>
     </main>
 
@@ -1316,7 +1384,7 @@
             <!-- Logo y descripción -->
             <div class="footer_section footer_brand">
                 <div class="footer_logo_container">
-                    <img src="media/icons/logo/logo.png" alt="Home Power Logo" class="footer_logo">
+                    <img src="media/icons/logo/logo.png" alt="Home Power Logo" class="footer_logo"> 
                 </div>
                 <h3 class="footer_brand_name">Home Power</h3>
                 <p class="footer_description">
@@ -1338,7 +1406,10 @@
                     </div>
                     <div class="footer_contact_item">
                         <img src="media/icons/socials_networks/email_icon.png" alt="Email" class="footer_contact_icon">
-                        <a href="mailto:jharari@hgroupcapital.com" class="footer_contact_link">jharari@hgroupcapital.com</a>
+                        <div class="footer_contact_text">
+                            <a href="mailto:josephharari@homepowerpty.com" class="footer_contact_link">josephharari@homepowerpty.com</a>
+                            <a href="mailto:davidazran@homepowerpty.com" class="footer_contact_link">davidazran@homepowerpty.com</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1406,35 +1477,28 @@
             <div class="popup-body">
                 <h3 class="popup-main-title">¡DESCUENTOS INCREÍBLES!</h3>
                 
-                <!-- Carrusel de banners promocionales -->
-                <div class="popup-banners-carousel">
-                    <div class="banners-container" id="bannersContainer">
-                        <div class="banner-slide active">
-                            <img src="media/images/Promocion/Black_Week_Costo.png" alt="Promoción Black Week El Costo" class="promotion-banner">
-                            <div class="banner-overlay">
-                                <h4>Promoción El Costo</h4>
-                                <p>15% de descuento en electrodomésticos seleccionados</p>
-                            </div>
-                        </div>
-                        <div class="banner-slide">
-                            <img src="media/images/Promocion/Black_Week_Madison.png" alt="Promoción Black Week Madison" class="promotion-banner">
-                            <div class="banner-overlay">
-                                <h4>Promoción Madison</h4>
-                                <p>15% de descuento en productos Power</p>
-                            </div>
-                        </div>
-                        <div class="banner-slide">
-                            <img src="media/images/Promocion/Black_Week_Titan.png" alt="Promoción Black Week Titan" class="promotion-banner">
-                            <div class="banner-overlay">
-                                <h4>Promoción Titan</h4>
-                                <p>15% de descuento en toda la línea</p>
-                            </div>
+                <!-- Banners promocionales lado a lado -->
+                <div class="popup-banners-grid">
+                    <div class="banner-item">
+                        <img src="media/images/Promocion/Black_Week_Costo.png" alt="Promoción Black Week El Costo" class="promotion-banner">
+                        <div class="banner-overlay">
+                            <h4>Promoción El Costo</h4>
+                            <p>15% de descuento en electrodomésticos seleccionados</p>
                         </div>
                     </div>
-                    <div class="carousel-controls">
-                        <button class="carousel-btn prev" id="prevBanner">‹</button>
-                        <div class="carousel-indicators" id="carouselIndicators"></div>
-                        <button class="carousel-btn next" id="nextBanner">›</button>
+                    <div class="banner-item">
+                        <img src="media/images/Promocion/Black_Week_Madison.png" alt="Promoción Black Week Madison" class="promotion-banner">
+                        <div class="banner-overlay">
+                            <h4>Promoción Madison</h4>
+                            <p>15% de descuento en productos Power</p>
+                        </div>
+                    </div>
+                    <div class="banner-item">
+                        <img src="media/images/Promocion/Black_Week_Titan.png" alt="Promoción Black Week Titan" class="promotion-banner">
+                        <div class="banner-overlay">
+                            <h4>Promoción Titan</h4>
+                            <p>15% de descuento en toda la línea</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1460,11 +1524,17 @@
         </div>
     </div>
 
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/+50769838322?text=Hola, quiero conseguir una cotización" class="whatsapp_float" target="_blank" aria-label="Contactar por WhatsApp">
+        <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="whatsapp_float_icon">
+    </a>
+
     <script src="scripts/header.js"></script>
     <script src="scripts/inputs.js"></script>
     <script src="scripts/clients_slider.js"></script>
     <script src="scripts/filter_products.js"></script>
     <script src="scripts/send_contact_form.js"></script>
+    <script src="scripts/send_careers_form.js"></script>
     <script src="scripts/product-interactions.js"></script>
     <script src="scripts/avatar_effects.js"></script>
     <script src="scripts/black_week_popup.js"></script>
