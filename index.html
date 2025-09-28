@@ -1431,6 +1431,15 @@
                         <li class="footer_menu_item">
                             <a href="#clientes" class="footer_menu_link">Clientes</a>
                         </li>
+                        <li class="footer_menu_item">
+                            <a href="#testimonio" class="footer_menu_link">Testimonios</a>
+                        </li>
+                        <li class="footer_menu_item">
+                            <a href="#contacto" class="footer_menu_link">Consulta</a>
+                        </li>
+                        <li class="footer_menu_item">
+                            <a href="#contacto" class="footer_menu_link">Oportunidades</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -1468,16 +1477,18 @@
     <!-- BLACK WEEK POPUP -->
     <div id="blackWeekPopup" class="black-week-popup">
         <div class="popup-overlay"></div>
-        <div class="popup-content">
-            <button class="popup-close" id="closePopup">&times;</button>
-            
-            <!-- Imagen promocional que ocupa todo el espacio -->
-            <div class="popup-banner-fullscreen">
-                <img src="media/images/Promocion/DESCUENTO DE ELECTRODOMÉSTICOS.png" alt="Black Week 2024 - 15% descuento en electrodomésticos Home Power" class="promotion-banner-full">
+        <div class="popup-wrapper">
+            <div class="popup-content">
+                <button class="popup-close" id="closePopup">&times;</button>
+                
+                <!-- Imagen promocional que ocupa todo el espacio -->
+                <div class="popup-banner-fullscreen">
+                    <img src="media/images/Promocion/DESCUENTO DE ELECTRODOMÉSTICOS.png" alt="Black Week 2024 - 15% descuento en electrodomésticos Home Power" class="promotion-banner-full">
+                </div>
             </div>
             
-            <!-- Botón cerrar en la parte inferior -->
-            <div class="popup-actions-bottom">
+            <!-- Botón cerrar FUERA del contenedor -->
+            <div class="popup-actions-external">
                 <button class="popup-cta-close" onclick="BlackWeekPopup.hide()">Cerrar</button>
             </div>
         </div>
@@ -1497,5 +1508,6 @@
     <script src="scripts/product-interactions.js"></script>
     <script src="scripts/avatar_effects.js"></script>
     <script src="scripts/black_week_popup.js"></script>
+    <script src="scripts/cv_button_handler.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-// ===== BLACK WEEK POPUP FUNCTIONALITY =====
 (function() {
     'use strict';
     

@@ -2085,31 +2085,41 @@ body.menu-open {
     -webkit-backdrop-filter: blur(5px);
 }
 
-.popup-content {
+/* Wrapper que contiene el pop-up y el botón externo */
+.popup-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.popup-content {
     background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
     border-radius: 20px;
     padding: 0;
     max-width: 400px;
-    width: 90%;
+    width: 90vw;
     aspect-ratio: 9 / 16; /* Proporción 1080x1920 (9:16) */
-    max-height: 90vh;
-    overflow: hidden; /* Cambiar de auto a hidden */
+    max-height: 80vh;
+    overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--color_orange);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.black-week-popup.active .popup-content {
+.black-week-popup.active .popup-wrapper {
     transform: translate(-50%, -50%) scale(1);
 }
 
 .popup-close {
+    display: none; /* Ocultar el botón de la esquina superior */
     position: absolute;
     top: 15px;
     right: 20px;
@@ -2121,7 +2131,6 @@ body.menu-open {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -2211,29 +2220,40 @@ body.menu-open {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
 }
 
 .promotion-banner-full {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
 }
 
 /* Acciones en la parte inferior */
 .popup-actions-bottom {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
+    position: relative;
+    padding: 15px 20px 5px 20px;
     display: flex;
     justify-content: center;
     z-index: 10;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    border-radius: 0 0 20px 20px;
+}
+
+/* Botón externo fuera del contenedor */
+.popup-actions-external {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Responsive para banner único */
 @media screen and (max-width: 768px) {
+    .popup-wrapper {
+        gap: 12px;
+    }
+    
     .popup-content {
         max-width: 350px;
     }
@@ -2251,13 +2271,15 @@ body.menu-open {
     }
     
     .popup-actions-bottom {
-        bottom: 15px;
-        left: 15px;
-        right: 15px;
+        padding: 12px 15px 5px 15px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .popup-wrapper {
+        gap: 10px;
+    }
+    
     .popup-content {
         max-width: 320px;
         width: 95%;
@@ -2279,10 +2301,9 @@ body.menu-open {
         font-size: 11px;
     }
     
-    .popup-actions-bottom {
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
+    .popup-actions-external {
+        width: 95%;
+        max-width: 320px;
     }
 }
 
@@ -2610,20 +2631,31 @@ body.menu-open {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: linear-gradient(135deg, var(--color_green) 0%, #059669 100%);
+    background: linear-gradient(135deg, #FF9F1C 0%, #ffb84d 100%);
     color: white;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
     font-size: 14px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 159, 28, 0.3);
 }
 
 .cv_upload_link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-    background: linear-gradient(135deg, #059669 0%, var(--color_green) 100%);
+    box-shadow: 0 6px 20px rgba(255, 159, 28, 0.4);
+    background: linear-gradient(135deg, #ffb84d 0%, #FF9F1C 100%);
+}
+
+/* Estado de éxito cuando se envía el CV */
+.cv_upload_link.success {
+    background: linear-gradient(135deg, var(--color_green) 0%, #059669 100%) !important;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3) !important;
+}
+
+.cv_upload_link.success:hover {
+    background: linear-gradient(135deg, #059669 0%, var(--color_green) 100%) !important;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
 }
 
 .cv_upload_link span {
