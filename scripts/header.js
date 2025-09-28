@@ -96,13 +96,21 @@ document.addEventListener('DOMContentLoaded', () => {
             socialHeader.style.transform = 'translateY(-100%)';
             socialHeader.style.transition = 'transform 0.3s ease';
             
+            // Efecto adicional: hacer el header más transparente y elegante
+            header.style.background = 'rgba(255, 255, 255, 0.92)';
+            header.style.backdropFilter = 'blur(20px)';
+            
             if (banner) {
-                banner.style.paddingTop = '100px';
+                banner.style.paddingTop = '90px';
                 banner.style.transition = 'padding-top 0.3s ease';
             }
         } else {
             header.classList.remove('active');
             socialHeader.style.transform = 'translateY(0)';
+            
+            // Restaurar apariencia original
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.backdropFilter = 'blur(10px)';
             
             if (banner) {
                 banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
