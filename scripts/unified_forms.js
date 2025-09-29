@@ -133,9 +133,9 @@ async function handleContactSubmit(e) {
     
     try {
         const formData = new FormData(form);
-        console.log('📤 Enviando a php/send_form.php');
+        console.log('📤 Enviando a php/test_form.php');
         
-        const response = await fetch('php/send_form.php', {
+        const response = await fetch('php/test_form.php', {
             method: 'POST',
             body: formData
         });
@@ -187,14 +187,14 @@ async function handleCareersSubmit(e) {
     
     try {
         const formData = new FormData(form);
-        console.log('📤 Enviando carreras a php/send_form.php');
+        console.log('📤 Enviando carreras a php/test_form.php');
         
         // Debug FormData
         for (let [key, value] of formData.entries()) {
             console.log(`📋 ${key}:`, value);
         }
         
-        const response = await fetch('php/send_form.php', {
+        const response = await fetch('php/test_form.php', {
             method: 'POST',
             body: formData
         });
