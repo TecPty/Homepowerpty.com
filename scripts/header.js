@@ -143,4 +143,26 @@ document.addEventListener('DOMContentLoaded', () => {
             banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
         }
     });
+    
+    // Logo clickeable para ir al inicio
+    const logoContainer = document.querySelector('.logo_container');
+    if (logoContainer) {
+        logoContainer.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Efecto visual en hover
+        logoContainer.addEventListener('mouseenter', () => {
+            if (header.classList.contains('active')) {
+                logoContainer.style.transform = 'scale(1.05)';
+            }
+        });
+        
+        logoContainer.addEventListener('mouseleave', () => {
+            logoContainer.style.transform = 'scale(1)';
+        });
+    }
 })();

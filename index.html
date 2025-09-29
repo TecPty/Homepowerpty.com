@@ -4,29 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PRECONNECT para Google Fonts (MÁS RÁPIDO) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- PRELOAD de CSS crítico -->
+    <link rel="preload" href="styles/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/templates/header_new.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- PRELOAD del logo principal -->
+    <link rel="preload" href="media/icons/logo/logo.png" as="image">
+    
+    <!-- Fonts con display=swap para evitar bloqueos -->
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+        
     <link rel="shortcut icon" href="media/icons/logo/logo.webp" type="image/x-icon">
 
-    <meta name="description" content="Stock exclusivo para negocios que buscan lo mejor en calidad y tecnología.">
-    <meta name="keywords" content="electrodoméstico
-    ., electrodomésticos, planchas, licuadoras, tostadoras, sandwhicheras, teteras,estufas electrica, air fryer, cafetera">
-    <meta name="author" content="Net Web">
-
-    <link rel="canonical" href="https://www.homepowerpty.com/">
-
-    <meta property="og:title" content="Homepowerpty">
-    <meta property="og:description" content="Stock exclusivo para negocios que buscan lo mejor en calidad y tecnología.">
-    <meta property="og:image" content="/media/icons/logo/logo.png">
+    <meta name="description" content="Home Power PTY - Electrodomésticos al por mayor en Panamá. Stock exclusivo de planchas, licuadoras, air fryers, cafeteras y más. Calidad garantizada para tu negocio.">
+    <meta name="keywords" content="electrodomésticos panamá, mayoristas electrodomésticos, planchas vapor, licuadoras, air fryer, cafeteras, estufas eléctricas, home power, wholesale panama">
+    <meta name="author" content="Home Power PTY">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Datos estructurados básicos -->
+    <meta property="og:title" content="Home Power PTY - Electrodomésticos al Por Mayor">
+    <meta property="og:description" content="Stock exclusivo de electrodomésticos para mayoristas. Planchas, licuadoras, air fryers y más con garantía de 1 año.">
+    <meta property="og:image" content="https://www.homepowerpty.com/media/icons/logo/logo.png">
     <meta property="og:url" content="https://www.homepowerpty.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_ES">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="business.business">
+    <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="Home Power PTY">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Home Power PTY - Electrodomésticos al Por Mayor">
+    <meta name="twitter:description" content="Stock exclusivo para mayoristas en Panamá">
+    <meta name="twitter:image" content="https://www.homepowerpty.com/media/icons/logo/logo.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Homepowerpty">
@@ -1499,15 +1514,18 @@
         <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="whatsapp_float_icon">
     </a>
 
+    <!-- Scripts críticos (cargar inmediatamente) -->
     <script src="scripts/header.js"></script>
-    <script src="scripts/inputs.js"></script>
-    <script src="scripts/clients_slider.js"></script>
-    <script src="scripts/filter_products.js"></script>
-    <script src="scripts/send_contact_form.js"></script>
-    <script src="scripts/send_careers_form.js"></script>
-    <script src="scripts/product-interactions.js"></script>
-    <script src="scripts/avatar_effects.js"></script>
-    <script src="scripts/black_week_popup.js"></script>
-    <script src="scripts/cv_button_handler.js"></script>
+    
+    <!-- Scripts no críticos (defer para mejor rendimiento) -->
+    <script src="scripts/inputs.js" defer></script>
+    <script src="scripts/clients_slider.js" defer></script>
+    <script src="scripts/filter_products.js" defer></script>
+    <script src="scripts/send_contact_form_simple.js" defer></script>
+    <script src="scripts/send_careers_form.js" defer></script>
+    <script src="scripts/product-interactions.js" defer></script>
+    <script src="scripts/avatar_effects.js" defer></script>
+    <script src="scripts/black_week_popup.js" defer></script>
+    <script src="scripts/cv_button_handler.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+<!-- ANTES: Sin optimizar -->
+<img src="media/images/products/ARROCERA.png" alt="Arrocera" class="product_img">
+
+<!-- DESPUÉS: Optimizado -->
+<picture>
+    <source srcset="media/images/products/ARROCERA.webp" type="image/webp">
+    <source srcset="media/images/products/ARROCERA.jpg" type="image/jpeg">
+    <img src="media/images/products/ARROCERA.jpg" alt="Arrocera" class="product_img" loading="lazy">
+</picture>
+
+<!-- O más simple con WebP -->
+<img src="media/images/products/ARROCERA.webp" alt="Arrocera" class="product_img" loading="lazy">

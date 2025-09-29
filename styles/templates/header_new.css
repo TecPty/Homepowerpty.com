@@ -21,17 +21,19 @@
     background: rgba(255, 255, 255, 0.95); /* Más transparente */
     backdrop-filter: blur(15px);
     padding: 0 3%;
+    justify-content: center; /* Centra el logo cuando el menú desaparece */
 }
 
 .logo_container {
     height: 120px; /* Aumentado considerablemente */
     transition: all 0.3s ease;
     position: relative;
+    cursor: pointer; /* Indica que es clickeable */
 }
 
 .header.active .logo_container {
     height: 70px; /* Más pequeño cuando hace scroll pero aún visible */
-    transform: translateX(-20px); /* Se mueve ligeramente hacia la izquierda para centrarse */
+    transform: none; /* No se mueve, se queda centrado */
 }
 
 .logo_icon {
@@ -45,11 +47,14 @@
     margin-left: auto;
     margin-right: 3rem;
     transition: all 0.3s ease;
+    opacity: 1;
+    visibility: visible;
 }
 
 .header.active .nav_bar {
-    opacity: 0.7; /* Se desvanece ligeramente al hacer scroll */
-    transform: scale(0.95);
+    opacity: 0; /* Desaparece completamente al hacer scroll */
+    visibility: hidden;
+    transform: translateY(-10px);
 }
 
 .menu {
