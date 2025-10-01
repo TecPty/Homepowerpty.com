@@ -700,7 +700,7 @@ body.menu-open {
 
 .form_item {
     position: relative;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .form_input {
@@ -2041,7 +2041,7 @@ body.menu-open {
             }
 
             .form_item {
-                margin-bottom: 25px;
+                margin-bottom: 12px;
             }
 
             .form_input {
@@ -2119,14 +2119,22 @@ body.menu-open {
 
             .about_us_content {
                 grid-template-columns: 1fr;
-            }
-
-            .section_testimonial_container {
-                grid-template-columns: 1fr;
+                grid-template-rows: auto;
                 gap: 25px;
-                padding: 30px 3%;
             }
         }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto;
+    gap: var(--spacing_xl);
+    margin-top: var(--spacing_3xl);
+    align-items: start;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* ===== BLACK WEEK POPUP STYLES ===== */
 .black-week-popup {
@@ -2516,16 +2524,19 @@ body.menu-open {
 }
 
 .forms_container {
-    max-width: 1100px;
+    width: 100%;
+    padding: 0 5%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     position: relative;
     z-index: 1;
 }
 
 .form_wrapper {
+    width: 90%;
+    margin: 0 auto;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -2624,11 +2635,19 @@ body.menu-open {
     height: 24px;
 }
 
-/* Responsive para formularios lado a lado */
+/* FILTROS ESPECÍFICOS PARA ICONOS BLANCOS */
+/* Solo aplicar filtro blanco a iconos de WhatsApp y Email */
+.contact_icon[src*="whatsapp_icon"],
+.contact_icon[src*="email_icon"] {
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive para formularios verticales */
 @media screen and (max-width: 768px) {
     .forms_container {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 30px;
+        padding: 0 4%;
     }
     
     .form_wrapper {
@@ -2650,6 +2669,7 @@ body.menu-open {
     }
     
     .form_wrapper {
+        width: 95%;
         padding: 25px 18px;
         border-radius: 12px;
     }
@@ -2785,6 +2805,7 @@ body.menu-open {
 .whatsapp_float_icon {
     width: 35px;
     height: 35px;
+    /* Mantener WhatsApp flotante en verde original */
     filter: brightness(1.1);
 }
 
@@ -2847,5 +2868,94 @@ body.menu-open {
     .whatsapp_float_icon {
         width: 30px;
         height: 30px;
+    }
+}
+
+/* ICONOS BLANCOS - Aplicar filtro blanco a iconos del footer y header */
+.footer_contact_icon {
+    filter: brightness(0) invert(1) !important;
+}
+
+.contact_btn_icon {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* SECCIÓN DE CARRERAS - Espaciado diferente */
+.section_careers {
+    padding-top: 40px; /* Menos espacio arriba para separar de contacto */
+}
+
+/* ICONOS REDES SOCIALES - Mantener colores originales */
+.social_icon_link:first-child .social_icon {
+    color: #1877f2 !important; /* Facebook azul */
+}
+
+.social_icon_link:nth-child(2) .social_icon {
+    color: #E4405F !important; /* Instagram rosa */
+}
+
+.social_icon_link:nth-child(3) .social_icon {
+    color: #000000 !important; /* TikTok negro */
+}
+
+.footer_social_icon {
+    filter: none !important; /* Asegurar que footer social icons mantengan colores */
+}
+
+.about-section .about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 3rem auto 0 auto !important;
+}
+
+.about-section .about-card {
+    width: 100% !important;
+    min-height: auto !important;
+}
+
+/* Asegurar 2x2 en pantallas grandes */
+@media (min-width: 769px) {
+    .about-section .about-grid {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+    }
+    
+    .about-section .about-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .about-section .about-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .about-section .about-card:nth-child(3) { grid-column: 1; grid-row: 2; }
+    .about-section .about-card:nth-child(4) { grid-column: 2; grid-row: 2; }
+}
+
+/* Mobile: 1 columna */
+@media (max-width: 768px) {
+    .about-section .about-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto auto auto !important;
+    }
+    
+    .about-section .about-card {
+        grid-column: 1 !important;
+    }
+}
+
+.about_us_content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+}
+
+/* Responsive para mantener buena visualización en dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .about_us_content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 25px;
     }
 }

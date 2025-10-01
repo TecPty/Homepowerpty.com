@@ -203,6 +203,19 @@
     height: 20px;
 }
 
+/* Colores específicos para redes sociales del footer */
+.footer_social_link:first-child .footer_social_icon {
+    color: #1877f2; /* Facebook azul */
+}
+
+.footer_social_link:nth-child(2) .footer_social_icon {
+    color: #E4405F; /* Instagram rosa */
+}
+
+.footer_social_link:nth-child(3) .footer_social_icon {
+    color: #25d366; /* WhatsApp verde */
+}
+
 /* Footer bottom */
 .footer_bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);

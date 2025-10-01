@@ -18,9 +18,10 @@
 /* Wrapper para información de contacto */
 .contact_info_wrapper {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 30px;
-    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 /* Grupo de contacto */
@@ -29,6 +30,28 @@
     align-items: center;
     gap: 8px;
     height: 100%;
+}
+
+.contact_group_left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contact_group_center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact_group_right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Icono de contacto */
@@ -41,14 +64,14 @@
 /* Contenedor de números */
 .contact_numbers,
 .contact_emails {
-    display: flex;
+    display: flex;SS
     align-items: center;
     gap: 5px;
 }
 
 /* Enlaces de contacto */
 .contact_link {
-    color: #ffffff;
+    color: #ffffffff;
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
@@ -133,10 +156,14 @@
     }
     
     .contact_info_wrapper {
-        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .contact_group_left,
+    .contact_group_center,
+    .contact_group_right {
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
     }
     
     .contact_group {
@@ -178,4 +205,94 @@
         width: 14px;
         height: 14px;
     }
+}
+
+.contact-header {
+    background: var(--bg_dark);
+    color: var(--text_white);
+    padding: var(--spacing_md) 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;  /* ← SEPARACIÓN FIJA MAYOR */
+    padding: var(--spacing_xs) 0;
+}
+
+.contact-item .phone,
+.contact-item .email {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text_white);
+    text-decoration: none;
+    transition: var(--transition_normal);
+    opacity: 0.9;
+    padding: 8px 16px;  /* ← PADDING FIJO MAYOR */
+    margin: 0 8px;      /* ← AÑADE ESTA LÍNEA */
+}
+
+/* SEPARACIÓN FORZADA DE EMAILS - AÑADIR AL FINAL */
+.contact-item .email {
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+}
+
+.contact-item .phone {
+    margin-right: 20px !important;
+}
+
+/* SEPARACIÓN ESPECÍFICA PARA EMAILS */
+.contact-item .email:first-of-type {
+    margin-right: 50px !important;
+}
+
+.contact-item .email:last-of-type {
+    margin-left: 50px !important;
+}
+
+/* Para teléfonos también */
+.contact-item .phone:first-of-type {
+    margin-right: 30px !important;
+}
+
+/* Separación entre grupos de contacto */
+.contact-item:first-child {
+    margin-right: 60px !important;
+}
+
+/* Para pantallas grandes */
+@media (min-width: 769px) {
+    .contact-item {
+        gap: 3rem !important;
+    }
+    
+    .contact-item .email {
+        margin-left: 40px !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-item .email:first-of-type {
+        margin-right: 20px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .contact-item .email:last-of-type {
+        margin-left: 10px !important;
+    }
+}
+
+.contact-header .contact-info {
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.contact-header .contact-item {
+    gap: 40px !important;
+}
+
+.contact-header .contact-item .email {
+    margin: 0 25px !important;
 }
