@@ -1,18 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1440" height="520" preserveAspectRatio="none" viewBox="0 0 1440 520">
-    <g mask="url(&quot;#SvgjsMask1025&quot;)" fill="none">
-        <rect width="1440" height="520" x="0" y="0" fill="#000000"></rect>
-        <path d="M0 0L295.31 0L0 108.01z" fill="rgba(255, 255, 255, .1)"></path>
-        <path d="M0 108.01L295.31 0L424.7 0L0 146.04000000000002z" fill="rgba(255, 255, 255, .075)"></path>
-        <path d="M0 146.04000000000002L424.7 0L505.71 0L0 237.20000000000002z" fill="rgba(255, 255, 255, .05)"></path>
-        <path d="M0 237.20000000000002L505.71 0L533.78 0L0 308.02z" fill="rgba(255, 255, 255, .025)"></path>
-        <path d="M1440 520L1265.02 520L1440 491.08z" fill="rgba(0, 0, 0, .1)"></path>
-        <path d="M1440 491.08L1265.02 520L649.0699999999999 520L1440 391.91999999999996z" fill="rgba(0, 0, 0, .075)"></path>
-        <path d="M1440 391.92L649.0699999999999 520L268.3299999999999 520L1440 230.91000000000003z" fill="rgba(0, 0, 0, .05)"></path>
-        <path d="M1440 230.91000000000003L268.3299999999999 520L220.74999999999994 520L1440 97.33000000000001z" fill="rgba(0, 0, 0, .025)"></path>
-    </g>
-    <defs>
-        <mask id="SvgjsMask1025">
-            <rect width="1440" height="520" fill="#ffffff"></rect>
-        </mask>
-    </defs>
-</svg>
+version https://git-lfs.github.com/spec/v1
+oid sha256:c809a3665a2c21a2d4c2ff2b0f542a137e5a937f8749815d41cd1aee6d2f2319
+size 1426
