@@ -379,3 +379,27 @@ document.addEventListener('DOMContentLoaded', function() {
         body.classList.remove('menu-open');
     }
 });
+<script>
+// Scroll suave al formulario de carreras
+document.querySelectorAll('a[href="#carreras"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector('#carreras');
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Opcional: enfocar el primer campo del formulario
+            setTimeout(() => {
+                const firstInput = target.querySelector('input[name="full_name"]');
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            }, 1000);
+        }
+    });
+});
+</script>

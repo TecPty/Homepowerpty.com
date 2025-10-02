@@ -2163,7 +2163,7 @@ body.menu-open {
     display: block;
     width: 100%;
     max-width: 350px;
-    margin: 25px auto 0; /* Centrar el botón */
+    margin: 25px auto 0;
     padding: 18px 25px;
     background: linear-gradient(135deg, var(--color_orange) 0%, #e6890f 100%);
     color: white;
@@ -2177,17 +2177,14 @@ body.menu-open {
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(250, 170, 1, 0.3);
     font-family: var(--font_title);
+    text-decoration: none; /* Para que no se vea como enlace */
+    text-align: center;
 }
 
 .career_cta_button.form_submit:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(250, 170, 1, 0.5);
     background: linear-gradient(135deg, #e6890f 0%, var(--color_orange) 100%);
-}
-
-.career_cta_button.form_submit:active {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(250, 170, 1, 0.4);
 }
 
 /* Responsive */
@@ -3118,4 +3115,17 @@ a[href="#carreras"] {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(250, 170, 1, 0.5);
     background: linear-gradient(135deg, #e6890f 0%, var(--color_orange) 100%);
+}
+
+/* REMOVER o comentar esta regla que oculta el formulario */
+/*
+.section_forms.section_careers {
+    display: none !important;
+    visibility: hidden !important;
+}
+*/
+
+/* En su lugar, mantener la sección visible */
+.section_forms.section_careers {
+    display: block !important;
 }
