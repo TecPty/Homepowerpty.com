@@ -1087,7 +1087,7 @@
         .about_us_content {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             max-width: 1200px;
         }
@@ -1181,8 +1181,8 @@
 
         @media screen and (max-width: 768px) {
             .section_about_us {
-                padding: 60px 5%;
-                gap: 30px;
+                grid-template-columns: 1fr;;
+                gap: 25px;
             }
 
             .about_us_main_title {
@@ -1225,7 +1225,6 @@
                 font-size: 20px;
             }
         }
-        </style>
     </style>
 </head>
 <body>
@@ -1276,7 +1275,25 @@
                 </p>
             </article>
         </div>
-        </section>
+
+        <div class="about_us_career_cta">
+            <h3 class="career_cta_title">¿Quieres formar parte de nuestro equipo?</h3>
+            <p class="career_cta_subtitle">Únete a Home Power y construye tu futuro profesional con nosotros</p>
+            
+            <!-- Texto explicativo sobre el proceso -->
+            <div class="career_process_info">
+                <p class="process_description">
+                    📝 Completa nuestro formulario de aplicación<br>
+                    📄 Adjunta tu CV en formato PDF<br>
+                    ✅ Nos pondremos en contacto contigo
+                </p>
+            </div>
+            
+            <button class="career_cta_button form_submit" onclick="openCareersModal()">
+        📋 LLENAR FORMULARIO DE APLICACIÓN
+    </button>
+        </div>
+    </section>
         <section>
             <h2 class="section_testimonial_title" id="testimonio">Testimonios</h2>
             <div class="section_testimonial_container">
@@ -1343,7 +1360,6 @@
         <!-- Sección de Formulario de Carreras -->
         <section class="section_forms section_careers" id="carreras">
             <div class="forms_container">
-                <!-- Formulario de Carreras -->
                 <div class="form_wrapper careers_wrapper">
                     <h2 class="form_title">Oportunidades de Empleo</h2>
                     <p class="form_subtitle">
@@ -1394,7 +1410,7 @@
                         </div>
                         <div class="form_item">
                             <p class="form_msg" id="careers_form_msg"></p>
-                        </div>                        
+                        </div>
                         <div class="form_item">
                             <input type="submit" class="form_input form_submit careers_submit" value="Enviar Aplicación">
                         </div>
@@ -1414,7 +1430,7 @@
                 </div>
                 <h3 class="footer_brand_name">Home Power</h3>
                 <p class="footer_description">
-                    Tu aliado estratégico en electrodomésticos de alta calidad. 
+                    Tu aliado estratégico en electrodomésticos de alta calidad.
                     Stock exclusivo con garantía de 1 año para mayoristas y comerciantes.
                 </p>
             </div>
@@ -1535,7 +1551,23 @@
     <script src="scripts/filter_products.js" defer></script>
     <script src="scripts/product-interactions.js" defer></script>
     <script src="scripts/avatar_effects.js" defer></script>
-    <!-- POPUP BLACK WEEK DESACTIVADO TEMPORALMENTE -->
+    <script>
+function openCareersModal() {
+    document.getElementById('careersModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
 
+function closeCareersModal() {
+    document.getElementById('careersModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Cerrar modal con ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeCareersModal();
+    }
+});
+</script>
 </body>
 </html>

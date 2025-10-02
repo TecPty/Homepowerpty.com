@@ -2107,16 +2107,6 @@ body.menu-open {
                 filter: blur(6px);
             }
 
-            .testimonial_text {
-                font-size: 15px;
-                line-height: 1.7;
-            }
-
-            .testimonial_author {
-                font-size: 16px;
-                margin-top: 15px;
-            }
-
             .about_us_content {
     width: 100%;
     display: grid;
@@ -2124,18 +2114,122 @@ body.menu-open {
     gap: 40px;
     max-width: 1200px;
 }
+/* Botón CTA para carreras en sección Nosotros */
+.about_us_career_cta {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    margin: 50px auto 0; /* Centrar el contenedor completo */
+    padding: 40px 30px;
+    background: linear-gradient(135deg, var(--color_white) 0%, var(--color_cream) 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(250, 170, 1, 0.1);
+    border: 2px solid var(--color_orange);
+}
+
+.career_cta_title {
+    font-size: 28px;
+    color: var(--color_dark_gray);
+    margin-bottom: 15px;
+    font-family: var(--font_title);
+}
+
+.career_cta_subtitle {
+    font-size: 16px;
+    color: var(--color_medium_gray);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Nuevo: Información del proceso */
+.career_process_info {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(250, 170, 1, 0.1);
+    border-radius: 15px;
+    border-left: 4px solid var(--color_orange);
+}
+
+.process_description {
+    font-size: 14px;
+    color: var(--color_dark_gray);
+    line-height: 1.8;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Botón centrado y mejorado */
+.career_cta_button.form_submit {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 25px auto 0; /* Centrar el botón */
+    padding: 18px 25px;
+    background: linear-gradient(135deg, var(--color_orange) 0%, #e6890f 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(250, 170, 1, 0.3);
+    font-family: var(--font_title);
+}
+
+.career_cta_button.form_submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(250, 170, 1, 0.5);
+    background: linear-gradient(135deg, #e6890f 0%, var(--color_orange) 100%);
+}
+
+.career_cta_button.form_submit:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(250, 170, 1, 0.4);
+}
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-    .about_us_content {
-        grid-template-columns: 1fr;
-        gap: 25px;
+    .about_us_career_cta {
+        margin-top: 40px;
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+    
+    .career_cta_title {
+        font-size: 24px;
+    }
+    
+    .process_description {
+        font-size: 13px;
+    }
+    
+    .career_cta_button.form_submit {
+        padding: 15px 20px;
+        font-size: 14px;
+        max-width: 100%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .about_us_content {
-        gap: 20px;
+    .career_cta_title {
+        font-size: 22px;
+    }
+    
+    .career_cta_subtitle {
+        font-size: 14px;
+    }
+    
+    .process_description {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    
+    .career_cta_button.form_submit {
+        font-size: 13px;
+        letter-spacing: 0.3px;
     }
 }
         }
@@ -2438,9 +2532,11 @@ body.menu-open {
 
 .popup-cta-close:hover {
     background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255,  0.5);
     transform: translateY(-2px);
 }
+
+
 
 .popup-cta-primary {
     background: linear-gradient(135deg, var(--color_orange) 0%, #ffb84d 100%);
@@ -2978,4 +3074,48 @@ body.menu-open {
     .about_us_content {
         gap: 20px;
     }
+}
+
+/* Ocultar completamente la sección de carreras del index */
+.section_careers {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+/* También ocultar cualquier referencia en el menú si existe */
+a[href="#carreras"] {
+    display: none !important;
+}
+
+/* Asegurar que no ocupe espacio */
+#carreras {
+    display: none !important;
+}
+
+.career_cta_button.form_submit {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--color_orange) 0%, #e6890f 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(250, 170, 1, 0.3);
+    font-family: var(--font_title);
+    margin-top: 20px;
+}
+
+.career_cta_button.form_submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(250, 170, 1, 0.5);
+    background: linear-gradient(135deg, #e6890f 0%, var(--color_orange) 100%);
 }
