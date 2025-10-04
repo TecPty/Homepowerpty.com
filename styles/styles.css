@@ -3129,3 +3129,119 @@ a[href="#carreras"] {
 .section_forms.section_careers {
     display: block !important;
 }
+/* ===== BOTÓN CTA EN ABOUT US ===== */
+.about_us_cta_container {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.05) 0%, rgba(76, 175, 80, 0.05) 100%);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 159, 28, 0.2);
+}
+
+.about_us_cta_container .cta_title {
+    font-size: 24px;
+    color: var(--color_dark_gray);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    font-family: var(--font_title);
+}
+
+.about_us_cta_container .cta_subtitle {
+    font-size: 16px;
+    color: var(--color_medium_gray);
+    margin: 0 0 25px 0;
+}
+
+.career_cta_button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--color_orange) 0%, #ffb84d 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: var(--font_text);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(255, 159, 28, 0.3);
+    text-transform: none;
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.career_cta_button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.career_cta_button:hover::before {
+    left: 100%;
+}
+
+.career_cta_button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(255, 159, 28, 0.4);
+    background: linear-gradient(135deg, #4CAF50 0%, #66bb6a 100%);
+}
+
+.career_cta_button .cta_icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .about_us_cta_container {
+        padding: 30px 20px;
+        margin: 30px auto;
+    }
+    
+    .about_us_cta_container .cta_title {
+        font-size: 20px;
+    }
+    
+    .about_us_cta_container .cta_subtitle {
+        font-size: 14px;
+    }
+    
+    .career_cta_button {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about_us_cta_container {
+        padding: 25px 15px;
+    }
+    
+    .about_us_cta_container .cta_title {
+        font-size: 18px;
+    }
+    
+    .career_cta_button {
+        padding: 12px 24px;
+        font-size: 14px;
+        gap: 10px;
+    }
+    
+    .career_cta_button .cta_icon {
+        width: 20px;
+        height: 20px;
+    }
+}
