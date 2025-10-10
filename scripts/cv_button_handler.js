@@ -4,7 +4,7 @@
     
     if (cvButton) {
         cvButton.addEventListener('click', function() {
-            this.classList.add('success');            
+            this.classList.add('success');
             const span = this.querySelector('span');
             const originalText = span.textContent;
             span.textContent = ' Abriendo cliente de correo...';

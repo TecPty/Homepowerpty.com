@@ -1277,24 +1277,12 @@
         </article>
     </div>
 
-    <!-- BOTÓN DE OPORTUNIDADES DE EMPLEO -->
-    <div class="about_us_cta_container">
-        <h3 class="cta_title">¿Quieres formar parte de nuestro equipo?</h3>
-        <p class="cta_subtitle">Estamos buscando talento apasionado para crecer juntos</p>
-        <a href="#contacto" class="career_cta_button" onclick="scrollToCareerForm(event)">
-            <svg class="cta_icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 7H16V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7H4C2.9 7 2 7.9 2 9V20C2 21.1 2.9 22 4 22H20C21.1 22 22 21.1 22 20V9C22 7.9 21.1 7 20 7ZM10 5H14V7H10V5Z" fill="currentColor"/>
-            </svg>
-            <span>Ver Oportunidades de Empleo</span>
-        </a>
-    </div>
-    
-    <div class="section_about_us_text_container">
-        <p class="section_about_us_text">
-            "Comprometidos con la excelencia y la innovación en cada producto que ofrecemos"
-        </p>
-        <img src="media/images/banner/banner_img.png" alt="Home Power Team" class="section_about_us_img">
-    </div>
+<div class="section_about_us_text_container">
+    <p class="section_about_us_text">
+        "Comprometidos con la excelencia y la innovación en cada producto que ofrecemos"
+    </p>
+    <img src="media/images/banner/banner_img.png" alt="Home Power Team" class="section_about_us_img">
+</div>
 </section>
         <section>
             <h2 class="section_testimonial_title" id="testimonio">Testimonios</h2>
@@ -1352,6 +1340,74 @@
                         </div>
                         <div class="form_item">
                             <input type="submit" class="form_input form_submit" value="Contactar">
+                        </div>
+                    </form>
+                </div>
+
+                                <!-- Formulario de Empleo -->
+                <div class="form_wrapper career_wrapper">
+                    <h2 class="form_title">Oportunidades de Empleo</h2>
+                    <p class="form_subtitle">¿Te gustaría formar parte del equipo de Home Power? Envíanos tu información.</p>
+                    
+                    <form class="careers_form" id="careers_form">
+                        <input type="hidden" name="form_type" value="careers">
+                        
+                        <div class="form_item">
+                            <input type="text" class="form_input" name="full_name" required>
+                            <label class="form_label">Nombre completo</label>
+                        </div>
+                        
+                        <div class="form_item">
+                            <input type="email" class="form_input" name="email" required>
+                            <label class="form_label">Correo electrónico</label>
+                        </div>
+                        
+                        <div class="form_item">
+                            <input type="tel" class="form_input" name="phone" required>
+                            <label class="form_label">Teléfono</label>
+                        </div>
+                        
+                        <div class="form_item">
+                            <select class="form_input form_select" name="position" required>
+                                <option value="" disabled selected></option>
+                                <option value="vendedor">Vendedor/a</option>
+                                <option value="administracion">Administración</option>
+                                <option value="logistica">Logística y Almacén</option>
+                                <option value="marketing">Marketing Digital</option>
+                                <option value="contabilidad">Contabilidad</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <label class="form_label">Posición de interés</label>
+                        </div>
+                        
+                        <div class="form_item">
+                            <textarea class="form_input form_textarea" name="experience" rows="2"></textarea>
+                            <label class="form_label">Experiencia laboral relevante</label>
+                        </div>
+                        
+                        <div class="form_item">
+                            <textarea class="form_input form_textarea" name="motivation" rows="3" required></textarea>
+                            <label class="form_label">¿Por qué te gustaría trabajar con nosotros?</label>
+                        </div>
+                        
+                        <div class="form_item cv_upload_section">
+                            <label for="cv_file" class="cv_file_label">
+                                <svg class="cv_icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20ZM8 15.01L9.41 16.42L11 14.84V19H13V14.84L14.59 16.43L16 15.01L12.01 11L8 15.01Z" fill="currentColor"/>
+                                </svg>
+                                <span class="cv_label_text" id="cvLabelText">Click aquí para seleccionar archivo</span>
+                                <span class="cv_file_name" id="cvFileName"></span>
+                            </label>
+                            <input type="file" id="cv_file" name="cv_file" accept=".pdf,.doc,.docx" style="display: none;">
+                            <p class="cv_helper_text">Adjunta tu CV en formato PDF, DOC o DOCX</p>
+                        </div>
+                        
+                        <div class="form_item">
+                            <p class="form_msg" id="careers_form_msg"></p>
+                        </div>
+                        
+                        <div class="form_item">
+                            <input type="submit" class="form_input form_submit careers_submit" value="Enviar Aplicación">
                         </div>
                     </form>
                 </div>
@@ -1490,56 +1546,285 @@
     <script src="scripts/filter_products.js" defer></script>
     <script src="scripts/product-interactions.js" defer></script>
     <script src="scripts/avatar_effects.js" defer></script>
+    <script src="scripts/header.js"></script>
+    <script src="scripts/inputs.js"></script>
+    <script src="scripts/clients_slider.js"></script>
+    <script src="scripts/filter_products.js"></script>
+    <script src="scripts/send_contact_form.js"></script>
+    <script src="scripts/send_careers_form.js"></script>
+    <script src="scripts/product-interactions.js"></script>
+    <script src="scripts/avatar_effects.js"></script>
+    <script src="scripts/black_week_popup.js"></script>
+    <script src="scripts/cv_button_handler.js"></script>
+
+    <!-- NUEVO CÓDIGO PARA FORMULARIO INLINE -->
     <script>
-function openCareersModal() {
-    document.getElementById('careersModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeCareersModal() {
-    document.getElementById('careersModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Cerrar modal con ESC
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeCareersModal();
-    }
-});
-// Función para hacer scroll al formulario de carreras
-function scrollToCareerForm(event) {
-    event.preventDefault();
-    
-    // Buscar el formulario de carreras
-    const careersForm = document.querySelector('.careers_wrapper');
-    
-    if (careersForm) {
-        // Obtener altura del header
-        const header = document.getElementById('header');
-        const socialHeader = document.querySelector('.social_header_bar');
-        const headerHeight = (header ? header.offsetHeight : 0) + (socialHeader ? socialHeader.offsetHeight : 0);
+    // Toggle del formulario de carreras
+    function toggleCareerForm() {
+        const formContainer = document.getElementById('careerFormContainer');
+        const button = document.querySelector('.career_cta_button');
+        const buttonText = document.getElementById('toggleButtonText');
         
-        // Calcular posición
-        const targetPosition = careersForm.offsetTop - headerHeight - 20;
-        
-        // Scroll suave
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-        
-        // Añadir efecto visual al formulario
-        setTimeout(() => {
-            careersForm.style.transform = 'scale(1.02)';
-            careersForm.style.transition = 'transform 0.3s ease';
+        if (formContainer.style.display === 'none' || !formContainer.classList.contains('active')) {
+            // Mostrar formulario
+            formContainer.style.display = 'block';
+            setTimeout(() => {
+                formContainer.classList.add('active');
+            }, 10);
+            
+            button.classList.add('active');
+            buttonText.textContent = 'Ocultar Formulario';
+            
+            // Scroll suave al formulario
+            setTimeout(() => {
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        } else {
+            // Ocultar formulario
+            formContainer.classList.remove('active');
+            button.classList.remove('active');
+            buttonText.textContent = 'Ver Oportunidades de Empleo';
             
             setTimeout(() => {
-                careersForm.style.transform = 'scale(1)';
-            }, 300);
-        }, 500);
+                formContainer.style.display = 'none';
+            }, 500);
+        }
     }
-}
-</script>
+
+    // Manejo del input de archivo CV
+    document.addEventListener('DOMContentLoaded', function() {
+        const cvFileInput = document.getElementById('cv_file');
+        const cvLabel = document.querySelector('.cv_file_label');
+        const cvLabelText = document.getElementById('cvLabelText');
+        const cvFileName = document.getElementById('cvFileName');
+        
+        if (cvFileInput) {
+            cvFileInput.addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    const fileName = file.name;
+                    const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                    
+                    cvLabel.classList.add('has-file');
+                    cvLabelText.textContent = 'Archivo seleccionado:';
+                    cvFileName.textContent = `${fileName} (${fileSize} MB)`;
+                } else {
+                    cvLabel.classList.remove('has-file');
+                    cvLabelText.textContent = 'Click aquí para seleccionar archivo';
+                    cvFileName.textContent = '';
+                }
+            });
+        }
+    });
+
+    // Manejo del formulario inline de carreras
+    (function(){
+        const form = document.getElementById('careers_form_inline');
+        if (!form) return;
+        
+        const form_msg = document.getElementById('careers_form_msg_inline');
+        const submitBtn = form.querySelector('.careers_submit');
+
+        function validateField(field, value) {
+            switch(field) {
+                case 'full_name':
+                    return value.trim().length >= 2;
+                case 'email':
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+                case 'phone':
+                    return /^[\d\s\+\-\(\)]{7,}$/.test(value.trim());
+                case 'position':
+                    return value.trim().length > 0;
+                case 'motivation':
+                    return value.trim().length >= 20;
+                default:
+                    return false;
+            }
+        }
+
+        function showMessage(message, type) {
+            form_msg.innerHTML = message;
+            form_msg.className = `form_msg active ${type}`;
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    form_msg.classList.remove('active');
+                    form.reset();
+                    document.querySelectorAll('#careers_form_inline .form_label').forEach(label => {
+                        label.classList.remove('active');
+                    });
+                    const selectInput = form.querySelector('.form_select');
+                    if (selectInput) selectInput.selectedIndex = 0;
+                    
+                    const cvLabel = document.querySelector('.cv_file_label');
+                    const cvLabelText = document.getElementById('cvLabelText');
+                    const cvFileName = document.getElementById('cvFileName');
+                    const cvFileInput = document.getElementById('cv_file');
+                    if (cvLabel && cvLabelText && cvFileName) {
+                        cvLabel.classList.remove('has-file');
+                        cvLabelText.textContent = 'Click aquí para seleccionar archivo';
+                        cvFileName.textContent = '';
+                    }
+                    if (cvFileInput) {
+                        cvFileInput.value = '';
+                    }
+                }, 5000);
+            }
+        }
+
+        async function getCsrfToken() {
+            try {
+                const response = await fetch('./php/get_csrf_token.php');
+                const data = await response.json();
+                return data.token;
+            } catch (error) {
+                console.error('Error obteniendo CSRF token:', error);
+                return null;
+            }
+        }
+
+        form.addEventListener('input', (e) => {
+            if (e.target.matches('.form_input')) {
+                const field = e.target.name;
+                const value = e.target.value;
+                const isValid = validateField(field, value);
+                const label = e.target.nextElementSibling;
+                
+                e.target.classList.remove('valid', 'invalid');
+                
+                if (value.length > 0) {
+                    e.target.classList.add(isValid ? 'valid' : 'invalid');
+                }
+                
+                if (label && label.classList.contains('form_label')) {
+                    if (value.length > 0 || e.target === document.activeElement) {
+                        label.classList.add('active');
+                    } else {
+                        label.classList.remove('active');
+                    }
+                }
+            }
+        });
+
+        form.addEventListener('change', (e) => {
+            if (e.target.matches('.form_select')) {
+                const field = e.target.name;
+                const value = e.target.value;
+                const isValid = validateField(field, value);
+                const label = e.target.nextElementSibling;
+                
+                e.target.classList.remove('valid', 'invalid');
+                
+                if (value.length > 0) {
+                    e.target.classList.add(isValid ? 'valid' : 'invalid');
+                }
+                
+                if (label && label.classList.contains('form_label')) {
+                    if (value.length > 0) {
+                        label.classList.add('active');
+                    } else {
+                        label.classList.remove('active');
+                    }
+                }
+            }
+        });
+
+        form.addEventListener('focus', (e) => {
+            if (e.target.matches('.form_input')) {
+                const label = e.target.nextElementSibling;
+                if (label && label.classList.contains('form_label')) {
+                    label.classList.add('active');
+                }
+            }
+        }, true);
+
+        form.addEventListener('blur', (e) => {
+            if (e.target.matches('.form_input')) {
+                const label = e.target.nextElementSibling;
+                if (label && label.classList.contains('form_label') && 
+                    e.target.value.length === 0 && !e.target.matches('.form_select')) {
+                    label.classList.remove('active');
+                }
+            }
+        }, true);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.value = 'Enviando...';
+            
+            const formData = new FormData(form);
+            const csrfToken = await getCsrfToken();
+            
+            if (!csrfToken) {
+                showMessage('Error de seguridad. Intente más tarde.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.value = 'Enviar Aplicación';
+                return;
+            }
+            
+            formData.append('csrf_token', csrfToken);
+            
+            const full_name = formData.get('full_name')?.trim();
+            const email = formData.get('email')?.trim();
+            const phone = formData.get('phone')?.trim();
+            const position = formData.get('position')?.trim();
+            const motivation = formData.get('motivation')?.trim();
+            
+            if (!validateField('full_name', full_name) || 
+                !validateField('email', email) || 
+                !validateField('phone', phone) || 
+                !validateField('position', position) ||
+                !validateField('motivation', motivation)) {
+                showMessage('Por favor, complete todos los campos correctamente. La motivación debe tener al menos 20 caracteres.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.value = 'Enviar Aplicación';
+                return;
+            }
+
+            try {
+                const response = await fetch('./php/send_form.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                switch(data) {
+                    case 'empty':
+                        showMessage('Complete todos los campos correctamente', 'error');
+                        break;
+                    case 'invalid':
+                        showMessage('Algunos datos no son válidos. Verifique su email y que la motivación tenga al menos 20 caracteres.', 'error');
+                        break;
+                    case 'success':
+                        showMessage('¡Aplicación enviada con éxito! Revisaremos tu información y nos pondremos en contacto pronto.', 'success');
+                        break;
+                    case 'rate_limit':
+                        showMessage('Ha enviado muchas solicitudes. Por favor, espere un momento antes de intentar nuevamente.', 'error');
+                        break;
+                    case 'csrf_error':
+                        showMessage('Error de seguridad. Por favor, recargue la página e intente nuevamente.', 'error');
+                        break;
+                    case 'error':
+                    default:
+                        showMessage('Ocurrió un error al enviar. Intente nuevamente o contáctenos directamente por email.', 'error');
+                        break;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Error de conexión. Verifique su internet e intente nuevamente.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.value = 'Enviar Aplicación';
+            }
+        });
+    })();
+    </script>
 </body>
 </html>

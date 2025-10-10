@@ -3132,35 +3132,46 @@ a[href="#carreras"] {
 /* ===== BOTÓN CTA EN ABOUT US ===== */
 .about_us_cta_container {
     width: 100%;
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 700px;
+    margin: 50px auto;
     text-align: center;
-    padding: 40px 30px;
-    background: linear-gradient(135deg, rgba(255, 159, 28, 0.05) 0%, rgba(76, 175, 80, 0.05) 100%);
-    border-radius: 20px;
-    border: 2px solid rgba(255, 159, 28, 0.2);
+    padding: 50px 40px;
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.08) 0%, rgba(76, 175, 80, 0.08) 100%);
+    border-radius: 24px;
+    border: 2px solid rgba(255, 159, 28, 0.25);
+    box-shadow: 0 8px 30px rgba(255, 159, 28, 0.1);
+    transition: all 0.3s ease;
+}
+
+.about_us_cta_container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255, 159, 28, 0.15);
+    border-color: rgba(255, 159, 28, 0.4);
 }
 
 .about_us_cta_container .cta_title {
-    font-size: 24px;
-    color: var(--color_dark_gray);
+    font-size: 28px;
+    color: #2c3e50;
     font-weight: 700;
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-family: var(--font_title);
+    line-height: 1.3;
 }
 
 .about_us_cta_container .cta_subtitle {
-    font-size: 16px;
-    color: var(--color_medium_gray);
-    margin: 0 0 25px 0;
+    font-size: 17px;
+    color: #64748b;
+    margin: 0 0 30px 0;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .career_cta_button {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, var(--color_orange) 0%, #ffb84d 100%);
+    padding: 18px 36px;
+    background: linear-gradient(135deg, #FF9F1C 0%, #ffb84d 100%);
     color: #ffffff;
     text-decoration: none;
     border-radius: 50px;
@@ -3168,7 +3179,7 @@ a[href="#carreras"] {
     font-size: 16px;
     font-family: var(--font_text);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(255, 159, 28, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 159, 28, 0.35);
     text-transform: none;
     letter-spacing: 0.3px;
     position: relative;
@@ -3184,8 +3195,8 @@ a[href="#carreras"] {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
 }
 
 .career_cta_button:hover::before {
@@ -3193,26 +3204,57 @@ a[href="#carreras"] {
 }
 
 .career_cta_button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 15px 40px rgba(255, 159, 28, 0.4);
-    background: linear-gradient(135deg, #4CAF50 0%, #66bb6a 100%);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 45px rgba(255, 159, 28, 0.45);
+    background: linear-gradient(135deg, #ffb84d 0%, #FF9F1C 100%);
+}
+
+.career_cta_button:active {
+    transform: translateY(-2px) scale(1.01);
 }
 
 .career_cta_button .cta_icon {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.career_cta_button:hover .cta_icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
     .about_us_cta_container {
-        padding: 30px 20px;
-        margin: 30px auto;
+        padding: 35px 25px;
+        margin: 35px auto;
+        max-width: 90%;
     }
     
     .about_us_cta_container .cta_title {
-        font-size: 20px;
+        font-size: 22px;
+    }
+    
+    .about_us_cta_container .cta_subtitle {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .career_cta_button {
+        padding: 15px 30px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about_us_cta_container {
+        padding: 30px 20px;
+        border-radius: 18px;
+    }
+    
+    .about_us_cta_container .cta_title {
+        font-size: 19px;
     }
     
     .about_us_cta_container .cta_subtitle {
@@ -3220,28 +3262,201 @@ a[href="#carreras"] {
     }
     
     .career_cta_button {
-        padding: 14px 28px;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .about_us_cta_container {
-        padding: 25px 15px;
-    }
-    
-    .about_us_cta_container .cta_title {
-        font-size: 18px;
-    }
-    
-    .career_cta_button {
-        padding: 12px 24px;
+        padding: 14px 26px;
         font-size: 14px;
         gap: 10px;
+        width: 100%;
+        justify-content: center;
     }
     
     .career_cta_button .cta_icon {
         width: 20px;
         height: 20px;
+    }
+}
+
+/* ===== FORMULARIO DE EMPLEO EN ABOUT US ===== */
+.about_us_career_form_container {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about_us_career_form_container.active {
+    opacity: 1;
+    max-height: 2000px;
+    margin: 50px auto;
+}
+
+.career_form_wrapper {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 159, 28, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px);
+    transition: transform 0.5s ease;
+}
+
+.about_us_career_form_container.active .career_form_wrapper {
+    transform: translateY(0);
+}
+
+.career_form_title {
+    color: var(--color_orange);
+    font-family: var(--font_title);
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.career_form_subtitle {
+    color: #64748b;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 0 30px 0;
+    line-height: 1.6;
+}
+
+.careers_form_inline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sección de upload de CV */
+.cv_upload_section {
+    margin: 10px 0;
+}
+
+.cv_file_label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 25px 20px;
+    background: rgba(255, 159, 28, 0.05);
+    border: 2px dashed rgba(255, 159, 28, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 100px;
+}
+
+.cv_file_label:hover {
+    background: rgba(255, 159, 28, 0.1);
+    border-color: rgba(255, 159, 28, 0.5);
+    transform: translateY(-2px);
+}
+
+.cv_icon {
+    width: 40px;
+    height: 40px;
+    fill: var(--color_orange);
+    transition: transform 0.3s ease;
+}
+
+.cv_file_label:hover .cv_icon {
+    transform: scale(1.1);
+}
+
+.cv_label_text {
+    color: var(--color_orange);
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+}
+
+.cv_file_name {
+    color: #4CAF50;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.cv_helper_text {
+    margin: 8px 0 0 0;
+    color: #64748b;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Estado cuando hay archivo seleccionado */
+.cv_file_label.has-file {
+    background: rgba(76, 175, 80, 0.05);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+.cv_file_label.has-file .cv_icon {
+    fill: #4CAF50;
+}
+
+.cv_file_label.has-file .cv_label_text {
+    color: #4CAF50;
+}
+
+/* Animación del botón toggle */
+.career_cta_button .cta_icon {
+    transition: transform 0.3s ease;
+}
+
+.career_cta_button.active .cta_icon {
+    transform: rotate(180deg);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .career_form_wrapper {
+        padding: 30px 25px;
+    }
+    
+    .career_form_title {
+        font-size: 24px;
+    }
+    
+    .career_form_subtitle {
+        font-size: 14px;
+    }
+    
+    .cv_file_label {
+        padding: 20px 15px;
+    }
+    
+    .cv_icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about_us_career_form_container {
+        width: 95%;
+    }
+    
+    .career_form_wrapper {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .career_form_title {
+        font-size: 22px;
+    }
+    
+    .cv_file_label {
+        padding: 18px 12px;
+        min-height: 90px;
+    }
+    
+    .cv_label_text {
+        font-size: 14px;
     }
 }
