@@ -1,34 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const menuBurger = document.getElementById('menuBurger');
-    const fullscreenMenu = document.getElementById('fullscreenMenu');
     const menuClose = document.getElementById('menuClose');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
     const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
-
+    const body = document.body;
+    
     // Abrir menú
-    menuBurger.addEventListener('click', () => {
-        fullscreenMenu.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
-
-    // Cerrar menú
-    const closeMenu = () => {
-        fullscreenMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    };
-
-    menuClose.addEventListener('click', closeMenu);
-
-    // Cerrar menú al hacer clic en un enlace
+    if (menuBurger) {
+        menuBurger.addEventListener('click', function(e) {
+            e.preventDefault();
+            fullscreenMenu.classList.add('active');
+            body.classList.add('menu-open');
+        });
+    }
+    
+    // Cerrar menú con botón X
+    if (menuClose) {
+        menuClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMenu();
+        });
+    }
+    
+    // Cerrar menú al hacer click en un enlace
     menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
     });
-
-    // Cerrar menú con la tecla ESC
-    document.addEventListener('keydown', (e) => {
+    
+    // Cerrar menú con ESC
+    document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
             closeMenu();
         }
     });
+    
+    // Función para cerrar el menú
+    function closeMenu() {
+        fullscreenMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
 });
 
 (function(){

@@ -341,7 +341,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuBurger = document.getElementById('menuBurger');
     const menuClose = document.getElementById('menuClose');
     const fullscreenMenu = document.getElementById('fullscreenMenu');
-    const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
     const body = document.body;
     
     // Abrir menú
@@ -352,31 +351,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Cerrar menú con el botón X
+    // Cerrar menú
     if (menuClose) {
         menuClose.addEventListener('click', function() {
-            closeMenu();
+            fullscreenMenu.classList.remove('active');
+            body.classList.remove('menu-open');
         });
-    }
-    
-    // Cerrar menú al hacer click en un enlace
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            closeMenu();
-        });
-    });
-    
-    // Cerrar menú con ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
-            closeMenu();
-        }
-    });
-    
-    // Función para cerrar el menú
-    function closeMenu() {
-        fullscreenMenu.classList.remove('active');
-        body.classList.remove('menu-open');
     }
 });
 <script>
