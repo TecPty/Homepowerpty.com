@@ -1,196 +1,189 @@
+.btn_menu {
+    width: 42px;
+    height: 42px;
+    filter: invert(100%);
+    position: fixed;
+    top: 20px;
+    left: 5%;
+    z-index: 300;
+    cursor: pointer;
+
+    display: none;
+}
+
 .header {
     width: 100%;
-    height: 120px; /* Aumentado para acomodar el logo más grande */
+    height: 134px;
     position: fixed;
-    top: 50px; /* Ajustado para el social header */
+    top: 40px;
     left: 0;
-    padding: 0 5%;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    z-index: 900;
+    padding: 0 10%;
+    transition: ease .3s;
+    z-index: 400;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.btn_menu_close {
+    width: 42px;
+    height: 42px;
+    filter: invert(100%);
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    z-index: 500;
+    cursor: pointer;
+
+    display: none;
+}
+
 .header.active {
     top: 0;
-    height: 90px; /* Más pequeño al hacer scroll */
-    background: rgba(255, 255, 255, 0.95); /* Más transparente */
-    backdrop-filter: blur(15px);
-    padding: 0 3%;
-    justify-content: center; /* Centra el logo cuando el menú desaparece */
+    backdrop-filter: blur(20px);
+}
+
+.header.background {
+    background: var(--color_black);
+}
+
+.header.translate {
+    left: 0;
 }
 
 .logo_container {
-    height: 120px; /* Aumentado considerablemente */
-    transition: all 0.3s ease;
-    position: relative;
-    cursor: pointer; /* Indica que es clickeable */
-}
-
-.header.active .logo_container {
-    height: 70px; /* Más pequeño cuando hace scroll pero aún visible */
-    transform: none; /* No se mueve, se queda centrado */
+    width: auto;
+    height: 90%;
 }
 
 .logo_icon {
-    height: 100%;
     width: auto;
-    object-fit: contain;
-    transition: all 0.3s ease;
+    height: 100%;
+    background: var(--color_white);
+    border-radius: 100%;
 }
 
 .nav_bar {
+    width: auto;
+    height: auto;
     margin-left: auto;
-    margin-right: 3rem;
-    transition: all 0.3s ease;
-    opacity: 1;
-    visibility: visible;
-}
-
-.header.active .nav_bar {
-    opacity: 0; /* Desaparece completamente al hacer scroll */
-    visibility: hidden;
-    transform: translateY(-10px);
+    margin-right: 5%;
 }
 
 .menu {
-    display: flex;
-    gap: 2rem;
+    width: auto;
+    height: auto;
     list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .menu_item {
+    width: auto;
+    height: auto;
     position: relative;
 }
 
 .menu_link {
-    color: var(--color_black);
+    width: auto;
+    height: auto;
+    color: var(--color_white);
     text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
+    font-size: 18px;
+
+    display: inline-block;
 }
 
 .menu_link::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 0;
     height: 2px;
     background: var(--color_orange);
-    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: ease .3s;
 }
 
-.menu_link:hover {
-    color: var(--color_orange);
-}
-
-.menu_link:hover::after {
-    width: 100%;
-}
-
-/* Estilos para el botón de contacto */
 .contact_btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--color_orange);
-    border-radius: 50px;
+    width: auto;
+    height: auto;
+    border: 2px solid var(--color_orange);
+    color: var(--color_white);
     text-decoration: none;
-    color: white;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: ease .3s;
 }
 
-.contact_btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(250, 170, 1, 0.3);
+@media(hover:hover) {
+    .contact_btn:hover {
+        background: var(--color_orange);
+    }
+
+    .menu_link:hover::after {
+        width: 100%;
+    }
 }
 
-.contact_btn_icon {
-    width: 20px;
-    height: 20px;
-    filter: invert(1);
-}
-
-/* Mobile menu */
-.btn_menu {
-    display: none;
-    width: 30px;
-    height: 30px;
-    position: fixed;
-    top: 60px;
-    left: 20px;
-    z-index: 1001;
-    cursor: pointer;
+@media screen and (max-width: 1048px) {
+    .header {
+        top: 0;
+    }
 }
 
 @media screen and (max-width: 890px) {
+
     .btn_menu {
         display: block;
     }
-    
+
+    .btn_menu_close {
+        display: block;
+    }
+
     .header {
-        width: 280px;
-        height: 100vh;
-        left: -280px;
-        top: 0;
-        background: #2c3e50;
+        width: 50%;
+        height: 100dvh;
+        left: -50%;
+        backdrop-filter: none;
+        background: var(--color_black);
+        padding: 5%;
+
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 80px;
     }
-    
-    .header.translate {
-        left: 0;
-    }
-    
+
     .logo_container {
-        height: 60px;
-        margin-bottom: 40px;
+        width: auto;
+        height: 92px;
     }
-    
+
     .nav_bar {
         margin: 0;
-        width: 100%;
     }
-    
+
     .menu {
         flex-direction: column;
-        width: 100%;
-        padding: 0 20px;
     }
-    
+
     .menu_link {
-        color: #ffffff;
-        padding: 12px 0;
-        font-size: 18px;
+        font-size: 22px;
     }
-    
+
     .contact_btn {
-        width: calc(100% - 40px);
+        width: 100%;
         text-align: center;
-        margin: 20px;
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .nav_bar {
-        display: none;
-    }
-
-    .menu-burger {
-        display: flex;
-    }
-    
-    .contact_btn {
-        display: none;
+@media screen and (max-width: 500px) {
+    .header {
+        width: 80%;
+        left: -80%;
     }
 }

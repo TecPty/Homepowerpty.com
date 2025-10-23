@@ -34,52 +34,16 @@
         }
     }
 
-    // Validación en tiempo real con clases CSS
+    // Validación en tiempo real
     form.addEventListener('input', (e) => {
         if (e.target.matches('.form_input')) {
             const field = e.target.name;
             const value = e.target.value;
             const isValid = validateField(field, value);
-            const label = e.target.nextElementSibling;
             
-            // Remover clases anteriores
-            e.target.classList.remove('valid', 'invalid');
-            
-            // Agregar clase según validación
-            if (value.length > 0) {
-                e.target.classList.add(isValid ? 'valid' : 'invalid');
-            }
-            
-            // Manejar label activo
-            if (label && label.classList.contains('form_label')) {
-                if (value.length > 0 || e.target === document.activeElement) {
-                    label.classList.add('active');
-                } else {
-                    label.classList.remove('active');
-                }
-            }
+            e.target.style.borderColor = isValid ? 'var(--color_green)' : 'var(--color_orange)';
         }
     });
-
-    // Manejar focus para labels
-    form.addEventListener('focus', (e) => {
-        if (e.target.matches('.form_input')) {
-            const label = e.target.nextElementSibling;
-            if (label && label.classList.contains('form_label')) {
-                label.classList.add('active');
-            }
-        }
-    }, true);
-
-    // Manejar blur para labels
-    form.addEventListener('blur', (e) => {
-        if (e.target.matches('.form_input')) {
-            const label = e.target.nextElementSibling;
-            if (label && label.classList.contains('form_label') && e.target.value.length === 0) {
-                label.classList.remove('active');
-            }
-        }
-    }, true);
 
     // Agregar validación de teléfono
     function validatePhone(phone) {

@@ -7,7 +7,7 @@ class ClientsSlider {
             rightArrowId: 'slider_clients_arrow_right',
             transitionDuration: 300,
             breakpoint: 864,
-            virtualItems: 5,
+            virtualItems: 5, // Número de items a renderizar
             ...options
         };
 
@@ -18,7 +18,6 @@ class ClientsSlider {
 
         // Estado
         this.isAnimating = false;
-        this.isPaused = false;
 
         this.init();
     }
@@ -32,7 +31,6 @@ class ClientsSlider {
         this.setupAccessibility();
         this.bindEvents();
         this.setupTouchSupport();
-        this.setupIntersectionObserver(); // NUEVO: Pausa cuando no está visible
     }
 
     validateElements() {
@@ -40,12 +38,14 @@ class ClientsSlider {
     }
 
     setupAccessibility() {
+        // Mejoras de accesibilidad
         this.slider.setAttribute('role', 'region');
         this.slider.setAttribute('aria-label', 'Carrusel de clientes');
         
         this.leftArrow.setAttribute('aria-label', 'Anterior slide');
         this.rightArrow.setAttribute('aria-label', 'Siguiente slide');
         
+        // Añadir soporte para teclado
         this.slider.setAttribute('tabindex', '0');
     }
 
@@ -124,31 +124,6 @@ class ClientsSlider {
         }
     }
 
-    // NUEVO: Pausa la animación CSS cuando no está visible
-    setupIntersectionObserver() {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Slider visible - reanudar animación
-                    this.slider.style.animationPlayState = 'running';
-                    this.isPaused = false;
-                } else {
-                    // Slider fuera de vista - pausar animación
-                    this.slider.style.animationPlayState = 'paused';
-                    this.isPaused = true;
-                }
-            });
-        }, options);
-
-        observer.observe(this.slider);
-    }
-
     bindEvents() {
         // Click events
         this.rightArrow.addEventListener('click', () => this.moveSlide('right'));
@@ -160,24 +135,24 @@ class ClientsSlider {
             if (e.key === 'ArrowRight') this.moveSlide('right');
         });
 
-        // Pause on hover
-        this.slider.addEventListener('mouseenter', () => {
-            this.slider.style.animationPlayState = 'paused';
-        });
-
-        this.slider.addEventListener('mouseleave', () => {
-            if (!this.isPaused) {
-                this.slider.style.animationPlayState = 'running';
-            }
-        });
-
-        // Resize observer
+        // Resize observer para actualizar valores
         const resizeObserver = new ResizeObserver(() => {
             const { resetMargin } = this.getSliderValues();
             this.resetSlidePosition(resetMargin);
         });
 
         resizeObserver.observe(this.slider);
+    }
+
+    virtualizeItems() {
+        const items = Array.from(this.slider.children);
+        this.totalItems = items.length;
+        
+        // Mantener solo los items visibles
+        this.slider.innerHTML = '';
+        items.slice(0, this.config.virtualItems).forEach(item => {
+            this.slider.appendChild(item);
+        });
     }
 }
 
