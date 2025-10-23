@@ -92,16 +92,12 @@
 }
 
 .products_categories {
-    width: 100%;
-    height: auto;
-    list-style: none;
-    overflow-x: scroll;
-    padding-bottom: 8px;
-
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
 }
 
 .products_categories::-webkit-scrollbar {
@@ -117,20 +113,25 @@
 }
 
 .product_category {
-    width: auto;
-    height: auto;
-    font-size: 20px;
-    border: 2px solid var(--color_orange);
+    background: #f5f5f5;
+    border: 2px solid transparent;
+    border-radius: 25px;
     padding: 10px 20px;
-    border-radius: 4px;
-    color: var(--color_white);
     cursor: pointer;
-    text-wrap: nowrap;
-    transition: ease .3s;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #666;
+}
+
+.product_category:hover {
+    background: #e8e8e8;
+    color: #333;
 }
 
 .product_category.active {
     background: var(--color_orange);
+    color: white;
+    border-color: var(--color_orange);
 }
 
 .products_container {
@@ -152,20 +153,17 @@
 }
 
 .product {
-    width: calc(90% / 3);
-    min-width: 320px;
-    height: 260px;
-    margin: 42px auto;
-    border: 2px solid var(--color_orange);
-    border-radius: 10px;
-    padding: 0 20px;
     position: relative;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
 .product_img {
@@ -892,4 +890,128 @@
     .client_logo_el_costo {
         height: 72px;
     }
+}
+
+/* FILTROS DE PRODUCTOS */
+.products_categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+}
+
+.product_category {
+    background: #f5f5f5;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #666;
+}
+
+.product_category:hover {
+    background: #e8e8e8;
+    color: #333;
+}
+
+.product_category.active {
+    background: var(--color_orange);
+    color: white;
+    border-color: var(--color_orange);
+}
+
+/* BADGES DE PRODUCTOS */
+.product_badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 5;
+    color: white;
+}
+
+.product_badge.hot {
+    background: #e74c3c;
+}
+
+.product_badge.premium {
+    background: #8e44ad;
+}
+
+.product_badge.new {
+    background: #27ae60;
+}
+
+.product_badge.popular {
+    background: #3498db;
+}
+
+/* ESTRUCTURA DE PRODUCTOS */
+.product {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.product_sku {
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.product_features {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.product_features li {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.product_actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.stock_status.in_stock {
+    color: var(--color_green);
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.product_cta {
+    background: var(--color_orange);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.product_cta:hover {
+    background: #e8890b;
+    transform: scale(1.05);
 }

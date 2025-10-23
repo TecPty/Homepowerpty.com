@@ -1,32 +1,39 @@
-(function(){
-    const products_categories = document.querySelectorAll('.product_category');
-    let products_categories_actives = [];
+// Filtros de productos mejorados
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.product_category');
+    const products = document.querySelectorAll('.product');
 
-    for (let i = 0; i < products_categories.length; i++) {
-        products_categories[i].addEventListener('click', () => {
-            products_categories[i].classList.toggle('active');
-
-            if (products_categories[i].classList.contains('active')) {
-                products_categories_actives.push(products_categories[i].dataset.category);
-            } else {
-                let filter_index = products_categories_actives.indexOf(products_categories[i].dataset.category);
-                if(filter_index !== -1) {
-                    products_categories_actives.splice(filter_index, 1);
-                }
-            }
-
-            const products = document.querySelectorAll('.product');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Remover clase active de todos los botones
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Agregar clase active al botón actual
+            this.classList.add('active');
+            
+            // Filtrar productos
             products.forEach(product => {
-                if (products_categories_actives.length === 0) {
-                    product.style.display = 'flex';
+                const productCategory = product.getAttribute('data-category');
+                
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = 'block';
+                    product.style.animation = 'fadeIn 0.5s ease';
                 } else {
-                    if (products_categories_actives.some(category => product.dataset.category === category)) {
-                        product.style.display = 'flex';
-                    } else {
-                        product.style.display = 'none';
-                    }
+                    product.style.display = 'none';
                 }
             });
         });
+    });
+});
+
+// Animación CSS para fadeIn
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-})();
+`;
+document.head.appendChild(style);
