@@ -341,6 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuBurger = document.getElementById('menuBurger');
     const menuClose = document.getElementById('menuClose');
     const fullscreenMenu = document.getElementById('fullscreenMenu');
+    const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
     const body = document.body;
     
     // Abrir menú
@@ -351,35 +352,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Cerrar menú
+    // Cerrar menú con el botón X
     if (menuClose) {
         menuClose.addEventListener('click', function() {
-            fullscreenMenu.classList.remove('active');
-            body.classList.remove('menu-open');
+            closeMenu();
         });
     }
-});
-<script>
-// Scroll suave al formulario de carreras
-document.querySelectorAll('a[href="#carreras"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const target = document.querySelector('#carreras');
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-            // Opcional: enfocar el primer campo del formulario
-            setTimeout(() => {
-                const firstInput = target.querySelector('input[name="full_name"]');
-                if (firstInput) {
-                    firstInput.focus();
-                }
-            }, 1000);
+    
+    // Cerrar menú al hacer click en un enlace
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+    
+    // Cerrar menú con ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+            closeMenu();
         }
     });
+    
+    // Función para cerrar el menú
+    function closeMenu() {
+        fullscreenMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
 });
-</script>

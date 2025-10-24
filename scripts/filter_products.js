@@ -1,39 +1,45 @@
-// Filtros de productos mejorados
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.product_category');
+(function() {
+    // Sistema de filtrado con categoría "Todos"
+    const categories = document.querySelectorAll('.product_category');
     const products = document.querySelectorAll('.product');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            
-            // Remover clase active de todos los botones
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Agregar clase active al botón actual
+    
+    categories.forEach(category => {
+        category.addEventListener('click', function() {
+            // Remover active de todas
+            categories.forEach(cat => cat.classList.remove('active'));
+            // Agregar active a la seleccionada
             this.classList.add('active');
+            
+            const filter = this.dataset.category;
             
             // Filtrar productos
             products.forEach(product => {
-                const productCategory = product.getAttribute('data-category');
-                
-                if (category === 'all' || productCategory === category) {
-                    product.style.display = 'block';
+                if (filter === 'all') {
+                    product.style.display = 'flex';
                     product.style.animation = 'fadeIn 0.5s ease';
                 } else {
-                    product.style.display = 'none';
+                    if (product.dataset.category === filter) {
+                        product.style.display = 'flex';
+                        product.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        product.style.display = 'none';
+                    }
                 }
             });
         });
     });
-});
-
-// Animación CSS para fadeIn
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-`;
-document.head.appendChild(style);
+    
+    // Vista rápida
+    const quickViewBtns = document.querySelectorAll('.quick_view_btn');
+    quickViewBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const product = this.dataset.product;
+            // Por ahora redirige a WhatsApp
+            const productCard = this.closest('.product');
+            const sku = productCard.querySelector('.product_sku').textContent;
+            const name = productCard.querySelector('.product_name').textContent;
+            window.open(`https://wa.me/50769838322?text=Hola, me interesa el producto: ${name} - ${sku}`, '_blank', 'noopener');
+        });
+    });
+})();
