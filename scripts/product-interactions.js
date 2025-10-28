@@ -6,29 +6,67 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalCaption = document.getElementById('modalCaption');
 
     productImages.forEach(wrapper => {
+        const picture = wrapper.querySelector('picture');
         const img = wrapper.querySelector('.product_img');
+        if (!picture || !img) return;
+
+        let isMainImage = true;
         const mainSrc = img.src;
         const boxSrc = img.dataset.box;
-        let isMainImage = true;
+
+        // Función para cambiar entre fuentes de imagen
+        const toggleImageSources = (showHover) => {
+            const mainSources = Array.from(picture.querySelectorAll('source:not([data-hover])'));
+            const hoverSources = Array.from(picture.querySelectorAll('source[data-hover]'));
+            
+            if (showHover) {
+                // Ocultar fuentes principales
+                mainSources.forEach(source => {
+                    source.dataset.originalSrcset = source.srcset;
+                    source.srcset = '';
+                });
+                
+                // Mostrar fuentes hover
+                hoverSources.forEach(source => {
+                    source.srcset = source.dataset.originalSrcset || source.srcset;
+                });
+                
+                // Actualizar imagen por defecto
+                img.src = boxSrc;
+                isMainImage = false;
+            } else {
+                // Restaurar fuentes principales
+                mainSources.forEach(source => {
+                    source.srcset = source.dataset.originalSrcset || source.srcset;
+                });
+                
+                // Ocultar fuentes hover
+                hoverSources.forEach(source => {
+                    source.srcset = '';
+                });
+                
+                // Restaurar imagen por defecto
+                img.src = mainSrc;
+                isMainImage = true;
+            }
+        };
 
         // Cambiar imagen al hover
         wrapper.addEventListener('mouseenter', () => {
-            if (boxSrc) {
-                img.src = boxSrc;
-                isMainImage = false;
-            }
+            toggleImageSources(true);
         });
 
         wrapper.addEventListener('mouseleave', () => {
-            img.src = mainSrc;
-            isMainImage = true;
+            toggleImageSources(false);
         });
 
         // Abrir modal al hacer click
         img.addEventListener('click', () => {
-            modal.style.display = 'block';
-            modalImg.src = isMainImage ? mainSrc : boxSrc;
-            modalCaption.innerHTML = img.alt;
+            if (modal) {
+                modal.style.display = 'block';
+                if (modalImg) modalImg.src = isMainImage ? mainSrc : boxSrc;
+                if (modalCaption) modalCaption.innerHTML = img.alt;
+            }
         });
     });
 
