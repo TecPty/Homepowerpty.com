@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    height: 120px; /* Aumentado para acomodar el logo más grande */
+    height: 140px; /* Aumentado para acomodar el logo más grande */
     position: fixed;
     top: 50px; /* Ajustado para el social header */
     left: 0;
@@ -24,21 +24,27 @@
 }
 
 .logo_container {
-    height: 120px; /* Aumentado considerablemente */
+    height: 140px;
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .header.active .logo_container {
-    height: 70px; /* Más pequeño cuando hace scroll pero aún visible */
-    transform: translateX(-20px); /* Se mueve ligeramente hacia la izquierda para centrarse */
+    height: 70px;
+    transform: translateX(-20px);
 }
 
 .logo_icon {
     height: 100%;
     width: auto;
+    max-height: 140px; /* Aumentado para un logo más grande */
     object-fit: contain;
+    transform-origin: left center;
     transition: all 0.3s ease;
+    image-rendering: -webkit-optimize-contrast; /* Mejor renderizado en webkit */
+    image-rendering: crisp-edges; /* Mejor renderizado en otros navegadores */
 }
 
 .nav_bar {
@@ -150,6 +156,15 @@
     .logo_container {
         height: 60px;
         margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo_icon {
+        max-height: 50px;
+        width: auto;
+        object-fit: contain;
     }
     
     .nav_bar {

@@ -642,7 +642,7 @@
                                     media/images/products/ARROCERA_VAPOR-800.webp 800w,
                                     media/images/products/ARROCERA_VAPOR.webp 1200w"
                             type="image/webp">
-                        <source
+                       <source
                             srcset="media/images/products/ARROCERA_VAPOR-400.jpg 400w,
                                     media/images/products/ARROCERA_VAPOR-800.jpg 800w,
                                     media/images/products/ARROCERA_VAPOR.jpg 1200w"
@@ -684,7 +684,7 @@
                         <a href="https://wa.me/50769838322?text=Hola, me interesa la Arrocera con Vapor COD: 732129008475" 
                            class="product_cta" target="_blank" rel="noopener">
                             Consultar Precio
-                        </a>
+                        </a>.
                     </div>
                 </div>
             </li>
@@ -2199,14 +2199,24 @@
                 <h4 class="footer_title">Contacto</h4>
                 <div class="footer_contact_info">
                     <div class="footer_contact_item">
-                        <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="footer_contact_icon">
+                        <picture>
+                            <source srcset="media/icons/socials_networks/whatsapp_icon.webp" type="image/webp">
+                            <img src="media/icons/socials_networks/whatsapp_icon.png" 
+                                alt="Icono de WhatsApp para contacto" 
+                                class="footer_contact_icon">
+                        </picture>
                         <div class="footer_contact_text">
                             <a href="https://wa.me/50769838322" class="footer_contact_link">(507) 6983-8322</a>
                             <a href="https://wa.me/50766133830" class="footer_contact_link">(507) 6613-3830</a>
                         </div>
                     </div>
                     <div class="footer_contact_item">
-                        <img src="media/icons/socials_networks/email_icon.png" alt="Email" class="footer_contact_icon">
+                        <picture>
+                            <source srcset="media/icons/socials_networks/email_icon.webp" type="image/webp">
+                            <img src="media/icons/socials_networks/email_icon.png" 
+                                alt="Icono de Email para contacto" 
+                                class="footer_contact_icon">
+                        </picture>
                         <div class="footer_contact_text">
                             <a href="mailto:josephharari@homepowerpty.com" class="footer_contact_link">josephharari@homepowerpty.com</a>
                             <a href="mailto:davidazran@homepowerpty.com" class="footer_contact_link">davidazran@homepowerpty.com</a>
@@ -2284,7 +2294,19 @@
                 
                 <!-- Imagen promocional que ocupa todo el espacio -->
                 <div class="popup-banner-fullscreen">
-                    <img src="media/images/Promocion/DESCUENTO DE ELECTRODOMÉSTICOS.png" alt="Black Week 2024 - 15% descuento en electrodomésticos Home Power" class="promotion-banner-full">
+                    <picture>
+                        <source
+                            srcset="media/images/Promocion/optimized/black-week-small.webp 540w,
+                                    media/images/Promocion/optimized/black-week-medium.webp 720w,
+                                    media/images/Promocion/optimized/black-week-full.webp 1080w"
+                            type="image/webp">
+                        <img src="media/images/Promocion/optimized/black-week.png" 
+                             alt="Black Week 2024 - 15% descuento en electrodomésticos Home Power" 
+                             class="promotion-banner-full"
+                             sizes="(max-width: 540px) 540px,
+                                    (max-width: 720px) 720px,
+                                    1080px">
+                    </picture>
                 </div>
             </div>
             

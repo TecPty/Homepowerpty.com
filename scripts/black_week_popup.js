@@ -3,7 +3,7 @@
     
     // Configuration
     const CONFIG = {
-        popupDelay: 500, // Show popup after 0.5 seconds (much faster)
+        popupDelay: 100, // Show popup immediately for testing
         countdownEndDate: new Date('2024-12-06T23:59:59').getTime(), // Black Week end date
         storageKeys: {
             dismissed: 'blackWeek2024Dismissed'

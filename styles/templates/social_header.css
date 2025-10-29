@@ -36,6 +36,12 @@
     width: 18px;
     height: 18px;
     object-fit: contain;
+    filter: brightness(0) invert(1); /* Hace el icono blanco para el email */
+}
+
+/* Icono de WhatsApp */
+.contact_icon[src*="phone"] {
+    filter: brightness(0) saturate(100%) invert(71%) sepia(88%) saturate(651%) hue-rotate(93deg) brightness(95%) contrast(93%); /* Color WhatsApp #25D366 */
 }
 
 /* Contenedor de números */
