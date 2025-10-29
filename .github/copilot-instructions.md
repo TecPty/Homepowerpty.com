@@ -1,53 +1,47 @@
 # Copilot Instructions for Homepowerpty.com
 
-## Project Overview
-Static website for Home Power Pty built with vanilla HTML, CSS, and JavaScript. No modern frameworks or build systems. Backend limited to simple PHP forms for data submission. Site focuses on product catalog display, contact forms, and career applications.
+## Visión general del proyecto
+Este repositorio es un sitio web estático para Home Power Pty, estructurado principalmente con HTML, CSS y JavaScript. No utiliza frameworks modernos ni sistemas de construcción automatizados. El backend se limita a formularios PHP simples para el envío de datos.
 
-## Core Architecture
+## Estructura principal
+- `index.html`: Página principal y punto de entrada. Contiene la estructura base y referencias a scripts y estilos.
+- `default.php`, `php/send_form.php`: Archivos PHP para manejo de formularios con validación CSRF y sanitización.
+- `scripts/`: JavaScript para interactividad (sliders, filtros, formularios, validación en tiempo real).
+- `styles/` y `styles/templates/`: Hojas de estilo CSS, organizadas por componentes y secciones.
+- `media/` y `images/`: Recursos gráficos, íconos y fotos de productos/clientes.
 
-### Key Components
-- `index.html`: Main entry point with base structure and asset references
-- `unified_forms.js`: Central form handling for both contact and careers forms
-- `styles/styles.css`: Global styles using CSS variables
-- `php/send_form.php`: Form processing with CSRF protection and email sending
+## Convenciones y patrones de diseño
+- **Nomenclatura**: Los archivos y carpetas usan nombres descriptivos en español e inglés. Los scripts están en minúsculas y separados por guiones bajos.
+- **Interactividad**: Toda la lógica de UI está en archivos JS dentro de `scripts/`. No hay frameworks; todo es vanilla JS con manejo de eventos y validación en tiempo real.
+- **Estilos**: Los estilos globales están en `styles/styles.css`. Los formularios tienen diseño moderno con efectos glassmorphism, animaciones CSS y validación visual.
+- **Formularios**: Usan labels flotantes, validación en tiempo real, estados visuales (valid/invalid), y animaciones suaves.
+- **Responsividad**: Diseño mobile-first con breakpoints en 768px y 480px.
 
-### File Structure
-```
-public_html/
-├── .htaccess          # Performance and security rules
-├── sitemap.xml        # SEO optimization
-├── index.html         # Main entry
-├── media/            # Images and icons
-│   ├── icons/        # UI elements
-│   └── images/       # Products and content
-├── scripts/          # JavaScript modules
-├── styles/          # CSS files
-│   └── templates/    # Component styles
-└── php/             # Form handlers
-```
+## Patrones específicos del formulario
+- **Labels flotantes**: Se activan con las clases `.active` cuando hay contenido o focus
+- **Validación visual**: Clases `.valid`/`.invalid` en inputs con colores y animaciones
+- **Estados de envío**: Botones se deshabilitan durante envío con cambio de texto
+- **Mensajes**: Sistema de notificaciones con clases `.success`/`.error` y timeouts automáticos
 
-## Design Patterns
+## Flujos de desarrollo
+- **No hay sistema de build**: Los cambios se reflejan directamente en los archivos fuente.
+- **Debugging**: Se realiza en el navegador usando DevTools.
+- **Pruebas**: Manuales, validando funcionalidad y diseño responsivo.
 
-### Form System
-1. **Unified Handler**: `unified_forms.js` manages both contact and career forms
-2. **Real-time Validation**: Client-side validation with visual feedback
-3. **Floating Labels**: Using CSS transforms and transitions:
-```css
-.form_label.active {
-    transform: translateY(-100%) scale(0.9);
-}
-```
-4. **Visual States**: `.valid`/`.invalid` classes with color transitions
-5. **File Upload**: Specialized handling for CV uploads in careers form
+## Integraciones y dependencias
+- **PHP**: Solo para formularios con seguridad CSRF, rate limiting y validación backend
+- **Recursos estáticos**: Todos los recursos se sirven directamente desde el sistema de archivos
+- **Fonts**: Google Fonts (Montserrat, Lato) definidas en variables CSS
 
-### UI/UX Patterns
-- Mobile-first design (breakpoints: 768px, 480px)
-- Glassmorphism effects for forms and cards
-- Product image hover effects (product/box swap)
-- WhatsApp integration for pricing queries
-- Lazy loading for performance
+## Ejemplo de patrón típico
+- Para agregar una nueva funcionalidad de UI:
+  1. Crear HTML semántico con clases descriptivas
+  2. Definir estilos en `styles/styles.css` usando variables CSS existentes
+  3. Agregar interactividad en `scripts/` con vanilla JS
+  4. Implementar validación tanto frontend como backend si es necesario
+  5. Asegurar responsividad en todos los breakpoints
 
-### Brand Variables
+## Variables CSS principales
 ```css
 :root {
     --color_orange: #FF9F1C;
@@ -57,64 +51,18 @@ public_html/
 }
 ```
 
-## Development Workflow
+## Recomendaciones para agentes AI
+- Mantener la estructura y convenciones existentes
+- Usar las variables CSS definidas para consistencia visual
+- Implementar validación tanto frontend como backend para formularios
+- Seguir el patrón de labels flotantes y animaciones suaves
+- Asegurar accesibilidad y responsividad en todas las implementaciones
+- Documentar cambios relevantes en comentarios dentro de los archivos modificados
 
-### Local Development
-1. Direct file editing - no build process
-2. Use browser DevTools for debugging
-3. Test forms with `test_form.php`
-4. Debug logging in `debug_careers_form.js`
+## Archivos clave
+- `index.html`, `styles/styles.css`, `scripts/send_contact_form.js`, `php/send_form.php`
 
-### Deployment Process
-1. Upload to public_html/ via File Manager
-2. Verify critical files:
-   - `.htaccess` in root
-   - `sitemap.xml` accessible
-   - PHP enabled for forms
-3. Run test suite:
-   - Form submissions
-   - Mobile responsiveness
-   - Load time (target: <4s)
-   - WhatsApp links
-
-### Common Tasks
-
-#### Adding Products
-1. Add markup in `index.html` product section
-2. Place images in `media/images/products/`
-3. Set proper `data-category` for filtering
-4. Format WhatsApp link with product code
-
-#### Modifying Forms
-1. Update HTML with semantic input names
-2. Add validation rules in `unified_forms.js`
-3. Update PHP handler if needed
-4. Test with debug mode enabled
-
-## Dependencies
-- Google Fonts (Montserrat, Lato)
-- Basic PHP environment
-- No external JavaScript libraries
-
-## AI Agent Guidelines
-- Use existing CSS variables for visual consistency
-- Implement both client and server validation
-- Follow floating label pattern for forms
-- Ensure mobile-first responsiveness
-- Document changes inline
-- Test critical paths:
-  - Form submission flow
-  - Image lazy loading
-  - Mobile navigation
-  - WhatsApp integration
-
-## Support Contact
-- Developer: Luis R.
-- Team: Net Web
-- 24/7 support for 48h post-launch
-
-## Key Files Reference
-- `index.html`: Core structure and content
-- `styles/styles.css`: Global styles
-- `scripts/unified_forms.js`: Form handling
-- `php/send_form.php`: Backend processing
+---
+tener en cuenta el responsive en los diferentes dispositivos al hacer cambios en el diseño o funcionalidad.
+Verificar que los formularios mantengan la validación y animaciones definidas.
+imagenes y recursos deben mantenerse organizados en sus respectivas carpetas.
