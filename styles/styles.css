@@ -2911,7 +2911,7 @@ body.menu-open {
         object-fit: contain; /* Asegura que la imagen completa sea visible */
         padding: 10px;
     }
-}
+
 
 /* Ajustes para pantallas muy altas */
 @media screen and (min-aspect-ratio: 1/1) {
@@ -2948,7 +2948,7 @@ body.menu-open {
     .popup-actions-bottom {
         padding: 12px 15px 5px 15px;
     }
-}
+
 
 @media screen and (max-width: 480px) {
     .popup-wrapper {

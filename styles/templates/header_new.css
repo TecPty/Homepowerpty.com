@@ -144,6 +144,8 @@
         left: -280px;
         top: 0;
         background: #2c3e50;
+
+        
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 80px;
