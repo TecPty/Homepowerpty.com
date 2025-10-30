@@ -3336,12 +3336,12 @@ img {
 }
 
 /* Lazy loading y performance */
-img[loading="lazy"] {
+.product_img[loading="lazy"] {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-img[loading="lazy"].loaded {
+.product_img[loading="lazy"].loaded {
     opacity: 1;
 }
 
