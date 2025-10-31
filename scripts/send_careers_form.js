@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
     const form = document.getElementById('careers_form'),
           form_msg = document.getElementById('careers_form_msg'),
           submitBtn = form.querySelector('.careers_submit');
@@ -140,6 +140,10 @@
         submitBtn.value = 'Enviando...';
         
         const formData = new FormData(form);
+        const cvInput = document.getElementById('cv_file');
+        if (cvInput && cvInput.files && cvInput.files.length > 0) {
+            formData.append('cv_file', cvInput.files[0]);
+        }
         const csrfToken = await getCsrfToken();
         
         if (!csrfToken) {
@@ -190,9 +194,7 @@
                 case 'invalid':
                     showMessage('Algunos datos no son válidos. Verifique su email y que la motivación tenga al menos 20 caracteres.', 'error');
                     break;
-                case 'success':
-                    showMessage('¡Aplicación enviada con éxito! Revisaremos tu información y nos pondremos en contacto pronto.', 'success');
-                    break;
+                case 'success':\n                    showMessage('Aplicación enviada con éxito. CV recibido, nos contactaremos…', 'success');\n                    break;
                 case 'error':
                 default:
                     showMessage('Ocurrió un error. Intente nuevamente o contáctenos directamente.', 'error');
@@ -208,3 +210,4 @@
         }
     });
 })();
+

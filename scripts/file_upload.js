@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileName = document.getElementById('file_name');
 
     if (fileInput && fileUploadDisplay) {
-        // Hacer clic en el Ã¡rea de carga active el input de archivo
+        // Hacer clic en el área de carga active el input de archivo
         fileUploadDisplay.addEventListener('click', function() {
             fileInput.click();
         });
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
 
-                // Validar tamaÃ±o de archivo (mÃ¡ximo 5MB)
+                // Validar tamaño de archivo (máximo 5MB)
                 const maxSize = 5 * 1024 * 1024; // 5MB en bytes
                 if (file.size > maxSize) {
-                    showMessage('El archivo es demasiado grande. MÃ¡ximo 5MB permitido.', 'error');
+                    showMessage('El archivo es demasiado grande. Máximo 5MB permitido.', 'error');
                     this.value = '';
                     resetFileDisplay();
                     return;
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Mostrar archivo seleccionado
                 fileUploadDisplay.classList.add('has_file');
-                fileUploadText.textContent = 'âœ“ Archivo seleccionado';
+                fileUploadText.textContent = '? Archivo seleccionado';
                 fileName.textContent = file.name;
             } else {
                 resetFileDisplay();
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function resetFileDisplay() {
         if (fileUploadDisplay && fileUploadText && fileName) {
             fileUploadDisplay.classList.remove('has_file');
-            fileUploadText.textContent = 'ðŸ“„ Seleccionar archivo';
+            fileUploadText.textContent = '?? Seleccionar archivo';
             fileName.textContent = '';
         }
     }
@@ -97,3 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+// Envío del archivo seleccionado al servidor
+(function(){
+  const uploadBtn = document.getElementById('cv_upload_btn');
+  const fileInput = document.getElementById('cv_file');
+  const msg = document.getElementById('careers_form_msg');
+
+  async function uploadCV(){
+    if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+      if (msg){ msg.className='form_msg error active'; msg.textContent='Selecciona un archivo antes de subir.'; }
+      return;
+    }
+    const fd = new FormData();
+    fd.append('cv_file', fileInput.files[0]);
+    try {
+      const res = await fetch('./php/upload_cv.php', { method:'POST', body: fd });
+      const data = await res.json().catch(()=>({status:'error'}));
+      if (res.ok && data.status === 'success'){
+        if (msg){ msg.className='form_msg success active'; msg.textContent='CV subido correctamente: ' + data.filename + '. CV recibido, nos contactaremos…'; }
+      } else {
+        if (msg){ msg.className='form_msg error active'; msg.textContent='No se pudo subir el CV (' + (data.status||'error') + ').'; }
+      }
+    } catch(err){
+      if (msg){ msg.className='form_msg error active'; msg.textContent='Error de conexión al subir el CV.'; }
+    }
+  }
+
+  if (uploadBtn){
+    uploadBtn.addEventListener('click', uploadCV);
+  }
+})();

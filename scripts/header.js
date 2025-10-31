@@ -4,31 +4,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuClose = document.getElementById('menuClose');
     const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
 
-    // Abrir menú
-    menuBurger.addEventListener('click', () => {
-        fullscreenMenu.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
+    // Usa el menú fullscreen si existe; si no, abre el menú lateral existente
+    if (menuBurger && fullscreenMenu && menuClose) {
+        const closeMenu = () => {
+            fullscreenMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        };
 
-    // Cerrar menú
-    const closeMenu = () => {
-        fullscreenMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    };
+        menuBurger.addEventListener('click', () => {
+            fullscreenMenu.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
 
-    menuClose.addEventListener('click', closeMenu);
-
-    // Cerrar menú al hacer clic en un enlace
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Cerrar menú con la tecla ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
-            closeMenu();
-        }
-    });
+        menuClose.addEventListener('click', closeMenu);
+        menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    } else if (menuBurger) {
+        const headerEl = document.getElementById('header');
+        const overlayEl = document.getElementById('overlay');
+        const open = () => {
+            if (!headerEl || !overlayEl) return;
+            headerEl.classList.add('translate');
+            overlayEl.classList.add('active');
+            document.body.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
+        };
+        const close = () => {
+            if (!headerEl || !overlayEl) return;
+            headerEl.classList.remove('translate');
+            overlayEl.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        };
+        menuBurger.addEventListener('click', open);
+        if (overlayEl) overlayEl.addEventListener('click', close);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    }
 });
 
 (function(){
@@ -40,18 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu_item');
     const overlay = document.getElementById('overlay');
     
-    btnMenu.addEventListener('click', () => {
-        header.classList.add('translate');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+    if (btnMenu) {
+        btnMenu.addEventListener('click', () => {
+            header.classList.add('translate');
+            overlay.classList.add('active');
+            document.body.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
+        });
+    }
     
-    btnMenuClose.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    if (btnMenuClose) btnMenuClose.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
     
     function closeMenu() {
         header.classList.remove('translate');
         overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
     }
     
@@ -59,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', closeMenu);
     });
 
-        const getHeadersHeight = () => {
+    const getHeadersHeight = () => {
         const socialHeight = socialHeader ? socialHeader.offsetHeight : 0;
         const headerHeight = header.offsetHeight;
         return socialHeight + headerHeight;
@@ -69,55 +88,51 @@ document.addEventListener('DOMContentLoaded', () => {
         banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
     }
     
-    btnMenu.addEventListener('click', () => {
-        header.classList.add('translate');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+    if (btnMenu) {
+        btnMenu.addEventListener('click', () => {
+            header.classList.add('translate');
+            overlay.classList.add('active');
+            document.body.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
+        });
+    }
     
     function closeMenu() {
         header.classList.remove('translate');
         overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
     }
     
-    btnMenuClose.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    if (btnMenuClose) btnMenuClose.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
     
     menuItems.forEach(item => {
         item.addEventListener('click', closeMenu);
     });
-    let lastScrollTop = 0;
+    
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > 100) {
             header.classList.add('active');
-            socialHeader.style.transform = 'translateY(-100%)';
-            socialHeader.style.transition = 'transform 0.3s ease';
-            
-            // Efecto adicional: hacer el header más transparente y elegante
+            if (socialHeader) {
+                socialHeader.style.transform = 'translateY(-100%)';
+                socialHeader.style.transition = 'transform 0.3s ease';
+            }
             header.style.background = 'rgba(255, 255, 255, 0.92)';
             header.style.backdropFilter = 'blur(20px)';
-            
             if (banner) {
                 banner.style.paddingTop = '90px';
                 banner.style.transition = 'padding-top 0.3s ease';
             }
         } else {
             header.classList.remove('active');
-            socialHeader.style.transform = 'translateY(0)';
-            
-            // Restaurar apariencia original
+            if (socialHeader) socialHeader.style.transform = 'translateY(0)';
             header.style.background = 'rgba(255, 255, 255, 0.98)';
             header.style.backdropFilter = 'blur(10px)';
-            
-            if (banner) {
-                banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
-            }
+            if (banner) banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
         }
-        
-        lastScrollTop = scrollTop;
     });
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -125,15 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const target = document.getElementById(targetId);
-            
             if (target) {
                 const headerHeight = getHeadersHeight();
                 const targetPosition = target.offsetTop - headerHeight + 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
     });
@@ -144,3 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 })();
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Social Header Bar */
 .social_header_bar {
     width: 100%;
@@ -10,7 +11,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 800; /* Debajo del header y menús móviles */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-family: var(--font_text);
 }
@@ -185,3 +186,9 @@
         height: 14px;
     }
 }
+
+/* Cuando el menú móvil está abierto, evita capturar clics del header social */
+body.menu-open .social_header_bar {
+    pointer-events: none;
+}
+
