@@ -159,7 +159,7 @@
                 <h1 class="title">Potencia e Innovación para tu hogar</h1>
                 <h2 class="sub_title">Stock exclusivo para negocios que buscan lo mejor en calidad y tecnología.</h2>
             </div>
-            <img src="media/images/banner/banner_img.webp" alt="electrodomésticos" class="banner_img">
+            <picture><source srcset="media/images/banner/banner_img.webp" type="image/webp"><img src="media/images/banner/banner_img.png" alt="electrodomésticos" class="banner_img" loading="eager"></picture>
         </section>
 <section class="section_products" id="productos">
     <header class="section_products_header">
@@ -1087,7 +1087,7 @@
         .about_us_content {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             max-width: 1200px;
         }
@@ -1103,6 +1103,7 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
+            height: 100%;
             position: relative;
             overflow: hidden;
         }
@@ -1390,12 +1391,20 @@
                         </div>
                     </form>
                     
-                    <!-- Link para enviar CV -->
+
+                    <!-- Subida de CV como archivo (independiente del envío del formulario) -->
                     <div class="cv_upload_container">
                         <p class="cv_upload_text">¿Prefieres enviar tu CV completo?</p>
-                        <a href="mailto:josephharari@homepowerpty.com,davidazran@homepowerpty.com?subject=Curriculum%20Vitae%20-%20Home%20Power&body=Hola,%0A%0AAdjunto%20mi%20curriculum%20vitae%20para%20su%20consideración.%0A%0ASaludos," class="cv_upload_link">
-                            <span>📄 Enviar CV (PDF/Word)</span>
-                        </a>
+                        <div class="cv_upload_controls">
+                            <input type="file" id="cv_file" name="cv_file" accept=".pdf,.doc,.docx" hidden>
+                            <div class="file_upload_display" id="file_drop_area" tabindex="0" role="button" aria-label="Seleccionar archivo CV">
+                                <span class="file_upload_text">Seleccionar archivo</span>
+                                <span id="file_name"></span>
+                            </div>
+                            <button type="button" class="cv_upload_link" id="cv_upload_btn">
+                                <span>Subir CV (PDF/Word)</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1508,42 +1517,32 @@
     </footer>
 
     <!-- BLACK WEEK POPUP -->
-    <div id="blackWeekPopup" class="black-week-popup">
-        <div class="popup-overlay"></div>
-        <div class="popup-wrapper">
-            <div class="popup-content">
-                <button class="popup-close" id="closePopup">&times;</button>
-                
-                <!-- Imagen promocional que ocupa todo el espacio -->
-                <div class="popup-banner-fullscreen">
-                    <picture>
-                        <source
-                            srcset="media/images/Promocion/optimized/black-week-small.webp 540w,
-                                    media/images/Promocion/optimized/black-week-medium.webp 720w,
-                                    media/images/Promocion/optimized/black-week-full.webp 1080w"
-                            type="image/webp">
-                        <img src="media/images/Promocion/optimized/black-week.png" 
-                             alt="Black Week 2024 - 15% descuento en electrodomésticos Home Power" 
-                             class="promotion-banner-full"
-                             sizes="(max-width: 540px) 540px,
-                                    (max-width: 720px) 720px,
-                                    1080px">
-                    </picture>
-                </div>
-            </div>
+<!-- FECHAS PATRIAS POPUP -->
+<div id="blackWeekPopup" class="black-week-popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-wrapper">
+        <div class="popup-content">
+            <button class="popup-close" id="closePopup">&times;</button>
             
-            <!-- Botón cerrar FUERA del contenedor -->
-            <div class="popup-actions-external">
-                <button class="popup-cta-close" onclick="BlackWeekPopup.hide()">Cerrar</button>
+            <!-- Imagen promocional que ocupa todo el espacio -->
+            <div class="popup-banner-fullscreen">
+                <picture>
+                    <source
+                        srcset="media/images/Promocion/optimized/fechas_patrias.webp"
+                        type="image/webp">
+                    <img src="media/images/Promocion/optimized/fechas_patrias.webp" 
+                         alt="Fechas Patrias - Promoción especial en electrodomésticos Home Power" 
+                         class="promotion-banner-full">
+                </picture>
             </div>
         </div>
+        
+        <!-- Botón cerrar FUERA del contenedor -->
+        <div class="popup-actions-external">
+            <button class="popup-cta-close" onclick="BlackWeekPopup.hide()">Cerrar</button>
+        </div>
     </div>
-
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/+50769838322?text=Hola, quiero conseguir una cotización" class="whatsapp_float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-        <img src="media/icons/socials_networks/whatsapp_icon.ico" alt="WhatsApp" class="whatsapp_float_icon">
-    </a>
-
+</div>
     <script src="scripts/header.js"></script>
     <script src="scripts/inputs.js"></script>
     <script src="scripts/clients_slider.js"></script>
@@ -1553,8 +1552,17 @@
     <script src="scripts/product-interactions.js"></script>
     <script src="scripts/avatar_effects.js"></script>
     <script src="scripts/image-optimization.js"></script>
+    <script src="scripts/file_upload.js"></script>
     <script src="scripts/black_week_popup.js"></script>
     <script src="scripts/cv_button_handler.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 

@@ -10,9 +10,11 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-family: var(--font_text);
+    box-sizing: border-box;
 }
 
 /* Wrapper para información de contacto */
@@ -133,7 +135,8 @@
     .social_header_bar {
         height: auto;
         min-height: 80px;
-        padding: 10px 3%;
+        padding: 10px 12px;
+        left: 0; right: 0; width: 100%;
         flex-direction: column;
         gap: 10px;
     }
@@ -142,7 +145,7 @@
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 12px;
     }
     
     .contact_group {
@@ -150,6 +153,13 @@
     }
     
     .contact_numbers {
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
+    }
+
+    /* Apilar correos en móvil */
+    .contact_emails {
         flex-direction: column;
         gap: 2px;
         align-items: flex-start;

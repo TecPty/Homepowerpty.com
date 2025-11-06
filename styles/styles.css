@@ -1,4 +1,4 @@
-:root {
+﻿:root {
             --color_orange: #FF9F1C;
             --color_red: #ff4b4b;
             --color_green: #4CAF50;
@@ -775,7 +775,7 @@ body.menu-open {
             width: 100%;
             height: 100vh;
             min-height: 700px;
-            margin-top: 180px;
+            margin-top: 0;
             position: relative;
             display: flex;
             align-items: flex-start;
@@ -793,17 +793,7 @@ body.menu-open {
 
         .section_banner::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('../../media/images/banner/banner_img.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            opacity: 0.7;
-            z-index: 1;
+            display: none; /* Usaremos <img class="banner_img"> como fondo visual */
         }
 
         .banner_content {
@@ -821,7 +811,15 @@ body.menu-open {
         }
 
         .banner_img {
-            display: none; /* Ocultamos la imagen separada ya que ahora es fondo */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            display: block;
+            opacity: 0.85;
         }
 
         .title {
@@ -916,17 +914,23 @@ body.menu-open {
 .section_products_header {
     text-align: center;
     margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .products_title {
-    font-size: 48px;
+    font-size: clamp(28px, 6vw, 40px);
     color: #2c3e50;
     font-weight: bold;
     margin-bottom: 15px;
+    text-wrap: balance;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .products_subtitle {
-    font-size: 18px;
+    font-size: clamp(14px, 3.8vw, 18px);
     color: #7f8c8d;
     margin-bottom: 40px;
 }
@@ -1745,6 +1749,13 @@ body.menu-open {
     background: transparent;
 }
 
+.form_msg:not(.active) {
+    display: none;
+}
+
+/* Efecto para imágenes de caja: elimina blancos con mezcla multiplicar */
+
+
 .product_image_wrapper:hover .product_img {
     transform: scale(1.05);
 }
@@ -2534,7 +2545,11 @@ body.menu-open {
                 right: -3px;
                 bottom: -3px;
             }
-        }        @media screen and (max-width: 480px) {
+        }
+
+        @media screen and (max-width: 480px) {
+            .products_title { font-size: clamp(22px, 7.5vw, 28px); }
+            .products_subtitle { font-size: clamp(13px, 4vw, 15px); }
             /* Banner móvil */
             .section_banner {
                 padding: 20px 15px;
@@ -2748,8 +2763,9 @@ body.menu-open {
     background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
     border-radius: 20px;
     padding: 0;
-    width: min(90vw, calc(90vh * 9/16)); /* Mantiene la proporción 9:16 limitada por altura */
-    height: min(90vh, calc(90vw * 16/9)); /* Mantiene la proporción 9:16 limitada por ancho */
+    width: min(95vw, 1080px); /* Mantiene la proporción 9:16 limitada por altura */
+    height: auto;
+    max-height: 90vh; /* Mantiene la proporción 9:16 limitada por ancho */
     overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--color_orange);
@@ -2895,30 +2911,9 @@ body.menu-open {
 @media screen and (max-width: 768px) {
     .popup-content {
         width: 95vw;
-        height: calc(95vw * 16/9);
-        max-height: 90vh;
-    }
-    .popup-wrapper {
-        gap: 12px;
-    }
-    .promotion-banner-full {
-        object-fit: contain;
-        padding: 10px;
-    }
-        width: 95vw;
-    }
-    .promotion-banner-full {
-        object-fit: contain; /* Asegura que la imagen completa sea visible */
-        padding: 10px;
-    }
-
-
-/* Ajustes para pantallas muy altas */
-@media screen and (min-aspect-ratio: 1/1) {
-    .popup-content {
-        aspect-ratio: 4/3;
         height: auto;
         max-height: 90vh;
+        aspect-ratio: auto;
     }
 }
 
@@ -3070,21 +3065,10 @@ body.menu-open {
 /* Responsive para el popup */
 @media screen and (max-width: 768px) {
     .popup-content {
-        max-width: 95%;
-        margin: 20px;
-    }
-    
-    .popup-main-title {
-        font-size: 20px;
-    }
-    
-    .countdown-timer {
-        gap: 10px;
-    }
-    
-    .time-unit {
-        min-width: 45px;
-        padding: 8px;
+        width: 95vw;
+        height: auto;
+        max-height: 90vh;
+        aspect-ratio: auto;
     }
 }
 
@@ -3151,10 +3135,12 @@ body.menu-open {
     background: linear-gradient(135deg, rgba(255, 159, 28, 0.05) 0%, rgba(76, 175, 80, 0.05) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none; /* No bloquear inputs */
+    z-index: 0; /* Queda detrás del contenido */
 }
 
 .form_wrapper:hover::before {
-    opacity: 1;
+    opacity: 0.2; /* Sombra sutil como el formulario de contacto */
 }
 
 .form_wrapper:hover {
@@ -3673,3 +3659,42 @@ img {
         height: 30px;
     }
 }
+
+
+/* Overrides to ensure popup image is not cropped */
+.black-week-popup .popup-content {
+    height: auto !important;
+    max-height: 90vh !important;
+    aspect-ratio: auto !important;
+    width: min(95vw, 1080px) !important;
+}
+.black-week-popup .popup-banner-fullscreen {
+    height: auto !important;
+    max-height: 90vh !important;
+    padding: 0 !important;
+}
+.black-week-popup .promotion-banner-full {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 90vh !important;
+    object-fit: contain !important;
+    padding: 0 !important;
+}
+
+/* Remove bullets from product feature lists */
+.product_features {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 12px 0;
+}
+.product_features li {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* ===== CV upload controls ===== */
+.cv_upload_controls { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
+.file_upload_display { border: 2px dashed #e2e8f0; background: rgba(255,255,255,0.9); color:#374151; padding: 10px 14px; border-radius: 8px; cursor: pointer; min-width: 220px; text-align: center; transition: all .2s ease; }
+.file_upload_display:hover, .file_upload_display:focus { border-color: var(--color_orange); box-shadow: 0 4px 12px rgba(255,159,28,.15); outline: none; }
+.file_upload_text { font-weight: 600; margin-right: 6px; }
+#file_name { color:#718096; font-size: 13px; }

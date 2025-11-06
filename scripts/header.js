@@ -1,34 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuBurger = document.getElementById('menuBurger');
-    const fullscreenMenu = document.getElementById('fullscreenMenu');
-    const menuClose = document.getElementById('menuClose');
-    const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
+  const menuBurger = document.getElementById('menuBurger');
+  const fullscreenMenu = document.getElementById('fullscreenMenu');
+  const menuClose = document.getElementById('menuClose');
+  const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
 
-    // Abrir menú
-    menuBurger.addEventListener('click', () => {
-        fullscreenMenu.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
-
-    // Cerrar menú
-    const closeMenu = () => {
-        fullscreenMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
+  if (menuBurger && fullscreenMenu) {
+    const openMenu = () => {
+      fullscreenMenu.classList.add('active');
+      document.body.classList.add('menu-open');
     };
-
-    menuClose.addEventListener('click', closeMenu);
-
-    // Cerrar menú al hacer clic en un enlace
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Cerrar menú con la tecla ESC
+    const closeMenu = () => {
+      fullscreenMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    };
+    menuBurger.addEventListener('click', openMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (menuLinks && menuLinks.length) menuLinks.forEach(link => link.addEventListener('click', closeMenu));
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
-            closeMenu();
-        }
+      if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) closeMenu();
     });
+  }
 });
 
 (function(){
@@ -40,14 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu_item');
     const overlay = document.getElementById('overlay');
     
-    btnMenu.addEventListener('click', () => {
-        header.classList.add('translate');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+    if (btnMenu && overlay) { btnMenu.addEventListener('click', () => { header.classList.add('translate'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }); }
     
-    btnMenuClose.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    if (btnMenuClose) btnMenuClose.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
     
     function closeMenu() {
         header.classList.remove('translate');
@@ -59,21 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', closeMenu);
     });
 
-        const getHeadersHeight = () => {
+    const getHeadersHeight = () => {
         const socialHeight = socialHeader ? socialHeader.offsetHeight : 0;
         const headerHeight = header.offsetHeight;
-        return socialHeight + headerHeight;
+        // En móvil no empujamos el banner por la altura del header para evitar franja blanca
+        return (window.innerWidth <= 768) ? socialHeight : (socialHeight + headerHeight);
     };
     
     if (banner) {
-        banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
+        banner.style.paddingTop = `${getHeadersHeight()}px`;
     }
+    // Ensure header sits below social bar height on load
+    header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`;
     
-    btnMenu.addEventListener('click', () => {
-        header.classList.add('translate');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+    if (btnMenu && overlay) { btnMenu.addEventListener('click', () => { header.classList.add('translate'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }); }
     
     function closeMenu() {
         header.classList.remove('translate');
@@ -81,17 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
     
-    btnMenuClose.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    if (btnMenuClose) btnMenuClose.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
     
     menuItems.forEach(item => {
         item.addEventListener('click', closeMenu);
     });
     let lastScrollTop = 0;
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
+    window.addEventListener('scroll', () => {    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollingDown = scrollTop > lastScrollTop;
+if (scrollTop > 100) {
             header.classList.add('active');
             socialHeader.style.transform = 'translateY(-100%)';
             socialHeader.style.transition = 'transform 0.3s ease';
@@ -101,8 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.backdropFilter = 'blur(20px)';
             
             if (banner) {
-                banner.style.paddingTop = '90px';
+                // con barra social oculta, solo compensamos el header
+                const h = (window.innerWidth <= 768) ? header.offsetHeight : 90;
+                banner.style.paddingTop = `${h}px`;
                 banner.style.transition = 'padding-top 0.3s ease';
+            // Ocultar header al desplazarse hacia abajo; mostrar al subir
+            if (scrollingDown) {
+                header.classList.add('hide');
+            } else {
+                header.classList.remove('hide');
+            }
             }
         } else {
             header.classList.remove('active');
@@ -111,9 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Restaurar apariencia original
             header.style.background = 'rgba(255, 255, 255, 0.98)';
             header.style.backdropFilter = 'blur(10px)';
+            // Reposition header right under social bar when visible
+            header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`;
             
             if (banner) {
-                banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
+                banner.style.paddingTop = `${getHeadersHeight()}px`;
             }
         }
         
@@ -140,7 +135,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('resize', () => {
         if (banner && window.scrollY < 100) {
-            banner.style.paddingTop = `${getHeadersHeight() + 30}px`;
+            banner.style.paddingTop = `${getHeadersHeight()}px`;
+        }
+        if (window.scrollY < 100) {
+            header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`;
         }
     });
 })();
+
+
+
+
+
+
+
+
+

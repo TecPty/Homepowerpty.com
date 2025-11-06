@@ -3,7 +3,7 @@
           form_msg = document.getElementById('careers_form_msg'),
           submitBtn = form.querySelector('.careers_submit');
 
-    // Validaci√≥n en tiempo real para formulario de carreras
+    // ValidaciÛn en tiempo real para formulario de carreras
     function validateField(field, value) {
         switch(field) {
             case 'full_name':
@@ -23,7 +23,7 @@
         }
     }
 
-    // Mostrar mensaje con timeout autom√°tico
+    // Mostrar mensaje con timeout autom·tico
     function showMessage(message, type) {
         form_msg.innerHTML = message;
         form_msg.className = `form_msg active ${type}`;
@@ -45,7 +45,7 @@
         }
     }
 
-    // Validaci√≥n en tiempo real con clases CSS
+    // ValidaciÛn en tiempo real con clases CSS
     form.addEventListener('input', (e) => {
         if (e.target.matches('.form_input')) {
             const field = e.target.name;
@@ -56,7 +56,7 @@
             // Remover clases anteriores
             e.target.classList.remove('valid', 'invalid');
             
-            // Agregar clase seg√∫n validaci√≥n
+            // Agregar clase seg˙n validaciÛn
             if (value.length > 0) {
                 e.target.classList.add(isValid ? 'valid' : 'invalid');
             }
@@ -83,7 +83,7 @@
             // Remover clases anteriores
             e.target.classList.remove('valid', 'invalid');
             
-            // Agregar clase seg√∫n validaci√≥n
+            // Agregar clase seg˙n validaciÛn
             if (value.length > 0) {
                 e.target.classList.add(isValid ? 'valid' : 'invalid');
             }
@@ -135,23 +135,27 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Deshabilitar bot√≥n durante env√≠o
+        // Deshabilitar botÛn durante envÌo
         submitBtn.disabled = true;
         submitBtn.value = 'Enviando...';
         
         const formData = new FormData(form);
+        const cvInput = document.getElementById('cv_file');
+        if (cvInput && cvInput.files && cvInput.files.length > 0) {
+            formData.append('cv_file', cvInput.files[0]);
+        }
         const csrfToken = await getCsrfToken();
         
         if (!csrfToken) {
-            showMessage('Error de seguridad. Intente m√°s tarde.', 'error');
+            showMessage('Error de seguridad. Intente m·s tarde.', 'error');
             submitBtn.disabled = false;
-            submitBtn.value = 'Enviar Aplicaci√≥n';
+            submitBtn.value = 'Enviar AplicaciÛn';
             return;
         }
         
         formData.append('csrf_token', csrfToken);
         
-        // Validaci√≥n frontend
+        // ValidaciÛn frontend
         const full_name = formData.get('full_name')?.trim();
         const email = formData.get('email')?.trim();
         const phone = formData.get('phone')?.trim();
@@ -165,9 +169,9 @@
             !validateField('phone', phone) || 
             !validateField('position', position) ||
             !validateField('motivation', motivation)) {
-            showMessage('Por favor, complete todos los campos correctamente. La motivaci√≥n debe tener al menos 20 caracteres.', 'error');
+            showMessage('Por favor, complete todos los campos correctamente. La motivaciÛn debe tener al menos 20 caracteres.', 'error');
             submitBtn.disabled = false;
-            submitBtn.value = 'Enviar Aplicaci√≥n';
+            submitBtn.value = 'Enviar AplicaciÛn';
             return;
         }
 
@@ -188,23 +192,27 @@
                     showMessage('Complete todos los campos correctamente', 'error');
                     break;
                 case 'invalid':
-                    showMessage('Algunos datos no son v√°lidos. Verifique su email y que la motivaci√≥n tenga al menos 20 caracteres.', 'error');
+                    showMessage('Algunos datos no son v·lidos. Verifique su email y que la motivaciÛn tenga al menos 20 caracteres.', 'error');
                     break;
                 case 'success':
-                    showMessage('¬°Aplicaci√≥n enviada con √©xito! Revisaremos tu informaci√≥n y nos pondremos en contacto pronto.', 'success');
+                    showMessage('AplicaciÛn enviada con Èxito. CV recibido, nos contactaremosÖ', 'success');
                     break;
                 case 'error':
                 default:
-                    showMessage('Ocurri√≥ un error. Intente nuevamente o cont√°ctenos directamente.', 'error');
+                    showMessage('OcurriÛ un error. Intente nuevamente o cont·ctenos directamente.', 'error');
                     break;
             }
         } catch (error) {
             console.error('Error:', error);
-            showMessage('Error de conexi√≥n. Verifique su internet e intente nuevamente.', 'error');
+            showMessage('Error de conexiÛn. Verifique su internet e intente nuevamente.', 'error');
         } finally {
-            // Rehabilitar bot√≥n
+            // Rehabilitar botÛn
             submitBtn.disabled = false;
-            submitBtn.value = 'Enviar Aplicaci√≥n';
+            submitBtn.value = 'Enviar AplicaciÛn';
         }
     });
 })();
+
+
+
+

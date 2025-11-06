@@ -48,9 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (showHover) {
         img.src = boxSrc;
         isMainImage = false;
+        // Marcar wrapper para estilos especiales de imágenes "CAJA"
+        wrapper.classList.add('is-box');
       } else {
         img.src = mainSrc;
         isMainImage = true;
+        wrapper.classList.remove('is-box');
       }
     };
 
@@ -93,4 +96,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-

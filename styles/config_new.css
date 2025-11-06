@@ -37,6 +37,12 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Evitar desbordes horizontales que generan franjas laterales */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 h1,
 h2 { 
     font-family: var(--font_title);
