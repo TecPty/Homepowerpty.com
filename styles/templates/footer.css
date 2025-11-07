@@ -38,8 +38,8 @@
 }
 
 .footer_logo_container {
-    width: 270px;
-    height: 180px;
+    width: 200px;   /* logo más pequeño en desktop */
+    height: 200px;
     background: transparent;
     border-radius: 12px;
     padding: 8px;
@@ -74,7 +74,7 @@
 /* Títulos de sección */
 .footer_title {
     color: #ffffff;
-    font-size: 18px;
+    font-size: clamp(16px, 2.6vw, 18px); /* más compacto, similar a testimonios */
     font-weight: 600;
     font-family: var(--font_title);
     margin: 0 0 20px 0;
@@ -120,7 +120,7 @@
 .footer_contact_link {
     color: #a0aec0;
     text-decoration: none;
-    font-size: 14px;
+    font-size: clamp(12px, 2.3vw, 14px);
     transition: all 0.3s ease;
 }
 
@@ -142,7 +142,7 @@
 .footer_menu_link {
     color: #a0aec0;
     text-decoration: none;
-    font-size: 14px;
+    font-size: clamp(12px, 2.3vw, 14px);
     transition: all 0.3s ease;
     position: relative;
     padding-left: 15px;
@@ -243,6 +243,12 @@
         grid-template-columns: 1fr;
         gap: 30px;
     }
+    /* Centrar logo y contacto en móvil */
+    .footer_brand, .footer_section { align-items: center; text-align: center; }
+    .footer_logo_container { margin-left: auto; margin-right: auto; width: 150px; height: 150px; }
+    .footer_contact_info { align-items: center; }
+    .footer_contact_item { align-items: center; }
+    .footer_contact_text { align-items: center; }
     
     .footer_bottom {
         flex-direction: column;
@@ -267,4 +273,42 @@
     .footer_social_links {
         flex-wrap: wrap;
     }
+}
+
+/* ===== Footer layout reorganization ===== */
+/* Place brand at left, contact and navigation side-by-side, social below */
+.footer_brand { grid-area: brand; }
+.footer_contact { grid-area: contact; }
+.footer_navigation { grid-area: nav; }
+.footer_social { grid-area: social; text-align: center; }
+.footer_social_links { justify-content: center; }
+
+.footer_content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-areas:
+    "brand contact nav"
+    "brand social  social";
+}
+
+@media screen and (max-width: 1024px) {
+  .footer_content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "contact nav"
+      "social  social";
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Móviles: Contacto y Navegación lado a lado; Social abajo */
+  .footer_content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand   brand"
+      "contact nav"
+      "social  social";
+    gap: 24px;
+  }
 }
