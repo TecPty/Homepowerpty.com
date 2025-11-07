@@ -2822,11 +2822,11 @@ body.menu-open {
 .popup-close {
     display: flex; /* Mostrar botón de cierre también en desktop */
     position: absolute;
-    top: 15px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    font-size: 28px;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.45); /* más visible sobre fondos claros */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 24px;
     color: #ffffff;
     cursor: pointer;
     width: 40px;
@@ -2835,7 +2835,7 @@ body.menu-open {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 10;
+    z-index: 100; /* por encima de la imagen */
 }
 
 .popup-close:hover {
@@ -3121,7 +3121,7 @@ body.menu-open {
 /* Mejora de responsividad del popup en móviles */
 @media screen and (max-width: 640px) {
   /* Mostrar botón de cierre interno y ocultar el externo para ahorrar espacio */
-  .popup-close { display: flex; align-items: center; justify-content: center; }
+  .popup-close { display: flex; align-items: center; justify-content: center; top: 8px; right: 8px; width: 44px; height: 44px; font-size: 26px; }
   .popup-actions-external { display: none; }
 
   /* Ajustar dimensiones para evitar recortes en iPhone */
