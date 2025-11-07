@@ -196,3 +196,11 @@
     }
 }
 
+/* Fix overflow on mobile: allow wrapping long contact links */
+@media screen and (max-width: 768px) {
+  .social_header_bar .contact_link {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}

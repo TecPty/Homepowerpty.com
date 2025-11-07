@@ -2801,15 +2801,15 @@ body.menu-open {
 }
 
 .popup-content {
-    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    background: transparent; /* caja transparente */
     border-radius: 20px;
     padding: 0;
     width: min(95vw, 1080px); /* Mantiene la proporción 9:16 limitada por altura */
     height: auto;
     max-height: 90vh; /* Mantiene la proporción 9:16 limitada por ancho */
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--color_orange);
+    box-shadow: none; /* sin sombra para que no se note caja */
+    border: none; /* sin borde */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -2820,7 +2820,7 @@ body.menu-open {
 }
 
 .popup-close {
-    display: none; /* Ocultar el botón de la esquina superior */
+    display: flex; /* Mostrar botón de cierre también en desktop */
     position: absolute;
     top: 15px;
     right: 20px;
@@ -2960,14 +2960,8 @@ body.menu-open {
 
 /* Ajustes para pantallas muy anchas */
 @media screen and (min-width: 1200px) {
-    .popup-content {
-        max-width: 800px;
-    }
-    }
-    
-    .popup-content {
-        max-width: 350px;
-    }
+  .popup-content { max-width: 800px; }
+}
     
     .popup-banner-single .promotion-banner {
         height: 350px;
@@ -3122,6 +3116,24 @@ body.menu-open {
     .popup-body {
         padding: 25px 20px;
     }
+}
+
+/* Mejora de responsividad del popup en móviles */
+@media screen and (max-width: 640px) {
+  /* Mostrar botón de cierre interno y ocultar el externo para ahorrar espacio */
+  .popup-close { display: flex; align-items: center; justify-content: center; }
+  .popup-actions-external { display: none; }
+
+  /* Ajustar dimensiones para evitar recortes en iPhone */
+  .popup-wrapper { gap: 8px; }
+  .popup-content {
+    width: 92vw;
+    max-height: calc(88vh - env(safe-area-inset-bottom, 0px));
+  }
+  .black-week-popup .popup-banner-fullscreen,
+  .black-week-popup .promotion-banner-full {
+    max-height: inherit;
+  }
 }
 
 /* ===== ESTILOS PARA FORMULARIOS LADO A LADO ===== */
