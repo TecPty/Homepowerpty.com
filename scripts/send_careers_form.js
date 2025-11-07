@@ -1,9 +1,9 @@
-(function(){
+Ôªø(function(){
     const form = document.getElementById('careers_form'),
           form_msg = document.getElementById('careers_form_msg'),
           submitBtn = form.querySelector('.careers_submit');
 
-    // ValidaciÛn en tiempo real para formulario de carreras
+    // Validaci√≥n en tiempo real para formulario de carreras
     function validateField(field, value) {
         switch(field) {
             case 'full_name':
@@ -23,7 +23,7 @@
         }
     }
 
-    // Mostrar mensaje con timeout autom·tico
+    // Mostrar mensaje con timeout autom√°tico
     function showMessage(message, type) {
         form_msg.innerHTML = message;
         form_msg.className = `form_msg active ${type}`;
@@ -45,7 +45,7 @@
         }
     }
 
-    // ValidaciÛn en tiempo real con clases CSS
+    // Validaci√≥n en tiempo real con clases CSS
     form.addEventListener('input', (e) => {
         if (e.target.matches('.form_input')) {
             const field = e.target.name;
@@ -56,7 +56,7 @@
             // Remover clases anteriores
             e.target.classList.remove('valid', 'invalid');
             
-            // Agregar clase seg˙n validaciÛn
+            // Agregar clase seg√∫n validaci√≥n
             if (value.length > 0) {
                 e.target.classList.add(isValid ? 'valid' : 'invalid');
             }
@@ -83,7 +83,7 @@
             // Remover clases anteriores
             e.target.classList.remove('valid', 'invalid');
             
-            // Agregar clase seg˙n validaciÛn
+            // Agregar clase seg√∫n validaci√≥n
             if (value.length > 0) {
                 e.target.classList.add(isValid ? 'valid' : 'invalid');
             }
@@ -135,7 +135,7 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Deshabilitar botÛn durante envÌo
+        // Deshabilitar bot√≥n durante env√≠o
         submitBtn.disabled = true;
         submitBtn.value = 'Enviando...';
         
@@ -147,15 +147,15 @@
         const csrfToken = await getCsrfToken();
         
         if (!csrfToken) {
-            showMessage('Error de seguridad. Intente m·s tarde.', 'error');
+            showMessage('Error de seguridad. Intente m√°s tarde.', 'error');
             submitBtn.disabled = false;
-            submitBtn.value = 'Enviar AplicaciÛn';
+            submitBtn.value = 'Enviar Aplicaci√≥n';
             return;
         }
         
         formData.append('csrf_token', csrfToken);
         
-        // ValidaciÛn frontend
+        // Validaci√≥n frontend
         const full_name = formData.get('full_name')?.trim();
         const email = formData.get('email')?.trim();
         const phone = formData.get('phone')?.trim();
@@ -169,9 +169,9 @@
             !validateField('phone', phone) || 
             !validateField('position', position) ||
             !validateField('motivation', motivation)) {
-            showMessage('Por favor, complete todos los campos correctamente. La motivaciÛn debe tener al menos 20 caracteres.', 'error');
+            showMessage('Por favor, complete todos los campos correctamente. La motivaci√≥n debe tener al menos 20 caracteres.', 'error');
             submitBtn.disabled = false;
-            submitBtn.value = 'Enviar AplicaciÛn';
+            submitBtn.value = 'Enviar Aplicaci√≥n';
             return;
         }
 
@@ -192,26 +192,27 @@
                     showMessage('Complete todos los campos correctamente', 'error');
                     break;
                 case 'invalid':
-                    showMessage('Algunos datos no son v·lidos. Verifique su email y que la motivaciÛn tenga al menos 20 caracteres.', 'error');
+                    showMessage('Algunos datos no son v√°lidos. Verifique su email y que la motivaci√≥n tenga al menos 20 caracteres.', 'error');
                     break;
                 case 'success':
-                    showMessage('AplicaciÛn enviada con Èxito. CV recibido, nos contactaremosÖ', 'success');
+                    showMessage('Aplicaci√≥n enviada con √©xito. CV recibido, nos contactaremos‚Ä¶', 'success');
                     break;
                 case 'error':
                 default:
-                    showMessage('OcurriÛ un error. Intente nuevamente o cont·ctenos directamente.', 'error');
+                    showMessage('Ocurri√≥ un error. Intente nuevamente o cont√°ctenos directamente.', 'error');
                     break;
             }
         } catch (error) {
             console.error('Error:', error);
-            showMessage('Error de conexiÛn. Verifique su internet e intente nuevamente.', 'error');
+            showMessage('Error de conexi√≥n. Verifique su internet e intente nuevamente.', 'error');
         } finally {
-            // Rehabilitar botÛn
+            // Rehabilitar bot√≥n
             submitBtn.disabled = false;
-            submitBtn.value = 'Enviar AplicaciÛn';
+            submitBtn.value = 'Enviar Aplicaci√≥n';
         }
     });
 })();
+
 
 
 

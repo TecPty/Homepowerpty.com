@@ -1,5 +1,7 @@
-(function() {
-    'use strict';\n\n    const DEBUG = false;
+﻿(function() {
+    'use strict';
+
+    const DEBUG = false;
     
     // Configuration
     const CONFIG = {
@@ -33,7 +35,7 @@
                 timestamp: Date.now()
             }));
         } catch (error) {
-            if (DEBUG) console.('LocalStorage not available:', error);
+            if (DEBUG) console.log('LocalStorage not available:', error);
         }
     }
     
@@ -42,7 +44,7 @@
             const item = localStorage.getItem(key);
             return item ? JSON.parse(item) : null;
         } catch (error) {
-            if (DEBUG) console.('Error reading from localStorage:', error);
+            if (DEBUG) console.log('Error reading from localStorage:', error);
             return null;
         }
     }
@@ -108,19 +110,19 @@
     
     // Carousel Functions
     function initCarousel() {
-        if (DEBUG) console.('Initializing carousel...');
+        if (DEBUG) console.log('Initializing carousel...');
         const slides = bannersContainer ? bannersContainer.querySelectorAll('.banner-slide') : [];
-        if (DEBUG) console.('Found slides:', slides.length);
+        if (DEBUG) console.log('Found slides:', slides.length);
         
         if (slides.length === 0) {
-            if (DEBUG) console.('No banner slides found');
+            if (DEBUG) console.log('No banner slides found');
             return;
         }
         
         // Store slides for reference
         slides.forEach((slide, index) => {
             bannerSlides.push(slide);
-            if (DEBUG) console.(`Added slide ${index}:`, slide);
+            if (DEBUG) console.log(`Added slide ${index}:`, slide);
         });
         
         // Create indicators
@@ -129,13 +131,13 @@
         // Start auto-slide
         startAutoSlide();
         
-        if (DEBUG) console.('Carousel initialized successfully');
+        if (DEBUG) console.log('Carousel initialized successfully');
     }
     
     function createIndicators() {
-        if (DEBUG) console.('Creating indicators...');
+        if (DEBUG) console.log('Creating indicators...');
         if (!indicatorsContainer || bannerSlides.length === 0) {
-            if (DEBUG) console.('No indicators container found or no slides available');
+            if (DEBUG) console.log('No indicators container found or no slides available');
             return;
         }
         
@@ -147,10 +149,10 @@
             indicator.className = index === 0 ? 'indicator active' : 'indicator';
             indicator.addEventListener('click', () => goToSlide(index));
             indicatorsContainer.appendChild(indicator);
-            if (DEBUG) console.(`Created indicator ${index}`);
+            if (DEBUG) console.log(`Created indicator ${index}`);
         });
         
-        if (DEBUG) console.(`Created ${bannerSlides.length} indicators`);
+        if (DEBUG) console.log(`Created ${bannerSlides.length} indicators`);
     }
     
     function goToSlide(slideIndex) {
@@ -312,7 +314,7 @@
                         showPopup();
                     } else {
                         // Even if dismissed permanently, show once when clicking Inicio during Black Week
-                        if (DEBUG) console.('Showing Black Week popup on Inicio click');
+                        if (DEBUG) console.log('Showing Black Week popup on Inicio click');
                         showPopup();
                     }
                 }, 500);
@@ -324,7 +326,7 @@
         logoLinks.forEach(logo => {
             logo.addEventListener('click', (e) => {
                 setTimeout(() => {
-                    if (DEBUG) console.('Showing Black Week popup on logo click');
+                    if (DEBUG) console.log('Showing Black Week popup on logo click');
                     showPopup();
                 }, 500);
             });
@@ -350,7 +352,7 @@
     // Initialize
     function init() {
         if (!popup) {
-            if (DEBUG) console.('Black Week popup element not found');
+            if (DEBUG) console.log('Black Week popup element not found');
             return;
         }
         
@@ -360,7 +362,7 @@
         initCarousel();
         
         // ALWAYS show popup immediately on page load during Black Week campaign
-        if (DEBUG) console.('Black Week campaign active - showing popup immediately');
+        if (DEBUG) console.log('Black Week campaign active - showing popup immediately');
         setTimeout(showPopup, CONFIG.popupDelay);
         
         // Also show if normal conditions are met (backup)
@@ -392,12 +394,14 @@
         currentSlide: () => currentSlide,
         slideCount: () => bannerSlides.length,
         forceShow: () => {
-            if (DEBUG) console.('Forcing Black Week popup to show');
+            if (DEBUG) console.log('Forcing Black Week popup to show');
             showPopup();
         },
         resetStorage: () => {
             localStorage.removeItem(CONFIG.storageKeys.dismissed);
-            if (DEBUG) console.('Black Week popup storage cleared');
+            if (DEBUG) console.log('Black Week popup storage cleared');
         }
     };
 })();
+
+

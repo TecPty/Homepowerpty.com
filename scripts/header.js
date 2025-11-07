@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   const menuBurger = document.getElementById('menuBurger');
   const fullscreenMenu = document.getElementById('fullscreenMenu');
   const menuClose = document.getElementById('menuClose');
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     const socialHeader = document.querySelector('.social_header_bar');
     const banner = document.querySelector('.section_banner');
+    const bannerLogo = document.querySelector('.banner_logo');
     const btnMenu = document.getElementById('btn_menu');
     const btnMenuClose = document.getElementById('btn_menu_close');
     const menuItems = document.querySelectorAll('.menu_item');
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const getHeadersHeight = () => {
         const socialHeight = socialHeader ? socialHeader.offsetHeight : 0;
         const headerHeight = header.offsetHeight;
-        // En móvil no empujamos el banner por la altura del header para evitar franja blanca
+        // En mÃ³vil no empujamos el banner por la altura del header para evitar franja blanca
         return (window.innerWidth <= 768) ? socialHeight : (socialHeight + headerHeight);
     };
     
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         banner.style.paddingTop = `${getHeadersHeight()}px`;
     }
     // Ensure header sits below social bar height on load
-    header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`;
+    header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`; if (bannerLogo) { const offset = (socialHeader ? socialHeader.offsetHeight : 0) + 80; bannerLogo.style.top = `${offset}px`; }
     
     if (btnMenu && overlay) { btnMenu.addEventListener('click', () => { header.classList.add('translate'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }); }
     
@@ -81,7 +82,7 @@ if (scrollTop > 100) {
             socialHeader.style.transform = 'translateY(-100%)';
             socialHeader.style.transition = 'transform 0.3s ease';
             
-            // Efecto adicional: hacer el header más transparente y elegante
+            // Efecto adicional: hacer el header mÃ¡s transparente y elegante
             header.style.background = 'rgba(255, 255, 255, 0.92)';
             header.style.backdropFilter = 'blur(20px)';
             
@@ -105,7 +106,7 @@ if (scrollTop > 100) {
             header.style.background = 'rgba(255, 255, 255, 0.98)';
             header.style.backdropFilter = 'blur(10px)';
             // Reposition header right under social bar when visible
-            header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`;
+            header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`; if (bannerLogo) { const offset = (socialHeader ? socialHeader.offsetHeight : 0) + 80; bannerLogo.style.top = `${offset}px`; }
             
             if (banner) {
                 banner.style.paddingTop = `${getHeadersHeight()}px`;
@@ -138,10 +139,15 @@ if (scrollTop > 100) {
             banner.style.paddingTop = `${getHeadersHeight()}px`;
         }
         if (window.scrollY < 100) {
-            header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`;
+            header.style.top = `${socialHeader ? socialHeader.offsetHeight : 0}px`; if (bannerLogo) { const offset = (socialHeader ? socialHeader.offsetHeight : 0) + 80; bannerLogo.style.top = `${offset}px`; }
         }
     });
 })();
+
+
+
+
+
 
 
 

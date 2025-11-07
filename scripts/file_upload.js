@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Manejo de carga de archivos para formulario de carreras
  */
 
@@ -97,3 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+// Envío del archivo seleccionado al servidor
+(function(){
+  const uploadBtn = document.getElementById('cv_upload_btn');
+  const fileInput = document.getElementById('cv_file');
+  const msg = document.getElementById('careers_form_msg');
+
+  async function uploadCV(){
+    if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+      if (msg){ msg.className='form_msg error active'; msg.textContent='Selecciona un archivo antes de subir.'; }
+      return;
+    }
+    const fd = new FormData();
+    fd.append('cv_file', fileInput.files[0]);
+    try {
+      const res = await fetch('./php/upload_cv.php', { method:'POST', body: fd });
+      const data = await res.json().catch(()=>({status:'error'}));
+      if (res.ok && data.status === 'success'){
+        if (msg){ msg.className='form_msg success active'; msg.textContent='CV subido correctamente: ' + data.filename + '. CV recibido, nos contactaremos…'; }
+      } else {
+        if (msg){ msg.className='form_msg error active'; msg.textContent='No se pudo subir el CV (' + (data.status||'error') + ').'; }
+      }
+    } catch(err){
+      if (msg){ msg.className='form_msg error active'; msg.textContent='Error de conexión al subir el CV.'; }
+    }
+  }
+
+  if (uploadBtn){
+    uploadBtn.addEventListener('click', uploadCV);
+  }
+})();

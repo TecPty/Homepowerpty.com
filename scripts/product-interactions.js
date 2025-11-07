@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
   // Interacciones de productos (robusto con o sin <picture>)
   const productImages = document.querySelectorAll('.product_image_wrapper');
   const modal = document.getElementById('imageModal');
@@ -48,12 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (showHover) {
         img.src = boxSrc;
         isMainImage = false;
-        // Marcar wrapper para estilos especiales de imágenes "CAJA"
-        wrapper.classList.add('is-box');
       } else {
         img.src = mainSrc;
         isMainImage = true;
-        wrapper.classList.remove('is-box');
       }
     };
 
@@ -96,3 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+

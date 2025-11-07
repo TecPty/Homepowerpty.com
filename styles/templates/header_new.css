@@ -1,6 +1,6 @@
-.header {
+﻿.header {
     width: 100%;
-    height: 140px; /* Aumentado para acomodar el logo más grande */
+    height: 140px; /* Aumentado para acomodar el logo mÃ¡s grande */
     position: fixed;
     top: 50px; /* Ajustado para el social header */
     left: 0;
@@ -18,8 +18,8 @@
 
 .header.active {
     top: 0;
-    height: 90px; /* Más pequeño al hacer scroll */
-    background: rgba(255, 255, 255, 0.95); /* Más transparente */
+    height: 90px; /* MÃ¡s pequeÃ±o al hacer scroll */
+    background: rgba(255, 255, 255, 0.95); /* MÃ¡s transparente */
     backdrop-filter: blur(15px);
     padding: 0 3%;
 }
@@ -40,7 +40,7 @@
 .logo_icon {
     height: 100%;
     width: auto;
-    max-height: 140px; /* Aumentado para un logo más grande */
+    max-height: 140px; /* Aumentado para un logo mÃ¡s grande */
     object-fit: contain;
     transform-origin: left center;
     transition: all 0.3s ease;
@@ -98,7 +98,7 @@
     width: 100%;
 }
 
-/* Estilos para el botón de contacto */
+/* Estilos para el botÃ³n de contacto */
 .contact_btn {
     display: flex;
     align-items: center;
@@ -125,7 +125,7 @@
 
 /* Mobile menu */
 .btn_menu {
-    display: none !important; /* evitar solaparse con el nuevo menú */
+    display: none !important; /* evitar solaparse con el nuevo menÃº */
     width: 30px;
     height: 30px;
     position: fixed;
@@ -136,7 +136,7 @@
 }
 
 @media screen and (max-width: 890px) {
-    /* Mantener header visible y a lo ancho en móvil */
+    /* Mantener header visible y a lo ancho en mÃ³vil */
     .btn_menu { display: none; }
 
     .header {
@@ -176,7 +176,7 @@
     .contact_btn { width: auto; margin: 0; }
 }
 
-/* Alinear el header por debajo de la barra social móvil (min-height 80px) */
+/* Alinear el header por debajo de la barra social mÃ³vil (min-height 80px) */
 @media screen and (max-width: 768px) {
     .header { top: 80px; }
 }
@@ -199,6 +199,7 @@
 .header.hide{ transform: translateY(-150%); transition: transform .3s ease; }
 
 @media screen and (max-width: 890px) { .header { right: 0; } }
+
 
 
 

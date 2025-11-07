@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Configuración de seguridad básica
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *'); // Permitir cualquier origen para pruebas
@@ -15,7 +15,7 @@ if (isset($_SESSION[$rate_limit_key]) && time() - $_SESSION[$rate_limit_key] < 3
 $_SESSION[$rate_limit_key] = time();
 
 // Configurar direcciones de email
-$to = 'josephharari@homepowerpty.com, davidazran@homepowerpty.com';
+$to = 'josephharari@homepowerpty.com, davidazran@homepowerpty.com, soporte@tecpty.com';
 
 // Validar método POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

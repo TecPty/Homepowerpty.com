@@ -1,4 +1,4 @@
-/* Social Header Bar */
+﻿/* Social Header Bar */
 .social_header_bar {
     width: 100%;
     height: 45px;
@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 
-/* Wrapper para información de contacto */
+/* Wrapper para informaciÃ³n de contacto */
 .contact_info_wrapper {
     display: flex;
     align-items: center;
@@ -46,7 +46,7 @@
     filter: brightness(0) saturate(100%) invert(71%) sepia(88%) saturate(651%) hue-rotate(93deg) brightness(95%) contrast(93%); /* Color WhatsApp #25D366 */
 }
 
-/* Contenedor de números */
+/* Contenedor de nÃºmeros */
 .contact_numbers,
 .contact_emails {
     display: flex;
@@ -109,7 +109,7 @@
     fill: currentColor;
 }
 
-/* Facebook específico */
+/* Facebook especÃ­fico */
 .social_icon_link:first-child .social_icon {
     width: 15px;
     height: 15px;
@@ -130,7 +130,7 @@
     }
 }
 
-/* Responsive para móviles */
+/* Responsive para mÃ³viles */
 @media screen and (max-width: 768px) {
     .social_header_bar {
         height: auto;
@@ -158,7 +158,7 @@
         align-items: flex-start;
     }
 
-    /* Apilar correos en móvil */
+    /* Apilar correos en mÃ³vil */
     .contact_emails {
         flex-direction: column;
         gap: 2px;
@@ -195,3 +195,4 @@
         height: 14px;
     }
 }
+

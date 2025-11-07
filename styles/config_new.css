@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --color_orange: #FF9F1C;
     --color_red: #ff4b4b;
     --color_green: #4CAF50;
@@ -122,3 +122,4 @@ textarea {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
