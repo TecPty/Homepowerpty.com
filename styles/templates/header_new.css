@@ -153,7 +153,7 @@
     }
 
     .logo_container {
-        height: 60px;
+        height: 80px;
         margin-bottom: 0;
         display: flex;
         align-items: center;
@@ -161,7 +161,7 @@
     }
 
     .logo_icon {
-        max-height: 50px;
+        max-height: 70px;
         width: auto;
         object-fit: contain;
         display: block;
@@ -179,6 +179,12 @@
 /* Alinear el header por debajo de la barra social mÃ³vil (min-height 80px) */
 @media screen and (max-width: 768px) {
     .header { top: 80px; }
+}
+
+/* Afinar tamaños en teléfonos pequeños */
+@media screen and (max-width: 480px) {
+    .logo_container { height: 84px; }
+    .logo_icon { max-height: 72px; }
 }
 
 @media screen and (max-width: 1024px) {

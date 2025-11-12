@@ -1,4 +1,4 @@
-﻿:root {
+:root {
             --color_orange: #FF9F1C;
             --color_red: #ff4b4b;
             --color_green: #4CAF50;
@@ -33,7 +33,7 @@
             overflow-x: hidden;
         }
 
-        /* Tipografía responsive mejorada */
+        /* Tipograf�a responsive mejorada */
         body {
             font-family: var(--font_text);
             color: var(--color_black);
@@ -72,7 +72,7 @@
             margin-bottom: 1em;
         }
 
-        /* Responsive específico para tipografía */
+        /* Responsive espec�fico para tipograf�a */
         @media (max-width: 1024px) {
             body {
                 font-size: 15px;
@@ -799,7 +799,7 @@ body.menu-open {
 
         .section_banner::before {
             content: '';
-            display: none; /* Usaremos <img class="banner_img"> como fondo visual */
+            display: none;
         }
 
         .banner_content {
@@ -1030,7 +1030,7 @@ body.menu-open {
     resize: none;
     box-sizing: border-box;
     line-height: 1.4;
-    min-height: 52px; /* Mejor para dispositivos táctiles */
+    min-height: 52px; /* Mejor para dispositivos tactiles */
     -webkit-appearance: none; /* Elimina estilos nativos de iOS */
     appearance: none;
 }
@@ -1103,7 +1103,7 @@ body.menu-open {
     position: relative;
     overflow: hidden;
     margin-top: 12px;
-    min-height: 52px; /* Mejor para dispositivos táctiles */
+    min-height: 52px; /* Mejor para dispositivos tactiles */
     -webkit-appearance: none;
     appearance: none;
     -webkit-tap-highlight-color: transparent; /* Elimina highlight azul en iOS */
@@ -1494,14 +1494,14 @@ body.menu-open {
     transition: all 0.3s ease;
     font-weight: 500;
     font-size: 15px;
-    min-height: 44px; /* Mejor para dispositivos táctiles */
+    min-height: 44px; /* Mejor para dispositivos tactiles */
 }
 
 .category_icon {
     font-size: 18px;
 }
 
-/* Responsive para categorías */
+/* Responsive para categoras */
 @media (max-width: 1024px) {
     .products_categories {
         gap: 12px;
@@ -2114,7 +2114,7 @@ body.menu-open {
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Animación de rotación para el anillo */
+/* Animaci�n de rotaci�n para el anillo */
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -2346,7 +2346,7 @@ body.menu-open {
     list-style: none;
 }
 
-/* Animación del slider */
+/* Animaci�n del slider */
 @keyframes scrollClients {
     0% {
         transform: translateX(0);
@@ -2589,7 +2589,7 @@ body.menu-open {
         @media screen and (max-width: 480px) {
             .products_title { font-size: clamp(22px, 7.5vw, 28px); }
             .products_subtitle { font-size: clamp(13px, 4vw, 15px); }
-            /* Banner móvil */
+            /* Banner m�vil */
             .section_banner {
                 padding: 20px 15px;
                 min-height: 500px;
@@ -2948,7 +2948,7 @@ body.menu-open {
     width: 100%;
 }
 
-/* Responsive para banner único */
+/* Responsive para banner unico */
 @media screen and (max-width: 768px) {
     .popup-content {
         width: 95vw;
@@ -3510,7 +3510,7 @@ img {
         max-height: 28px;
     }
     
-    /* Optimización para dispositivos con conexión lenta */
+    /* Optimizacion para dispositivos con conexion lenta */
     img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
@@ -3527,7 +3527,7 @@ img {
         max-height: 24px;
     }
     
-    /* Reducir calidad de imagen en móviles pequeños */
+    /* Reducir calidad de imagen en moviles pequeños */
     .banner_image {
         image-rendering: auto;
     }
@@ -3552,7 +3552,7 @@ img {
     }
 }
 
-/* Soporte para modo oscuro en imágenes */
+/* Soporte para modo oscuro en im�genes */
 @media (prefers-color-scheme: dark) {
     .logo_image {
         filter: brightness(0.9) contrast(1.1);
@@ -3563,7 +3563,7 @@ img {
     }
 }
 
-/* Optimización para reducir movimiento */
+/* Optimizaci�n para reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
     img {
         transition: none;
@@ -3582,7 +3582,7 @@ img {
     }
 }
 
-/* Estado de éxito cuando se envía el CV */
+/* Estado de �xito cuando se env�a el CV */
 .cv_upload_link.success {
     background: linear-gradient(135deg, var(--color_green) 0%, #059669 100%) !important;
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3) !important;
@@ -3617,7 +3617,7 @@ img {
     }
 }
 
-/* ===== BOTÓN FLOTANTE DE WHATSAPP ===== */
+/* ===== BOT�N FLOTANTE DE WHATSAPP ===== */
 .whatsapp_float {
     position: fixed;
     bottom: 20px;
@@ -3655,7 +3655,7 @@ img {
     display: none;
 }
 
-/* Animación de pulso para llamar la atención */
+/* Animaci�n de pulso para llamar la atenci�n */
 .whatsapp_float::before {
     content: '';
     position: absolute;
@@ -3684,7 +3684,7 @@ img {
     }
 }
 
-/* Responsive para el botón flotante */
+/* Responsive para el bot�n flotante */
 @media screen and (max-width: 768px) {
     .whatsapp_float {
         bottom: 20px;
@@ -3794,14 +3794,14 @@ img {
   .product_image_wrapper { aspect-ratio: 1/1 !important; height: auto !important; }
 }
 
-/* Mostrar logo sobre banner solo en móviles */
+/* Mostrar logo sobre banner solo en m�viles */
 .banner_logo { display: none; }
 @media (max-width: 768px) {
   .banner_logo {
     display: block;
     position: absolute;
-    left: 20px;
-    top: 96px; /* se recalcula con JS según barra social */
+    right: 16px;
+    top: 64px; /* se recalcula con JS seg�n barra social */
     z-index: 25;
     padding: 0;
     border-radius: 0;
@@ -3809,10 +3809,15 @@ img {
     backdrop-filter: none;
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
   }
-  .banner_logo img { display:block; height: 34px; width: auto; }
+  .banner_logo img { display:block; height: 160px; width: auto; max-width: 90vw; }
+  .header .logo_container .logo_icon { display: none !important; }
+
+@media (max-width: 480px) {
+  .banner_logo { right: 16px; top: 56px; }
+  .banner_logo img { height: 180px; max-width: 90vw; }
 }
 
-/* Ocultar botón de cierre del drawer cuando está inactivo */
+/* Ocultar boton de cierre del drawer cuando está inactivo */
 .fullscreen-menu .menu-close { display: none; }
 .fullscreen-menu.active .menu-close { display: inline-block; }
 
