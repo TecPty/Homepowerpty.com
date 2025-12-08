@@ -154,6 +154,31 @@ st.contains('active')) {
             observer.observe(el);
         });
 
+        // CLIENT LOGO ENTRANCE ANIMATIONS
+        const clientLogos = document.querySelectorAll('.client_logo');
+        if (clientLogos.length) {
+            const logoObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    const logo = entry.target;
+                    const duration = parseFloat(logo.dataset.duration) || 1;
+                    const delay = parseFloat(logo.dataset.delay) || 0;
+
+                    logo.style.setProperty('--client-animation-duration', `${duration}s`);
+                    logo.style.setProperty('--client-animation-delay', `${delay}s`);
+                    logo.classList.add('is-visible');
+                    obs.unobserve(logo);
+                });
+            }, { threshold: 0.35 });
+
+            clientLogos.forEach(logo => {
+                logo.style.setProperty('--client-animation-duration', `${logo.dataset.duration || 1}s`);
+                logo.style.setProperty('--client-animation-delay', `${logo.dataset.delay || 0}s`);
+                logoObserver.observe(logo);
+            });
+        }
+
         // LOADING ANIMATION
         window.addEventListener('load', () => {
             document.body.style.opacity = '1';

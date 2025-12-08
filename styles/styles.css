@@ -2373,8 +2373,8 @@ body.menu-open {
             width: auto;
             height: auto;
             object-fit: contain;
-            filter: grayscale(100%) brightness(0.6);
-            opacity: 0.7;
+            filter: none;
+            opacity: 1;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             z-index: 1;
@@ -2563,7 +2563,7 @@ body.menu-open {
         }
 
         .client_link:hover .client_logo {
-            filter: grayscale(0%) brightness(1);
+            filter: none;
             opacity: 1;
             transform: scale(1.05);
         }
@@ -3040,384 +3040,114 @@ body.menu-open {
             .testimonial { padding: 16px 12px; }
         }
 
-/* ===== BLACK WEEK POPUP STYLES ===== */
-.black-week-popup {
+/* ===== POPUP PROMOCIONAL ===== */
+.promo-popup {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease-in-out;
-}
-
-.black-week-popup.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-/* Wrapper que contiene el pop-up y el botÃ³n externo */
-.popup-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.popup-content {
-    background: transparent; /* caja transparente */
-    border-radius: 20px;
-    padding: 0;
-    width: min(95vw, 1080px); /* Mantiene la proporciÃ³n 9:16 limitada por altura */
-    height: auto;
-    max-height: 90vh; /* Mantiene la proporciÃ³n 9:16 limitada por ancho */
-    overflow: hidden;
-    box-shadow: none; /* sin sombra para que no se note caja */
-    border: none; /* sin borde */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.black-week-popup.active .popup-wrapper {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.popup-close {
-    display: flex; /* Mostrar botÃ³n de cierre tambiÃ©n en desktop */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.45); /* mÃ¡s visible sobre fondos claros */
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    font-size: 24px;
-    color: #ffffff;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 100; /* por encima de la imagen */
-}
-
-.popup-close:hover {
-    background: rgba(255, 0, 0, 0.3);
-    transform: rotate(90deg);
-}
-
-.popup-body {
-    padding: 30px 25px;
-}
-
-.popup-main-title {
-    color: var(--color_orange);
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    margin: 0 0 25px 0;
-    font-family: var(--font_title);
-}
-
-/* Banner promocional Ãºnico */
-.popup-banner-single {
-    margin-bottom: 25px;
-    border-radius: 0;
-    overflow: hidden;
-}
-
-.popup-banner-single .banner-item {
-    position: relative;
-    border-radius: 0;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.popup-banner-single .banner-item:hover {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-}
-
-.popup-banner-single .promotion-banner {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.popup-banner-single .banner-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-    color: white;
-    padding: 20px 15px 15px;
-    text-align: center;
-    border-radius: 0 0 12px 12px;
-}
-
-.popup-banner-single .banner-overlay h4 {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 0 5px 0;
-    color: var(--color_orange);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.popup-banner-single .banner-overlay p {
-    font-size: 14px;
-    margin: 0;
-    opacity: 0.95;
-    line-height: 1.3;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-/* Nuevo banner de pantalla completa */
-.popup-banner-fullscreen {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
-.promotion-banner-full {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Cambiado a contain para mostrar la imagen completa */
-    border-radius: 20px;
-}
-
-/* Acciones en la parte inferior */
-.popup-actions-bottom {
-    position: relative;
-    padding: 15px 20px 5px 20px;
-    display: flex;
-    justify-content: center;
-    z-index: 10;
-    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-    border-radius: 0 0 20px 20px;
-}
-
-/* BotÃ³n externo fuera del contenedor */
-.popup-actions-external {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Responsive para banner unico */
-@media screen and (max-width: 768px) {
-    .popup-content {
-        width: 95vw;
-        height: auto;
-        max-height: 90vh;
-        aspect-ratio: auto;
-    }
-}
-
-/* Ajustes para pantallas muy anchas */
-@media screen and (min-width: 1200px) {
-  .popup-content { max-width: 800px; }
-}
-    
-    .popup-banner-single .promotion-banner {
-        height: 350px;
-    }
-    
-    .popup-banner-single .banner-overlay h4 {
-        font-size: 16px;
-    }
-    
-    .popup-banner-single .banner-overlay p {
-        font-size: 12px;
-    }
-    
-    .popup-actions-bottom {
-        padding: 12px 15px 5px 15px;
-    }
-
-
-@media screen and (max-width: 480px) {
-    .popup-wrapper {
-        gap: 10px;
-    }
-    
-    .popup-content {
-        max-width: 320px;
-        width: 95%;
-    }
-    
-    .popup-banner-single .promotion-banner {
-        height: 300px;
-    }
-    
-    .popup-banner-single .banner-overlay {
-        padding: 15px 12px 12px;
-    }
-    
-    .popup-banner-single .banner-overlay h4 {
-        font-size: 14px;
-    }
-    
-    .popup-banner-single .banner-overlay p {
-        font-size: 11px;
-    }
-    
-    .popup-actions-external {
-        width: 95%;
-        max-width: 320px;
-    }
-}
-
-.indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.indicator.active {
-    background: var(--color_orange);
-    transform: scale(1.3);
-}
-
-.popup-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.popup-cta-close {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.popup-cta-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
-}
-
-.popup-cta-primary {
-    background: linear-gradient(135deg, var(--color_orange) 0%, #ffb84d 100%);
-    color: #ffffff;
-    text-decoration: none;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.popup-cta-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 159, 28, 0.4);
-}
-
-.popup-cta-primary .cta-icon {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1);
-}
-
-.popup-cta-secondary {
+    padding: 24px;
     background: transparent;
-    color: #a0aec0;
-    border: 1px solid rgba(160, 174, 192, 0.3);
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 14px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 9999;
+}
+
+.promo-popup.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.promo-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.promo-card {
+    position: relative;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    max-width: 85vw;
+    width: auto;
+    max-height: 85vh;
+    transform: translateY(12px) scale(0.98);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.promo-popup.active .promo-card {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+}
+
+.promo-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    color: #1f2937;
+    font-size: 24px;
+    line-height: 1;
     cursor: pointer;
-    transition: all 0.3s ease;
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    z-index: 5;
 }
 
-.popup-cta-secondary:hover {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.3);
+.promo-close:hover,
+.promo-close:focus-visible {
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: scale(1.05);
+    outline: none;
 }
 
-/* Responsive para el popup */
-@media screen and (max-width: 768px) {
-    .popup-content {
-        width: 95vw;
-        height: auto;
-        max-height: 90vh;
-        aspect-ratio: auto;
+.promo-media {
+    background: transparent;
+    max-height: 85vh;
+    display: inline-block;
+}
+
+.promo-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 85vh;
+}
+
+@media (max-width: 640px) {
+    .promo-popup {
+        padding: 16px;
+    }
+    .promo-card {
+        width: 100%;
+        border-radius: 0;
+        max-width: 85vw;
+        max-height: 82vh;
+    }
+    .promo-media {
+        max-height: 70vh;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .popup-content {
-        max-width: 98%;
-        margin: 10px;
-    }
-    
-    .popup-body {
-        padding: 25px 20px;
+@media (prefers-reduced-motion: reduce) {
+    .promo-popup,
+    .promo-card,
+    .promo-close {
+        transition: none;
     }
 }
-
-/* Mejora de responsividad del popup en mÃ³viles */
-@media screen and (max-width: 640px) {
-  /* Mostrar botÃ³n de cierre interno y ocultar el externo para ahorrar espacio */
-  .popup-close { display: flex; align-items: center; justify-content: center; top: 8px; right: 8px; width: 44px; height: 44px; font-size: 26px; }
-  .popup-actions-external { display: none; }
-
-  /* Ajustar dimensiones para evitar recortes en iPhone */
-  .popup-wrapper { gap: 8px; }
-  .popup-content {
-    width: 92vw;
-    max-height: calc(88vh - env(safe-area-inset-bottom, 0px));
-  }
-  .black-week-popup .popup-banner-fullscreen,
-  .black-week-popup .promotion-banner-full {
-    max-height: inherit;
-  }
-}
-
 /* ===== ESTILOS PARA FORMULARIOS LADO A LADO ===== */
 .section_forms {
     padding: 60px 20px;

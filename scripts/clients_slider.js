@@ -1,13 +1,14 @@
 class ClientsSlider {
     constructor(options = {}) {
-        // Configuración por defecto
+        // Configuracion por defecto
         this.config = {
             sliderId: 'clients_slider',
             leftArrowId: 'slider_clients_arrow_left',
             rightArrowId: 'slider_clients_arrow_right',
             transitionDuration: 300,
             breakpoint: 864,
-            virtualItems: 5, // Número de items a renderizar
+            staticBreakpoint: 768,
+            virtualItems: 5, // Numero de items a renderizar
             ...options
         };
 
@@ -41,34 +42,44 @@ class ClientsSlider {
         // Mejoras de accesibilidad
         this.slider.setAttribute('role', 'region');
         this.slider.setAttribute('aria-label', 'Carrusel de clientes');
-        
+
         this.leftArrow.setAttribute('aria-label', 'Anterior slide');
         this.rightArrow.setAttribute('aria-label', 'Siguiente slide');
-        
-        // Añadir soporte para teclado
+
+        // Anadir soporte para teclado
         this.slider.setAttribute('tabindex', '0');
     }
 
     getSliderValues() {
-        const window_width = window.innerWidth;
-        return window_width > this.config.breakpoint 
-            ? { moveDistance: 50, resetMargin: -25 }
-            : { moveDistance: 100, resetMargin: -50 };
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth <= this.config.staticBreakpoint) {
+            return { moveDistance: 0, resetMargin: 0, isStatic: true };
+        }
+
+        if (windowWidth > this.config.breakpoint) {
+            return { moveDistance: 50, resetMargin: -25, isStatic: false };
+        }
+
+        return { moveDistance: 100, resetMargin: -50, isStatic: false };
     }
 
     async moveSlide(direction) {
-        if (this.isAnimating) return;
+        const sliderValues = this.getSliderValues();
+
+        if (sliderValues.isStatic || this.isAnimating) return;
         this.isAnimating = true;
 
-        const { moveDistance, resetMargin } = this.getSliderValues();
-        const margin = direction === 'right' ? `-${moveDistance}` : '0';
+        const margin = direction === 'right'
+            ? `-${sliderValues.moveDistance}`
+            : '0';
 
         try {
             await this.animateSlide(margin);
             this.updateSlideOrder(direction);
-            this.resetSlidePosition(resetMargin);
+            this.resetSlidePosition(sliderValues.resetMargin);
         } catch (error) {
-            console.error('Error en la animación:', error);
+            console.error('Error en la animacion:', error);
         } finally {
             this.isAnimating = false;
         }
@@ -142,12 +153,13 @@ class ClientsSlider {
         });
 
         resizeObserver.observe(this.slider);
+        this.resetSlidePosition(this.getSliderValues().resetMargin);
     }
 
     virtualizeItems() {
         const items = Array.from(this.slider.children);
         this.totalItems = items.length;
-        
+
         // Mantener solo los items visibles
         this.slider.innerHTML = '';
         items.slice(0, this.config.virtualItems).forEach(item => {
@@ -156,7 +168,7 @@ class ClientsSlider {
     }
 }
 
-// Inicialización
+// Inicializacion
 document.addEventListener('DOMContentLoaded', () => {
     const slider = new ClientsSlider();
 });
