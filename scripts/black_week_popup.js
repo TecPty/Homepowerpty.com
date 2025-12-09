@@ -2,6 +2,12 @@
   'use strict';
 
   const popup = document.getElementById('seasonalPopup');
+  // Temporarily disable seasonal popup until the new version is ready
+  const POPUP_ENABLED = false;
+  if (!POPUP_ENABLED && popup) {
+    popup.style.display = 'none';
+    return;
+  }
   if (!popup) return;
 
   const closeElements = popup.querySelectorAll('[data-close-popup]');

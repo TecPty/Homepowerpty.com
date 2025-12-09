@@ -1016,12 +1016,12 @@ body.menu-open {
 /* Formularios - Optimizados para dispositivos tÃ¡ctiles */
 .form_item {
     position: relative;
-    margin-bottom: 28px;
+    margin-bottom: 14px;
 }
 
 .form_input {
     width: 100%;
-    padding: 20px 18px;
+    padding: 14px 14px;
     font-size: 16px; /* Evita zoom en iOS */
     font-family: var(--font_text);
     color: #2d3748;
@@ -1033,16 +1033,16 @@ body.menu-open {
     resize: none;
     box-sizing: border-box;
     line-height: 1.4;
-    min-height: 52px; /* Mejor para dispositivos tactiles */
+    min-height: 50px; /* Uniforme entre ambos formularios */
     -webkit-appearance: none; /* Elimina estilos nativos de iOS */
     appearance: none;
 }
 
 .form_textarea {
-    min-height: 120px;
+    min-height: 110px;
     font-family: var(--font_text);
     line-height: 1.5;
-    padding-top: 18px;
+    padding-top: 14px;
     resize: vertical; /* Permite redimensionar solo verticalmente */
 }
 
@@ -1055,7 +1055,6 @@ body.menu-open {
 }
 
 .form_input:focus + .form_label,
-.form_input:not(:placeholder-shown) + .form_label,
 .form_label.active {
     top: -12px;
     left: 20px;
@@ -1145,6 +1144,43 @@ body.menu-open {
     box-shadow: none;
 }
 
+/* Estilos unificados para adjuntar CV */
+.file_actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 4px 0 8px 0;
+}
+
+.file_button {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #FF9F1C 0%, #ffb84d 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font_text);
+}
+
+.file_button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 159, 28, 0.25);
+}
+
+.file_button:focus-visible {
+    outline: 2px solid var(--color_orange);
+    outline-offset: 2px;
+}
+
+.file_name {
+    color: #64748b;
+    font-size: 14px;
+    font-family: var(--font_text);
+}
+
 /* Responsive para formularios */
 @media (max-width: 1024px) {
     .form_item {
@@ -1188,8 +1224,7 @@ body.menu-open {
     }
     
     .form_input:focus + .form_label,
-    .form_input:not(:placeholder-shown) + .form_label,
-    .form_label.active {
+        .form_label.active {
         left: 14px;
         font-size: 11px;
         padding: 3px 6px;
@@ -1252,8 +1287,7 @@ body.menu-open {
     }
     
     .form_input:focus + .form_label,
-    .form_input:not(:placeholder-shown) + .form_label,
-    .form_label.active {
+        .form_label.active {
         left: 10px;
         font-size: 10px;
         padding: 2px 4px;
@@ -1430,13 +1464,14 @@ body.menu-open {
 .careers_form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--color_white);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    gap: 12px;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .form_select {
@@ -1446,6 +1481,9 @@ body.menu-open {
     background-repeat: no-repeat !important;
     background-size: 14px !important;
     padding-right: 40px !important;
+    padding: 14px 14px;
+    font-size: 16px;
+    min-height: 50px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -2970,8 +3008,7 @@ body.menu-open {
             }
 
             .form_input:focus + .form_label,
-            .form_input:not(:placeholder-shown) + .form_label,
-            .form_label.active {
+                        .form_label.active {
                 left: 12px;
                 font-size: 11px;
             }
@@ -3150,7 +3187,7 @@ body.menu-open {
 }
 /* ===== ESTILOS PARA FORMULARIOS LADO A LADO ===== */
 .section_forms {
-    padding: 60px 20px;
+    padding: 40px 16px;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     position: relative;
 }
@@ -3172,9 +3209,10 @@ body.menu-open {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 20px;
     position: relative;
     z-index: 1;
+    align-items: stretch;
 }
 
 .form_wrapper {
@@ -3183,11 +3221,19 @@ body.menu-open {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 15px;
-    padding: 30px 25px;
+    padding: 18px 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+/* Wrapper generic for both forms */
+.form_wrapper {
+    padding: 14px 10px;
 }
 
 .form_wrapper::before {
@@ -3218,7 +3264,7 @@ body.menu-open {
     font-family: var(--font_title);
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-align: center;
     position: relative;
 }
@@ -3239,13 +3285,26 @@ body.menu-open {
     color: #64748b;
     font-size: 14px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     line-height: 1.5;
 }
 
-.contact_wrapper .contact_form,
-.careers_wrapper .careers_form {
-    margin-bottom: 20px;
+.form_wrapper .contact_form,
+.form_wrapper .careers_form {
+    margin-bottom: 12px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .contact_text_container {
@@ -3259,12 +3318,23 @@ body.menu-open {
     border-radius: 0;
     text-decoration: none;
     transition: all 0.3s ease;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .contact_text_container:hover {
     background: rgba(37, 211, 102, 0.2);
     transform: translateY(-2px);
+}
+
+/* Alinear botones de ambos formularios al mismo nivel */
+.contact_form .form_item:last-child,
+.careers_form .form_item:last-child {
+    margin-top: auto;
+}
+
+.form_submit {
+    display: block;
+    width: 100%;
 }
 
 .contact_text {
@@ -3832,5 +3902,7 @@ img {
 /* Ocultar boton de cierre del drawer cuando estÃ¡ inactivo */
 .fullscreen-menu .menu-close { display: none; }
 .fullscreen-menu.active .menu-close { display: inline-block; }
+
+
 
 

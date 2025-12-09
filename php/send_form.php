@@ -69,13 +69,12 @@ if ($form_type === 'careers') {
     $phone     = trim((string)filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $position  = trim((string)filter_input(INPUT_POST, 'position', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $experience= trim((string)filter_input(INPUT_POST, 'experience', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $motivation= trim((string)filter_input(INPUT_POST, 'motivation', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
-    if ($full_name === '' || $email === '' || $phone === '' || $position === '' || $motivation === '') {
+    if ($full_name === '' || $email === '' || $phone === '' || $position === '') {
         echo json_encode('empty');
         exit;
     }
-    if (strlen($full_name) < 2 || !filter_var($email, FILTER_VALIDATE_EMAIL) || !valid_phone($phone) || strlen($motivation) < 20) {
+    if (strlen($full_name) < 2 || !filter_var($email, FILTER_VALIDATE_EMAIL) || !valid_phone($phone) || strlen($position) < 2) {
         echo json_encode('invalid');
         exit;
     }
@@ -88,13 +87,15 @@ if ($form_type === 'careers') {
         '<p><strong>Nombre Completo:</strong> ' . htmlspecialchars($full_name, ENT_QUOTES, 'UTF-8') . '</p>' .
         '<p><strong>Email:</strong> ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '</p>' .
         '<p><strong>Teléfono:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>' .
-        '<p><strong>Posición de Interés:</strong> ' . htmlspecialchars($position, ENT_QUOTES, 'UTF-8') . '</p>' .
+        '<p><strong>Posición de Interés
         ($experience !== '' ? ('<p><strong>Experiencia:</strong></p><div style="background:#fff;padding:10px;border-left:4px solid #2196F3;">' . nl2br(htmlspecialchars($experience, ENT_QUOTES, 'UTF-8')) . '</div>') : '') .
-        '<p><strong>Motivación:</strong></p><div style="background:#fff;padding:10px;border-left:4px solid #FF9F1C;">' . nl2br(htmlspecialchars($motivation, ENT_QUOTES, 'UTF-8')) . '</div>' .
         "</div><hr style='border:1px solid #eee;margin:20px 0;'><p style='font-size:12px;color:#666;text-align:center;'>Enviado desde: " . htmlspecialchars($_SERVER['HTTP_HOST'] ?? 'cli', ENT_QUOTES, 'UTF-8') . ' el ' . date('d/m/Y H:i:s') . "</p></div></body></html>";
 } else {
+
     $name    = trim((string)filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $number  = trim((string)filter_input(INPUT_POST, 'number', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $email   = trim((string)filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    $company = trim((string)filter_input(INPUT_POST, 'company', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $message = trim((string)filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
     if ($name === '' || $number === '' || $message === '') {
@@ -113,6 +114,8 @@ if ($form_type === 'careers') {
         "<div style='background:#f9f9f9;padding:15px;border-radius:5px;margin:20px 0;'>" .
         '<p><strong>Nombre:</strong> ' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>' .
         '<p><strong>Teléfono:</strong> ' . htmlspecialchars($number, ENT_QUOTES, 'UTF-8') . '</p>' .
+        ($email !== '' ? ('<p><strong>Email:</strong> ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '</p>') : '') .
+        ($company !== '' ? ('<p><strong>Empresa:</strong> ' . htmlspecialchars($company, ENT_QUOTES, 'UTF-8') . '</p>') : '') .
         '<p><strong>Mensaje:</strong></p><div style="background:#fff;padding:10px;border-left:4px solid #FF9F1C;">' . nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8')) . '</div>' .
         "</div><hr style='border:1px solid #eee;margin:20px 0;'><p style='font-size:12px;color:#666;text-align:center;'>Enviado desde: " . htmlspecialchars($_SERVER['HTTP_HOST'] ?? 'cli', ENT_QUOTES, 'UTF-8') . ' el ' . date('d/m/Y H:i:s') . "</p></div></body></html>";
 }
@@ -176,3 +179,6 @@ if ($hasFile) {
 echo json_encode($ok ? 'success' : 'error');
 exit;
 ?>
+
+
+
