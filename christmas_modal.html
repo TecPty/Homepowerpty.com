@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Navideño - Home Power Panamá</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ===== ANIMACIONES KEYFRAMES ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes floatingStar {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* ===== MODAL OVERLAY ===== */
+        .christmas-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            animation: fadeIn 1s ease-in-out;
+            pointer-events: auto;
+        }
+
+        /* ===== FONDO NAVIDEÑO ===== */
+        .christmas-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #2563eb 0%, #1e3a8a 100%);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Estrellas del fondo */
+        .background-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .background-star.star-large {
+            width: 2.5px;
+            height: 2.5px;
+        }
+
+        .background-star.star-medium {
+            width: 1.5px;
+            height: 1.5px;
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .christmas-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        /* ===== BOTÓN CERRAR ===== */
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 15;
+            pointer-events: auto;
+        }
+
+        .close-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg);
+        }
+
+        /* ===== CONTENEDOR LAYOUT ===== */
+        .modal-layout-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 90vw;
+        }
+
+        /* ===== COLUMNAS DE TEXTO ===== */
+        .text-column {
+            flex: 0 1 200px;
+            text-align: center;
+            color: white;
+        }
+
+        .text-column.desktop-only {
+            display: none;
+        }
+
+        .text-column.mobile-only {
+            display: none;
+            width: 100%;
+        }
+
+        .text-column h2 {
+            font-family: 'Georgia', serif;
+            font-size: clamp(18px, 4vw, 28px);
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-column .subtitle {
+            font-family: 'Georgia', serif;
+            font-size: clamp(12px, 2vw, 16px);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-style: italic;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-column .main-message {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: clamp(13px, 1.5vw, 16px);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+            max-width: 250px;
+        }
+
+        /* ===== CONTENEDOR ÁRBOL ===== */
+        .tree-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 5;
+        }
+
+        /* ===== ÁRBOL DE LUCES ===== */
+        .lights-container {
+            position: absolute;
+            width: 280px;
+            height: 305px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .light {
+            position: absolute;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        /* ===== ESTRELLA EN LA PUNTA ===== */
+        .star-top {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-80%);
+            z-index: 20;
+            animation: floatingStar 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 4px #fbbf24);
+        }
+
+        .star-top svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ===== COPOS DE NIEVE ===== */
+        .snowflake {
+            position: fixed;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* ===== TRONCO DEL ÁRBOL ===== */
+        .trunk {
+            position: absolute;
+            width: 85px;
+            height: 60px;
+            background-color: #854d0e;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10%);
+            clip-path: polygon(25% 0%, 75% 0%, 95% 100%, 5% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(-3px 3px 8px rgba(0, 0, 0, 0.5));
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 8;
+        }
+
+        .trunk-logo {
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: brightness(0.7) contrast(1.2);
+            opacity: 0.85;
+            mix-blend-mode: multiply;
+        }
+
+        /* ===== RESPONSIVIDAD ===== */
+        @media (min-width: 1024px) {
+            .text-column.desktop-only {
+                display: block;
+                flex: 0 1 220px;
+            }
+
+            .modal-layout-container {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .modal-layout-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .text-column.mobile-only {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .tree-container {
+                width: 250px;
+                height: 350px;
+            }
+
+            .lights-container {
+                width: 230px;
+                height: 280px;
+            }
+
+            .trunk {
+                width: 70px;
+                height: 50px;
+            }
+
+            .trunk-logo {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .modal-layout-container {
+                max-width: 95vw;
+            }
+
+            .tree-container {
+                width: 200px;
+                height: 300px;
+            }
+
+            .lights-container {
+                width: 180px;
+                height: 240px;
+            }
+
+            .text-column.mobile-only h2 {
+                font-size: clamp(16px, 5vw, 22px);
+            }
+
+            .text-column.mobile-only .subtitle {
+                font-size: clamp(11px, 2.5vw, 14px);
+            }
+
+            .text-column.mobile-only .main-message {
+                font-size: clamp(12px, 1.8vw, 14px);
+                max-width: 90vw;
+            }
+
+            .trunk {
+                width: 60px;
+                height: 45px;
+            }
+
+            .trunk-logo {
+                width: 18px;
+                height: 18px;
+            }
+
+            .close-button {
+                width: 36px;
+                height: 36px;
+                font-size: 20px;
+                top: 15px;
+                right: 15px;
+            }
+        }
+
+        /* ===== ACCESIBILIDAD ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ===== UTILIDADES ===== */
+        .hidden {
+            display: none !important;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Modal Navideño -->
+<div id="christmasModal" class="christmas-modal-overlay">
+    <!-- Fondo Navideño -->
+    <div class="christmas-background" id="christmasBackground"></div>
+
+    <!-- Botón Cerrar -->
+    <button class="close-button" id="closeButton" aria-label="Cerrar modal navideño">×</button>
+
+    <!-- Contenido Principal -->
+    <div class="christmas-modal-content">
+        <div class="modal-layout-container">
+            <!-- Columna Texto Izquierda (Desktop) -->
+            <div class="text-column desktop-only">
+                <h2>Feliz Navidad y<br>Próspero Año Nuevo</h2>
+                <p class="subtitle">Les desea el equipo de SOMOS Properties</p>
+            </div>
+
+            <!-- Árbol -->
+            <div class="tree-container">
+                <!-- Estrella en la punta -->
+                <div class="star-top" id="starTop"></div>
+
+                <!-- Luces del árbol -->
+                <div class="lights-container" id="lightsContainer"></div>
+
+                <!-- Tronco -->
+                <div class="trunk">
+                    <div class="trunk-logo" id="trunkLogo"></div>
+                </div>
+            </div>
+
+            <!-- Columna Texto Derecha (Desktop) / Mensaje Principal -->
+            <div class="text-column desktop-only">
+                <p class="main-message">Gracias por confiar en Home Power Panamá durante este año de crecimiento. Que esta Navidad traiga paz y energía renovada, y que el 2026 nos encuentre impulsando nuevos proyectos y alcanzando metas aún mayores juntos.</p>
+            </div>
+
+            <!-- Columna Móvil -->
+            <div class="text-column mobile-only">
+                <h2>Feliz Navidad y Próspero Año Nuevo</h2>
+                <p class="subtitle">Les desea Home Power</p>
+                <p class="main-message">Gracias por confiar en Home Power Panamá durante este año de crecimiento. Que esta Navidad traiga paz y energía renovada, y que el 2026 nos encuentre impulsando nuevos proyectos y alcanzando metas aún mayores juntos.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /**
+     * Clase ChristmasModal
+     * Gestiona la lógica del modal navideño
+     */
+    class ChristmasModal {
+        constructor() {
+            this.modal = document.getElementById('christmasModal');
+            this.closeButton = document.getElementById('closeButton');
+            this.background = document.getElementById('christmasBackground');
+            this.lightsContainer = document.getElementById('lightsContainer');
+            this.starTopContainer = document.getElementById('starTop');
+            this.trunkLogo = document.getElementById('trunkLogo');
+
+            this.colors = ['#67e8f9', '#22d3ee', '#06b6d4', '#0891b2', '#93c5fd', '#ef4444', '#fbbf24', '#22c55e'];
+            this.initialized = false;
+
+            this.init();
+        }
+
+        /**
+         * Inicialización principal
+         */
+        init() {
+            this.attachEventListeners();
+            this.scheduleModalDisplay();
+        }
+
+        /**
+         * Adjunta listeners de eventos
+         */
+        attachEventListeners() {
+            // Cerrar al hacer click en X
+            this.closeButton.addEventListener('click', () => this.closeModal());
+
+            // Cerrar al hacer click fuera del contenido
+            this.modal.addEventListener('click', (e) => {
+                if (e.target === this.modal) {
+                    this.closeModal();
+                }
+            });
+        }
+
+        /**
+         * Programa la visualización del modal 500ms después de cargar
+         */
+        scheduleModalDisplay() {
+            const show = () => setTimeout(() => this.showModal(), 500);
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', show);
+            } else {
+                show();
+            }
+        }
+
+        /**
+         * Muestra el modal
+         */
+        showModal() {
+            if (this.initialized) return;
+            this.initialized = true;
+
+            this.modal.classList.remove('hidden');
+            this.createStars();
+            this.createSnowflakes();
+            this.createLights();
+            this.createTopStar();
+            this.setTrunkLogo();
+        }
+
+        /**
+         * Cierra el modal
+         */
+        closeModal() {
+            this.modal.classList.add('hidden');
+            this.initialized = false;
+        }
+
+        /**
+         * Crea 200 estrellas de fondo
+         */
+        createStars() {
+            const starCount = 200;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'background-star';
+
+                // Distribución de tamaños
+                const sizeRandom = Math.random();
+                if (sizeRandom > 0.8) {
+                    star.classList.add('star-large');
+                } else if (sizeRandom > 0.5) {
+                    star.classList.add('star-medium');
+                }
+
+                // Posición aleatoria
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+
+                // Duración de animación twinkle aleatoria (2-3 segundos)
+                const duration = 2 + Math.random();
+                star.style.animation = `twinkle ${duration}s ease-in-out infinite`;
+                star.style.animationDelay = Math.random() * 2 + 's';
+
+                this.background.appendChild(star);
+            }
+        }
+
+        /**
+         * Crea 100 copos de nieve cayendo
+         */
+        createSnowflakes() {
+            const snowflakeCount = 100;
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+
+                // SVG de copo de nieve (estrella de 6 puntas)
+                const size = 6.4 + Math.random() * 12;
+                const svgNS = 'http://www.w3.org/2000/svg';
+                const svg = document.createElementNS(svgNS, 'svg');
+                svg.setAttribute('viewBox', '0 0 100 100');
+                svg.setAttribute('width', size);
+                svg.setAttribute('height', size);
+                svg.setAttribute('style', 'fill: none; stroke: white; stroke-width: 2; stroke-linecap: round;');
+
+                // Crear puntas de la estrella de 6 puntas
+                const cx = 50, cy = 50, radius = 40, branches = 6;
+                for (let j = 0; j < branches; j++) {
+                    const angle = (j * 360) / branches;
+                    const rad = (angle * Math.PI) / 180;
+                    const x = cx + radius * Math.cos(rad);
+                    const y = cy + radius * Math.sin(rad);
+                    const line = document.createElementNS(svgNS, 'line');
+                    line.setAttribute('x1', cx);
+                    line.setAttribute('y1', cy);
+                    line.setAttribute('x2', x);
+                    line.setAttribute('y2', y);
+                    svg.appendChild(line);
+
+                    // Sub-ramas
+                    const subAngle1 = angle - 20;
+                    const subRad1 = (subAngle1 * Math.PI) / 180;
+                    const sx1 = cx + (radius * 0.6) * Math.cos(subRad1);
+                    const sy1 = cy + (radius * 0.6) * Math.sin(subRad1);
+                    const subLine1 = document.createElementNS(svgNS, 'line');
+                    subLine1.setAttribute('x1', cx);
+                    subLine1.setAttribute('y1', cy);
+                    subLine1.setAttribute('x2', sx1);
+                    subLine1.setAttribute('y2', sy1);
+                    svg.appendChild(subLine1);
+
+                    const subAngle2 = angle + 20;
+                    const subRad2 = (subAngle2 * Math.PI) / 180;
+                    const sx2 = cx + (radius * 0.6) * Math.cos(subRad2);
+                    const sy2 = cy + (radius * 0.6) * Math.sin(subRad2);
+                    const subLine2 = document.createElementNS(svgNS, 'line');
+                    subLine2.setAttribute('x1', cx);
+                    subLine2.setAttribute('y1', cy);
+                    subLine2.setAttribute('x2', sx2);
+                    subLine2.setAttribute('y2', sy2);
+                    svg.appendChild(subLine2);
+                }
+
+                snowflake.appendChild(svg);
+
+                // Posición horizontal aleatoria
+                snowflake.style.left = Math.random() * 100 + '%';
+
+                // Duración de caída aleatoria (10-20 segundos)
+                const duration = 10 + Math.random() * 10;
+                const delay = Math.random() * 5;
+
+                snowflake.style.setProperty('--duration', duration + 's');
+                snowflake.style.setProperty('--delay', delay + 's');
+                snowflake.style.animation = `snowfall var(--duration) linear var(--delay) infinite`;
+
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        /**
+         * Crea 70 luces en forma de árbol
+         */
+        createLights() {
+            const lightCount = 70;
+            const containerHeight = this.lightsContainer.offsetHeight || 305;
+            const containerWidth = this.lightsContainer.offsetWidth || 280;
+
+            for (let i = 0; i < lightCount; i++) {
+                // Distribución de luces en forma de árbol (espiral cónica)
+                // Arriba más estrecho, abajo más ancho
+                const progress = i / lightCount; // 0 a 1
+                const height = progress * containerHeight;
+                const radius = (progress * progress) * (containerWidth / 3); // Aumenta con la altura
+
+                // Ángulo aleatorio alrededor del eje vertical
+                const angle = Math.random() * Math.PI * 2;
+                const x = containerWidth / 2 + radius * Math.cos(angle);
+                const y = height;
+
+                const light = document.createElement('div');
+                light.className = 'light';
+
+                // Tamaño aleatorio (2.5px a 6px)
+                const size = 2.5 + Math.random() * 3.5;
+                light.style.width = size + 'px';
+                light.style.height = size + 'px';
+
+                // Posición
+                light.style.left = x + 'px';
+                light.style.top = y + 'px';
+                light.style.transform = 'translate(-50%, -50%)';
+
+                // Color aleatorio
+                const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+                light.style.backgroundColor = color;
+                light.style.color = color;
+
+                // Duración de animación personalizada
+                const duration = 1.8 + Math.random() * 0.4;
+                light.style.setProperty('--duration', duration + 's');
+                light.style.animationDuration = 'var(--duration)';
+
+                // Delay aleatorio
+                const delay = Math.random() * 2;
+                light.style.animationDelay = delay + 's';
+
+                this.lightsContainer.appendChild(light);
+            }
+        }
+
+        /**
+         * Crea la estrella en la punta del árbol
+         */
+        createTopStar() {
+            const svgNS = 'http://www.w3.org/2000/svg';
+            const svg = document.createElementNS(svgNS, 'svg');
+            svg.setAttribute('viewBox', '0 0 100 100');
+            svg.setAttribute('width', '40');
+            svg.setAttribute('height', '40');
+
+            // Dibujar estrella de 5 puntas
+            const points = [];
+            for (let i = 0; i < 5; i++) {
+                const angle = (i * 4 * Math.PI) / 5 - Math.PI / 2;
+                const x = 50 + 40 * Math.cos(angle);
+                const y = 50 + 40 * Math.sin(angle);
+                points.push([x, y]);
+
+                const innerAngle = angle + (2 * Math.PI) / 5;
+                const ix = 50 + 15 * Math.cos(innerAngle);
+                const iy = 50 + 15 * Math.sin(innerAngle);
+                points.push([ix, iy]);
+            }
+
+            const pointsString = points.map(p => p.join(',')).join(' ');
+            const polygon = document.createElementNS(svgNS, 'polygon');
+            polygon.setAttribute('points', pointsString);
+            polygon.setAttribute('fill', '#fbbf24');
+            polygon.setAttribute('style', 'filter: drop-shadow(0 0 3px rgba(255,255,255,0.8));');
+
+            svg.appendChild(polygon);
+            this.starTopContainer.appendChild(svg);
+        }
+
+        /**
+         * Establece el logo del tronco
+         */
+        setTrunkLogo() {
+            // Logo fallback directo sin intentar cargar imagen externa
+            this.trunkLogo.style.background = 'rgba(255,255,255,0.15)';
+            this.trunkLogo.innerHTML = 'SP';
+            this.trunkLogo.style.display = 'flex';
+            this.trunkLogo.style.alignItems = 'center';
+            this.trunkLogo.style.justifyContent = 'center';
+            this.trunkLogo.style.fontSize = '11px';
+            this.trunkLogo.style.color = 'rgba(255,255,255,0.7)';
+            this.trunkLogo.style.fontWeight = 'bold';
+            this.trunkLogo.style.letterSpacing = '1px';
+        }
+    }
+
+    // Inicializar modal cuando sea posible
+    (function() {
+        const initModal = () => {
+            try {
+                new ChristmasModal();
+            } catch (e) {
+                console.error('Error al inicializar modal navideño:', e);
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initModal);
+        } else {
+            initModal();
+        }
+    })();
+</script>
+
+</body>
+</html>
