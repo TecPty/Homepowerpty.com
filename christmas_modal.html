@@ -854,6 +854,9 @@
                     setTimeout(() => core.remove(), 1400);
                 }, (burstDelay + 0.55) * 1000);
             }
+            // Cierra el modal al terminar la serie de fuegos artificiales
+            const totalDuration = bursts * 0.18 + 3; // tiempo de disparo + animaciones
+            setTimeout(() => this.closeModal(), totalDuration * 1000);
         }
     }
 
