@@ -2,8 +2,8 @@
   'use strict';
 
   const popup = document.getElementById('seasonalPopup');
-  // Temporarily disable seasonal popup until the new version is ready
-  const POPUP_ENABLED = false;
+  // Popup habilitado para promoción actual
+  const POPUP_ENABLED = true;
   if (!POPUP_ENABLED && popup) {
     popup.style.display = 'none';
     return;
@@ -12,8 +12,12 @@
 
   const closeElements = popup.querySelectorAll('[data-close-popup]');
   const overlay = popup.querySelector('.promo-overlay');
+  const promoCard = popup.querySelector('.promo-card');
+  const promoImage = popup.querySelector('.promo-image');
 
   const SHOW_DELAY = 1200;
+  const WHATSAPP_NUMBER = '50766133830';
+  const WHATSAPP_MESSAGE = 'Me interesa obtener información de sus productos';
   let lastFocused = null;
 
   const getFocusable = () =>
@@ -55,8 +59,32 @@
     }
   }
 
+  function redirectToWhatsApp() {
+    const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+    closePopup();
+  }
+
   closeElements.forEach((el) => el.addEventListener('click', closePopup));
   if (overlay) overlay.addEventListener('click', closePopup);
+  
+  // Click en la imagen del banner redirige a WhatsApp
+  if (promoImage) {
+    promoImage.style.cursor = 'pointer';
+    promoImage.addEventListener('click', redirectToWhatsApp);
+  }
+  
+  // Click en la card (excepto botón cerrar) también redirige
+  if (promoCard) {
+    promoCard.style.cursor = 'pointer';
+    promoCard.addEventListener('click', function(e) {
+      // No redirigir si se hace clic en el botón de cerrar
+      if (!e.target.closest('[data-close-popup]')) {
+        redirectToWhatsApp();
+      }
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && popup.classList.contains('active')) {
