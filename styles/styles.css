@@ -842,7 +842,8 @@ body.menu-open {
             text-align: right;
             filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.6));
             word-wrap: break-word;
-            hyphens: auto;
+            hyphens: none;
+            overflow-wrap: break-word;
         }
 
         .sub_title {
@@ -2816,7 +2817,8 @@ body.menu-open {
                 text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
                 line-height: 1.2;
                 word-wrap: break-word;
-                hyphens: auto;
+                hyphens: none;
+                overflow-wrap: break-word;
             }
 
             .sub_title {
@@ -2946,7 +2948,8 @@ body.menu-open {
                 text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
                 line-height: 1.2;
                 word-wrap: break-word;
-                hyphens: auto;
+                hyphens: none;
+                overflow-wrap: break-word;
             }
 
             .sub_title {
