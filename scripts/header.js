@@ -28,11 +28,13 @@
     const banner = document.querySelector('.section_banner');
     const bannerLogo = document.querySelector('.banner_logo');
     const btnMenu = document.getElementById('btn_menu');
+    const menuBurger = document.getElementById('menuBurger');
     const btnMenuClose = document.getElementById('btn_menu_close');
     const menuItems = document.querySelectorAll('.menu_item');
     const overlay = document.getElementById('overlay');
     
     if (btnMenu && overlay) { btnMenu.addEventListener('click', () => { header.classList.add('translate'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }); }
+    if (menuBurger && overlay) { menuBurger.addEventListener('click', () => { header.classList.add('translate'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }); }
     
     if (btnMenuClose) btnMenuClose.addEventListener('click', closeMenu);
     if (overlay) overlay.addEventListener('click', closeMenu);

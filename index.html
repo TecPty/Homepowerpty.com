@@ -1521,12 +1521,16 @@
     <div class="promo-card" role="document">
         <button class="promo-close" type="button" aria-label="Cerrar promo" data-close-popup>&times;</button>
         <div class="promo-media">
-            <img src="media/images/Promocion/optimized/banner-dale-clic.png" 
-                 alt="Dale Click y Contáctanos - Home Power"
-                 class="promo-image"
-                 loading="lazy"
-                 decoding="async"
-                 title="Click para contactarnos por WhatsApp">
+            <picture>
+                <source media="(max-width: 768px)" srcset="media/images/Promocion/optimized/vertical-banner-dale-clic.png">
+                <source media="(min-width: 769px)" srcset="media/images/Promocion/optimized/banner-dale-clic.png">
+                <img src="media/images/Promocion/optimized/banner-dale-clic.png" 
+                     alt="Dale Click y Contáctanos - Home Power"
+                     class="promo-image"
+                     loading="lazy"
+                     decoding="async"
+                     title="Click para contactarnos por WhatsApp">
+            </picture>
         </div>
     </div>
 </div>

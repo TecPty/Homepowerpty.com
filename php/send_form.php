@@ -86,8 +86,8 @@ if ($form_type === 'careers') {
         "<div style='background:#f9f9f9;padding:15px;border-radius:5px;margin:20px 0;'>" .
         '<p><strong>Nombre Completo:</strong> ' . htmlspecialchars($full_name, ENT_QUOTES, 'UTF-8') . '</p>' .
         '<p><strong>Email:</strong> ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '</p>' .
-        '<p><strong>Teléfono:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>' .
-        '<p><strong>Posición de Interés
+        '<p><strong>Tel&eacute;fono:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>' .
+        '<p><strong>Posici&oacute;n de Inter&eacute;s:</strong> ' . htmlspecialchars($position, ENT_QUOTES, 'UTF-8') . '</p>' .
         ($experience !== '' ? ('<p><strong>Experiencia:</strong></p><div style="background:#fff;padding:10px;border-left:4px solid #2196F3;">' . nl2br(htmlspecialchars($experience, ENT_QUOTES, 'UTF-8')) . '</div>') : '') .
         "</div><hr style='border:1px solid #eee;margin:20px 0;'><p style='font-size:12px;color:#666;text-align:center;'>Enviado desde: " . htmlspecialchars($_SERVER['HTTP_HOST'] ?? 'cli', ENT_QUOTES, 'UTF-8') . ' el ' . date('d/m/Y H:i:s') . "</p></div></body></html>";
 } else {
@@ -113,7 +113,7 @@ if ($form_type === 'careers') {
         "<h2 style='color:#FF9F1C;text-align:center;'>Nuevo mensaje desde Home Power</h2>" .
         "<div style='background:#f9f9f9;padding:15px;border-radius:5px;margin:20px 0;'>" .
         '<p><strong>Nombre:</strong> ' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>' .
-        '<p><strong>Teléfono:</strong> ' . htmlspecialchars($number, ENT_QUOTES, 'UTF-8') . '</p>' .
+        '<p><strong>Tel&eacute;fono:</strong> ' . htmlspecialchars($number, ENT_QUOTES, 'UTF-8') . '</p>' .
         ($email !== '' ? ('<p><strong>Email:</strong> ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '</p>') : '') .
         ($company !== '' ? ('<p><strong>Empresa:</strong> ' . htmlspecialchars($company, ENT_QUOTES, 'UTF-8') . '</p>') : '') .
         '<p><strong>Mensaje:</strong></p><div style="background:#fff;padding:10px;border-left:4px solid #FF9F1C;">' . nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8')) . '</div>' .
@@ -179,6 +179,7 @@ if ($hasFile) {
 echo json_encode($ok ? 'success' : 'error');
 exit;
 ?>
+
 
 
 

@@ -188,10 +188,14 @@
         <div class="promo-card" role="document">
             <button class="promo-close" type="button" aria-label="Cerrar" data-close-popup>&times;</button>
             <div class="promo-media">
-                <img src="media/images/Promocion/optimized/banner-dale-clic.png" 
-                     alt="Dale Click y Contáctanos" 
-                     class="promo-image"
-                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect fill=%22%23ddd%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 text-anchor=%22middle%22 fill=%22%23999%22%3EImagen no encontrada: banner-dale-clic.png%3C/text%3E%3C/svg%3E';">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="media/images/Promocion/optimized/vertical-banner-dale-clic.png">
+                    <source media="(min-width: 769px)" srcset="media/images/Promocion/optimized/banner-dale-clic.png">
+                    <img src="media/images/Promocion/optimized/banner-dale-clic.png" 
+                         alt="Dale Click y Contáctanos" 
+                         class="promo-image"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect fill=%22%23ddd%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 text-anchor=%22middle%22 fill=%22%23999%22%3EImagen no encontrada%3C/text%3E%3C/svg%3E';">
+                </picture>
             </div>
         </div>
     </div>

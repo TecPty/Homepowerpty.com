@@ -1,6 +1,8 @@
 (function(){
-    const form = document.getElementById('form'),
-          form_msg = document.getElementById('form_msg'),
+    const form = document.getElementById('form');
+    if (!form) return;
+
+    const form_msg = document.getElementById('form_msg'),
           submitBtn = form.querySelector('.form_submit');
 
     // Validación en tiempo real

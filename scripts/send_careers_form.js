@@ -19,7 +19,7 @@
       case 'position':
         return value.trim().length > 0;
       case 'experience':
-        return value.trim().length >= 5;
+        return value.trim().length === 0 || value.trim().length >= 5;
       default:
         return false;
     }
