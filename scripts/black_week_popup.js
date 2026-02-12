@@ -3,7 +3,7 @@
 
   const popup = document.getElementById('seasonalPopup');
   // Popup habilitado para promoción actual
-  const POPUP_ENABLED = true;
+  const POPUP_ENABLED = false;
   if (!POPUP_ENABLED && popup) {
     popup.style.display = 'none';
     return;

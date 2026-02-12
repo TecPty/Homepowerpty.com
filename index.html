@@ -56,6 +56,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/templates/footer.css">
     <link rel="stylesheet" href="styles/templates/social_header.css">
+    <link rel="stylesheet" href="styles/templates/carnival_modal.css">
     <title>Home Power - Electrodomésticos de Calidad en Panamá</title>
     <meta name="robots" content="index, follow">
 </head>
@@ -1515,6 +1516,17 @@
         <img src="media/icons/socials_networks/whatsapp_icon.png" alt="WhatsApp" class="whatsapp_float_icon" loading="lazy">
     </a>
 
+<!-- MODAL CARNAVALES -->
+<div id="carnivalModal" class="carnival-modal" role="dialog" aria-modal="true" aria-label="Carnaval Home Power">
+    <div class="carnival-overlay"></div>
+    <div class="carnival-container">
+        <div class="carnival-bg" style="background-image: url('media/images/Promocion/carnival_bg_desktop.png')">
+            <canvas id="carnivalCanvas"></canvas>
+        </div>
+        <button class="carnival-close" type="button" aria-label="Cerrar carnaval">&times;</button>
+    </div>
+</div>
+
 <!-- POPUP PROMOCIONAL -->
 <div id="seasonalPopup" class="promo-popup" role="dialog" aria-modal="true" aria-label="Promocion Home Power">
     <div class="promo-overlay" data-close-popup></div>
@@ -1615,6 +1627,7 @@
     <script src="scripts/avatar_effects.js"></script>
     <script src="scripts/image-optimization.js"></script>
     <script src="scripts/file_upload.js"></script>
+    <script src="scripts/carnival_modal.js?v=20260211"></script>
     <script src="scripts/black_week_popup.js?v=20260128"></script>
     <script src="scripts/cv_button_handler.js"></script>
     <script src="scripts/cleanup_text_encoding.js"></script>
