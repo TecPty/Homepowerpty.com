@@ -56,6 +56,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/templates/footer.css">
     <link rel="stylesheet" href="styles/templates/social_header.css">
+    <link rel="stylesheet" href="styles/templates/carnival_modal.css">
     <title>Home Power - Electrodomésticos de Calidad en Panamá</title>
     <meta name="robots" content="index, follow">
 </head>
@@ -1515,24 +1516,33 @@
         <img src="media/icons/socials_networks/whatsapp_icon.png" alt="WhatsApp" class="whatsapp_float_icon" loading="lazy">
     </a>
 
-<!-- POPUP PROMOCIONAL - CARNAVAL -->
-<div id="seasonalPopup" class="promo-popup" role="dialog" aria-modal="true" aria-label="Carnaval Home Power">
+<!-- MODAL CARNAVALES -->
+<div id="carnivalModal" class="carnival-modal" role="dialog" aria-modal="true" aria-label="Carnaval Home Power">
+    <div class="carnival-overlay"></div>
+    <div class="carnival-container">
+        <div class="carnival-bg" style="background-image: url('media/images/Promocion/carnival_bg_desktop.png')">
+            <canvas id="carnivalCanvas"></canvas>
+        </div>
+        <button class="carnival-close" type="button" aria-label="Cerrar carnaval">&times;</button>
+    </div>
+</div>
+
+<!-- POPUP PROMOCIONAL -->
+<div id="seasonalPopup" class="promo-popup" role="dialog" aria-modal="true" aria-label="Promocion Home Power">
     <div class="promo-overlay" data-close-popup></div>
     <div class="promo-card" role="document">
-        <button class="promo-close" type="button" aria-label="Cerrar carnaval" data-close-popup>&times;</button>
+        <button class="promo-close" type="button" aria-label="Cerrar promo" data-close-popup>&times;</button>
         <div class="promo-media">
-            <div class="carnival-container">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="media/images/Promocion/carnival_bg_mobile.png">
-                    <source media="(min-width: 769px)" srcset="media/images/Promocion/carnival_bg_desktop.png">
-                    <img src="media/images/Promocion/carnival_bg_desktop.png" 
-                         alt="Carnaval Home Power - Productos Rebotando"
-                         class="promo-image"
-                         loading="lazy"
-                         decoding="async">
-                </picture>
-                <canvas id="carnivalCanvas" class="carnival-canvas"></canvas>
-            </div>
+            <picture>
+                <source media="(max-width: 768px)" srcset="media/images/Promocion/optimized/vertical-banner-dale-clic.png">
+                <source media="(min-width: 769px)" srcset="media/images/Promocion/optimized/banner-dale-clic.png">
+                <img src="media/images/Promocion/optimized/banner-dale-clic.png" 
+                     alt="Dale Click y Contáctanos - Home Power"
+                     class="promo-image"
+                     loading="lazy"
+                     decoding="async"
+                     title="Click para contactarnos por WhatsApp">
+            </picture>
         </div>
     </div>
 </div>
@@ -1617,6 +1627,7 @@
     <script src="scripts/avatar_effects.js"></script>
     <script src="scripts/image-optimization.js"></script>
     <script src="scripts/file_upload.js"></script>
+    <script src="scripts/carnival_modal.js?v=20260211"></script>
     <script src="scripts/black_week_popup.js?v=20260128"></script>
     <script src="scripts/cv_button_handler.js"></script>
     <script src="scripts/cleanup_text_encoding.js"></script>
