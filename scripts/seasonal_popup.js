@@ -45,7 +45,7 @@
       this.y = y;
       this.vx = (Math.random() - 0.5) * 4;
       this.vy = Math.random() * -2 - 1;
-      this.radius = 35;
+      this.radius = 70; // Duplicado de 35 a 70
       this.gravity = 0.15;
       this.restitution = 0.88;
       this.imagePath = imagePath;
@@ -76,9 +76,10 @@
         this.vx *= -this.restitution;
       }
 
-      // Colisión con piso
-      if (this.y + this.radius > height) {
-        this.y = height - this.radius;
+      // Colisión con piso - ajustado para evitar que desaparezcan
+      const floorLimit = height - 20; // Margen de 20px desde el borde inferior
+      if (this.y + this.radius > floorLimit) {
+        this.y = floorLimit - this.radius;
         this.vy *= -this.restitution;
       }
 
