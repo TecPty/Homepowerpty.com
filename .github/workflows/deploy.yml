@@ -22,6 +22,7 @@ jobs:
           protocol: ftp
           local-dir: ./
           server-dir: public_html/
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.github/**
