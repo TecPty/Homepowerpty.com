@@ -76,12 +76,16 @@ DirectoryIndex index.html default.php
 </IfModule>
 
 # PREVENIR HOTLINKING (que otros sitios usen tus imágenes)
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)?homepowerpty\.com [NC]
-RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F]
+# Desactivado temporalmente para evitar bloqueos de recursos estáticos.
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^https?://(www\.)?homepowerpty\.com [NC]
+#RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F]
 
 # --- Charset UTF-8 (evita caracteres raros con acentos) ---
 AddDefaultCharset UTF-8
 AddType 'text/html; charset=UTF-8' .html .htm
 AddType 'text/css; charset=UTF-8' .css
 AddType 'application/javascript; charset=UTF-8' .js
+
+
+
