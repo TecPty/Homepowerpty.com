@@ -1515,6 +1515,21 @@
         <img src="media/icons/socials_networks/whatsapp_icon.png" alt="WhatsApp" class="whatsapp_float_icon" loading="lazy">
     </a>
 
+    <!-- Popup promocional de video -->
+    <div id="seasonalPopup" class="promo-popup" role="dialog" aria-modal="true" aria-label="Promocion Home Power">
+        <div class="promo-overlay" data-close-popup></div>
+        <div class="promo-card promo-video-card" role="document">
+            <button class="promo-close" type="button" aria-label="Cerrar promocion" data-close-popup>&times;</button>
+            <div class="promo-media">
+                <video class="promo-video" autoplay muted playsinline preload="metadata">
+                    <source src="media/videos/banner-homepower-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+                    <source src="media/videos/banner-homepower-flyer.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
+        </div>
+    </div>
+
     <!-- Estilos estaticos para la seccion de clientes -->
     <style>
         .clients_slider_container {
@@ -1595,31 +1610,8 @@
     <script src="scripts/avatar_effects.js"></script>
     <script src="scripts/image-optimization.js"></script>
     <script src="scripts/file_upload.js"></script>
+    <script src="scripts/promo_video_modal.js"></script>
     <script src="scripts/cv_button_handler.js"></script>
     <script src="scripts/cleanup_text_encoding.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

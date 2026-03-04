@@ -3191,6 +3191,23 @@ body.menu-open {
     border-radius: 12px;
 }
 
+.promo-video-card {
+    width: min(92vw, 672px);
+    max-height: 90vh;
+}
+
+.promo-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 84vh;
+    object-fit: cover;
+    background: transparent;
+    border-radius: 12px;
+    transform: scale(1.02);
+    transform-origin: center;
+}
+
 @media (max-width: 640px) {
     .promo-popup {
         padding: 12px;
@@ -3207,6 +3224,15 @@ body.menu-open {
     .promo-image {
         max-height: 85vh;
         border-radius: 8px;
+    }
+    .promo-video-card {
+        width: min(94vw, 420px);
+        max-height: 85vh;
+    }
+    .promo-video {
+        max-height: 79vh;
+        border-radius: 8px;
+        transform: scale(1.04);
     }
 }
 
