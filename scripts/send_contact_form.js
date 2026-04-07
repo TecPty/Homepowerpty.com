@@ -3,7 +3,8 @@
     if (!form) return;
 
     const form_msg = document.getElementById('form_msg'),
-          submitBtn = form.querySelector('.form_submit');
+          submitBtn = form.querySelector('.btn-whatsapp-submit');
+    const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
 
     // Validación en tiempo real
     function validateField(field, value) {
@@ -106,7 +107,7 @@
         
         // Deshabilitar botón durante envío
         submitBtn.disabled = true;
-        submitBtn.value = 'Enviando...';
+        submitBtn.innerHTML = 'Enviando...';
         
         const formData = new FormData(form);
         const csrfToken = await getCsrfToken();
@@ -114,7 +115,7 @@
         if (!csrfToken) {
             showMessage('Error de seguridad. Intente más tarde.', 'error');
             submitBtn.disabled = false;
-            submitBtn.value = 'Contactar';
+            submitBtn.innerHTML = originalBtnHTML;
             return;
         }
         
@@ -128,7 +129,7 @@
         if (!validateField('name', name) || !validateField('number', number) || !validateField('message', message)) {
             showMessage('Por favor, complete todos los campos correctamente', 'error');
             submitBtn.disabled = false;
-            submitBtn.value = 'Contactar';
+            submitBtn.innerHTML = originalBtnHTML;
             return;
         }
 
@@ -162,7 +163,7 @@
         } finally {
             // Rehabilitar botón
             submitBtn.disabled = false;
-            submitBtn.value = 'Contactar';
+            submitBtn.innerHTML = originalBtnHTML;
         }
     });
 })();

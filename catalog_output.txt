@@ -1,0 +1,301 @@
+Total productos: 59
+
+================================================================================
+COD: 732129008888
+  SKU:    JD389
+  Piezas: 4
+  Desc:   AIR FRYER:                                Litros: 4.5                                 Modo: digital | Color: NEGRO | Voltage: 110
+
+COD: 732129008635
+  SKU:    AF3201
+  Piezas: 6
+  Desc:   AIR FRYER:                            Litros: 3L                             Colores: Blanco y negro               Voltaje/frecuencia nominal: 110V, 50Hz.  | Potencia: 800W
+
+COD: 732129008413
+  SKU:    OC-506
+  Piezas: 4
+  Desc:   AIR FRYER:                             Litros: 3L                             Colores: Blanco y negro              Voltaje/frecuencia nominal: 110V, 50Hz.  | Color: Blanco y negro | Potencia: 800W
+
+COD: 6902468910348
+  SKU:    MM-111
+  Piezas: 6
+  Desc:   LICUADORA de VIDRIO:   colores: negro y gris                                                               Pawer: 450W                             Voltaje: 110V | Listros:1.5L
+
+COD: 732129008895
+  SKU:    VB-999
+  Piezas: 10
+  Desc:   LICUADORA PLASTICO:          colores: rojo, gris, negro, verde                 Voltaje: 110V                               Power: 2000W
+
+COD: 732129008390
+  SKU:    MM-931
+  Piezas: 6
+  Desc:   LICUADORA PLASTICO:        colores: negro y rojo             Diseño mas bonito                    Voltaje: 110V                                 Pawer: 300-400W                                                        Frequencia: 60Hz.               Capacidad: 1.6L.                        Motor: 7020
+
+COD: 732129008406
+  SKU:    MM-933
+  Piezas: 6
+  Desc:   LICUADORA PLASTICO:  colores: azul y blanco                Diseño mas bonito                     Voltaje: 110V                                 Pawer: 300-400W                                                        Frequencia: 60Hz.              Capacidad: 1.6L.                        Motor: 7025
+
+COD: 732129008949
+  SKU:    HP-024
+  Piezas: 12
+  Desc:   BATIDORA ELECTRICA DE PEDESTAL
+
+COD: 694943899199
+  SKU:    HP-044
+  Piezas: 16
+  Desc:   BATIDORA ELECTRICA DE MANO
+
+COD: 694943899205
+  SKU:    HP-045
+  Piezas: 16
+  Desc:   BATIDORA ELECTRICA DE MANO DE METAL
+
+COD: 732129008901
+  SKU:    F-010E-1
+  Piezas: 12
+  Desc:   ESTUFITA ELECTRICA: 1quemador                              Colores: Blanco y negro.  | Voltaje: 110V  Pawer:1000W
+
+COD: 732129008918
+  SKU:    2020B
+(F-011A-1)
+  Piezas: 6
+  Desc:   ESTUFITA ELECTRICA: 2quemadores.                            Colores: Blanco y negro. | Voltaje: 110.                               Pawer: 2000W
+
+COD: 732129008581
+  SKU:    1010A
+  Piezas: 12
+  Desc:   ESTUFITA ELECTRICA: 1quemador                              Colores: Blanco y negro.  | Voltaje: 110V  Pawer:1000W1)Material: 0.3mm iron                                                                   | 2)Plate size:155mm
+
+COD: 732129008598
+  SKU:    2020A
+  Piezas: 6
+  Desc:   ESTUFITA ELECTRICA: 2quemadores.                            Colores: Blanco y negro. | Voltaje: 110V.                               Pawer: 2000W.                                    1)Material: 0.35mm iron                                                                   | 2)Plate size:155mm
+
+COD: 732129008437
+  SKU:    2050A
+  Piezas: 1
+  Desc:   ESTUFA DE GAS DE ACERO INOXIDABLE:                                    De 2 quemadores | Quemador de hierro fundido de 90MM | Encendido automático
+
+COD: 732129008666
+  SKU:    3080
+  Piezas: 1
+  Desc:   ESTUFA GAS DE ACERO INOXIDABLE:                                    De 2 quemadores | Quemador de hierro fundido de 90MM | Encendido automático
+
+COD: 732129008420
+  SKU:    3076K
+  Piezas: 1
+  Desc:   ESTUFA GAS DE ACERO INOXIDABLE:                                 De 3 quemadores | Quemador de hierro color plata | Encendido automático
+
+COD: 732129008673
+  SKU:    3081K
+  Piezas: 1
+  Desc:   ESTUFA GAS DE ACERO INOXIDABLE:                                 De 3 quemadores | Quemador de hierro color plata | Encendido automático
+
+COD: 694943899489
+  SKU:    HP-073
+  Piezas: 1
+  Desc:   ESTUFA A GAS DE 4 Q CON HORNO
+
+COD: 732129008932
+  SKU:    CM02
+  Piezas: 6
+  Desc:   CAFETERA: 12 TASAS.               Capacidad:1.2L                  Voltaje: 110v                         Pawer: 900W
+
+COD: 732129008567
+  SKU:    WJ-9008
+  Piezas: 8
+  Desc:   CAFETERA CON FILTO FINO:                    6tasas.                                                    110 V, 50/60 Hz, 600 W | Capacidad: 0.6 L
+
+COD: 732129008574
+  SKU:    WJ-9009
+  Piezas: 6
+  Desc:   CAFETERA CON FILTO FINO:                   12 tasas. 110 V, 50/60 Hz, 800 W | Capacidad: 1.2 L
+
+COD: 732129008680
+  SKU:    WJ-9001
+  Piezas: 6
+  Desc:   CAFETERA CON FILTO FINO:                    6tasas.                                                    110 V, 50/60 Hz, 600 W | Capacidad: 0.625 L
+
+COD: 732129008697
+  SKU:    WJ-9002
+  Piezas: 6
+  Desc:   CAFETERA CON FILTO FINO:                   12 tasas. 110 V, 50/60 Hz, 800 W | Capacidad: 1.25 L
+
+COD: 732129008703
+  SKU:    WJ-9011
+  Piezas: 6
+  Desc:   CAFETERA CON FILTO FINO:                    7.5tasas.                                                    110 V, 50/60 Hz, 600 W | Capacidad: 0.625 L
+
+COD: 694943899212
+  SKU:    HP-046
+  Piezas: 4
+  Desc:   CAFETERA PERCOLADORA DE 30 TAZAS
+
+COD: 694943899229
+  SKU:    HP-047
+  Piezas: 4
+  Desc:   CAFETERA PERCOLADORA DE 40 TAZAS
+
+COD: 694943899236
+  SKU:    HP-048
+  Piezas: 4
+  Desc:   CAFETERA PERCOLADORA DE 50 TAZAS
+
+COD: 694943899243
+  SKU:    HP-049
+  Piezas: 4
+  Desc:   CAFETERA PERCOLADORA DE 100 TAZAS
+
+COD: 6942368204482
+  SKU:    R.91171B
+  Piezas: 20
+  Desc:   PLANCHA DE VAPOR:                              Voltaje:110V                              Pawer: 1400W                       Capacidad: 170ML
+
+COD: 732129008840
+  SKU:    HP-012
+  Piezas: 10
+  Desc:   PLANCHA DE VAPOR:                              Voltaje:110V                              Pawer: 1400W                       Capacidad: 170ML
+
+COD: 6975069407036
+  SKU:    R.1808B
+  Piezas: 20
+  Desc:   PLANCHA DE VAPOR:                        Voltaje: 110V                                 Pawer: 1200W                                                        Frequencia 50/60Hz
+
+COD: 6975069402017
+  SKU:    R.91261
+  Piezas: 20
+  Desc:   PLANCHA EN SECO:                           Voltaje: 110V.                                 Pawer: 1200W                                                        Frequencia 50/60Hz
+
+COD: 6975069407234
+  SKU:    R.92003
+  Piezas: 20
+  Desc:   PLANCHA EN SECO:                           Voltaje: 110V.                                 Pawer: 1000W                                                        Frequencia 60Hz
+
+COD: 732129008611
+  SKU:    JR-A101
+(R.97816)
+  Piezas: 16
+  Desc:   TETERA ELECTRICA:             Volumen 1.8L
+
+COD: 732129008628
+  SKU:    JR-LD8
+(R.97928)
+  Piezas: 16
+  Desc:   TETERA ELECTRICA:               Volumen 1.8L
+
+COD: 732129008604
+  SKU:    H208
+  Piezas: 16
+  Desc:   TETERA ELECTRICA PLACTICO:                          Volumen 1.5L
+
+COD: 732129008369
+  SKU:    SJ-24
+  Piezas: 8
+  Desc:   SANDWICHERA METAL:         Modelo nuevo                            Voltaje: 110V                                 Pawer: 750W                                                        Frequencia: 60Hz
+
+COD: 732129008352
+  SKU:    SJ-22
+  Piezas: 8
+  Desc:   SANDWICHERA PLASTICO: Voltaje: 110V                                 Pawer: 750W                                                        Frequencia: 60Hz
+
+COD: 732129008376
+  SKU:    SJ-40
+  Piezas: 8
+  Desc:   PANINI PLASTICO:                           tambien se abre todo (parilla)         Voltaje: 110V                                 Pawer: 750W                                                        Frequencia: 60Hz
+
+COD: 732129008383
+  SKU:    SJ-40A
+  Piezas: 8
+  Desc:   PANINI METAL:                     tambien se abre todo (parilla)                   Voltaje: 110V                                 Pawer: 850W                                                        Frequencia: 60Hz
+
+COD: 732129008727
+  SKU:    SJ-27
+  Piezas: 6
+  Desc:   SANDWICHERA GRILL
+
+COD: 732129008710
+  SKU:    SJ-35
+  Piezas: 6
+  Desc:   SANDWICHERA
+
+COD: 694943899502
+  SKU:    HP-017
+  Piezas: 12
+  Desc:   TOSTADORA ELECTRICA DE 2 REBANAS BLANCA
+
+COD: 694943899519
+  SKU:    HP-018
+  Piezas: 12
+  Desc:   TOSTADORA ELECTRICA DE 2 REBANAS DE METAL
+
+COD: 732129008444
+  SKU:    PN09
+  Piezas: 4
+  Desc:   HORNITO ELECTRICO:               9 litros.                                            110V/60Hz, 800W
+
+COD: 732129008659
+  SKU:    JY-1001
+  Piezas: 12
+  Desc:   LOCHERA TERMICA ELECTRICA
+
+COD: 732129008642
+  SKU:    HT-03
+  Piezas: 12
+  Desc:   ARROZERA:                                         0.3 L / 200 W antiadherente + vaporizador | 110 V 60 Hz
+
+COD: 732129008451
+  SKU:    HT-15A
+  Piezas: 6
+  Desc:   ARROZERA:                                         1.5 L / 500 W antiadherente + vaporizador | 110 V 60 Hz
+
+COD: 732129008468
+  SKU:    HT-15
+  Piezas: 6
+  Desc:   ARROZERA:                                1.5 L / 500 W sin recubrimiento en spray | 110 V 60 Hz
+
+COD: 732129008475
+  SKU:    HT-18A
+  Piezas: 6
+  Desc:   ARROZERA:                             1.8 L / 700 W antiadherente + vaporizador | 110 V 60 Hz
+
+COD: 732129008482
+  SKU:    HT-18
+  Piezas: 6
+  Desc:   ARROZERA:                                        1.8 L / 700 W – Sin recubrimiento en spray / Con recubrimiento en spray | 110 V / 60 Hz
+
+COD: 732129008499
+  SKU:    HT-22A
+  Piezas: 6
+  Desc:   ARROZERA:                                          2.2 L / 900 W antiadherente + vaporizador | 110 V / 60 Hz
+
+COD: 732129008505
+  SKU:    HT-22
+  Piezas: 6
+  Desc:   ARROZERA:                                      2.2 L / 900 W sin recubrimiento en spray | 110 V / 60 Hz
+
+COD: 732129008512
+  SKU:    CK-02-18
+  Piezas: 6
+  Desc:   OLLA DE PRESION:                              de aluminio                                      Tamaño: 3.2 L, 18 cm
+
+COD: 732129008529
+  SKU:    CK-02-20
+  Piezas: 6
+  Desc:   OLLA DE PRESION:                            de aluminio                                       Tamaño: 4.2 L, 20 cm
+
+COD: 732129008536
+  SKU:    CK-02-22
+  Piezas: 6
+  Desc:   OLLA DE PRESION:                                    de aluminio                                     Tamaño: 5.5 L, 22 cm
+
+COD: 732129008543
+  SKU:    CK-02-24
+  Piezas: 6
+  Desc:   OLLA DE PRESION:                   de aluminio                                         Tamaño: 7 L, 24 cm
+
+COD: 732129008550
+  SKU:    CK-02-26
+  Piezas: 6
+  Desc:   OLLA DE PRESION:                   de aluminio                                         Tamaño: 9 L, 26 cm
+

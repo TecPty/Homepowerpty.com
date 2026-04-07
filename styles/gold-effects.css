@@ -1,0 +1,146 @@
+/* ===========================================
+   GOLD BACKGROUND EFFECTS
+   - CSS shimmer sweep (diagonal light beam)
+   - Works with canvas gold orbs (in product.js)
+=========================================== */
+
+/* ─── GOLD CANVAS BACKGROUND ─────────────── */
+#gold-bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.product-page main,
+.product-page header,
+.product-page footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── CSS SHIMMER SWEEP OVERLAY ──────────── */
+.product-hero .shimmer-sweep {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.product-hero .shimmer-sweep::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        105deg,
+        transparent 0%,
+        transparent 20%,
+        rgba(201, 168, 76, 0.04) 35%,
+        rgba(255, 230, 150, 0.12) 50%,
+        rgba(255, 248, 200, 0.18) 52%,
+        rgba(255, 230, 150, 0.12) 54%,
+        rgba(201, 168, 76, 0.04) 65%,
+        transparent 80%,
+        transparent 100%
+    );
+    animation: goldSweep 9s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.product-hero .shimmer-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+        108deg,
+        transparent 0%,
+        transparent 30%,
+        rgba(201, 168, 76, 0.06) 48%,
+        rgba(255, 255, 220, 0.22) 50%,
+        rgba(201, 168, 76, 0.06) 52%,
+        transparent 70%,
+        transparent 100%
+    );
+    animation: goldSweep 9s ease-in-out infinite;
+    animation-delay: 2.3s; /* Slight offset creates double-shimmer */
+}
+
+@keyframes goldSweep {
+    0% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    45% {
+        transform: translateX(280%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(280%);
+        opacity: 0;
+    }
+}
+
+/* ─── QUOTE BAND SHIMMER ─────────────────── */
+.quote-band {
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-band::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        98deg,
+        transparent,
+        rgba(201, 168, 76, 0.07) 40%,
+        rgba(255, 240, 160, 0.15) 50%,
+        rgba(201, 168, 76, 0.07) 60%,
+        transparent
+    );
+    animation: goldSweep 12s ease-in-out infinite;
+    animation-delay: 5s;
+    pointer-events: none;
+}
+
+/* ─── CTA BAND PULSE ─────────────────────── */
+.cta-band {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-band::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    animation: goldPulse 6s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes goldPulse {
+    0%   { opacity: 0.4; transform: translateX(-50%) scale(0.8); }
+    100% { opacity: 1;   transform: translateX(-50%) scale(1.2); }
+}

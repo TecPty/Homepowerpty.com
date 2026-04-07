@@ -1,0 +1,31 @@
+/* Gold Breeze Effect Styles */
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind content */
+    pointer-events: none;
+}
+
+#vignette-effect {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(ellipse 80% 80% at 50% 50%,
+      transparent 40%, rgba(5, 5, 5, 0.3) 75%, rgba(5, 5, 5, 0.6) 100%);
+}
+
+/* Ensure hero container is a relative parent */
+.hero-section, .product-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Content above the canvas */
+.hero-container, .luxury-header, .luxury-nav {
+    position: relative;
+    z-index: 10;
+}
