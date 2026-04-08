@@ -1,0 +1,274 @@
+{
+  "media\\icons\\arrow": [
+    "arrow_left_icon.png",
+    "arrow_right_ico.png"
+  ],
+  "media\\icons\\clients": [
+    "Almacen_EL_Famoso.webp",
+    "almacen_el_lobo_logo.webp",
+    "Almacen_EL_Poderoso.webp",
+    "Almacen_Praga.webp",
+    "centro_dollar_logo.webp",
+    "city_mall_logo.webp",
+    "Ecomoda.webp",
+    "El_Bombazo.webp",
+    "el_campeon_logo.webp",
+    "el_costo_logo.webp",
+    "el_rey_mall.webp",
+    "Golden_Mall.webp",
+    "madison_logo.webp",
+    "mall_jerusalem_logo.webp",
+    "Saks.webp",
+    "titan_logo.webp",
+    "Todo_a_0.99.webp",
+    "Todo_a_Dollar.webp",
+    "wolf_mall_center_logo.webp",
+    "Xtra.webp"
+  ],
+  "media\\icons\\cross": [
+    "cross_icon.png"
+  ],
+  "media\\icons\\favicon": [
+    "favicon-114x114.png",
+    "favicon-120x120.png",
+    "favicon-144x144.png",
+    "favicon-152x152.png",
+    "favicon-16x16.png",
+    "favicon-180x180.png",
+    "favicon-192x192.png",
+    "favicon-32x32.png",
+    "favicon-512x512.png",
+    "favicon-57x57.png",
+    "favicon-60x60.png",
+    "favicon-72x72.png",
+    "favicon-96x96.png"
+  ],
+  "media\\icons\\logo": [
+    "HomePower_Footer.png",
+    "Home_Power_Favicon.png",
+    "logo.png",
+    "logo.webp"
+  ],
+  "media\\icons\\menu": [
+    "menu_icon.png",
+    "menu_icon.webp"
+  ],
+  "media\\icons\\socials_networks": [
+    "email_icon.png",
+    "email_icon.webp",
+    "instagram_icon.png",
+    "instagram_icon.webp",
+    "whatsapp_icon.ico",
+    "whatsapp_icon.png",
+    "whatsapp_icon.webp"
+  ],
+  "media\\images\\about_us": [
+    "about_us_background.svg",
+    "about_us_img.jpg",
+    "sello_garantia.png"
+  ],
+  "media\\images\\avatar": [
+    "Ana L.png",
+    "Ana_L.png",
+    "Ana_L.webp",
+    "Carlos R.png",
+    "Carlos_R.png",
+    "Carlos_R.webp",
+    "Maria G.png",
+    "Maria_G.png",
+    "Maria_G.webp"
+  ],
+  "media\\images\\banner": [
+    "banner_img.png",
+    "banner_img.webp",
+    "hero-banner-homepower.jpeg"
+  ],
+  "media\\images\\og": [
+    "homepower-1200x630-branded.png",
+    "homepower-1200x630.png"
+  ],
+  "media\\images\\products": [
+    "ESTUFA ELECTRICA DOS BLANCA.webp",
+    "ESTUFAELECTRICA_DOS_BLANCA_CAJA.webp",
+    "FREIDORA_DE_AIRE_NEGRA_2.webp",
+    "FREIDORA_DE_AIRE_NEGRA_2_CAJA.webp",
+    "LICUADORA_BLANCA_4.webp",
+    "LICUADORA_BLANCA_4_CAJA.webp"
+  ],
+  "media\\images\\Promocion": [
+    "carnival_bg_desktop.png",
+    "carnival_bg_mobile.png",
+    "DESCUENTO_DE_ELECTRODOMESTICOS.png",
+    "fechas_patrias.webp"
+  ],
+  "media\\images\\Promocion\\optimized": [
+    "banner-dale-clic.png",
+    "black-week-full.webp",
+    "black-week-medium.webp",
+    "black-week-small.webp",
+    "black-week.png",
+    "fechas_patrias.webp",
+    "mother-day-homepowerpty.png",
+    "vertical-banner-dale-clic.png"
+  ],
+  "productos\\air-fryer-4-5l\\img": [
+    "AIR_FRYER.webp",
+    "AIR_FRYER_BRAND_COMMERCIAL.png",
+    "AIR_FRYER_CAJA.webp",
+    "AIR_FRYER_DETAIL_PANEL.png",
+    "AIR_FRYER_LIFESTYLE_DARK.png",
+    "AIR_FRYER_LIFESTYLE_FOOD.png"
+  ],
+  "productos\\arrocera-1-5l\\img": [
+    "ARROCERA.webp",
+    "ARROCERA_BRAND_COMMERCIAL.png",
+    "ARROCERA_CAJA.webp",
+    "ARROCERA_DETAIL_LOGO.png",
+    "ARROCERA_LIFESTYLE_DARK.png",
+    "ARROCERA_LIFESTYLE_KITCHEN.png"
+  ],
+  "productos\\arrocera-vaporera-2-2l\\img": [
+    "ARROCERA_VAPOR.webp",
+    "ARROCERA_VAPOR_CAJA.webp",
+    "VAPORERA_2_2L_BRAND_COMMERCIAL.png",
+    "VAPORERA_2_2L_DETAIL_LOGO.png",
+    "VAPORERA_2_2L_LIFESTYLE_DARK.png",
+    "VAPORERA_2_2L_LIFESTYLE_KITCHEN.png"
+  ],
+  "productos\\cafetera-12-tazas\\img": [
+    "CAFETERA_12_BRAND_COMMERCIAL.png",
+    "CAFETERA_12_DETAIL_LOGO.png",
+    "CAFETERA_12_LIFESTYLE_DARK.png",
+    "CAFETERA_12_LIFESTYLE_MORNING.png",
+    "CAFETERA_12_LIFESTYLE_OFFICE.png",
+    "CAFETERA_12_TAZAS.webp",
+    "CAFETERA_12_TAZAS_CAJA.webp"
+  ],
+  "productos\\cafetera-6-tazas\\img": [
+    "CAFETERA6_DETAIL_LOGO.png",
+    "CAFETERA6_LIFESTYLE_DARK.png",
+    "CAFETERA6_LIFESTYLE_KITCHEN.png",
+    "CAFETERA_6_LIFESTYLE_DARK.png",
+    "CAFETERA_6_TAZAS.webp",
+    "CAFETERA_6_TAZAS_CAJA.webp"
+  ],
+  "productos\\estufa-2-quemadores-blanca\\img": [
+    "ESTUFA_ELECTRICA_2_BLANCA.webp",
+    "ESTUFA_ELECTRICA_2_BLANCA_CAJA.webp",
+    "ESTUFA_ELECTRICA_BLANCA_BRAND_COMMERCIAL.png",
+    "ESTUFA_ELECTRICA_BLANCA_DETAIL_LOGO.png",
+    "ESTUFA_ELECTRICA_BLANCA_LIFESTYLE_DARK.png",
+    "ESTUFA_ELECTRICA_BLANCA_LIFESTYLE_KITCHEN.png"
+  ],
+  "productos\\estufa-2-quemadores-negra\\img": [
+    "ESTUFA_ELECTRICA_2_NEGRA.webp",
+    "ESTUFA_ELECTRICA_2_NEGRA_CAJA.webp",
+    "ESTUFA_ELECTRICA_NEGRA_BRAND_COMMERCIAL.png",
+    "ESTUFA_ELECTRICA_NEGRA_DETAIL_LOGO.png",
+    "ESTUFA_ELECTRICA_NEGRA_LIFESTYLE_DARK.png",
+    "ESTUFA_ELECTRICA_NEGRA_LIFESTYLE_KITCHEN.png"
+  ],
+  "productos\\estufa-electrica-doble\\img": [
+    "ESTUFA_ELECTRICA_DOBLE_BLANCA.webp",
+    "ESTUFA_ELECTRICA_DOBLE_BLANCA_CAJA.webp"
+  ],
+  "productos\\estufa-gas-2-quemadores\\img": [
+    "ESTUFA_GAS_DOS.webp",
+    "ESTUFA_GAS_DOS_CAJA.webp"
+  ],
+  "productos\\estufa-gas-3-quemadores\\img": [
+    "ESTUFA_GAS_3_QUEMADORES.webp",
+    "ESTUFA_GAS_3_QUEMADORES_CAJA.webp"
+  ],
+  "productos\\freidora-aire-blanca\\img": [
+    "AIRFRYER_BLANCA_BRAND_COMMERCIAL.png",
+    "AIRFRYER_BLANCA_DETAIL_LOGO.png",
+    "AIRFRYER_BLANCA_LIFESTYLE_DARK.png",
+    "AIRFRYER_BLANCA_LIFESTYLE_KITCHEN.png",
+    "FREIDORA_DE_AIRE_BLANCA_1_CAJA.webp",
+    "FRIEDORA_DE_AIRE_BLANCA_1.webp"
+  ],
+  "productos\\hornito-23l\\img": [
+    "HORNITO.webp",
+    "HORNITO_BRAND_COMMERCIAL.png",
+    "HORNITO_CAJA.webp",
+    "HORNITO_DETAIL_LOGO.png",
+    "HORNITO_LIFESTYLE_DARK.png",
+    "HORNITO_LIFESTYLE_KITCHEN.png"
+  ],
+  "productos\\licuadora-3v-glass\\img": [
+    "LICUADORA_DETAIL_LOGO.png",
+    "LICUADORA_NEGRA_3.webp",
+    "LICUADORA_NEGRA_3_CAJA.webp",
+    "LICUADORA_RED_LIFESTYLE_DARK.png",
+    "LICUADORA_RED_LIFESTYLE_KITCHEN.png",
+    "LICUADORA_ROJA.webp",
+    "LICUADORA_ROJA_3.webp",
+    "LICUADORA_ROJA_3_CAJA.webp",
+    "LICUADORA_ROJA_CAJA.webp",
+    "LICUADORA_VERDE_2.webp",
+    "LICUADORA_VERDE_2_CAJA.webp"
+  ],
+  "productos\\licuadora-azul\\img": [
+    "LICUADORA_AZUL_4.webp",
+    "LICUADORA_AZUL_4_CAJA.webp"
+  ],
+  "productos\\licuadora-chocolate\\img": [
+    "LICUADORA_CHOCOLATE.webp",
+    "LICUADORA_CHOCOLATE_CAJA.webp"
+  ],
+  "productos\\licuadora-vb999\\img": [
+    "LICUADORA_BLANCA_4.webp",
+    "LICUADORA_BLANCA_4_CAJA.webp"
+  ],
+  "productos\\olla-presion-5l\\img": [
+    "OLLA_PRESION.webp",
+    "OLLA_PRESION_CAJA.webp"
+  ],
+  "productos\\olla-presion-7l\\img": [
+    "OLLA_PRESION.webp",
+    "OLLA_PRESION_CAJA.webp"
+  ],
+  "productos\\plancha-seco\\img": [
+    "PLANCHA_SECO.webp",
+    "PLANCHA_SECO_CAJA.webp"
+  ],
+  "productos\\plancha-seco-premium\\img": [
+    "PLANCHA_SECO_2.webp",
+    "PLANCHA_SECO_2_CAJA.webp"
+  ],
+  "productos\\plancha-vapor-premium\\img": [
+    "PLANCHA_VAPOR.webp",
+    "PLANCHA_VAPOR_2.webp",
+    "PLANCHA_VAPOR_2_CAJA.webp",
+    "PLANCHA_VAPOR_CAJA.webp"
+  ],
+  "productos\\sandwichera-clasica\\img": [
+    "SANDWCHERA_PLASTICO.webp",
+    "SANDWCHERA_PLASTICO_CAJA.webp"
+  ],
+  "productos\\sandwichera-metal\\img": [
+    "SANDWCHERA_METAL.webp",
+    "SANDWCHERA_METAL_1.webp",
+    "SANDWCHERA_METAL_1_CAJA.webp",
+    "SANDWCHERA_METAL_CAJA.webp"
+  ],
+  "productos\\sandwichera-premium\\img": [
+    "PANINI_1.webp",
+    "PANINI_1_CAJA.webp",
+    "PANINI_2.webp",
+    "PANINI_2_CAJA.webp"
+  ],
+  "productos\\tetera-1-8l\\img": [
+    "TETERA_ELECTRICA.webp",
+    "TETERA_ELECTRICA_CAJA.webp"
+  ],
+  "productos\\tetera-premium\\img": [
+    "TETERA_ELECTRICA_2.webp",
+    "TETERA_ELECTRICA_2_CAJA.webp"
+  ],
+  "productos\\tostadora-2-rebanadas\\img": [
+    "TOSTADORA.webp",
+    "TOSTADORA_CAJA.webp"
+  ]
+}

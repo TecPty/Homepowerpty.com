@@ -1,0 +1,478 @@
+{
+  "renamed": [
+    "air-fryer-4-5l: AIR_FRYER_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "air-fryer-4-5l: AIR_FRYER_CAJA.webp -> CAJA.webp",
+    "air-fryer-4-5l: AIR_FRYER_DETAIL_PANEL.png -> DETAIL_LOGO.png",
+    "air-fryer-4-5l: AIR_FRYER_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "air-fryer-4-5l: AIR_FRYER_LIFESTYLE_FOOD.png -> LIFESTYLE_KITCHEN.png",
+    "air-fryer-4-5l: AIR_FRYER.webp -> PRODUCTO_PRINCIPAL.webp",
+    "arrocera-1-5l: ARROCERA_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "arrocera-1-5l: ARROCERA_CAJA.webp -> CAJA.webp",
+    "arrocera-1-5l: ARROCERA_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "arrocera-1-5l: ARROCERA_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "arrocera-1-5l: ARROCERA_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "arrocera-1-5l: ARROCERA.webp -> PRODUCTO_PRINCIPAL.webp",
+    "arrocera-vaporera-2-2l: ARROCERA_VAPOR_CAJA.webp -> CAJA.webp",
+    "arrocera-vaporera-2-2l: VAPORERA_2_2L_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "arrocera-vaporera-2-2l: VAPORERA_2_2L_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "arrocera-vaporera-2-2l: VAPORERA_2_2L_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "arrocera-vaporera-2-2l: VAPORERA_2_2L_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "arrocera-vaporera-2-2l: ARROCERA_VAPOR.webp -> PRODUCTO_PRINCIPAL.webp",
+    "cafetera-12-tazas: CAFETERA_12_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "cafetera-12-tazas: CAFETERA_12_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "cafetera-12-tazas: CAFETERA_12_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "cafetera-12-tazas: CAFETERA_12_LIFESTYLE_MORNING.png -> LIFESTYLE_KITCHEN.png",
+    "cafetera-12-tazas: CAFETERA_12_TAZAS_CAJA.webp -> CAJA.webp",
+    "cafetera-12-tazas: CAFETERA_12_LIFESTYLE_OFFICE.png -> PRODUCTO_PRINCIPAL.png",
+    "cafetera-6-tazas: CAFETERA6_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "cafetera-6-tazas: CAFETERA6_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "cafetera-6-tazas: CAFETERA6_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "cafetera-6-tazas: CAFETERA_6_TAZAS_CAJA.webp -> CAJA.webp",
+    "cafetera-6-tazas: CAFETERA_6_LIFESTYLE_DARK.png -> PRODUCTO_PRINCIPAL.png",
+    "estufa-2-quemadores-blanca: ESTUFA_ELECTRICA_2_BLANCA_CAJA.webp -> CAJA.webp",
+    "estufa-2-quemadores-blanca: ESTUFA_ELECTRICA_BLANCA_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "estufa-2-quemadores-blanca: ESTUFA_ELECTRICA_BLANCA_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "estufa-2-quemadores-blanca: ESTUFA_ELECTRICA_BLANCA_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "estufa-2-quemadores-blanca: ESTUFA_ELECTRICA_BLANCA_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "estufa-2-quemadores-blanca: ESTUFA_ELECTRICA_2_BLANCA.webp -> PRODUCTO_PRINCIPAL.webp",
+    "estufa-2-quemadores-negra: ESTUFA_ELECTRICA_2_NEGRA_CAJA.webp -> CAJA.webp",
+    "estufa-2-quemadores-negra: ESTUFA_ELECTRICA_NEGRA_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "estufa-2-quemadores-negra: ESTUFA_ELECTRICA_NEGRA_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "estufa-2-quemadores-negra: ESTUFA_ELECTRICA_NEGRA_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "estufa-2-quemadores-negra: ESTUFA_ELECTRICA_NEGRA_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "estufa-2-quemadores-negra: ESTUFA_ELECTRICA_2_NEGRA.webp -> PRODUCTO_PRINCIPAL.webp",
+    "estufa-electrica-doble: ESTUFA_ELECTRICA_DOBLE_BLANCA_CAJA.webp -> CAJA.webp",
+    "estufa-electrica-doble: ESTUFA_ELECTRICA_DOBLE_BLANCA.webp -> PRODUCTO_PRINCIPAL.webp",
+    "estufa-gas-2-quemadores: ESTUFA_GAS_DOS_CAJA.webp -> CAJA.webp",
+    "estufa-gas-2-quemadores: ESTUFA_GAS_DOS.webp -> PRODUCTO_PRINCIPAL.webp",
+    "estufa-gas-3-quemadores: ESTUFA_GAS_3_QUEMADORES_CAJA.webp -> CAJA.webp",
+    "estufa-gas-3-quemadores: ESTUFA_GAS_3_QUEMADORES.webp -> PRODUCTO_PRINCIPAL.webp",
+    "freidora-aire-blanca: AIRFRYER_BLANCA_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "freidora-aire-blanca: AIRFRYER_BLANCA_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "freidora-aire-blanca: AIRFRYER_BLANCA_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "freidora-aire-blanca: AIRFRYER_BLANCA_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "freidora-aire-blanca: FREIDORA_DE_AIRE_BLANCA_1_CAJA.webp -> CAJA.webp",
+    "freidora-aire-blanca: FRIEDORA_DE_AIRE_BLANCA_1.webp -> PRODUCTO_PRINCIPAL.webp",
+    "hornito-23l: HORNITO_BRAND_COMMERCIAL.png -> BRAND_COMMERCIAL.png",
+    "hornito-23l: HORNITO_CAJA.webp -> CAJA.webp",
+    "hornito-23l: HORNITO_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "hornito-23l: HORNITO_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "hornito-23l: HORNITO_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "hornito-23l: HORNITO.webp -> PRODUCTO_PRINCIPAL.webp",
+    "licuadora-3v-glass: LICUADORA_DETAIL_LOGO.png -> DETAIL_LOGO.png",
+    "licuadora-3v-glass: LICUADORA_NEGRA_3_CAJA.webp -> CAJA.webp",
+    "licuadora-3v-glass: LICUADORA_RED_LIFESTYLE_DARK.png -> LIFESTYLE_DARK.png",
+    "licuadora-3v-glass: LICUADORA_RED_LIFESTYLE_KITCHEN.png -> LIFESTYLE_KITCHEN.png",
+    "licuadora-3v-glass: LICUADORA_NEGRA_3.webp -> PRODUCTO_PRINCIPAL.webp",
+    "licuadora-azul: LICUADORA_AZUL_4_CAJA.webp -> CAJA.webp",
+    "licuadora-azul: LICUADORA_AZUL_4.webp -> PRODUCTO_PRINCIPAL.webp",
+    "licuadora-chocolate: LICUADORA_CHOCOLATE_CAJA.webp -> CAJA.webp",
+    "licuadora-chocolate: LICUADORA_CHOCOLATE.webp -> PRODUCTO_PRINCIPAL.webp",
+    "licuadora-vb999: LICUADORA_BLANCA_4_CAJA.webp -> CAJA.webp",
+    "licuadora-vb999: LICUADORA_BLANCA_4.webp -> PRODUCTO_PRINCIPAL.webp",
+    "olla-presion-5l: OLLA_PRESION_CAJA.webp -> CAJA.webp",
+    "olla-presion-5l: OLLA_PRESION.webp -> PRODUCTO_PRINCIPAL.webp",
+    "olla-presion-7l: OLLA_PRESION_CAJA.webp -> CAJA.webp",
+    "olla-presion-7l: OLLA_PRESION.webp -> PRODUCTO_PRINCIPAL.webp",
+    "plancha-seco: PLANCHA_SECO_CAJA.webp -> CAJA.webp",
+    "plancha-seco: PLANCHA_SECO.webp -> PRODUCTO_PRINCIPAL.webp",
+    "plancha-seco-premium: PLANCHA_SECO_2_CAJA.webp -> CAJA.webp",
+    "plancha-seco-premium: PLANCHA_SECO_2.webp -> PRODUCTO_PRINCIPAL.webp",
+    "plancha-vapor-premium: PLANCHA_VAPOR_2_CAJA.webp -> CAJA.webp",
+    "plancha-vapor-premium: PLANCHA_VAPOR.webp -> PRODUCTO_PRINCIPAL.webp",
+    "sandwichera-clasica: SANDWCHERA_PLASTICO_CAJA.webp -> CAJA.webp",
+    "sandwichera-clasica: SANDWCHERA_PLASTICO.webp -> PRODUCTO_PRINCIPAL.webp",
+    "sandwichera-metal: SANDWCHERA_METAL_1_CAJA.webp -> CAJA.webp",
+    "sandwichera-metal: SANDWCHERA_METAL.webp -> PRODUCTO_PRINCIPAL.webp",
+    "sandwichera-premium: PANINI_1_CAJA.webp -> CAJA.webp",
+    "sandwichera-premium: PANINI_1.webp -> PRODUCTO_PRINCIPAL.webp",
+    "tetera-1-8l: TETERA_ELECTRICA_CAJA.webp -> CAJA.webp",
+    "tetera-1-8l: TETERA_ELECTRICA.webp -> PRODUCTO_PRINCIPAL.webp",
+    "tetera-premium: TETERA_ELECTRICA_2_CAJA.webp -> CAJA.webp",
+    "tetera-premium: TETERA_ELECTRICA_2.webp -> PRODUCTO_PRINCIPAL.webp",
+    "tostadora-2-rebanadas: TOSTADORA_CAJA.webp -> CAJA.webp",
+    "tostadora-2-rebanadas: TOSTADORA.webp -> PRODUCTO_PRINCIPAL.webp"
+  ],
+  "deleted": [
+    "cafetera-12-tazas: CAFETERA_12_TAZAS.webp",
+    "cafetera-6-tazas: CAFETERA_6_TAZAS.webp",
+    "licuadora-3v-glass: LICUADORA_ROJA.webp",
+    "licuadora-3v-glass: LICUADORA_ROJA_3.webp",
+    "licuadora-3v-glass: LICUADORA_ROJA_3_CAJA.webp",
+    "licuadora-3v-glass: LICUADORA_ROJA_CAJA.webp",
+    "licuadora-3v-glass: LICUADORA_VERDE_2.webp",
+    "licuadora-3v-glass: LICUADORA_VERDE_2_CAJA.webp",
+    "plancha-vapor-premium: PLANCHA_VAPOR_2.webp",
+    "plancha-vapor-premium: PLANCHA_VAPOR_CAJA.webp",
+    "sandwichera-metal: SANDWCHERA_METAL_1.webp",
+    "sandwichera-metal: SANDWCHERA_METAL_CAJA.webp",
+    "sandwichera-premium: PANINI_2.webp",
+    "sandwichera-premium: PANINI_2_CAJA.webp"
+  ],
+  "missing": {
+    "air-fryer-3l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "arrocera-0-3l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "arrocera-1-8l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "arrocera-2-2l-basica": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "batidora-mano": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "batidora-mano-metal": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "batidora-pedestal": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-12t-cm02": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-12t-v2": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-6-tazas": [
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-6t-v2": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-7-5-tazas": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-percoladora-100t": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-percoladora-30t": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-percoladora-40t": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "cafetera-percoladora-50t": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-electrica-1-quemador": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-electrica-1q-premium": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-electrica-2q-negra": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-electrica-doble": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-gas-2-quemadores": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-gas-2q-v2": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-gas-3-quemadores": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-gas-3q-v2": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "estufa-gas-4q-horno": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "licuadora-3v-glass": [
+      "BRAND_COMMERCIAL"
+    ],
+    "licuadora-azul": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "licuadora-chocolate": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "licuadora-vb999": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "lochera-termica": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "olla-presion-3-2l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "olla-presion-4-2l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "olla-presion-5l": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "olla-presion-7l": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "olla-presion-9l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "panini-metal": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "plancha-seco": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "plancha-seco-premium": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "plancha-vapor-hp012": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "plancha-vapor-premium": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "plancha-vapor-r91171b": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "sandwichera-clasica": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "sandwichera-grill": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "sandwichera-metal": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "sandwichera-premium": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "sandwichera-sj35": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "tetera-1-8l": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "tetera-plastico-1-5l": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "tetera-premium": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "tostadora-2-rebanadas": [
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ],
+    "tostadora-metal": [
+      "PRODUCTO_PRINCIPAL",
+      "CAJA",
+      "LIFESTYLE_DARK",
+      "DETAIL_LOGO",
+      "LIFESTYLE_KITCHEN",
+      "BRAND_COMMERCIAL"
+    ]
+  }
+}
