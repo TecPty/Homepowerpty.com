@@ -78,6 +78,75 @@ section { padding: 80px 0; }
 }
 
 /* -----------------------------
+   TOP BAR / ANNOUNCEMENT
+----------------------------- */
+.announcement-bar {
+    background-color: #CFB53B; /* Dorado Oro Viejo */
+    color: #111111;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.topbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.topbar-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.topbar-item a {
+    color: #FFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.topbar-item a:hover {
+    color: #f1f1f1;
+}
+
+.topbar-item span {
+    opacity: 0.6;
+}
+
+.email-second {
+    margin-left: 5px;
+}
+
+.topbar-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-icon {
+    color: #111111;
+    background: rgba(0,0,0,0.1);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.social-icon:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* -----------------------------
    NAVBAR
 ----------------------------- */
 .luxury-header {
@@ -105,14 +174,36 @@ section { padding: 80px 0; }
 }
 
 .luxury-nav .nav-links a {
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: #FFFFFF; /* Letras Blancas */
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: none; 
+    letter-spacing: 0.5px;
 }
 
 .luxury-nav .nav-links a:hover {
-    color: var(--color-accent);
+    color: #CFB53B;
+}
+
+/* Header Action Button (Oro Viejo solid) */
+.btn-header-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #CFB53B; /* Dorado Oro Viejo */
+    color: #111111;
+    padding: 10px 24px;
+    border-radius: 100px; /* Pill shape */
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(207, 181, 59, 0.3);
+}
+
+.btn-header-contact:hover {
+    background-color: #bfa530;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(207, 181, 59, 0.4);
 }
 
 /* -----------------------------
@@ -139,14 +230,17 @@ section { padding: 80px 0; }
 
 .btn-solid-gold {
     display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-primary);
+    background-color: #CFB53B;
+    color: #111111;
     padding: 12px 32px;
     border-radius: var(--border-radius);
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 1px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: all 0.3s ease;
 }
 
 .btn-solid-gold:hover {
@@ -157,8 +251,11 @@ section { padding: 80px 0; }
 .btn-text-icon {
     display: inline-flex;
     align-items: center;
-    color: var(--color-accent);
+    color: #CFB53B;
     font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: all 0.3s ease;
 }
 
 .btn-text-icon:hover {
@@ -186,7 +283,8 @@ section { padding: 80px 0; }
 .hero-title {
     font-size: 4rem;
     line-height: 1.1;
-    color: var(--color-accent);
+    color: #CFB53B; /* Changed to match precisely what you have in the image */
+    margin-bottom: 40px; /* Space between title and buttons */
 }
 
 .hero-title span { color: #fff; }
@@ -439,6 +537,33 @@ section { padding: 80px 0; }
 .footer-container { display: flex; justify-content: space-between; }
 .footer-col { flex: 1; color: rgba(255,255,255,0.6); }
 
+/* -----------------------------
+   FLOATING WHATSAPP BUTTON
+----------------------------- */
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #CFB53B;
+    color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 9999;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-whatsapp-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    background-color: #bfa530;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .featured-products-grid { grid-template-columns: repeat(3, 1fr); }
@@ -452,4 +577,10 @@ section { padding: 80px 0; }
 
 @media (max-width: 480px) {
     .featured-products-grid { grid-template-columns: 1fr; }
+    
+    .floating-whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    .fwb-text { display: none; }
 }
