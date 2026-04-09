@@ -166,7 +166,7 @@ section { padding: 80px 0; }
 
 .logo-container .luxury-logo {
     max-height: 180px;
-    filter: drop-shadow(0 0 15px rgba(214, 181, 94, 0.4));
+    filter: drop-shadow(0 0 15px rgba(214, 181, 94, 0.8)) drop-shadow(0 0 30px rgba(214, 181, 94, 0.3));
     transition: transform 0.3s ease;
 }
 
