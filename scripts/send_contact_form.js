@@ -124,10 +124,27 @@
         // Validación frontend
         const name = formData.get('name')?.trim();
         const number = formData.get('number')?.trim();
+        const email = formData.get('email')?.trim();
         const message = formData.get('message')?.trim();
         
-        if (!validateField('name', name) || !validateField('number', number) || !validateField('message', message)) {
-            showMessage('Por favor, complete todos los campos correctamente', 'error');
+        let hasError = false;
+        
+        // Validar y aplicar clases visuales
+        if (!validateField('name', name)) {
+            form.querySelector('[name="name"]').classList.add('invalid');
+            hasError = true;
+        }
+        if (!validateField('number', number)) {
+            form.querySelector('[name="number"]').classList.add('invalid');
+            hasError = true;
+        }
+        if (!validateField('message', message)) {
+            form.querySelector('[name="message"]').classList.add('invalid');
+            hasError = true;
+        }
+
+        if (hasError) {
+            showMessage('Por favor, revise los campos marcados en rojo', 'error');
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnHTML;
             return;

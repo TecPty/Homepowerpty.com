@@ -151,8 +151,8 @@ section { padding: 80px 0; }
 ----------------------------- */
 .luxury-header {
     background-color: var(--color-primary);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 15px 0;
+    border-bottom: 2px solid var(--color-accent);
+    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 2000;
@@ -165,7 +165,13 @@ section { padding: 80px 0; }
 }
 
 .logo-container .luxury-logo {
-    max-height: 40px;
+    max-height: 180px;
+    filter: drop-shadow(0 0 15px rgba(214, 181, 94, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.logo-container .luxury-logo:hover {
+    transform: scale(1.05);
 }
 
 .luxury-nav .nav-links {
@@ -387,8 +393,9 @@ section { padding: 80px 0; }
     z-index: 1500;
     background: #111;
     border-bottom: 2px solid var(--color-accent);
-    padding: 10px 0; /* Compactado */
+    padding: 10px 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: top 0.3s ease;
 }
 
 .category-pill-scroll {
@@ -528,7 +535,27 @@ section { padding: 80px 0; }
 .luxury-form input, .luxury-form textarea { width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
 .luxury-form input:focus { outline: none; border-bottom-color: var(--color-accent); }
 
-.btn-whatsapp-submit { background: #25D366; color: #fff; padding: 15px; border-radius: 8px; text-transform: uppercase; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.btn-whatsapp-submit { 
+    background: #25D366; 
+    color: #fff; 
+    padding: 15px; 
+    border-radius: 8px; 
+    text-transform: uppercase; 
+    font-weight: 800; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+}
+
+.form_input.invalid {
+    border-bottom: 2px solid #ff4d4d !important;
+    background-color: rgba(255, 77, 77, 0.05);
+}
+
+.form_input.valid {
+    border-bottom: 2px solid #25D366 !important;
+}
 
 /* -----------------------------
    FOOTER
@@ -570,9 +597,13 @@ section { padding: 80px 0; }
 }
 
 @media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .luxury-nav .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
     .hero-container, .contact-container, .footer-container { flex-direction: column; text-align: center; }
     .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-image-wrapper { margin-top: 40px; }
+    .category-sticky-bar { top: 60px; } 
+    .logo-container .luxury-logo { max-height: 100px; }
 }
 
 @media (max-width: 480px) {
@@ -583,4 +614,7 @@ section { padding: 80px 0; }
         right: 20px;
     }
     .fwb-text { display: none; }
+    .logo-container .luxury-logo {
+        max-height: 65px;
+    }
 }
