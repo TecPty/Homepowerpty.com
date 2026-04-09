@@ -389,7 +389,7 @@ section { padding: 80px 0; }
 ----------------------------- */
 .category-sticky-bar {
     position: sticky;
-    top: 71px; /* Height of header */
+    top: 200px; /* Sincronizado con el nuevo logo WOW (180px + padding) */
     z-index: 1500;
     background: #111;
     border-bottom: 2px solid var(--color-accent);
@@ -602,7 +602,7 @@ section { padding: 80px 0; }
     .hero-container, .contact-container, .footer-container { flex-direction: column; text-align: center; }
     .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-image-wrapper { margin-top: 40px; }
-    .category-sticky-bar { top: 60px; } 
+    .category-sticky-bar { top: 165px; } 
     .logo-container .luxury-logo { max-height: 100px; }
 }
 
