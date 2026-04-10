@@ -681,10 +681,10 @@ section { padding: 80px 0; }
     color: rgba(255,255,255,0.5) !important;
 }
 
-.client-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+.client-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; }
 
 .client-grid img {
-    height: 40px;
+    height: 60px;
     filter: grayscale(1) brightness(1.4);
     opacity: 0.6;
     transition: opacity 0.3s ease, filter 0.3s ease;
