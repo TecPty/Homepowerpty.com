@@ -150,8 +150,7 @@ section { padding: 80px 0; }
    NAVBAR
 ----------------------------- */
 .luxury-header {
-    background-color: var(--color-primary);
-    border-bottom: 2px solid var(--color-accent);
+    background-color: rgba(17, 17, 17, 0.85);
     padding: 10px 0;
     position: sticky;
     top: 0;
@@ -273,7 +272,8 @@ section { padding: 80px 0; }
 ----------------------------- */
 .hero-section {
     background-color: var(--color-primary);
-    padding: 100px 0;
+    padding: 190px 0 100px; /* top: +90px to compensate margin-top pull-up */
+    margin-top: -90px;     /* pull section up behind sticky header so canvas covers header zone */
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -389,9 +389,10 @@ section { padding: 80px 0; }
 ----------------------------- */
 .category-sticky-bar {
     position: sticky;
-    top: 200px; /* Sincronizado con el nuevo logo WOW (180px + padding) */
+    top: 90px; /* Height of sticky header (~80px logo + 10px padding top/bottom) */
     z-index: 1500;
     background: #111;
+    border-top: 1px solid rgba(255,255,255,0.08);
     border-bottom: 2px solid var(--color-accent);
     padding: 10px 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -462,6 +463,7 @@ section { padding: 80px 0; }
 
 .product:hover {
     transform: translateY(-8px);
+    box-shadow: 0 28px 50px rgba(0,0,0,0.4);
 }
 
 .product_image_wrapper {
@@ -602,7 +604,7 @@ section { padding: 80px 0; }
     .hero-container, .contact-container, .footer-container { flex-direction: column; text-align: center; }
     .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-image-wrapper { margin-top: 40px; }
-    .category-sticky-bar { top: 165px; } 
+    .category-sticky-bar { top: 80px; } /* Mobile header is ~70px (logo max-height: 100px scaled) */
     .logo-container .luxury-logo { max-height: 100px; }
 }
 

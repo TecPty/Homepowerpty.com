@@ -21,7 +21,7 @@
 /* Ensure hero container is a relative parent */
 .hero-section, .product-hero {
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* removed hidden — canvas clips via its own width/height, not overflow */
 }
 
 /* Content above the canvas */
