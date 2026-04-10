@@ -164,7 +164,7 @@ section { padding: 80px 0; }
 }
 
 .logo-container .luxury-logo {
-    max-height: 180px;
+    max-height: 80px;
     filter: drop-shadow(0 0 15px rgba(214, 181, 94, 0.8)) drop-shadow(0 0 30px rgba(214, 181, 94, 0.3));
     transition: transform 0.3s ease;
 }
@@ -272,9 +272,9 @@ section { padding: 80px 0; }
 ----------------------------- */
 .hero-section {
     background-color: var(--color-primary);
-    padding: 190px 0 100px; /* top: +90px to compensate margin-top pull-up */
+    padding: 130px 0 80px; /* top: +90px to compensate margin-top pull-up */
     margin-top: -90px;     /* pull section up behind sticky header so canvas covers header zone */
-    min-height: 80vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
 }
@@ -301,17 +301,16 @@ section { padding: 80px 0; }
 }
 
 .hero-image-frame {
-    background-color: #fff;
-    padding: 20px;
     border-radius: var(--border-radius);
     position: relative;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
 }
 
 .badge-best-seller {
     position: absolute;
-    top: -15px; /* Offset to overlap frame slightly */
-    right: -15px;
+    top: 15px; /* Relative to .hero-image-wrapper — lands badge on frame corner */
+    right: 15px;
     background: linear-gradient(135deg, #e2cb83, #b49542);
     color: #111;
     width: 80px;
@@ -342,10 +341,11 @@ section { padding: 80px 0; }
 .hero-image-wrapper::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
 .hero-img {
-    max-width: 400px;
+    max-width: 500px;
+    width: 100%;
     position: relative;
     z-index: 2;
-    border-radius: 8px; /* Inner radius for image */
+    display: block;
 }
 
 /* -----------------------------
@@ -488,12 +488,29 @@ section { padding: 80px 0; }
     background: var(--color-accent-hover);
 }
 
+.showcase-footer {
+    text-align: center;
+    margin-top: 36px;
+}
+
+.showcase-bridge-link {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.showcase-bridge-link:hover {
+    color: var(--color-accent);
+}
+
 /* -----------------------------
    STICKY CATEGORY PILL BAR
 ----------------------------- */
 .category-sticky-bar {
     position: sticky;
-    top: 90px; /* Height of sticky header (~80px logo + 10px padding top/bottom) */
+    top: 100px; /* Height of sticky header (~80px logo + 10px padding top/bottom) */
     z-index: 1500;
     background: #111;
     border-top: 1px solid rgba(255,255,255,0.08);
