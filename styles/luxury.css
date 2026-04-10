@@ -460,6 +460,7 @@ section { padding: 80px 0; }
     display: flex;
     flex-direction: column;
     gap: 16px;
+    flex: 1;
 }
 
 .showcase-card__name {
@@ -482,6 +483,7 @@ section { padding: 80px 0; }
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: background 0.3s ease;
+    margin-top: auto;
 }
 
 .showcase-card__cta:hover {
@@ -603,12 +605,37 @@ section { padding: 80px 0; }
     object-fit: contain;
 }
 
+.product_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product_sku {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+}
+
 .product_name {
     font-family: var(--font-body);
     font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
     margin-bottom: 12px;
+}
+
+.product_name a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.product_name a:hover {
+    color: #fff;
 }
 
 .product_features {
@@ -645,9 +672,28 @@ section { padding: 80px 0; }
 /* -----------------------------
    CLIENTS & CONTACT
 ----------------------------- */
-.client-wall-section { background: #fff; }
+.client-wall-section {
+    background: #111;
+    border-top: 1px solid rgba(214,181,94,0.15);
+}
+
+.client-wall-section p {
+    color: rgba(255,255,255,0.5) !important;
+}
+
 .client-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
-.client-grid img { height: 40px; }
+
+.client-grid img {
+    height: 40px;
+    filter: grayscale(1) brightness(1.4);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.client-grid img:hover {
+    opacity: 0.9;
+    filter: grayscale(0.3) brightness(1.6);
+}
 
 .contact-section { background: #fff; }
 .contact-container { display: flex; gap: 60px; }
