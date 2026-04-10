@@ -385,6 +385,110 @@ section { padding: 80px 0; }
 }
 
 /* -----------------------------
+   SHOWCASE SECTION
+----------------------------- */
+.showcase-section {
+    background-color: var(--color-primary);
+    padding: 60px 0 50px;
+}
+
+.showcase-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.showcase-label {
+    display: inline-block;
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.showcase-title {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.showcase-card {
+    background-color: #1a1500;
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.showcase-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 45px rgba(0,0,0,0.45);
+}
+
+.showcase-card__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    height: 260px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.showcase-card__image img {
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.showcase-card:hover .showcase-card__image img {
+    transform: scale(1.04);
+}
+
+.showcase-card__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.showcase-card__name {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.showcase-card__cta {
+    display: block;
+    background: var(--color-accent);
+    color: #111;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease;
+}
+
+.showcase-card__cta:hover {
+    background: var(--color-accent-hover);
+}
+
+/* -----------------------------
    STICKY CATEGORY PILL BAR
 ----------------------------- */
 .category-sticky-bar {
@@ -603,6 +707,7 @@ section { padding: 80px 0; }
     .luxury-nav .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
     .hero-container, .contact-container, .footer-container { flex-direction: column; text-align: center; }
     .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
+    .showcase-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-image-wrapper { margin-top: 40px; }
     .category-sticky-bar { top: 80px; } /* Mobile header is ~70px (logo max-height: 100px scaled) */
     .logo-container .luxury-logo { max-height: 100px; }
@@ -610,6 +715,7 @@ section { padding: 80px 0; }
 
 @media (max-width: 480px) {
     .featured-products-grid { grid-template-columns: 1fr; }
+    .showcase-grid { grid-template-columns: 1fr; }
     
     .floating-whatsapp-btn {
         bottom: 20px;
