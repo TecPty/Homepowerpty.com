@@ -521,6 +521,127 @@ section { padding: 80px 0; }
 }
 
 /* -----------------------------
+   SHOWCASE STRIPS (Opción B)
+----------------------------- */
+.showcase-strips {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.showcase-strip {
+    display: grid;
+    grid-template-columns: 55% 1fr;
+    min-height: 360px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(214, 181, 94, 0.15);
+    background: #0e0e0e;
+}
+
+.showcase-strip--reverse {
+    grid-template-columns: 1fr 55%;
+}
+
+.showcase-strip__img {
+    overflow: hidden;
+}
+
+.showcase-strip__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.showcase-strip:hover .showcase-strip__img img {
+    transform: scale(1.03);
+}
+
+.showcase-strip__content {
+    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    border-left: 3px solid var(--color-accent);
+}
+
+.showcase-strip--reverse .showcase-strip__content {
+    border-left: none;
+    border-right: 3px solid var(--color-accent);
+}
+
+.showcase-strip__label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.showcase-strip__name {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.showcase-strip__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.showcase-strip__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.showcase-strip__features li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.showcase-strip__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-accent);
+    color: #111;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+.showcase-strip__cta:hover {
+    background: var(--color-accent-hover);
+}
+
+/* -----------------------------
    CATALOG LAYOUT (SIDEBAR)
 ----------------------------- */
 .catalog-content-wrapper {
@@ -1007,6 +1128,13 @@ section { padding: 80px 0; }
     .hero-container, .contact-container, .footer-container { flex-direction: column; text-align: center; }
     .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
     .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+    .showcase-strip,
+    .showcase-strip--reverse { grid-template-columns: 1fr; }
+    .showcase-strip__img { height: 260px; }
+    .showcase-strip--reverse .showcase-strip__img { order: -1; }
+    .showcase-strip--reverse .showcase-strip__content { border-right: none; border-left: 3px solid var(--color-accent); }
+    .showcase-strip__content { padding: 28px 24px; }
+    .showcase-strip__name { font-size: 1.6rem; }
     .hero-image-wrapper { margin-top: 40px; }
     .category-sticky-bar { top: 80px; } /* Mobile header is ~70px (logo max-height: 100px scaled) */
     .logo-container .luxury-logo { max-height: 100px; }
@@ -1015,6 +1143,7 @@ section { padding: 80px 0; }
 @media (max-width: 480px) {
     .featured-products-grid { grid-template-columns: 1fr; }
     .showcase-grid { grid-template-columns: 1fr; }
+    .showcase-strip__name { font-size: 1.35rem; }
     
     .floating-whatsapp-btn {
         bottom: 20px;

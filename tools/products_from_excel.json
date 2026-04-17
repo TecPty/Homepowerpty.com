@@ -1,0 +1,356 @@
+[
+  {
+    "sku": "JD389",
+    "barcode": "732129008888",
+    "nombre": "AIR FRYER: Litros: 4.5 Modo: digital",
+    "es_nuevo": false
+  },
+  {
+    "sku": "AF3201",
+    "barcode": "732129008635",
+    "nombre": "AIR FRYER: Litros: 3L Colores: Blanco y negro Voltaje/frecuencia nominal: 110V, 50Hz.",
+    "es_nuevo": true
+  },
+  {
+    "sku": "OC-506",
+    "barcode": "732129008413",
+    "nombre": "AIR FRYER: Litros: 3L Colores: Blanco y negro Voltaje/frecuencia nominal: 110V, 50Hz.",
+    "es_nuevo": false
+  },
+  {
+    "sku": "MM-111",
+    "barcode": "6902468910348",
+    "nombre": "LICUADORA de VIDRIO: colores: negro y gris Pawer: 450W Voltaje: 110V",
+    "es_nuevo": false
+  },
+  {
+    "sku": "VB-999",
+    "barcode": "732129008895",
+    "nombre": "",
+    "es_nuevo": false
+  },
+  {
+    "sku": "MM-931",
+    "barcode": "732129008390",
+    "nombre": "LICUADORA PLASTICO: colores: negro y rojo Diseño mas bonito Voltaje: 110V Pawer: 300-400W Frequencia: 60Hz. Capacidad: 1.6L. Motor: 7020",
+    "es_nuevo": false
+  },
+  {
+    "sku": "MM-933",
+    "barcode": "732129008406",
+    "nombre": "LICUADORA PLASTICO: colores: azul y blanco Diseño mas bonito Voltaje: 110V Pawer: 300-400W Frequencia: 60Hz. Capacidad: 1.6L. Motor: 7025",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HP-024",
+    "barcode": "732129008949",
+    "nombre": "BATIDORA ELECTRICA DE PEDESTAL",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-044",
+    "barcode": "694943899199",
+    "nombre": "BATIDORA ELECTRICA DE MANO",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-045",
+    "barcode": "694943899205",
+    "nombre": "BATIDORA ELECTRICA DE MANO DE METAL",
+    "es_nuevo": true
+  },
+  {
+    "sku": "F-010E-1",
+    "barcode": "732129008901",
+    "nombre": "ESTUFITA ELECTRICA: 1quemador Colores: Blanco y negro.",
+    "es_nuevo": false
+  },
+  {
+    "sku": "2020B\n(F-011A-1)",
+    "barcode": "732129008918",
+    "nombre": "ESTUFITA ELECTRICA: 2quemadores. Colores: Blanco y negro.",
+    "es_nuevo": false
+  },
+  {
+    "sku": "1010A",
+    "barcode": "732129008581",
+    "nombre": "ESTUFITA ELECTRICA: 1quemador Colores: Blanco y negro.",
+    "es_nuevo": false
+  },
+  {
+    "sku": "2020A",
+    "barcode": "732129008598",
+    "nombre": "ESTUFITA ELECTRICA: 2quemadores. Colores: Blanco y negro.",
+    "es_nuevo": false
+  },
+  {
+    "sku": "2050A",
+    "barcode": "732129008437",
+    "nombre": "ESTUFA DE GAS DE ACERO INOXIDABLE: De 2 quemadores",
+    "es_nuevo": false
+  },
+  {
+    "sku": "3080",
+    "barcode": "732129008666",
+    "nombre": "ESTUFA GAS DE ACERO INOXIDABLE: De 2 quemadores",
+    "es_nuevo": true
+  },
+  {
+    "sku": "3076K",
+    "barcode": "732129008420",
+    "nombre": "ESTUFA GAS DE ACERO INOXIDABLE: De 3 quemadores",
+    "es_nuevo": false
+  },
+  {
+    "sku": "3081K",
+    "barcode": "732129008673",
+    "nombre": "ESTUFA GAS DE ACERO INOXIDABLE: De 3 quemadores",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-073",
+    "barcode": "694943899489",
+    "nombre": "ESTUFA A GAS DE 4 Q CON HORNO",
+    "es_nuevo": true
+  },
+  {
+    "sku": "CM02",
+    "barcode": "732129008932",
+    "nombre": "CAFETERA: 12 TASAS. Capacidad:1.2L Voltaje: 110v Pawer: 900W",
+    "es_nuevo": false
+  },
+  {
+    "sku": "WJ-9008",
+    "barcode": "732129008567",
+    "nombre": "CAFETERA CON FILTO FINO: 6tasas. 110 V, 50/60 Hz, 600 W",
+    "es_nuevo": false
+  },
+  {
+    "sku": "WJ-9009",
+    "barcode": "732129008574",
+    "nombre": "CAFETERA CON FILTO FINO: 12 tasas. 110 V, 50/60 Hz, 800 W",
+    "es_nuevo": false
+  },
+  {
+    "sku": "WJ-9001",
+    "barcode": "732129008680",
+    "nombre": "CAFETERA CON FILTO FINO: 6tasas. 110 V, 50/60 Hz, 600 W",
+    "es_nuevo": true
+  },
+  {
+    "sku": "WJ-9002",
+    "barcode": "732129008697",
+    "nombre": "CAFETERA CON FILTO FINO: 12 tasas. 110 V, 50/60 Hz, 800 W",
+    "es_nuevo": true
+  },
+  {
+    "sku": "WJ-9011",
+    "barcode": "732129008703",
+    "nombre": "CAFETERA CON FILTO FINO: 7.5tasas. 110 V, 50/60 Hz, 600 W",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-046",
+    "barcode": "694943899212",
+    "nombre": "CAFETERA PERCOLADORA DE 30 TAZAS",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-047",
+    "barcode": "694943899229",
+    "nombre": "CAFETERA PERCOLADORA DE 40 TAZAS",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-048",
+    "barcode": "694943899236",
+    "nombre": "CAFETERA PERCOLADORA DE 50 TAZAS",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-049",
+    "barcode": "694943899243",
+    "nombre": "CAFETERA PERCOLADORA DE 100 TAZAS",
+    "es_nuevo": true
+  },
+  {
+    "sku": "R.91171B",
+    "barcode": "6942368204482",
+    "nombre": "PLANCHA DE VAPOR: Voltaje:110V Pawer: 1400W Capacidad: 170ML",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HP-012",
+    "barcode": "732129008840",
+    "nombre": "PLANCHA DE VAPOR: Voltaje:110V Pawer: 1400W Capacidad: 170ML",
+    "es_nuevo": true
+  },
+  {
+    "sku": "R.1808B",
+    "barcode": "6975069407036",
+    "nombre": "PLANCHA DE VAPOR: Voltaje: 110V Pawer: 1200W Frequencia 50/60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "R.91261",
+    "barcode": "6975069402017",
+    "nombre": "PLANCHA EN SECO: Voltaje: 110V. Pawer: 1200W Frequencia 50/60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "R.92003",
+    "barcode": "6975069407234",
+    "nombre": "PLANCHA EN SECO: Voltaje: 110V. Pawer: 1000W Frequencia 60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "JR-A101\n(R.97816)",
+    "barcode": "732129008611",
+    "nombre": "TETERA ELECTRICA: Volumen 1.8L",
+    "es_nuevo": false
+  },
+  {
+    "sku": "JR-LD8\n(R.97928)",
+    "barcode": "732129008628",
+    "nombre": "TETERA ELECTRICA: Volumen 1.8L",
+    "es_nuevo": false
+  },
+  {
+    "sku": "H208",
+    "barcode": "732129008604",
+    "nombre": "TETERA ELECTRICA PLACTICO: Volumen 1.5L",
+    "es_nuevo": false
+  },
+  {
+    "sku": "SJ-24",
+    "barcode": "732129008369",
+    "nombre": "SANDWICHERA METAL: Modelo nuevo Voltaje: 110V Pawer: 750W Frequencia: 60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "SJ-22",
+    "barcode": "732129008352",
+    "nombre": "SANDWICHERA PLASTICO: Voltaje: 110V Pawer: 750W Frequencia: 60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "SJ-40",
+    "barcode": "732129008376",
+    "nombre": "PANINI PLASTICO: tambien se abre todo (parilla) Voltaje: 110V Pawer: 750W Frequencia: 60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "SJ-40A",
+    "barcode": "732129008383",
+    "nombre": "PANINI METAL: tambien se abre todo (parilla) Voltaje: 110V Pawer: 850W Frequencia: 60Hz",
+    "es_nuevo": false
+  },
+  {
+    "sku": "SJ-27",
+    "barcode": "732129008727",
+    "nombre": "SANDWICHERA GRILL",
+    "es_nuevo": true
+  },
+  {
+    "sku": "SJ-35",
+    "barcode": "732129008710",
+    "nombre": "SANDWICHERA",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-017",
+    "barcode": "694943899502",
+    "nombre": "TOSTADORA ELECTRICA DE 2 REBANAS BLANCA",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HP-018",
+    "barcode": "694943899519",
+    "nombre": "TOSTADORA ELECTRICA DE 2 REBANAS DE METAL",
+    "es_nuevo": true
+  },
+  {
+    "sku": "PN09",
+    "barcode": "732129008444",
+    "nombre": "HORNITO ELECTRICO: 9 litros. 110V/60Hz, 800W",
+    "es_nuevo": false
+  },
+  {
+    "sku": "JY-1001",
+    "barcode": "732129008659",
+    "nombre": "LOCHERA TERMICA ELECTRICA",
+    "es_nuevo": true
+  },
+  {
+    "sku": "HT-03",
+    "barcode": "732129008642",
+    "nombre": "",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HT-15A",
+    "barcode": "732129008451",
+    "nombre": "",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HT-15",
+    "barcode": "732129008468",
+    "nombre": "ARROZERA: 1.5 L / 500 W sin recubrimiento en spray",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HT-18A",
+    "barcode": "732129008475",
+    "nombre": "ARROZERA: 1.8 L / 700 W antiadherente + vaporizador",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HT-18",
+    "barcode": "732129008482",
+    "nombre": "ARROZERA: 1.8 L / 700 W – Sin recubrimiento en spray / Con recubrimiento en spray",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HT-22A",
+    "barcode": "732129008499",
+    "nombre": "ARROZERA: 2.2 L / 900 W antiadherente + vaporizador",
+    "es_nuevo": false
+  },
+  {
+    "sku": "HT-22",
+    "barcode": "732129008505",
+    "nombre": "ARROZERA: 2.2 L / 900 W sin recubrimiento en spray",
+    "es_nuevo": false
+  },
+  {
+    "sku": "CK-02-18",
+    "barcode": "732129008512",
+    "nombre": "OLLA DE PRESION: de aluminio Tamaño: 3.2 L, 18 cm",
+    "es_nuevo": false
+  },
+  {
+    "sku": "CK-02-20",
+    "barcode": "732129008529",
+    "nombre": "OLLA DE PRESION: de aluminio Tamaño: 4.2 L, 20 cm",
+    "es_nuevo": false
+  },
+  {
+    "sku": "CK-02-22",
+    "barcode": "732129008536",
+    "nombre": "OLLA DE PRESION: de aluminio Tamaño: 5.5 L, 22 cm",
+    "es_nuevo": false
+  },
+  {
+    "sku": "CK-02-24",
+    "barcode": "732129008543",
+    "nombre": "OLLA DE PRESION: de aluminio Tamaño: 7 L, 24 cm",
+    "es_nuevo": false
+  },
+  {
+    "sku": "CK-02-26",
+    "barcode": "732129008550",
+    "nombre": "OLLA DE PRESION: de aluminio Tamaño: 9 L, 26 cm",
+    "es_nuevo": false
+  }
+]

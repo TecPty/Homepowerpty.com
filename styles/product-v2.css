@@ -205,6 +205,15 @@
     color: rgba(255,255,255,0.35);
     letter-spacing: 1px;
     text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+/* Barcode */
+.pdp-barcode {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin-bottom: 20px;
 }
 
