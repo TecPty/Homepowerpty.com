@@ -11,3 +11,13 @@ rewrite_header.py
 rewrite_hero.py
 scripts/apply_breeze.py
 scripts/cleanup_breeze.py
+
+# Node
+node_modules/
+
+# Playwright — test output (runtime artifacts, never commit)
+playwright-report/
+test-results/
+
+# Data files — Excel sheets with product/pricing data (sensitive, local only)
+*.xlsx
