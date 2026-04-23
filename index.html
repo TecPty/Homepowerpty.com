@@ -122,7 +122,7 @@
             <nav class="luxury-nav">
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#productos">Electrodomésticos</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#clientes">Clientes</a></li>
                     <li><a href="#testimonios">Testimonios</a></li>
@@ -160,7 +160,7 @@
         <nav>
             <ul class="fullscreen-menu__links">
                 <li><a href="#inicio" class="fullscreen-menu-link">Inicio</a></li>
-                <li><a href="#productos" class="fullscreen-menu-link">Electrodomésticos</a></li>
+                <li><a href="#catalogo" class="fullscreen-menu-link">Catálogo</a></li>
                 <li><a href="#nosotros" class="fullscreen-menu-link">Nosotros</a></li>
                 <li><a href="#clientes" class="fullscreen-menu-link">Clientes</a></li>
                 <li><a href="#testimonios" class="fullscreen-menu-link">Testimonios</a></li>
@@ -209,7 +209,7 @@
                             <line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg></div>
                     <div class="stat-text">
-                        <strong>59+</strong>
+                        <strong>110+</strong>
                         <span>Productos</span>
                     </div>
                 </div>
@@ -278,7 +278,8 @@
                                 <li>Cuchillas de acero inoxidable</li>
                                 <li>2 opciones de velocidad</li>
                                 <li>Precio accesible</li>
-                            </ul>
+                                
+                        </ul>
                             <a href="https://wa.me/50769838322?text=Hola,%20me%20interesa%20la%20Batidora%20de%20Mano%20MOD:%20HP-044"
                                class="showcase-strip__cta" target="_blank" rel="noopener">
                                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.842L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.376l-.36-.214-3.727.977.992-3.626-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
@@ -344,30 +345,1170 @@
                 <h2 class="section-title">Catálogo Completo</h2>
 
                 <div class="catalog-content-wrapper">
-                    <!-- Sidebar Lateral de Filtros -->
+                    <!-- Sidebar Lateral de Filtros (v2 — grupos) -->
                     <aside class="catalog-sidebar">
-                        <h4>Filtrar por</h4>
-                        <nav class="filter-group">
+                        <h4>Catálogo</h4>
+
+                        <!-- Fila 1: Grupos (tabs) -->
+                        <nav class="catalog-group-tabs" aria-label="Grupos de producto">
+                            <button class="catalog-group-tab active" data-group="all">Todos</button>
+                            <button class="catalog-group-tab" data-group="cocina">🍳 Cocina</button>
+                            <button class="catalog-group-tab" data-group="utensilios">🥘 Utensilios</button>
+                            <button class="catalog-group-tab" data-group="hogar">🔌 Hogar & Eléctrico</button>
+                        </nav>
+
+                        <!-- Fila 2: Sub-filtros (pills) -->
+                        <nav class="catalog-sub-filters filter-group" aria-label="Categorías">
                             <div class="filter-item active" data-category="all">Todos los productos</div>
+                            <!-- Cocina -->
                             <div class="filter-item" data-category="air_fryer">Air Fryer</div>
                             <div class="filter-item" data-category="blender">Licuadoras</div>
                             <div class="filter-item" data-category="mixer">Batidoras</div>
                             <div class="filter-item" data-category="stove">Estufas</div>
                             <div class="filter-item" data-category="coffee_maker">Cafeteras</div>
-                            <div class="filter-item" data-category="iron">Planchas</div>
-                            <div class="filter-item" data-category="teapot">Teteras</div>
-                            <div class="filter-item" data-category="toaster">Tostadoras</div>
-                            <div class="filter-item" data-category="sandwich_maker">Sandwicheras</div>
                             <div class="filter-item" data-category="rice_cooker">Arroceras</div>
-                            <div class="filter-item" data-category="pressure_cooker">Ollas de Presión</div>
                             <div class="filter-item" data-category="oven">Hornos</div>
                             <div class="filter-item" data-category="lonchera">Loncheras</div>
+                            <!-- Utensilios -->
+                            <div class="filter-item" data-category="pressure_cooker">Ollas a Presión</div>
+                            <div class="filter-item" data-category="caldero">Calderos</div>
+                            <div class="filter-item" data-category="teapot">Teteras</div>
+                            <div class="filter-item" data-category="iron">Planchas</div>
+                            <div class="filter-item" data-category="toaster">Tostadoras</div>
+                            <div class="filter-item" data-category="sandwich_maker">Sandwicheras</div>
+                            <!-- Hogar & Eléctrico -->
+                            <div class="filter-item" data-category="extension">Extensiones</div>
+                            <div class="filter-item" data-category="power_strip">Regletas</div>
+                            <div class="filter-item" data-category="tv_mount">Soportes TV</div>
+                            <div class="filter-item" data-category="appliance">Electrodomésticos</div>
                         </nav>
                     </aside>
 
                     <!-- Cuadrícula Principal de Productos -->
                     <div class="catalog-main">
                         <ul class="featured-products-grid">
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-050/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-050/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Cable Extensión 1.8m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-050</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-050/">Cable Extensión 1.8m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1 Toma Polarizada</li>
+                                        <li> 1.8 Metros</li>
+                                        <li> 110V</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Cable%20Extensión%201.8m MOD: HP-050"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-051/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-051/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Cable Extensión 3m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-051</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-051/">Cable Extensión 3m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1 Toma Polarizada</li>
+                                        <li> 3 Metros</li>
+                                        <li> 110V</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Cable%20Extensión%203m MOD: HP-051"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-052/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-052/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Cable Extensión 4.5m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-052</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-052/">Cable Extensión 4.5m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1 Toma Polarizada</li>
+                                        <li> 4.5 Metros</li>
+                                        <li> 110V</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Cable%20Extensión%204.5m MOD: HP-052"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-053/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-053/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Cable Extensión 6m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-053</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-053/">Cable Extensión 6m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1 Toma Polarizada</li>
+                                        <li> 6 Metros</li>
+                                        <li> 110V</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Cable%20Extensión%206m MOD: HP-053"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-054/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-054/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Cable Extensión 7.5m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-054</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-054/">Cable Extensión 7.5m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1 Toma Polarizada</li>
+                                        <li> 7.5 Metros</li>
+                                        <li> 110V</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Cable%20Extensión%207.5m MOD: HP-054"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-055/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-055/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 2.8m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-055</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-055/">Extensión Naranja 2.8m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 2.8 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%202.8m MOD: HP-055"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-056/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-056/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 4.5m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-056</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-056/">Extensión Naranja 4.5m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 4.5 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%204.5m MOD: HP-056"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-057/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-057/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 6m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-057</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-057/">Extensión Naranja 6m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 6 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%206m MOD: HP-057"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-058/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-058/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 7.5m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-058</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-058/">Extensión Naranja 7.5m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 7.5 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%207.5m MOD: HP-058"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-059/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-059/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 9m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-059</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-059/">Extensión Naranja 9m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 9 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%209m MOD: HP-059"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-060/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-060/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 15m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-060</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-060/">Extensión Naranja 15m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 15 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%2015m MOD: HP-060"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-061/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-061/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Naranja 21m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-061</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-061/">Extensión Naranja 21m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 2 Conductores</li>
+                                        <li> 21 Metros</li>
+                                        <li> Naranja</li>
+                                        <li> Alta Visibilidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Naranja%2021m MOD: HP-061"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-062/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-062/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 3m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-062</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-062/">Extensión Amarilla 3m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 3 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%203m MOD: HP-062"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-063/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-063/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 5m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-063</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-063/">Extensión Amarilla 5m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 5 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%205m MOD: HP-063"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-064/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-064/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 8m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-064</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-064/">Extensión Amarilla 8m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 8 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%208m MOD: HP-064"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-065/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-065/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 10m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-065</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-065/">Extensión Amarilla 10m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 10 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%2010m MOD: HP-065"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-066/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-066/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 15m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-066</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-066/">Extensión Amarilla 15m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 15 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%2015m MOD: HP-066"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-067/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-067/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 20m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-067</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-067/">Extensión Amarilla 20m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 20 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%2020m MOD: HP-067"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="extension">
+                                <a href="productos/extensiones/hp-068/" class="product_image_wrapper">
+                                    <img src="productos/extensiones/hp-068/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Extensión Amarilla 25m" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-068</span>
+                                    <h3 class="product_name"><a href="productos/extensiones/hp-068/">Extensión Amarilla 25m</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 Conductores</li>
+                                        <li> 25 Metros</li>
+                                        <li> Amarilla</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Extensión%20Amarilla%2025m MOD: HP-068"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-025/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-025/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 20cm Tapa Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-025</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-025/">Caldero 20cm Tapa Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 20cm Diámetro</li>
+                                        <li> Tapa Aluminio</li>
+                                        <li> Uso Rudo</li>
+                                        <li> B2B Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2020cm%20Tapa%20Aluminio MOD: HP-025"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-026/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-026/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 24cm Tapa Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-026</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-026/">Caldero 24cm Tapa Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 24cm Diámetro</li>
+                                        <li> Tapa Aluminio</li>
+                                        <li> Uso Rudo</li>
+                                        <li> B2B Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2024cm%20Tapa%20Aluminio MOD: HP-026"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-027/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-027/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 26cm Tapa Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-027</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-027/">Caldero 26cm Tapa Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 26cm Diámetro</li>
+                                        <li> Tapa Aluminio</li>
+                                        <li> Uso Rudo</li>
+                                        <li> B2B Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2026cm%20Tapa%20Aluminio MOD: HP-027"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-028/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-028/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 34cm Tapa Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-028</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-028/">Caldero 34cm Tapa Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 34cm Diámetro</li>
+                                        <li> Tapa Aluminio</li>
+                                        <li> Gran Capacidad</li>
+                                        <li> Catering</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2034cm%20Tapa%20Aluminio MOD: HP-028"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-029/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-029/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 36cm Tapa Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-029</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-029/">Caldero 36cm Tapa Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 36cm Diámetro</li>
+                                        <li> Tapa Aluminio</li>
+                                        <li> Gran Capacidad</li>
+                                        <li> Catering</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2036cm%20Tapa%20Aluminio MOD: HP-029"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-030/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-030/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 20cm Tapa Vidrio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-030</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-030/">Caldero 20cm Tapa Vidrio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 20cm Diámetro</li>
+                                        <li> Tapa Vidrio</li>
+                                        <li> Ver el Cocido</li>
+                                        <li> B2B Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2020cm%20Tapa%20Vidrio MOD: HP-030"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-031/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-031/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 24cm Tapa Vidrio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-031</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-031/">Caldero 24cm Tapa Vidrio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 24cm Diámetro</li>
+                                        <li> Tapa Vidrio</li>
+                                        <li> Ver el Cocido</li>
+                                        <li> B2B Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2024cm%20Tapa%20Vidrio MOD: HP-031"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-032/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-032/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 26cm Tapa Vidrio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-032</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-032/">Caldero 26cm Tapa Vidrio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 26cm Diámetro</li>
+                                        <li> Tapa Vidrio</li>
+                                        <li> Ver el Cocido</li>
+                                        <li> B2B Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2026cm%20Tapa%20Vidrio MOD: HP-032"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-033/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-033/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 34cm Tapa Vidrio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-033</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-033/">Caldero 34cm Tapa Vidrio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 34cm Diámetro</li>
+                                        <li> Tapa Vidrio</li>
+                                        <li> Gran Capacidad</li>
+                                        <li> Catering</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2034cm%20Tapa%20Vidrio MOD: HP-033"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="caldero">
+                                <a href="productos/calderos/hp-034/" class="product_image_wrapper">
+                                    <img src="productos/calderos/hp-034/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Caldero 36cm Tapa Vidrio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-034</span>
+                                    <h3 class="product_name"><a href="productos/calderos/hp-034/">Caldero 36cm Tapa Vidrio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 36cm Diámetro</li>
+                                        <li> Tapa Vidrio</li>
+                                        <li> Gran Capacidad</li>
+                                        <li> Catering</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Caldero%2036cm%20Tapa%20Vidrio MOD: HP-034"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="pressure_cooker">
+                                <a href="productos/ollas/hp-035/" class="product_image_wrapper">
+                                    <img src="productos/ollas/hp-035/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Olla a Presión 4L Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-035</span>
+                                    <h3 class="product_name"><a href="productos/ollas/hp-035/">Olla a Presión 4L Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 4 Litros</li>
+                                        <li> Aluminio</li>
+                                        <li> Válvula Seguridad</li>
+                                        <li> Uso Rudo</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Olla%20a%20Presión%204L%20Aluminio MOD: HP-035"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="pressure_cooker">
+                                <a href="productos/ollas/hp-036/" class="product_image_wrapper">
+                                    <img src="productos/ollas/hp-036/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Olla a Presión 5L Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-036</span>
+                                    <h3 class="product_name"><a href="productos/ollas/hp-036/">Olla a Presión 5L Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 5 Litros</li>
+                                        <li> Aluminio</li>
+                                        <li> Válvula Seguridad</li>
+                                        <li> Uso Rudo</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Olla%20a%20Presión%205L%20Aluminio MOD: HP-036"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="pressure_cooker">
+                                <a href="productos/ollas/hp-037/" class="product_image_wrapper">
+                                    <img src="productos/ollas/hp-037/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Olla a Presión 7L Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-037</span>
+                                    <h3 class="product_name"><a href="productos/ollas/hp-037/">Olla a Presión 7L Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 7 Litros</li>
+                                        <li> Aluminio</li>
+                                        <li> Válvula Seguridad</li>
+                                        <li> Gran Capacidad</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Olla%20a%20Presión%207L%20Aluminio MOD: HP-037"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="pressure_cooker">
+                                <a href="productos/ollas/hp-038/" class="product_image_wrapper">
+                                    <img src="productos/ollas/hp-038/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Olla a Presión 9L Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-038</span>
+                                    <h3 class="product_name"><a href="productos/ollas/hp-038/">Olla a Presión 9L Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 9 Litros</li>
+                                        <li> Aluminio</li>
+                                        <li> Válvula Seguridad</li>
+                                        <li> Catering Ideal</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Olla%20a%20Presión%209L%20Aluminio MOD: HP-038"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="pressure_cooker">
+                                <a href="productos/ollas/hp-039/" class="product_image_wrapper">
+                                    <img src="productos/ollas/hp-039/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Olla a Presión 11L Aluminio" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-039</span>
+                                    <h3 class="product_name"><a href="productos/ollas/hp-039/">Olla a Presión 11L Aluminio</a></h3>
+                                    <ul class="product_features">
+                                        <li> 11 Litros</li>
+                                        <li> Aluminio</li>
+                                        <li> Válvula Seguridad</li>
+                                        <li> Uso Industrial</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Olla%20a%20Presión%2011L%20Aluminio MOD: HP-039"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="tv_mount">
+                                <a href="productos/soportes-tv/hp-040/" class="product_image_wrapper">
+                                    <img src="productos/soportes-tv/hp-040/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Soporte TV Fijo 66lb" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-040</span>
+                                    <h3 class="product_name"><a href="productos/soportes-tv/hp-040/">Soporte TV Fijo 66lb</a></h3>
+                                    <ul class="product_features">
+                                        <li> Capacidad 66lb</li>
+                                        <li> Montaje Fijo</li>
+                                        <li> VESA Universal</li>
+                                        <li> Fácil Inst.</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Soporte%20TV%20Fijo%2066lb MOD: HP-040"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="tv_mount">
+                                <a href="productos/soportes-tv/hp-041/" class="product_image_wrapper">
+                                    <img src="productos/soportes-tv/hp-041/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Soporte TV Fijo 77lb" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-041</span>
+                                    <h3 class="product_name"><a href="productos/soportes-tv/hp-041/">Soporte TV Fijo 77lb</a></h3>
+                                    <ul class="product_features">
+                                        <li> Capacidad 77lb</li>
+                                        <li> Montaje Fijo</li>
+                                        <li> VESA Universal</li>
+                                        <li> Heavy Duty</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Soporte%20TV%20Fijo%2077lb MOD: HP-041"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="tv_mount">
+                                <a href="productos/soportes-tv/hp-042/" class="product_image_wrapper">
+                                    <img src="productos/soportes-tv/hp-042/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Soporte TV Inclinable 66lb" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-042</span>
+                                    <h3 class="product_name"><a href="productos/soportes-tv/hp-042/">Soporte TV Inclinable 66lb</a></h3>
+                                    <ul class="product_features">
+                                        <li> Capacidad 66lb</li>
+                                        <li> Inclinable</li>
+                                        <li> VESA Universal</li>
+                                        <li> Anti-reflejo</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Soporte%20TV%20Inclinable%2066lb MOD: HP-042"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="tv_mount">
+                                <a href="productos/soportes-tv/hp-043/" class="product_image_wrapper">
+                                    <img src="productos/soportes-tv/hp-043/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Soporte TV Giratorio 66lb" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-043</span>
+                                    <h3 class="product_name"><a href="productos/soportes-tv/hp-043/">Soporte TV Giratorio 66lb</a></h3>
+                                    <ul class="product_features">
+                                        <li> Capacidad 66lb</li>
+                                        <li> Gira 360°</li>
+                                        <li> VESA Universal</li>
+                                        <li> Pantalla Full</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Soporte%20TV%20Giratorio%2066lb MOD: HP-043"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="power_strip">
+                                <a href="productos/regletas/hp-070/" class="product_image_wrapper">
+                                    <img src="productos/regletas/hp-070/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Regleta Polarizada 6 Tomas" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-070</span>
+                                    <h3 class="product_name"><a href="productos/regletas/hp-070/">Regleta Polarizada 6 Tomas</a></h3>
+                                    <ul class="product_features">
+                                        <li> 6 Tomas</li>
+                                        <li> Polarizada</li>
+                                        <li> Prot. Sobrecarga</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Regleta%20Polarizada%206%20Tomas MOD: HP-070"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="power_strip">
+                                <a href="productos/regletas/hp-071/" class="product_image_wrapper">
+                                    <img src="productos/regletas/hp-071/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Regleta Polarizada 5 Tomas" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-071</span>
+                                    <h3 class="product_name"><a href="productos/regletas/hp-071/">Regleta Polarizada 5 Tomas</a></h3>
+                                    <ul class="product_features">
+                                        <li> 5 Tomas</li>
+                                        <li> Polarizada</li>
+                                        <li> Prot. Sobrecarga</li>
+                                        <li> Compacta</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Regleta%20Polarizada%205%20Tomas MOD: HP-071"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="power_strip">
+                                <a href="productos/regletas/hp-072/" class="product_image_wrapper">
+                                    <img src="productos/regletas/hp-072/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Regleta 6 Tomas + USB" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-072</span>
+                                    <h3 class="product_name"><a href="productos/regletas/hp-072/">Regleta 6 Tomas + USB</a></h3>
+                                    <ul class="product_features">
+                                        <li> 6 Tomas</li>
+                                        <li> Puerto USB</li>
+                                        <li> Prot. Sobrecarga</li>
+                                        <li> Smart Hub</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Regleta%206%20Tomas%20+%20USB MOD: HP-072"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-008/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-008/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Abanico de Pedestal 18"" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-008</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-008/">Abanico de Pedestal 18"</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3 en 1</li>
+                                        <li> 18 Pulgadas</li>
+                                        <li> 3 Velocidades</li>
+                                        <li> Oscilación Auto</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Abanico%20de%20Pedestal%2018%22 MOD: HP-008"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-013/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-013/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Cafetera y Tetera 2 en 1" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-013</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-013/">Cafetera y Tetera 2 en 1</a></h3>
+                                    <ul class="product_features">
+                                        <li> 4-8 Tazas</li>
+                                        <li> 2 en 1</li>
+                                        <li> Dual Función</li>
+                                        <li> Práctico</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Cafetera%20y%20Tetera%202%20en%201 MOD: HP-013"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-014/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-014/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Asador Eléctrico BBQ 1400W" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-014</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-014/">Asador Eléctrico BBQ 1400W</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1400W</li>
+                                        <li> Parrilla BBQ</li>
+                                        <li> Antiadherente</li>
+                                        <li> Uso Interior</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Asador%20Eléctrico%20BBQ%201400W MOD: HP-014"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-015/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-015/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Exprimidor de Jugos 0.7L" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-015</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-015/">Exprimidor de Jugos 0.7L</a></h3>
+                                    <ul class="product_features">
+                                        <li> 0.7L Cap.</li>
+                                        <li> Bajo Ruido</li>
+                                        <li> Fácil Limpieza</li>
+                                        <li> Cítricos</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Exprimidor%20de%20Jugos%200.7L MOD: HP-015"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-016/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-016/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Exprimidor de Jugos 1L" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-016</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-016/">Exprimidor de Jugos 1L</a></h3>
+                                    <ul class="product_features">
+                                        <li> 1L Cap.</li>
+                                        <li> Bajo Ruido</li>
+                                        <li> Fácil Limpieza</li>
+                                        <li> Gran Cap.</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Exprimidor%20de%20Jugos%201L MOD: HP-016"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-019/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-019/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Tetera Eléctrica Plegable" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-019</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-019/">Tetera Eléctrica Plegable</a></h3>
+                                    <ul class="product_features">
+                                        <li> 3-4 Tazas</li>
+                                        <li> Plegable</li>
+                                        <li> Viaje</li>
+                                        <li> 110V</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Tetera%20Eléctrica%20Plegable MOD: HP-019"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-020/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-020/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Licuadora Portátil 380mL" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-020</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-020/">Licuadora Portátil 380mL</a></h3>
+                                    <ul class="product_features">
+                                        <li> 380mL</li>
+                                        <li> USB Recargable</li>
+                                        <li> Portátil</li>
+                                        <li> Smoothies</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Licuadora%20Portátil%20380mL MOD: HP-020"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-021/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-021/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Batidora de Mano 7 Velocidades" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-021</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-021/">Batidora de Mano 7 Velocidades</a></h3>
+                                    <ul class="product_features">
+                                        <li> 7 Velocidades</li>
+                                        <li> Mano</li>
+                                        <li> Accesorios incl.</li>
+                                        <li> Versátil</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Batidora%20de%20Mano%207%20Velocidades MOD: HP-021"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-022/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-022/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Procesador de Alimentos 950mL" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-022</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-022/">Procesador de Alimentos 950mL</a></h3>
+                                    <ul class="product_features">
+                                        <li> 950mL</li>
+                                        <li> Manual</li>
+                                        <li> Sin Motor</li>
+                                        <li> Picado Rápido</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Procesador%20de%20Alimentos%20950mL MOD: HP-022"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product" data-category="appliance">
+                                <a href="productos/varios/hp-023/" class="product_image_wrapper">
+                                    <img src="productos/varios/hp-023/img/PRODUCTO_PRINCIPAL.webp"
+                                        alt="Báscula Digital de Cocina" class="product_img" loading="lazy">
+                                </a>
+                                <div class="product_content">
+                                    <span class="product_sku">MOD: HP-023</span>
+                                    <h3 class="product_name"><a href="productos/varios/hp-023/">Báscula Digital de Cocina</a></h3>
+                                    <ul class="product_features">
+                                        <li> Pantalla LCD</li>
+                                        <li> Tara</li>
+                                        <li> g/oz/lb</li>
+                                        <li> Precisión 1g</li>
+                                    </ul>
+                                    <div class="product_actions">
+                                        <a href="https://wa.me/50769838322?text=Hola, me interesa el producto Báscula%20Digital%20de%20Cocina MOD: HP-023"
+                                            class="product_cta" target="_blank" rel="noopener">
+                                            Consultar Precio
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
                             <!-- PRODUCTS START -->
                             <li class="product" data-category="air_fryer">
 
