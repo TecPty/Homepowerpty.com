@@ -7,10 +7,14 @@
   if (menuBurger && fullscreenMenu) {
     const openMenu = () => {
       fullscreenMenu.classList.add('active');
+      menuBurger.classList.add('active');
+      menuBurger.setAttribute('aria-expanded', 'true');
       document.body.classList.add('menu-open');
     };
     const closeMenu = () => {
       fullscreenMenu.classList.remove('active');
+      menuBurger.classList.remove('active');
+      menuBurger.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('menu-open');
     };
     menuBurger.addEventListener('click', openMenu);
