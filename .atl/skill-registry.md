@@ -80,4 +80,14 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 
 ---
 
-*Generated: 2026-04-15 | Project: Homepowerpty.com*
+### testing compact rules
+- E2E runner: Playwright @1.59.1 — command: `npm test` (or `npx playwright test`)
+- Strict TDD Mode: **ENABLED** (system prompt marker) — write Playwright test FIRST, then implement
+- Test file: `tests/smoke.spec.js` — 5 smoke tests (page load, WhatsApp btn, product filter, contact form, CTAs)
+- Config: `playwright.config.js` — projects: Desktop Chrome + Pixel 5; baseURL: `http://localhost:8080`
+- WebServer auto-starts via `python -m http.server 8080` — no manual step needed
+- Test artefacts (`playwright-report/`, `test-results/`) are excluded from FTP deploy
+
+---
+
+*Generated: 2026-04-23 | Project: Homepowerpty.com*

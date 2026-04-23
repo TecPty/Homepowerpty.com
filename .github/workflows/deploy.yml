@@ -31,3 +31,10 @@ jobs:
             **/node_modules/**
             **/.DS_Store
             **/Thumbs.db
+            **/playwright-report/**
+            **/test-results/**
+            **/.atl/**
+            **/package.json
+            **/package-lock.json
+            **/playwright.config.js
+            **/tests/**
