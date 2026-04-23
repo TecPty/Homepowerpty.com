@@ -1,11 +1,12 @@
 (function () {
     // ── Configuración de grupos ───────────────────────────────────────────────
     const GROUPS = {
-        cocina:     ['air_fryer', 'blender', 'mixer', 'stove', 'coffee_maker',
-                     'rice_cooker', 'oven', 'lonchera'],
-        utensilios: ['pressure_cooker', 'caldero', 'teapot', 'iron',
-                     'toaster', 'sandwich_maker'],
-        hogar:      ['extension', 'power_strip', 'tv_mount', 'appliance'],
+        'linea-cocina':         ['air_fryer', 'blender', 'mixer', 'stove', 'coffee_maker',
+                                 'rice_cooker', 'oven', 'lonchera',
+                                 'pressure_cooker', 'caldero', 'teapot',
+                                 'toaster', 'sandwich_maker'],
+        'planchas-ventilacion': ['iron', 'appliance'],
+        electrico:              ['extension', 'power_strip', 'tv_mount'],
     };
 
     // Mapa inverso: category → group
