@@ -41,9 +41,35 @@
             </nav>
             <div class="header-actions">
                 <a href="https://wa.me/50769838322" class="btn-outline-gold" target="_blank" rel="noopener">Consultar</a>
+
+            <!-- Hamburger (visible only on mobile) -->
+            <button class="hamburger-btn" id="menuBurger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             </div>
         </div>
     </header>
+    <!-- Fullscreen mobile menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+        <button class="fullscreen-menu__close" id="menuClose" aria-label="Cerrar menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <nav>
+            <ul class="fullscreen-menu__links">
+                <li><a href="../../../index.html" class="fullscreen-menu-link">Inicio</a></li>
+                <li><a href="../../../index.html#productos" class="fullscreen-menu-link">Electrodomésticos</a></li>
+                <li><a href="../../../index.html#nosotros" class="fullscreen-menu-link">Nosotros</a></li>
+                <li><a href="../../../index.html#clientes" class="fullscreen-menu-link">Clientes</a></li>
+                <li><a href="../../../index.html#contacto" class="fullscreen-menu-link">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/50769838322" class="fullscreen-menu__cta" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Consultar
+        </a>
+    </div>
 
     <!-- BREADCRUMB -->
     <div class="pdp-breadcrumb">
@@ -78,6 +104,46 @@
                                 onclick="pdpSetImage('./img/CAJA_AZUL.webp', this)"
                                 aria-label="Ver Caja" role="listitem">
                             <img src="./img/CAJA_AZUL.webp" alt="Caja">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL_PRINCIPAL_GRIS.webp', this)"
+                                aria-label="Ver variante gris" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL_PRINCIPAL_GRIS.webp" alt="Gris">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/CAJA_GRIS.webp', this)"
+                                aria-label="Ver caja gris" role="listitem">
+                            <img src="./img/CAJA_GRIS.webp" alt="Caja gris">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO_AZUL.webp', this)"
+                                aria-label="Ver detalle logo azul" role="listitem">
+                            <img src="./img/DETAIL_LOGO_AZUL.webp" alt="Detalle logo azul">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO_GRIS.webp', this)"
+                                aria-label="Ver detalle logo gris" role="listitem">
+                            <img src="./img/DETAIL_LOGO_GRIS.webp" alt="Detalle logo gris">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK_AZUL.webp', this)"
+                                aria-label="Ver lifestyle oscuro azul" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK_AZUL.webp" alt="Lifestyle oscuro azul">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK_GRIS.webp', this)"
+                                aria-label="Ver lifestyle oscuro gris" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK_GRIS.webp" alt="Lifestyle oscuro gris">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN_AZUL.webp', this)"
+                                aria-label="Ver lifestyle cocina azul" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN_AZUL.webp" alt="Lifestyle cocina azul">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN_GRIS.webp', this)"
+                                aria-label="Ver lifestyle cocina gris" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN_GRIS.webp" alt="Lifestyle cocina gris">
                         </button>
                     </div>
 
@@ -227,11 +293,29 @@
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
                     <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Caja">
-                            <img src="./img/CAJA_AZUL.webp" alt="Caja" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true">
-                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                            </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Ampliar detalle logo azul">
+                            <img src="./img/DETAIL_LOGO_AZUL.webp" alt="Detalle logo azul" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(5)" role="button" tabindex="0" aria-label="Ampliar detalle logo gris">
+                            <img src="./img/DETAIL_LOGO_GRIS.webp" alt="Detalle logo gris" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(6)" role="button" tabindex="0" aria-label="Ampliar lifestyle oscuro azul">
+                            <img src="./img/LIFESTYLE_DARK_AZUL.webp" alt="Lifestyle oscuro azul" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(7)" role="button" tabindex="0" aria-label="Ampliar lifestyle oscuro gris">
+                            <img src="./img/LIFESTYLE_DARK_GRIS.webp" alt="Lifestyle oscuro gris" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(8)" role="button" tabindex="0" aria-label="Ampliar lifestyle cocina azul">
+                            <img src="./img/LIFESTYLE_KITCHEN_AZUL.webp" alt="Lifestyle cocina azul" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(9)" role="button" tabindex="0" aria-label="Ampliar lifestyle cocina gris">
+                            <img src="./img/LIFESTYLE_KITCHEN_GRIS.webp" alt="Lifestyle cocina gris" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                     </div>
                 </div>
@@ -329,7 +413,15 @@
     <script>
         const pdpImages = [
             './img/PRODUCTO_PRINCIPAL_AZUL.webp',
+            './img/PRODUCTO_PRINCIPAL_PRINCIPAL_GRIS.webp',
             './img/CAJA_AZUL.webp',
+            './img/CAJA_GRIS.webp',
+            './img/DETAIL_LOGO_AZUL.webp',
+            './img/DETAIL_LOGO_GRIS.webp',
+            './img/LIFESTYLE_DARK_AZUL.webp',
+            './img/LIFESTYLE_DARK_GRIS.webp',
+            './img/LIFESTYLE_KITCHEN_AZUL.webp',
+            './img/LIFESTYLE_KITCHEN_GRIS.webp',
         ];
         let pdpLightboxIndex = 0;
         let currentLightboxSrc = pdpImages[0] || '';
@@ -400,5 +492,6 @@
         }
     </script>
 
+    <script defer src="../../../scripts/header.js"></script>
 </body>
 </html>
