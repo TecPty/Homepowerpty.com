@@ -743,6 +743,8 @@
         padding-right: 0;
         flex-direction: column-reverse;
         margin-bottom: 32px;
+        overflow: hidden;
+        width: 100%;
     }
 
     .pdp-thumbs {
@@ -750,9 +752,11 @@
         overflow-x: auto;
         padding-bottom: 4px;
         scrollbar-width: none;
+        -ms-overflow-style: none;
+        min-width: 0;
+        width: 100%;
     }
 
-    -ms-overflow-style: none;
     .pdp-thumbs::-webkit-scrollbar { display: none; }
 
     .pdp-thumb {
@@ -786,6 +790,19 @@
     .pdp-cta-band h2 {
         font-size: 1.6rem;
     }
+
+    .pdp-cta-band {
+        padding: 48px 0;
+    }
+
+    .pdp-breadcrumb nav {
+        flex-wrap: wrap;
+        row-gap: 4px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
@@ -799,5 +816,36 @@
 
     .pdp-spec-pills {
         gap: 6px;
+    }
+
+    .pdp-name {
+        font-size: 1.5rem;
+    }
+
+    .pdp-cta-band {
+        padding: 36px 0;
+    }
+
+    .pdp-cta-band h2 {
+        font-size: 1.4rem;
+    }
+
+    .pdp-lightbox-img {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+
+    .pdp-lightbox-prev { left: 8px; }
+    .pdp-lightbox-next { right: 8px; }
+
+    .pdp-lightbox-prev,
+    .pdp-lightbox-next {
+        width: 36px;
+        height: 36px;
+    }
+
+    .pdp-spec-pill {
+        font-size: 0.78rem;
+        padding: 6px 10px;
     }
 }
