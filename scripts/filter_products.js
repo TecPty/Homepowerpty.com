@@ -20,11 +20,49 @@
     const filterItems  = document.querySelectorAll('.filter-item[data-category]');
     const products     = document.querySelectorAll('.product[data-category]');
     const subFilterNav = document.querySelector('.catalog-sub-filters');
+    const productsGrid = document.querySelector('.featured-products-grid');
 
     let activeGroup    = 'all';
     let activeCategory = 'all';
 
     // ── Helpers ───────────────────────────────────────────────────────────────
+    function loadImageStatus(src) {
+        return new Promise(resolve => {
+            if (!src) {
+                resolve(false);
+                return;
+            }
+
+            const probe = new Image();
+            probe.onload = () => resolve(true);
+            probe.onerror = () => resolve(false);
+            probe.src = src;
+        });
+    }
+
+    async function prioritizeProductsWithImages() {
+        if (!productsGrid || !products.length) return;
+
+        const orderedProducts = Array.from(products).map((product, index) => ({ product, index }));
+
+        const statuses = await Promise.all(
+            orderedProducts.map(async ({ product, index }) => {
+                const img = product.querySelector('.product_img');
+                const hasImage = await loadImageStatus(img ? img.currentSrc || img.src : '');
+                return { product, index, hasImage };
+            })
+        );
+
+        statuses
+            .sort((left, right) => {
+                if (left.hasImage === right.hasImage) return left.index - right.index;
+                return left.hasImage ? -1 : 1;
+            })
+            .forEach(({ product }) => {
+                productsGrid.appendChild(product);
+            });
+    }
+
     function showProducts(cat) {
         products.forEach(p => {
             const match = cat === 'all' || p.dataset.category === cat;
@@ -130,5 +168,6 @@
 
     // ── Init ──────────────────────────────────────────────────────────────────
     showSubFilters('all');
+    prioritizeProductsWithImages();
     console.log('HomePower Catalog Filter v2 — grupos activos:', Object.keys(GROUPS));
 })();
