@@ -56,20 +56,27 @@
 /* ─── LEFT: IMAGE COLUMN ─────────────────── */
 .pdp-gallery {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 12px;
     padding-right: 48px;
 }
 
 .pdp-thumbs {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex-shrink: 0;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
 }
 
+.pdp-thumbs::-webkit-scrollbar { display: none; }
+
 .pdp-thumb {
-    width: 72px;
-    height: 72px;
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 6px;
     overflow: hidden;
@@ -741,23 +748,15 @@
 
     .pdp-gallery {
         padding-right: 0;
-        flex-direction: column-reverse;
         margin-bottom: 32px;
         overflow: hidden;
         width: 100%;
     }
 
     .pdp-thumbs {
-        flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
         min-width: 0;
         width: 100%;
     }
-
-    .pdp-thumbs::-webkit-scrollbar { display: none; }
 
     .pdp-thumb {
         width: 60px;
@@ -847,5 +846,117 @@
     .pdp-spec-pill {
         font-size: 0.78rem;
         padding: 6px 10px;
+    }
+}
+
+/* ─── PRODUCTOS SIMILARES ────────────────── */
+.pdp-related {
+    padding: 64px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.pdp-related-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text, #fff);
+    margin: 8px 0 36px;
+}
+
+.pdp-related-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.pdp-related-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.pdp-related-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-2px);
+}
+
+.pdp-related-img-wrap {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+}
+
+.pdp-related-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 16px;
+    transition: transform 0.3s ease;
+}
+
+.pdp-related-card:hover .pdp-related-img-wrap img {
+    transform: scale(1.04);
+}
+
+.pdp-related-info {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pdp-related-mod {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+}
+
+.pdp-related-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.pdp-related-name a {
+    color: var(--color-text, #fff);
+    text-decoration: none;
+}
+
+.pdp-related-name a:hover {
+    color: var(--color-accent, #c9a84c);
+}
+
+.pdp-related-cta {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--color-accent, #c9a84c);
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 5px;
+    padding: 5px 12px;
+    transition: background 0.2s, color 0.2s;
+    align-self: flex-start;
+}
+
+.pdp-related-cta:hover {
+    background: rgba(201,168,76,0.12);
+}
+
+@media (max-width: 768px) {
+    .pdp-related-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .pdp-related-title {
+        font-size: 1.2rem;
     }
 }
