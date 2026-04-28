@@ -40,14 +40,16 @@ FIXES = [
     ("\u00c3\u00a7", "\u00e7"),   # Ã§ → ç
     ("\u00c3\u00bc", "\u00fc"),   # Ã¼ → ü
     # uppercase accented
-    ("\u00c3\u0081", "\u00c1"),   # Ã\x81 → Á
-    ("\u00c3\u0089", "\u00c9"),   # Ã\x89 → É
-    ("\u00c3\u008d", "\u00cd"),   # Ã\x8d → Í
-    ("\u00c3\u0093", "\u00d3"),   # Ã\x93 → Ó
-    ("\u00c3\u009a", "\u00da"),   # Ã\x9a → Ú
-    ("\u00c3\u0091", "\u00d1"),   # Ã\x91 → Ñ
-    ("\u00c3\u0087", "\u00c7"),   # Ã\x87 → Ç
-    ("\u00c3\u009c", "\u00dc"),   # Ã\x9c → Ü
+    # Bytes 0x80-0x9F: Latin-1 = control chars, cp1252 = visible symbols.
+    # These files were double-encoded via cp1252, so we use cp1252 mappings.
+    ("\u00c3\u0081", "\u00c1"),   # Ã\x81 → Á  (0x81 undefined in cp1252, same as Latin-1)
+    ("\u00c3\u2030", "\u00c9"),   # Ã‰  → É  (cp1252 0x89 = ‰ U+2030)
+    ("\u00c3\u008d", "\u00cd"),   # Ã\x8d → Í  (0x8D undefined in cp1252, same as Latin-1)
+    ("\u00c3\u2018", "\u00d1"),   # Ã'  → Ñ  (cp1252 0x91 = ' U+2018)
+    ("\u00c3\u201c", "\u00d3"),   # Ã"  → Ó  (cp1252 0x93 = " U+201C)
+    ("\u00c3\u0161", "\u00da"),   # Ãš  → Ú  (cp1252 0x9A = š U+0161)
+    ("\u00c3\u2021", "\u00c7"),   # Ã‡  → Ç  (cp1252 0x87 = ‡ U+2021)
+    ("\u00c3\u0153", "\u00dc"),   # Ãœ  → Ü  (cp1252 0x9C = œ U+0153)
     # misc symbols
     ("\u00c2\u00b7", "\u00b7"),   # Â· → ·
     ("\u00c2\u00a9", "\u00a9"),   # Â© → ©
