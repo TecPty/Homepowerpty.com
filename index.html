@@ -378,10 +378,7 @@
                             <div class="filter-item" data-category="iron">Planchas</div>
                             <div class="filter-item" data-category="appliance">Abanicos</div>
                             <!-- Electrico -->
-                            <div class="filter-item" data-category="extension">Extensiones</div>
-                            <div class="filter-item" data-category="power_strip">Regletas</div>
-                            <div class="filter-item" data-category="tv_mount">Soportes TV</div>
-                        </nav>
+                            <div class="filter-item" da                        </nav>
                     </aside>
 
                     <!-- Cuadrícula Principal de Productos -->
@@ -3048,6 +3045,8 @@
 
         </div><!-- /.catalog-wrapper -->
 
+        <!-- ANCHOR ALIAS: #testimonios apunta a esta sección -->
+        <a id="testimonios" style="display:block;height:0;visibility:hidden;" aria-hidden="true" tabindex="-1"></a>
         <!-- CLIENT WALL -->
         <section class="client-wall-section" id="clientes">
             <div class="container text-center">
@@ -3124,6 +3123,58 @@
                             </svg>
                             Enviar consulta
                         </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN OPORTUNIDADES LABORALES -->
+        <section class="contact-section" id="oportunidades">
+            <div class="container contact-container">
+                <div class="contact-info">
+                    <h2
+                        style="color:var(--color-accent); font-family:var(--font-heading); margin-bottom:20px; font-size:2.5rem;">
+                        Oportunidades Laborales</h2>
+                    <p>¿Querés formar parte del equipo de <strong>HomePower PTY</strong>? Somos una empresa en
+                        crecimiento que busca personas apasionadas por el servicio al cliente y la distribución de
+                        productos de calidad.</p>
+                    <br>
+                    <p>Completá el formulario y te contactaremos si hay una posición disponible que se ajuste a tu
+                        perfil.</p>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="careers_form" action="php/upload_cv.php" method="post"
+                        enctype="multipart/form-data" class="luxury-form">
+                        <div class="form-row">
+                            <input type="text" name="full_name" placeholder="Nombre completo"
+                                class="form_input" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" name="email" placeholder="Correo electrónico"
+                                class="form_input" required>
+                            <input type="tel" name="phone" placeholder="Teléfono"
+                                class="form_input" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="position" placeholder="Posición de interés"
+                                class="form_input" required>
+                        </div>
+                        <div class="form-row">
+                            <textarea name="experience" placeholder="Experiencia previa (opcional)"
+                                rows="3" class="form_input"></textarea>
+                        </div>
+                        <div class="form-row" style="align-items:center; gap:12px;">
+                            <button type="button" id="cv_trigger" class="btn-whatsapp-submit"
+                                style="flex:0 0 auto;">Adjuntar CV</button>
+                            <span id="file_name"
+                                style="color:var(--color-text-secondary, #999); font-size:0.875rem;">Ningún
+                                archivo seleccionado</span>
+                            <input type="file" id="cv_file" name="cv_file"
+                                accept=".pdf,.doc,.docx" style="display:none;">
+                        </div>
+                        <div id="careers_form_msg" role="alert"></div>
+                        <input type="submit" class="careers_submit btn-whatsapp-submit"
+                            value="Enviar Aplicación">
                     </form>
                 </div>
             </div>
@@ -3217,6 +3268,7 @@
     <script defer src="scripts/filter_products.js"></script>
     <script defer src="scripts/scroll-reveal.js"></script>
     <script defer src="scripts/send_contact_form.js"></script>
+    <script defer src="scripts/send_careers_form.js"></script>
     <script>
         // Manejo automático de imágenes rotas (404)
         document.addEventListener('error', function (e) {
