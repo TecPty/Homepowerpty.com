@@ -89,3 +89,56 @@ test('CTAs de productos tienen href de WhatsApp con texto prefillado', async ({ 
   expect(href).toMatch(/^https:\/\/wa\.me\/507/);
   expect(href).toContain('text=');
 });
+
+// ─── 6. ANCHOR #testimonios — scroll al carrusel de clientes ─────────────────
+test('nav link #testimonios hace scroll al carrusel de clientes', async ({ page }) => {
+  await page.goto('/#testimonios');
+  await page.waitForLoadState('domcontentloaded');
+
+  // El anchor target y la sección destino deben existir en el DOM
+  await expect(page.locator('#testimonios')).toBeAttached();
+  await expect(page.locator('#clientes')).toBeVisible();
+});
+
+// ─── 7. ANCHOR #oportunidades — scroll al formulario de empleos ──────────────
+test('nav link #oportunidades hace scroll al formulario de empleos', async ({ page }) => {
+  await page.goto('/#oportunidades');
+  await page.waitForLoadState('domcontentloaded');
+
+  // La sección y el form deben existir y ser visibles
+  await expect(page.locator('#oportunidades')).toBeAttached();
+  await expect(page.locator('#careers_form')).toBeVisible();
+});
+
+// ─── 8. FORMULARIO EMPLEOS — todos los campos requeridos por el JS ───────────
+test('sección #oportunidades tiene todos los campos requeridos', async ({ page }) => {
+  await page.goto('/');
+
+  await page.locator('#oportunidades').scrollIntoViewIfNeeded();
+
+  // Verificar form container y mensaje de estado
+  await expect(page.locator('#careers_form')).toBeVisible();
+  await expect(page.locator('#careers_form_msg')).toBeAttached();
+
+  // Campos de texto
+  await expect(page.locator('#careers_form input[name="full_name"]')).toBeVisible();
+  await expect(page.locator('#careers_form input[name="email"]')).toBeVisible();
+  await expect(page.locator('#careers_form input[name="phone"]')).toBeVisible();
+  await expect(page.locator('#careers_form input[name="position"]')).toBeVisible();
+
+  // File upload
+  await expect(page.locator('#cv_trigger')).toBeVisible();
+  await expect(page.locator('#cv_file')).toBeAttached();
+  await expect(page.locator('#file_name')).toBeAttached();
+
+  // Submit button con clase correcta para el JS
+  await expect(page.locator('#careers_form .careers_submit')).toBeVisible();
+});
+
+// ─── 9. CSS tokens — config_new.css NO está linkeado en <head> ───────────────
+test('config_new.css no está linkeado en el head de la página', async ({ page }) => {
+  await page.goto('/');
+
+  const linkCount = await page.locator('link[href*="config_new"]').count();
+  expect(linkCount).toBe(0);
+});
