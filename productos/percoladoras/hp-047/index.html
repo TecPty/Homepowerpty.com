@@ -111,34 +111,34 @@
 
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
-                                onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
-                                aria-label="Ver imagen principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
-                        </button>
-                        <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/CAJA_PRINCIPAL.webp', this)"
-                                aria-label="Ver caja" role="listitem">
-                            <img src="./img/CAJA_PRINCIPAL.webp" alt="Caja">
+                                aria-label="Ver Caja principal" role="listitem">
+                            <img src="./img/CAJA_PRINCIPAL.webp" alt="Caja principal">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/LIFESTYLE_CULTURAL.png', this)"
-                                aria-label="Ver lifestyle cultural" role="listitem">
+                                aria-label="Ver Lifestyle cultural" role="listitem">
                             <img src="./img/LIFESTYLE_CULTURAL.png" alt="Lifestyle cultural">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN.png', this)"
-                                aria-label="Ver ambiente cocina" role="listitem">
-                            <img src="./img/LIFESTYLE_KITCHEN.png" alt="Ambiente cocina">
+                                aria-label="Ver Lifestyle kitchen" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN.png" alt="Lifestyle kitchen">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/LIFESTYLE_MODERN_URBAN.png', this)"
-                                aria-label="Ver lifestyle urbano" role="listitem">
-                            <img src="./img/LIFESTYLE_MODERN_URBAN.png" alt="Lifestyle urbano">
+                                aria-label="Ver Lifestyle modern urban" role="listitem">
+                            <img src="./img/LIFESTYLE_MODERN_URBAN.png" alt="Lifestyle modern urban">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/LIFESTYLE_PREMIUM.png', this)"
-                                aria-label="Ver lifestyle premium" role="listitem">
+                                aria-label="Ver Lifestyle premium" role="listitem">
                             <img src="./img/LIFESTYLE_PREMIUM.png" alt="Lifestyle premium">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
+                                aria-label="Ver Producto principal" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Producto principal">
                         </button>
                     </div>
 
@@ -406,12 +406,12 @@
 
     <script>
         const pdpImages = [
-            './img/PRODUCTO_PRINCIPAL.webp',
             './img/CAJA_PRINCIPAL.webp',
             './img/LIFESTYLE_CULTURAL.png',
             './img/LIFESTYLE_KITCHEN.png',
             './img/LIFESTYLE_MODERN_URBAN.png',
             './img/LIFESTYLE_PREMIUM.png',
+            './img/PRODUCTO_PRINCIPAL.webp',
         ];
         let pdpLightboxIndex = 0;
         let currentLightboxSrc = pdpImages[0] || '';
