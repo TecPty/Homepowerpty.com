@@ -100,6 +100,36 @@
                                 aria-label="Ver imagen principal" role="listitem">
                             <img src="./img/PRODUCTO_PRINCIPAL_0.3.webp" alt="Vista principal">
                         </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/CAJA_0.3.webp', this)"
+                                aria-label="Ver caja" role="listitem">
+                            <img src="./img/CAJA_0.3.webp" alt="Caja">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/COMPARATION.webp', this)"
+                                aria-label="Ver comparación" role="listitem">
+                            <img src="./img/COMPARATION.webp" alt="Comparación">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/COMPARETION_1.webp', this)"
+                                aria-label="Ver detalle comparación" role="listitem">
+                            <img src="./img/COMPARETION_1.webp" alt="Detalle comparación">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK.webp', this)"
+                                aria-label="Ver lifestyle oscuro" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Lifestyle oscuro">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN.webp', this)"
+                                aria-label="Ver lifestyle cocina" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN.webp" alt="Lifestyle cocina">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL.webp', this)"
+                                aria-label="Ver marca" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Marca">
+                        </button>
                     </div>
 
                     <div class="pdp-main-img-wrap"
@@ -391,7 +421,13 @@
 
     <script>
         const pdpImages = [
-            ,
+            './img/PRODUCTO_PRINCIPAL_0.3.webp',
+            './img/CAJA_0.3.webp',
+            './img/COMPARATION.webp',
+            './img/COMPARETION_1.webp',
+            './img/LIFESTYLE_DARK.webp',
+            './img/LIFESTYLE_KITCHEN.webp',
+            './img/BRAND_COMMERCIAL.webp',
         ];
         let pdpLightboxIndex = 0;
         let currentLightboxSrc = pdpImages[0] || '';

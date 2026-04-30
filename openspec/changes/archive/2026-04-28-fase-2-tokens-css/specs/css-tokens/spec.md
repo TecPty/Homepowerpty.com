@@ -1,6 +1,6 @@
-# Spec: css-tokens
+# Delta for css-tokens
 
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Variables --color_black y --color_white con valores correctos en config_new.css
 
@@ -31,6 +31,8 @@
 - AND ningún change agrega ese link sin una decisión explícita (fuera de scope)
 
 ---
+
+## ADDED Requirements
 
 ### Requirement: tokens.css — única fuente de verdad de variables CSS
 
@@ -126,11 +128,12 @@ Los aliases MUST ser:
 
 ### Requirement: Las referencias --color-accent en index.html resuelven correctamente
 
-El archivo `index.html` contiene referencias inline a `var(--color-accent)`. Con `tokens.css` linkeado, TODAS estas referencias MUST resolver a `#D6B55E`.
+El archivo `index.html` contiene 14 referencias inline a `var(--color-accent)`. Con `tokens.css` linkeado, TODAS estas referencias MUST resolver a `#D6B55E`.
 
 #### Scenario: Color de acento visible en elementos decorativos
 
 - GIVEN `index.html` cargado en el browser con `tokens.css` activo
 - WHEN el usuario visualiza la página
-- THEN los títulos con `color:var(--color-accent)` muestran el color dorado `#D6B55E`
+- THEN los SVG de iconos con `stroke="var(--color-accent)"` muestran color dorado `#D6B55E`
+- AND los títulos con `color:var(--color-accent)` muestran el color dorado
 - AND los bordes y separadores con el token dorado son visibles

@@ -97,13 +97,33 @@
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
                                 onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL_1.8.webp', this)"
-                                aria-label="Ver Producto Principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL_1.8.webp" alt="Producto Principal">
+                                aria-label="Ver imagen principal" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL_1.8.webp" alt="Vista principal">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/CAJA_1.8.webp', this)"
-                                aria-label="Ver Caja" role="listitem">
+                                aria-label="Ver caja" role="listitem">
                             <img src="./img/CAJA_1.8.webp" alt="Caja">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK.webp', this)"
+                                aria-label="Ver lifestyle oscuro" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Lifestyle oscuro">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN.webp', this)"
+                                aria-label="Ver lifestyle cocina" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN.webp" alt="Lifestyle cocina">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO.webp', this)"
+                                aria-label="Ver detalle logo" role="listitem">
+                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle logo">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL.webp', this)"
+                                aria-label="Ver marca" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Marca">
                         </button>
                     </div>
 
@@ -269,11 +289,31 @@
         </div>
     </footer>
 
+    <!-- LIGHTBOX -->
+    <div class="pdp-lightbox" id="pdpLightbox" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+        <button class="pdp-lightbox-close" onclick="pdpCloseLightbox()" aria-label="Cerrar visor">✕</button>
+        <button class="pdp-lightbox-prev" onclick="pdpLightboxMove(-1)" aria-label="Imagen anterior">←</button>
+        <img class="pdp-lightbox-img" id="pdpLightboxImg" src="" alt="Imagen ampliada del producto">
+        <button class="pdp-lightbox-next" onclick="pdpLightboxMove(1)" aria-label="Imagen siguiente">→</button>
+    </div>
+
     <script>
+    const pdpImages = [
+        './img/PRODUCTO_PRINCIPAL_1.8.webp',
+        './img/CAJA_1.8.webp',
+        './img/LIFESTYLE_DARK.webp',
+        './img/LIFESTYLE_KITCHEN.webp',
+        './img/DETAIL_LOGO.webp',
+        './img/BRAND_COMMERCIAL.webp',
+    ];
+    let pdpLightboxIndex = 0;
+    let currentLightboxSrc = pdpImages[0];
+
     function pdpSetImage(src, btn) {
         document.getElementById('pdpMainImg').src = src;
         document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
         btn.classList.add('active');
+        currentLightboxSrc = src;
     }
     function pdpToggle(btn) {
         const body = document.getElementById(btn.getAttribute('aria-controls'));
@@ -281,8 +321,27 @@
         btn.setAttribute('aria-expanded', open);
         body.classList.toggle('open', open);
     }
-    function pdpOpenLightbox() {}
-    function pdpOpenLightboxAt(i) {}
+    function pdpOpenLightbox() {
+        const idx = pdpImages.indexOf(currentLightboxSrc);
+        pdpLightboxIndex = idx >= 0 ? idx : 0;
+        document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
+        document.getElementById('pdpLightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function pdpOpenLightboxAt(i) {
+        pdpLightboxIndex = i;
+        document.getElementById('pdpLightboxImg').src = pdpImages[i];
+        document.getElementById('pdpLightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function pdpCloseLightbox() {
+        document.getElementById('pdpLightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function pdpLightboxMove(dir) {
+        pdpLightboxIndex = (pdpLightboxIndex + dir + pdpImages.length) % pdpImages.length;
+        document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
+    }
     </script>
 
     <script type="module" src="../../../scripts/page.js"></script>

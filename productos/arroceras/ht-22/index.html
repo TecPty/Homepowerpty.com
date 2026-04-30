@@ -100,6 +100,31 @@
                                 aria-label="Ver imagen principal" role="listitem">
                             <img src="./img/PRODUCTO_PRINCIPAL_2.2.webp" alt="Vista principal">
                         </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/CAJA_2.2.webp', this)"
+                                aria-label="Ver caja" role="listitem">
+                            <img src="./img/CAJA_2.2.webp" alt="Caja">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK.webp', this)"
+                                aria-label="Ver lifestyle oscuro" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Lifestyle oscuro">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN.webp', this)"
+                                aria-label="Ver lifestyle cocina" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN.webp" alt="Lifestyle cocina">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO.webp', this)"
+                                aria-label="Ver detalle logo" role="listitem">
+                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle logo">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL.webp', this)"
+                                aria-label="Ver marca" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Marca">
+                        </button>
                     </div>
 
                     <div class="pdp-main-img-wrap"
@@ -391,7 +416,12 @@
 
     <script>
         const pdpImages = [
-            ,
+            './img/PRODUCTO_PRINCIPAL_2.2.webp',
+            './img/CAJA_2.2.webp',
+            './img/LIFESTYLE_DARK.webp',
+            './img/LIFESTYLE_KITCHEN.webp',
+            './img/DETAIL_LOGO.webp',
+            './img/BRAND_COMMERCIAL.webp',
         ];
         let pdpLightboxIndex = 0;
         let currentLightboxSrc = pdpImages[0] || '';
