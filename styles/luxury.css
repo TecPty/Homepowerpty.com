@@ -172,9 +172,10 @@ section { padding: 80px 0; }
     transition: transform 0.3s ease;
 }
 
-/* Logo blanco en páginas de producto (fondo oscuro) */
+/* Logo blanco premium en páginas de producto (mantiene el W dorado) */
 .product-page .logo-container .luxury-logo {
-    filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(214, 181, 94, 0.6));
+    content: url('../media/icons/logo/logo_white_premium.png');
+    filter: drop-shadow(0 0 12px rgba(214, 181, 94, 0.5));
 }
 
 .logo-container .luxury-logo:hover {
