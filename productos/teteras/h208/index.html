@@ -114,6 +114,41 @@
                                 aria-label="Ver imagen principal" role="listitem">
                             <img src="./img/PRODUCTO_PRINCIPAL.png" alt="Vista principal">
                         </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL_BLACK.png', this)"
+                                aria-label="Ver comercial negra" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL_BLACK.png" alt="Comercial negra">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL_WHITE.png', this)"
+                                aria-label="Ver comercial blanca" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL_WHITE.png" alt="Comercial blanca">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO_BLACK.png', this)"
+                                aria-label="Ver detalle logo negra" role="listitem">
+                            <img src="./img/DETAIL_LOGO_BLACK.png" alt="Detalle logo negra">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO_WHITE.png', this)"
+                                aria-label="Ver detalle logo blanca" role="listitem">
+                            <img src="./img/DETAIL_LOGO_WHITE.png" alt="Detalle logo blanca">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK.png', this)"
+                                aria-label="Ver lifestyle oscuro" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK.png" alt="Lifestyle oscuro">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_FAMILY.png', this)"
+                                aria-label="Ver lifestyle familiar" role="listitem">
+                            <img src="./img/LIFESTYLE_FAMILY.png" alt="Lifestyle familiar">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_FAMILY_BLACK.png', this)"
+                                aria-label="Ver lifestyle familiar negra" role="listitem">
+                            <img src="./img/LIFESTYLE_FAMILY_BLACK.png" alt="Lifestyle familiar negra">
+                        </button>
                     </div>
 
                 </div>
@@ -246,8 +281,37 @@
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
                     <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-gallery-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ver imagen 1">
-                            <img src="./img/PRODUCTO_PRINCIPAL.png" alt="Tetera Eléctrica Plástico 1.5L — vista 1" loading="lazy">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Producto Principal">
+                            <img src="./img/PRODUCTO_PRINCIPAL.png" alt="Producto Principal" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar Comercial Negra">
+                            <img src="./img/BRAND_COMMERCIAL_BLACK.png" alt="Comercial Negra" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Ampliar Comercial Blanca">
+                            <img src="./img/BRAND_COMMERCIAL_WHITE.png" alt="Comercial Blanca" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(3)" role="button" tabindex="0" aria-label="Ampliar Detalle Logo Negra">
+                            <img src="./img/DETAIL_LOGO_BLACK.png" alt="Detalle Logo Negra" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Ampliar Detalle Logo Blanca">
+                            <img src="./img/DETAIL_LOGO_WHITE.png" alt="Detalle Logo Blanca" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(5)" role="button" tabindex="0" aria-label="Ampliar Lifestyle Oscuro">
+                            <img src="./img/LIFESTYLE_DARK.png" alt="Lifestyle Oscuro" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(6)" role="button" tabindex="0" aria-label="Ampliar Lifestyle Familiar">
+                            <img src="./img/LIFESTYLE_FAMILY.png" alt="Lifestyle Familiar" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(7)" role="button" tabindex="0" aria-label="Ampliar Lifestyle Familiar Negra">
+                            <img src="./img/LIFESTYLE_FAMILY_BLACK.png" alt="Lifestyle Familiar Negra" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                     </div>
                 </div>
@@ -374,6 +438,13 @@
     <script>
         const pdpImages = [
             './img/PRODUCTO_PRINCIPAL.png',
+            './img/BRAND_COMMERCIAL_BLACK.png',
+            './img/BRAND_COMMERCIAL_WHITE.png',
+            './img/DETAIL_LOGO_BLACK.png',
+            './img/DETAIL_LOGO_WHITE.png',
+            './img/LIFESTYLE_DARK.png',
+            './img/LIFESTYLE_FAMILY.png',
+            './img/LIFESTYLE_FAMILY_BLACK.png',
         ];
         let pdpLightboxIndex = 0;
         let currentLightboxSrc = pdpImages[0] || '';
