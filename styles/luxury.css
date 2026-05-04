@@ -172,6 +172,11 @@ section { padding: 80px 0; }
     transition: transform 0.3s ease;
 }
 
+/* Logo blanco en páginas de producto (fondo oscuro) */
+.product-page .logo-container .luxury-logo {
+    filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(214, 181, 94, 0.6));
+}
+
 .logo-container .luxury-logo:hover {
     transform: scale(1.05);
 }
