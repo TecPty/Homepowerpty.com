@@ -181,7 +181,7 @@
         function openLightbox(index) {
             const lb = document.createElement('div');
             lb.className = 'lightbox active';
-            lb.innerHTML = `<img src="${galleryImages[index]}" style="max-width:90%; max-height:90%;"><button onclick="this.parentElement.remove()" style="position:absolute; top:20px; right:20px; color:white; font-size:2rem; background:none; border:none; cursor:pointer;">✕</button>`;
+            lb.innerHTML = `<img src="${galleryImages[index]}" style="max-width:90%; max-height:90%;"><button onclick="this.parentElement.remove()" style="position:absolute; top:20px; right:20px; color:white; font-size:2rem; background:none; border:none; cursor:pointer;">&#x2715;</button>`;
             document.body.appendChild(lb);
         }
     </script>
