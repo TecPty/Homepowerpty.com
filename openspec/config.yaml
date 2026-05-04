@@ -1,0 +1,73 @@
+# openspec/config.yaml
+schema: spec-driven
+
+context: |
+  Tech stack: HTML5 + CSS3 + Vanilla JS + PHP 8+
+  Architecture: Multi-page catalog site; product pages under /productos/{category}/
+  Hosting: Hostinger via GitHub Actions FTP deploy (main branch)
+  Testing: Playwright E2E @1.59.1 — Desktop Chrome + Pixel 5
+  Style: No linter/formatter configured; mobile-first, WCAG 2.1 AA required
+  Target: B2B wholesale buyers in Panama/LatAm; primary CTA is WhatsApp
+
+strict_tdd: true
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Identify affected HTML files and CSS sections
+  specs:
+    - Use Given/When/Then format for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Document approach for mobile-first layout changes
+    - Note any WhatsApp CTA or conversion impact
+  tasks:
+    - Group tasks by phase (markup, styles, scripts, tests)
+    - Use hierarchical numbering (1.1, 1.2, etc.)
+    - Keep tasks small enough to complete in one session
+  apply:
+    - Follow homepower-stack.instructions.md — no frameworks, mobile-first, Spanish copy
+    - Write/update Playwright test BEFORE implementing (strict TDD)
+  verify:
+    - Run `npm test` against local server (`python -m http.server 8080`)
+    - Validate WCAG 2.1 AA compliance on all changed elements
+  archive:
+    - Warn before merging destructive deltas (large CSS/HTML removals)
+
+testing:
+  strict_tdd: true
+  detected: "2026-05-04"
+
+  runner:
+    framework: Playwright
+    command: "npm test"
+    config: playwright.config.js
+
+  layers:
+    unit:
+      available: false
+      tool: ~
+    integration:
+      available: false
+      tool: ~
+    e2e:
+      available: true
+      tool: "@playwright/test@1.59.1"
+      test_file: "tests/smoke.spec.js"
+      projects: ["Desktop Chrome", "Pixel 5"]
+      base_url: "http://localhost:8080"
+
+  coverage:
+    available: false
+    command: ~
+
+  quality_tools:
+    linter:
+      available: false
+      command: ~
+    type_checker:
+      available: false
+      command: ~
+    formatter:
+      available: false
+      command: ~

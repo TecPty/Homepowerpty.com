@@ -1,0 +1,186 @@
+ROW 1:  HOME POWER Electrodomesticos - Inventario Actual / 23 DE ABRIL
+ROW 2: Codigo | Numero | Imagenes | Descripcion
+ROW 3: 732129008888 | JD389 | AIR FRYER:                                Litros: 4.5                                 Modo: digital
+Color: NEGRO
+Voltage: 110                                
+ROW 4: 732129008635 | AF3201 | AIR FRYER:                            Litros: 3L                             Colores: Blanco y negro               Voltaje/frecuencia nominal: 110V, 50Hz. 
+Potencia: 800W  
+ROW 5: 732129008413 | OC-506 | AIR FRYER:                             Litros: 3L                             Colores: Blanco y negro              Voltaje/frecuencia nominal: 110V, 50Hz. 
+Color: Blanco y negro
+Potencia: 800W             | 1
+ROW 6: 6902468910348 | MM-111 | LICUADORA de VIDRIO:   colores: negro y gris                                                               power: 450W                             Voltaje: 110V
+litros:1.5L
+
+ROW 7: 732129008895 | VB-999 | 
+LICUADORA PLASTICO:          colores: rojo, gris, negro, verde                 Voltaje: 110V                               Power: 2000W
+ROW 8: 732129008390 | MM-931 | LICUADORA PLASTICO:        colores: negro y rojo             Diseño mas bonito                    Voltaje: 110V                                 power: 300-400W                                                        Frequencia: 60Hz.               Capacidad: 1.6L.                        Motor: 7020
+ROW 9: 732129008406 | MM-933 |  LICUADORA PLASTICO:  colores: azul y blanco                Diseño mas bonito                     Voltaje: 110V                                 power: 300-400W                                                        Frequencia: 60Hz.              Capacidad: 1.6L.                        Motor: 7025
+ROW 10: 732129008949 | HP-024 | BATIDORA ELECTRICA DE PEDESTAL
+ROW 11: 694943899199 | HP-044 | BATIDORA ELECTRICA DE MANO
+ROW 12: 	694943899205 | HP-045 | BATIDORA ELECTRICA DE MANO DE METAL
+ROW 13: 732129008901 | F-010E-1 |  ESTUFITA ELECTRICA: 1quemador                              Colores: Blanco y negro. 
+Voltaje: 110V  power:1000W
+ROW 14: 732129008918 | 2020B
+(F-011A-1) | ESTUFITA ELECTRICA: 2quemadores.                            Colores: Blanco y negro.
+Voltaje: 110.                               power: 2000W
+ROW 15: 732129008581 | 1010A |  ESTUFITA ELECTRICA: 1quemador                              Colores: Blanco y negro. 
+Voltaje: 110V  power:1000W1)Material: 0.3mm iron                                                                  
+2)Plate size:155mm                                                                           
+                                                                             
+                                                           
+ROW 16: 732129008598 | 2020A | ESTUFITA ELECTRICA: 2quemadores.                            Colores: Blanco y negro.
+Voltaje: 110V.                               power: 2000W.                                    1)Material: 0.35mm iron                                                                  
+2)Plate size:155mm                                                                           
+                                                                                       
+ROW 17: 732129008437 | 2050A | ESTUFA DE GAS DE ACERO INOXIDABLE:                                    De 2 quemadores
+Quemador de hierro fundido de 90MM
+Encendido automático                   
+ROW 18: 732129008666 | 3080 | ESTUFA GAS DE ACERO INOXIDABLE:                                    De 2 quemadores
+Quemador de hierro fundido de 90MM
+Encendido automático        
+ROW 19: 732129008420 | 3076K | ESTUFA GAS DE ACERO INOXIDABLE:                                 De 3 quemadores
+Quemador de hierro color plata
+Encendido automático                  
+ROW 20: 732129008673 | 3081K | ESTUFA GAS DE ACERO INOXIDABLE:                                 De 3 quemadores
+Quemador de hierro color plata
+Encendido automático         
+ROW 21: 694943899489 | HP-073 | ESTUFA A GAS DE 4 Q CON HORNO
+ROW 22: 732129008932 | CM02 |  CAFETERA: 12 tazas.               Capacidad:1.2L                  Voltaje: 110v                         power: 900W                     
+ 
+ROW 23: 732129008567 | WJ-9008 | CAFETERA CON FILTO FINO:                    6tazas.                                                    110 V, 50/60 Hz, 600 W
+Capacidad: 0.6 L
+
+
+ROW 24: 732129008574 | WJ-9009 | CAFETERA CON FILTO FINO:                   12 tazas. 110 V, 50/60 Hz, 800 W
+Capacidad: 1.2 L
+
+
+ROW 25: 732129008680 | WJ-9001 | CAFETERA CON FILTO FINO:                    6tazas.                                                    110 V, 50/60 Hz, 600 W
+Capacidad: 0.625 L
+ROW 26: 732129008697 | WJ-9002 | CAFETERA CON FILTO FINO:                   12 tazas. 110 V, 50/60 Hz, 800 W
+Capacidad: 1.25 L
+ROW 27: 732129008703 | WJ-9011 | CAFETERA CON FILTO FINO:                    7.5tazas.                                                    110 V, 50/60 Hz, 600 W
+Capacidad: 0.625 L
+ROW 28: 694943899212 | HP-046 | CAFETERA PERCOLADORA DE 30 TAZAS
+ROW 29: 694943899229 | HP-047 | CAFETERA PERCOLADORA DE 40 TAZAS
+ROW 30: 	694943899236 | HP-048 | CAFETERA PERCOLADORA DE 50 TAZAS
+ROW 31: 694943899243 | HP-049 | CAFETERA PERCOLADORA DE 100 TAZAS
+ROW 32: 6942368204482 | R.91171B | PLANCHA DE VAPOR:                              Voltaje:110V                              power: 1400W                       Capacidad: 170ML
+ROW 33: 732129008840 | HP-012 | PLANCHA DE VAPOR:                              Voltaje:110V                              power: 1400W                       Capacidad: 170ML
+ROW 34: 6975069407036 | R.1808B | PLANCHA DE VAPOR:                        Voltaje: 110V                                 power: 1200W                                                        Frequencia 50/60Hz
+ROW 35: 6975069402017 | R.91261 | PLANCHA EN SECO:                           Voltaje: 110V.                                 power: 1200W                                                        Frequencia 50/60Hz
+ROW 36: 6975069407234 | R.92003 | PLANCHA EN SECO:                           Voltaje: 110V.                                 power: 1000W                                                        Frequencia 60Hz
+ROW 37: 732129008611 | JR-A101
+(R.97816) | TETERA ELECTRICA:             Volumen 1.8L
+ROW 38: 732129008628 | JR-LD8
+(R.97928) | TETERA ELECTRICA:               Volumen 1.8L
+ROW 39: 732129008604 | H208 | TETERA ELECTRICA PLACTICO:                          Volumen 1.5L
+ROW 40: 732129008369 | SJ-24 | SANDWICHERA METAL:         Modelo nuevo                            Voltaje: 110V                                 power: 750W                                                        Frequencia: 60Hz
+ROW 41: 732129008352 | SJ-22 | SANDWICHERA PLASTICO: Voltaje: 110V                                 power: 750W                                                        Frequencia: 60Hz
+ROW 42: 732129008376 | SJ-40 | PANINI PLASTICO:                           tambien se abre todo (parilla)         Voltaje: 110V                                 power: 750W                                                        Frequencia: 60Hz
+ROW 43: 732129008383 | SJ-40A | PANINI METAL:                     tambien se abre todo (parilla)                   Voltaje: 110V                                 power: 850W                                                        Frequencia: 60Hz
+ROW 44: 732129008727 | SJ-27 | SANDWICHERA GRILL
+ROW 45: 	732129008710 | SJ-35 | SANDWICHERA
+ROW 46: 694943899502 | HP-017 | TOSTADORA ELECTRICA DE 2 REBANAS BLANCA
+ROW 47: 694943899519 | HP-018 | TOSTADORA ELECTRICA DE 2 REBANAS DE METAL
+ROW 48: 732129008444 | PN09 | HORNITO ELECTRICO:               9 litros.                                            110V/60Hz, 800W
+
+
+ROW 49: 732129008871 | HP-015 | EXPRIMIDOR DE JUGOS DE 0.7L
+ROW 50: 694943899496 | HP-016 | EXPRIMIDOR DE JUGO DE 1L
+ROW 51: 694943899526 | HP-019 | TETERA ELCTRICA PLEGABLE DE 3-4 TAZAS
+ROW 52: 6949438995400 | HP-021 | BATIDORA DE MANO CON 7 NIVELES DE VELOCIDAD
+ROW 53: 694943898987 | HP-022 | PROCESADOR MANUAL DE ALIMENTOS DE 950ML
+ROW 54: 694943898994 | HP-023 | BASCULA DIGITAL DE COCINA, PANTALLA LCD
+ROW 55: 732129008659 | JY-1001 | LOCHERA TERMICA ELECTRICA
+ROW 56: 732129008642 | HT-03 | 
+ARROCERA:                                         0.3 L / 200 W antiadherente + vaporizador
+110 V 60 Hz
+
+
+ROW 57: 732129008451 | HT-15A | 
+ARROCERA:                                         1.5 L / 500 W antiadherente + vaporizador
+110 V 60 Hz
+
+
+ROW 58: 732129008468 | HT-15 | ARROCERA:                                1.5 L / 500 W sin recubrimiento en spray
+110 V 60 Hz
+
+
+ROW 59: 732129008475 | HT-18A | ARROCERA:                             1.8 L / 700 W antiadherente + vaporizador
+110 V 60 Hz
+
+
+ROW 60: 732129008482 | HT-18 | ARROCERA:                                        1.8 L / 700 W – Sin recubrimiento en spray / Con recubrimiento en spray
+110 V / 60 Hz
+
+
+ROW 61: 732129008499 | HT-22A | ARROCERA:                                          2.2 L / 900 W antiadherente + vaporizador
+110 V / 60 Hz
+
+
+ROW 62: 732129008505 | HT-22  | ARROCERA:                                      2.2 L / 900 W sin recubrimiento en spray
+110 V / 60 Hz
+
+
+ROW 63: 694943899007 | HP-025 | 20CM CALDERO WITH ALU LID
+ROW 64: 694943899014 | HP-026 | 24CM CALDERO WITH ALU LID
+ROW 65: 694943899021 | HP-027 | 26CM CALDERO WITH ALU LID
+ROW 66: 694943899038 | HP-028 | 34CM CALDERO WITH ALU LID
+ROW 67: 694943899045 | HP-029 | 36CM CALDERO WITH ALU LID
+ROW 68: 694943899052 | HP-030 | 20CM CALDERO WITH GLASS  LID
+ROW 69: 694943899069 | HP-031 | 24CM CALDERO WITH GLASS LID
+ROW 70: 694943899076 | HP-032 | 26CM CALDERO WITH GLASS LID
+ROW 71: 694943899083 | HP-033 | 34CM CALDERO WITH GLASS LID
+ROW 72: 694943899090 | HP-034 | 36CM CALDERO WITH GLASS LID
+ROW 73: 694943899106 | HP-035 | 4L ALUMINIUM PRESSURE COOKER
+ROW 74: 694943899113 | HP-036 | 5L ALUMINIUM PRESSURE COOKER
+ROW 75: 694943899120 | HP-037 | 7L ALUMINIUM PRESSURE COOKER
+ROW 76: 694943899137 | HP-038 | 9L ALUMINIUM PRESSURE COOKER
+ROW 77: 694943899144 | HP-039 | 11L ALUMINIUM PRESSURE COOKER
+ROW 78: 732129008512 | CK-02-18 | OLLA DE PRESION:                              de aluminio                                      Tamaño: 3.2 L, 18 cm
+
+
+ROW 79: 732129008529 | CK-02-20 | OLLA DE PRESION:                            de aluminio                                       Tamaño: 4.2 L, 20 cm
+
+
+ROW 80: 732129008536 | CK-02-22 | OLLA DE PRESION:                                    de aluminio                                     Tamaño: 5.5 L, 22 cm
+
+
+ROW 81: 732129008543 | CK-02-24 | OLLA DE PRESION:                   de aluminio                                         Tamaño: 7 L, 24 cm
+
+
+ROW 82: 732129008550 | CK-02-26 | OLLA DE PRESION:                   de aluminio                                         Tamaño: 9 L, 26 cm
+
+
+ROW 83: 694943899250 | HP-050 | CABLE DE EXTENSION ELECTRICA DE 1.8 METROS
+ROW 84: 694943899267 | HP-051 | CABLE DE EXTENSION ELECTRICA DE 3 METROS
+ROW 85: 694943899274 | HP-052 | CABLE DE EXTENSION ELECTRICA DE 4.5 METROS
+ROW 86: 694943899281 | HP-053 | CABLE DE EXTENSION ELECTRICA DE 6 METROS
+ROW 87: 694943899298 | HP-054 | CABLE DE EXTENSION ELECTRICA DE 7.5 METROS
+ROW 88: 694943899304 | HP-055 | EXTENSION ELECTRICA DE 2.8M NARANJA DE 2 CONDUCTORES
+ROW 89: 694943899311 | HP-056 | EXTENSION ELECTRICA DE 4.5M NARANJA DE 2 CONDUCTORES
+ROW 90: 694943899328 | HP-057 | EXTENSION ELECTRICA DE 6M NARANJA DE 2 CONDUCTORES
+ROW 91: 694943899335 | HP-058 | EXTENSION ELECTRICA DE 7.5M NARANJA DE 2 CONDUCTORES
+ROW 92: 694943899342 | HP-059 | EXTENSION ELECTRICA DE 9M NARANJA DE 2 CONDUCTORES
+ROW 93: 694943899359 | HP-060 | EXTENSION ELECTRICA DE 15M NARANJA DE 2 CONDUCTORES
+ROW 94: 694943899366 | HP-061 | EXTENSION ELECTRICA DE 21M NARANJA DE 2 CONDUCTORES
+ROW 95: 694943899373 | HP-062 | EXTENSION ELECTRICA DE 3M AMARILLA DE 3 CONDUCTORES
+ROW 96: 694943899380 | HP-063 | EXTENSION ELECTRICA DE 5M AMARILLA DE 3 CONDUCTORES
+ROW 97: 694943899397 | HP-064 | EXTENSION ELECTRICA DE 8M AMARILLA DE 3 CONDUCTORES
+ROW 98: 694943899403 | HP-065 | EXTENSION ELECTRICA DE 10M AMARILLA DE 3 CONDUCTORES
+ROW 99: 694943899410 | HP-066 | EXTENSION ELECTRICA DE 15M AMARILLA DE 3 CONDUCTORES
+ROW 100: 694943899427 | HP-067 | EXTENSION ELECTRICA DE 20M AMARILLA DE 3 CONDUCTORES
+ROW 101: 694943899434 | HP-068 | EXTENSION ELECTRICA DE 25M AMARILLA DE 3 CONDUCTORES
+ROW 102: 694943899458 | HP-070 | REGLETA POLARIZADA DE 6 TOMAS
+ROW 103: 694943899465 | HP-071 | REGLETA POLARIZADA DE 5 TOMAS
+ROW 104: 694943899472 | HP-072 | REGLETA POLARIZADA DE 6 TOMAS Y ENTRADA DE USB
+ROW 105: 694943899151 | HP-040 | SOPORTE FIJO PARA TV CAPACIDAD MAX 66LB
+ROW 106: 694943899168 | HP-041 | SOPORTE FIJO PARA TV CAPACIDAD MAX 77LB
+ROW 107: 694943899175 | HP-042 | SOPORTE INCLINABLE PARA TV CAPACIDAD MAX 66LB
+ROW 108: 694943899182 | HP-043 | SOPORTE GIRATORIO PARA TV CAP MAX 66LB/ GIRA HASTA 180 GRADOS
+ROW 109: 732129008802 | HP-008 | ABANICO DE PEDESTAL 3 EN 1 DE 18PULG
+ROW 110: 6949438995332 | HP-020 | LICUADORA ELECTRICA PORTATIL CAPACIDAD 380ML
+ROW 111: 732129008857 | HP-013 | CAFETERA Y TETERA, 2 EN 1, CAP 4-8 TAZAS
+ROW 112: 732129008864 | HP-014 | ASADOR ELECTRICO BBQ / 1400W
+ROW 123: TOTAL

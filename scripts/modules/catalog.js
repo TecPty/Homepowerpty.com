@@ -8,8 +8,8 @@ const Catalog = {
       'linea-cocina':         ['air_fryer', 'blender', 'mixer', 'stove', 'coffee_maker',
                                'rice_cooker', 'oven', 'lonchera',
                                'pressure_cooker', 'caldero', 'teapot',
-                               'toaster', 'sandwich_maker'],
-      'planchas-ventilacion': ['iron', 'appliance'],
+                               'toaster', 'sandwich_maker', 'juicer', 'food_processor'],
+      'planchas-ventilacion': ['iron', 'appliance', 'scale'],
       electrico:              ['extension', 'power_strip', 'tv_mount'],
     };
 
