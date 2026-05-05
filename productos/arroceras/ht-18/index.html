@@ -107,39 +107,39 @@
                             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                             Ampliar
                         </div>
+                    </div>
 
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
                                 onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL_1.8.webp', this)"
-                                aria-label="Ver imagen principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL_1.8.webp" alt="Vista principal">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/CAJA_1.8.webp', this)"
-                                aria-label="Ver caja" role="listitem">
-                            <img src="./img/CAJA_1.8.webp" alt="Caja">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/LIFESTYLE_DARK.webp', this)"
-                                aria-label="Ver lifestyle oscuro" role="listitem">
-                            <img src="./img/LIFESTYLE_DARK.webp" alt="Lifestyle oscuro">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN.webp', this)"
-                                aria-label="Ver lifestyle cocina" role="listitem">
-                            <img src="./img/LIFESTYLE_KITCHEN.webp" alt="Lifestyle cocina">
+                                aria-label="Ver producto principal 1.8" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL_1.8.webp" alt="Producto Principal 1.8">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/DETAIL_LOGO.webp', this)"
                                 aria-label="Ver detalle logo" role="listitem">
-                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle logo">
+                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle LOGO">
                         </button>
                         <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/BRAND_COMMERCIAL.webp', this)"
-                                aria-label="Ver marca" role="listitem">
-                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Marca">
+                                aria-label="Ver brand commercial" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Brand Commercial">
                         </button>
-                    </div>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/CAJA_1.8.webp', this)"
+                                aria-label="Ver caja 1.8" role="listitem">
+                            <img src="./img/CAJA_1.8.webp" alt="Caja 1.8">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DARK.webp', this)"
+                                aria-label="Ver lifestyle dark" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Lifestyle Dark">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCHEN.webp', this)"
+                                aria-label="Ver lifestyle kitchen" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCHEN.webp" alt="Lifestyle Kitchen">
+                        </button>
                     </div>
 
                 </div>
@@ -269,23 +269,168 @@
             </div>
         </section>
 
+        <!-- GALLERY STRIP + TRUST + CTA -->
+        <div class="pdp-below">
+
+            <section class="pdp-gallery-strip">
+                <div class="container">
+                    <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
+                    <div class="pdp-gallery-strip-grid">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar producto principal 1.8">
+                            <img src="./img/PRODUCTO_PRINCIPAL_1.8.webp" alt="Producto Principal 1.8" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar detalle logo">
+                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle LOGO" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Ampliar brand commercial">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Brand Commercial" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(3)" role="button" tabindex="0" aria-label="Ampliar caja 1.8">
+                            <img src="./img/CAJA_1.8.webp" alt="Caja 1.8" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Ampliar lifestyle dark">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Lifestyle Dark" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(5)" role="button" tabindex="0" aria-label="Ampliar lifestyle kitchen">
+                            <img src="./img/LIFESTYLE_KITCHEN.webp" alt="Lifestyle Kitchen" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pdp-related">
+                <div class="container">
+                    <p class="section-eyebrow">TAMBIÉN TE PUEDE INTERESAR</p>
+                    <h2 class="pdp-related-title">Productos similares</h2>
+                    <ul class="pdp-related-grid">
+                        <li class="pdp-related-card">
+                            <a href="../ht-03/" class="pdp-related-img-wrap">
+                                <img src="../ht-03/img/PRODUCTO_PRINCIPAL_0.3.webp" alt="Arrocera Mini 0.3L" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HT-03</span>
+                                <h3 class="pdp-related-name"><a href="../ht-03/">Arrocera Mini 0.3L</a></h3>
+                                <a href="../ht-03/" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                        <li class="pdp-related-card">
+                            <a href="../ht-15/" class="pdp-related-img-wrap">
+                                <img src="../ht-15/img/PRODUCTO_PRINCIPAL_1.5.webp" alt="Arrocera Eléctrica 1.5L" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HT-15</span>
+                                <h3 class="pdp-related-name"><a href="../ht-15/">Arrocera Eléctrica 1.5L</a></h3>
+                                <a href="../ht-15/" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                        <li class="pdp-related-card">
+                            <a href="../ht-18a/" class="pdp-related-img-wrap">
+                                <img src="../ht-18a/img/PRODUCTO_PRINCIPAL_1.8A.webp" alt="Arrocera con Vaporera 1.8L" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HT-18A</span>
+                                <h3 class="pdp-related-name"><a href="../ht-18a/">Arrocera con Vaporera 1.8L</a></h3>
+                                <a href="../ht-18a/" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                        <li class="pdp-related-card">
+                            <a href="../ht-22/" class="pdp-related-img-wrap">
+                                <img src="../ht-22/img/PRODUCTO_PRINCIPAL_2.2.webp" alt="Arrocera 2.2L Heavy" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HT-22</span>
+                                <h3 class="pdp-related-name"><a href="../ht-22/">Arrocera Eléctrica 2.2L</a></h3>
+                                <a href="../ht-22/" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="pdp-trust-bar">
+                <div class="container">
+                    <div class="pdp-trust-row">
+                        <div class="pdp-trust-cell">
+                            <div class="pdp-trust-cell-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            </div>
+                            <div>
+                                <h4>2 días de entrega</h4>
+                                <p>Logística directa a distribuidores en Panamá</p>
+                            </div>
+                        </div>
+                        <div class="pdp-trust-cell">
+                            <div class="pdp-trust-cell-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+                            </div>
+                            <div>
+                                <h4>Factura disponible</h4>
+                                <p>Documentación para empresas y cadenas</p>
+                            </div>
+                        </div>
+                        <div class="pdp-trust-cell">
+                            <div class="pdp-trust-cell-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                            </div>
+                            <div>
+                                <h4>Importado directo</h4>
+                                <p>Stock exclusivo — no disponible en retail masivo</p>
+                            </div>
+                        </div>
+                        <div class="pdp-trust-cell">
+                            <div class="pdp-trust-cell-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <h4>Soporte 24/7</h4>
+                                <p>WhatsApp — respuesta en menos de 30 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pdp-cta-band">
+                <div class="container">
+                    <h2>¿Listo para incluir este producto<br>en su catálogo?</h2>
+                    <p>Cotización B2B personalizada para distribuidores. Respuesta en menos de 10 minutos.</p>
+                    <a href="https://wa.me/50769838322?text=Hola,%20me%20interesa%20la%20Arrocera%20El%C3%A9ctrica%201.8L%20HT-18"
+                       class="pdp-btn-primary pdp-btn-cta-centered"
+                       target="_blank"
+                       rel="noopener">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.842L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.376l-.36-.214-3.727.977.992-3.626-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+                        Consultar precio B2B
+                    </a>
+                    <p class="pdp-cta-note">Sin compromiso · Toda Panamá · Stock disponible</p>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="luxury-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
+        <div class="container footer-container">
+            <div class="footer-col" style="align-items:flex-start;">
                 <img src="../../../media/icons/logo/logo_white_premium.png" alt="Home Power PTY" class="luxury-logo" style="margin-bottom:20px;">
-                <p>Distribución exclusiva de electrodomésticos en Panamá.</p>
+                <p>(507) 6983-8322</p>
+                <p>ventas@homepowerpty.com</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col" style="flex-direction:column; align-items:flex-start; gap:10px;">
                 <a href="../../../index.html">Inicio</a>
-                <a href="../../../index.html#productos">Productos</a>
-                <a href="../../../index.html#nosotros">Nosotros</a>
+                <a href="../../../index.html#productos">Electrodomésticos</a>
+                <a href="../../../index.html#clientes">Clientes</a>
                 <a href="../../../index.html#contacto">Contacto</a>
-                <a href="../../../aviso-de-privacidad/">Aviso de Privacidad</a>
             </div>
-            <p class="footer-copy">© 2025 HomePower PTY. Todos los derechos reservados.</p>
+            <div class="footer-col" style="align-items:flex-end;">
+                <p style="font-size:0.8rem; color:gray;">© 2025 HomePower PTY.<br>Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
@@ -293,19 +438,19 @@
     <div class="pdp-lightbox" id="pdpLightbox" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
         <button class="pdp-lightbox-close" onclick="pdpCloseLightbox()" aria-label="Cerrar visor">&#x2715;</button>
         <button class="pdp-lightbox-prev" onclick="pdpLightboxMove(-1)" aria-label="Imagen anterior">←</button>
-        <img class="pdp-lightbox-img" id="pdpLightboxImg" src="" alt="Imagen ampliada del producto">
+        <img class="pdp-lightbox-img" id="pdpLightboxImg" src="./img/PRODUCTO_PRINCIPAL_1.8.webp" alt="Imagen ampliada del producto">
         <button class="pdp-lightbox-next" onclick="pdpLightboxMove(1)" aria-label="Imagen siguiente">→</button>
     </div>
 
     <script>
-    const pdpImages = [
-        './img/PRODUCTO_PRINCIPAL_1.8.webp',
-        './img/CAJA_1.8.webp',
-        './img/LIFESTYLE_DARK.webp',
-        './img/LIFESTYLE_KITCHEN.webp',
-        './img/DETAIL_LOGO.webp',
-        './img/BRAND_COMMERCIAL.webp',
-    ];
+                                    const pdpImages = [
+            './img/PRODUCTO_PRINCIPAL_1.8.webp',
+            './img/DETAIL_LOGO.webp',
+            './img/BRAND_COMMERCIAL.webp',
+            './img/CAJA_1.8.webp',
+            './img/LIFESTYLE_DARK.webp',
+            './img/LIFESTYLE_KITCHEN.webp',
+        ];
     let pdpLightboxIndex = 0;
     let currentLightboxSrc = pdpImages[0];
 
