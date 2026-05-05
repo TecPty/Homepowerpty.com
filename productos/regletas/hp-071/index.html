@@ -107,31 +107,11 @@
                         </div>
                     </div>
 
-                                        <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
+                    <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
                                 onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
                                 aria-label="Ver vista principal" role="listitem">
                             <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/DETAIL_USB.webp', this)"
-                                aria-label="Ver detalle usb" role="listitem">
-                            <img src="./img/DETAIL_USB.webp" alt="Detalle USB">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL.webp', this)"
-                                aria-label="Ver brand commercial" role="listitem">
-                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Brand Commercial">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/LIFESTYLE_OFFICE.webp', this)"
-                                aria-label="Ver lifestyle office" role="listitem">
-                            <img src="./img/LIFESTYLE_OFFICE.webp" alt="Lifestyle Office">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/LIFESTYLE_WHITE.webp', this)"
-                                aria-label="Ver lifestyle white" role="listitem">
-                            <img src="./img/LIFESTYLE_WHITE.webp" alt="Lifestyle White">
                         </button>
                     </div>
                 </div>
@@ -241,25 +221,9 @@
             <section class="pdp-gallery-strip">
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
-                                        <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar vista principal">
+                    <div class="pdp-gallery-strip-grid">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Vista principal">
                             <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-                        </div>
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar detalle usb">
-                            <img src="./img/DETAIL_USB.webp" alt="Detalle USB" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-                        </div>
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Ampliar brand commercial">
-                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Brand Commercial" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-                        </div>
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(3)" role="button" tabindex="0" aria-label="Ampliar lifestyle office">
-                            <img src="./img/LIFESTYLE_OFFICE.webp" alt="Lifestyle Office" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-                        </div>
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Ampliar lifestyle white">
-                            <img src="./img/LIFESTYLE_WHITE.webp" alt="Lifestyle White" loading="lazy">
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                     </div>
@@ -356,12 +320,8 @@
     </div>
 
     <script>
-                const pdpImages = [
+        const pdpImages = [
             './img/PRODUCTO_PRINCIPAL.webp',
-            './img/DETAIL_USB.webp',
-            './img/BRAND_COMMERCIAL.webp',
-            './img/LIFESTYLE_OFFICE.webp',
-            './img/LIFESTYLE_WHITE.webp',
         ];
         let pdpLightboxIndex = 0;
         let currentLightboxSrc = pdpImages[0] || '';
