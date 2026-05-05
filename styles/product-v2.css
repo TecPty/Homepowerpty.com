@@ -959,4 +959,11 @@
     .pdp-related-title {
         font-size: 1.2rem;
     }
+
+    /* Orphan fix: last card alone in its row → center it at half-column width */
+    .pdp-related-grid > li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 6px);
+        margin-inline: auto;
+    }
 }

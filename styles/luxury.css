@@ -1027,6 +1027,7 @@ section { padding: 80px 0; }
 
 .luxury-form { display: flex; flex-direction: column; gap: 20px; }
 .form-row { display: flex; gap: 20px; }
+#file_name { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .luxury-form input, .luxury-form textarea { 
     width: 100%; 
     padding: 12px 0; 
