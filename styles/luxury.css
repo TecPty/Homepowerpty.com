@@ -1560,9 +1560,14 @@ body.menu-open {
     .featured-products-grid .product:nth-child(even) {
         transition-delay: 0.1s;
     }
+    .featured-products-grid .product {
+        padding: 0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
     .featured-products-grid .product_content {
         display: block;
-        padding: 6px 4px 2px;
+        padding: 6px 6px 4px;
     }
     .featured-products-grid .product_sku,
     .featured-products-grid .product_features,
