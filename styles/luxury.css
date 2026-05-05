@@ -1561,13 +1561,26 @@ body.menu-open {
         transition-delay: 0.1s;
     }
     .featured-products-grid .product_content {
-        display: none;
+        display: block;
+        padding: 6px 4px 2px;
     }
+    .featured-products-grid .product_sku,
+    .featured-products-grid .product_features,
+    .featured-products-grid .product_cta { display: none; }
+    .featured-products-grid .product_name {
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .featured-products-grid .product_name a { color: rgba(255,255,255,0.85); }
     .featured-products-grid .product_image_wrapper {
         height: auto;
         aspect-ratio: 1 / 1;
         margin-bottom: 0;
-        border-radius: 0;
+        border-radius: 8px 8px 0 0;
         padding: 8px;
     }
 }
