@@ -357,8 +357,16 @@
                 </div>
 
                 <div class="catalog-content-wrapper">
+                    <!-- Botón toggle filtros — visible solo en mobile -->
+                    <button class="catalog-filter-toggle"
+                            aria-expanded="false"
+                            aria-controls="catalog-sidebar"
+                            onclick="var s=document.getElementById('catalog-sidebar');s.classList.toggle('open');this.setAttribute('aria-expanded',s.classList.contains('open'))">
+                        <span>Filtrar por categoría</span>
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
                     <!-- Sidebar Lateral de Filtros (v2 — grupos) -->
-                    <aside class="catalog-sidebar">
+                    <aside class="catalog-sidebar" id="catalog-sidebar">
                         <h4>Catálogo</h4>
 
                         <!-- Fila 1: Grupos (tabs) -->

@@ -832,6 +832,9 @@ section { padding: 80px 0; }
     flex-grow: 1;
 }
 
+/* Filter toggle — desktop: hidden; shown only in mobile media query */
+.catalog-filter-toggle { display: none; }
+
 /* Featured Grid Adjustment */
 .featured-products-grid {
     display: grid;
@@ -1378,7 +1381,7 @@ body.menu-open {
     .email-second { display: none; }
 
     .hero-container, .contact-container, .footer-container { flex-direction: column; text-align: center; }
-    .featured-products-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-products-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .showcase-grid { grid-template-columns: repeat(2, 1fr); }
     .showcase-strip,
     .showcase-strip--reverse { grid-template-columns: 1fr; }
@@ -1412,13 +1415,26 @@ body.menu-open {
         transform: translateX(0);
     }
     .hero-image-wrapper {
-        margin-top: 40px;
+        margin-top: 0;
+        margin-bottom: 20px;
         padding: 18px;
         max-width: 100%;
+        order: 2;
     }
+    /* Hero mobile: título → imagen → CTA */
+    .hero-content { display: contents; }
+    .hero-title { order: 1; margin-bottom: 16px; }
+    .hero-actions { order: 3; justify-content: center; }
     .category-sticky-bar { top: 70px; }
     .logo-container .luxury-logo { max-height: 80px; }
     .catalog-search-bar { max-width: 100%; }
+    /* Stats: cinta dorada compacta */
+    .stats-section { padding: 10px 0; }
+    .stat-icon-wrapper { display: none; }
+    .stat-item { flex-direction: column; gap: 2px; align-items: center; }
+    .stat-text strong { font-size: 1.1rem; }
+    .stat-text span { font-size: 0.6rem; letter-spacing: 0; }
+    .stats-container { gap: 12px; }
     .catalog-content-wrapper { flex-direction: column; }
     .catalog-sidebar { 
         width: 100%; 
@@ -1427,8 +1443,27 @@ body.menu-open {
         padding: 16px 0;
         background: transparent;
         border: none;
+        display: none;
     }
-    .catalog-sidebar h4 { display: none; } /* Ocultar título en móvil para ganar espacio */
+    .catalog-sidebar.open { display: block; }
+    .catalog-sidebar h4 { display: none; }
+    /* Botón toggle de filtros */
+    .catalog-filter-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        background: rgba(214, 181, 94, 0.08);
+        border: 1px solid rgba(214, 181, 94, 0.3);
+        color: var(--color-accent);
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 0;
+    }
     
     .catalog-group-tabs {
         flex-direction: row;
@@ -1492,15 +1527,14 @@ body.menu-open {
         aspect-ratio: 1 / 1;
         margin-bottom: 0;
         border-radius: 0;
-        padding: 16px;
+        padding: 8px;
     }
 }
 
 @media (max-width: 480px) {
-    .featured-products-grid { grid-template-columns: 1fr; }
+    .featured-products-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .showcase-grid { grid-template-columns: 1fr; }
     .showcase-strip__name { font-size: 1.35rem; }
-    .stats-container { flex-direction: column; gap: 24px; text-align: center; }
     .hero-title { font-size: 2.4rem; }
     .announcement-bar { display: none; } /* Muy estrecho, se cae todo */
     
