@@ -28,6 +28,19 @@ const Catalog = {
 
     let activeGroup    = 'all';
     let activeCategory = 'all';
+    let searchQuery    = '';
+
+    // Elemento de búsqueda
+    const searchInput = document.getElementById('catalog-search');
+
+    // Mensaje de sin resultados (lo insertamos una vez)
+    let noResultsEl = productsGrid ? productsGrid.querySelector('.catalog-no-results') : null;
+    if (productsGrid && !noResultsEl) {
+      noResultsEl = document.createElement('li');
+      noResultsEl.className = 'catalog-no-results';
+      noResultsEl.textContent = 'No se encontraron productos.';
+      productsGrid.appendChild(noResultsEl);
+    }
 
     function loadImageStatus(src) {
       return new Promise(resolve => {
@@ -58,9 +71,19 @@ const Catalog = {
     }
 
     function showProducts(cat) {
+      const q = searchQuery.trim().toLowerCase();
+      let visible = 0;
       products.forEach(p => {
-        const match = cat === 'all' || p.dataset.category === cat;
-        if (match) {
+        const catMatch  = cat === 'all' || p.dataset.category === cat;
+        let   textMatch = true;
+        if (q) {
+          const name = (p.querySelector('.product_name')?.textContent || '').toLowerCase();
+          const sku  = (p.querySelector('.product_sku')?.textContent || '').toLowerCase();
+          textMatch  = name.includes(q) || sku.includes(q);
+        }
+        const show = catMatch && textMatch;
+        if (show) {
+          visible++;
           p.style.display = 'flex';
           requestAnimationFrame(() => {
             p.style.opacity = '1';
@@ -72,6 +95,7 @@ const Catalog = {
           setTimeout(() => { if (p.style.opacity === '0') p.style.display = 'none'; }, 350);
         }
       });
+      if (noResultsEl) noResultsEl.style.display = visible === 0 ? 'block' : 'none';
     }
 
     function showSubFilters(group) {
@@ -149,6 +173,13 @@ const Catalog = {
         scrollToCatalog();
       });
     });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        searchQuery = this.value;
+        showProducts(activeCategory);
+      });
+    }
 
     showSubFilters('all');
     prioritizeProductsWithImages();
