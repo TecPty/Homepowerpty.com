@@ -108,10 +108,26 @@
                     </div>
 
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
-                        <button class="pdp-thumb active"
-                                onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
-                                aria-label="Ver vista principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
+                        <button class="pdp-thumb active" onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)" aria-label="Vista principal" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Principal">
+                        </button>
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/STYLE_SHORT.webp', this)" aria-label="Estilo corto" role="listitem">
+                            <img src="./img/STYLE_SHORT.webp" alt="Corto">
+                        </button>
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/STYLE_TALL.webp', this)" aria-label="Estilo alto" role="listitem">
+                            <img src="./img/STYLE_TALL.webp" alt="Alto">
+                        </button>
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/STYLE_WALL.webp', this)" aria-label="Estilo pared" role="listitem">
+                            <img src="./img/STYLE_WALL.webp" alt="Pared">
+                        </button>
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/LIFESTYLE_DARK.webp', this)" aria-label="Ambiente oscuro" role="listitem">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Ambiente oscuro">
+                        </button>
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/LIFESTYLE_OFFICE.webp', this)" aria-label="Ambiente oficina" role="listitem">
+                            <img src="./img/LIFESTYLE_OFFICE.webp" alt="Oficina">
+                        </button>
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/LIFESTYLE_SUN.webp', this)" aria-label="Ambiente sol" role="listitem">
+                            <img src="./img/LIFESTYLE_SUN.webp" alt="Ambiente sol">
                         </button>
                     </div>
                 </div>
@@ -221,12 +237,27 @@
             <section class="pdp-gallery-strip">
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
-                    <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Vista principal">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Vista 1">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista 1" loading="lazy">
                         </div>
-                    </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Vista 2">
+                            <img src="./img/STYLE_SHORT.webp" alt="Vista 2" loading="lazy">
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Vista 3">
+                            <img src="./img/STYLE_TALL.webp" alt="Vista 3" loading="lazy">
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(3)" role="button" tabindex="0" aria-label="Vista 4">
+                            <img src="./img/STYLE_WALL.webp" alt="Vista 4" loading="lazy">
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Vista 5">
+                            <img src="./img/LIFESTYLE_DARK.webp" alt="Vista 5" loading="lazy">
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(5)" role="button" tabindex="0" aria-label="Vista 6">
+                            <img src="./img/LIFESTYLE_OFFICE.webp" alt="Vista 6" loading="lazy">
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(6)" role="button" tabindex="0" aria-label="Vista 7">
+                            <img src="./img/LIFESTYLE_SUN.webp" alt="Vista 7" loading="lazy">
+                        </div>
                 </div>
             </section>
 
@@ -361,6 +392,12 @@
     <script>
         const pdpImages = [
             './img/PRODUCTO_PRINCIPAL.webp',
+            './img/STYLE_SHORT.webp',
+            './img/STYLE_TALL.webp',
+            './img/STYLE_WALL.webp',
+            './img/LIFESTYLE_DARK.webp',
+            './img/LIFESTYLE_OFFICE.webp',
+            './img/LIFESTYLE_SUN.webp',
         ];
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;
