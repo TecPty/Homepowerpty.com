@@ -1018,23 +1018,18 @@ section { padding: 80px 0; }
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.contact-container { display: flex; gap: 48px; align-items: flex-start; }
+.contact-container { display: flex; gap: 32px; align-items: flex-end; }
 
 .contact-info {
-    flex: 0 0 240px;
-    position: relative;
-    overflow: hidden;
-    min-height: 340px;
+    flex: 0 0 220px;
 }
 
 .contact-avatar {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 99%;
+    flex: 0 0 auto;
+    height: 340px;
     width: auto;
     object-fit: contain;
+    align-self: flex-end;
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
