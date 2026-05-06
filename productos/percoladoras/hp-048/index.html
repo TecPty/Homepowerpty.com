@@ -447,16 +447,55 @@
             './img/PRODUCTO_PRINCIPAL.webp',
         ];
         let pdpLightboxIndex = 0;
-        let currentLightboxSrc = pdpImages[0] || '';
+        let pdsSlideshowInterval;
+        let pdpCurrentGalleryIndex = 0;
+        const SLIDE_DURATION = 2500;
 
-        function pdpSetImage(src, thumbEl) {
+        function startSlideshow() {
+            stopSlideshow();
+            if (pdpImages.length <= 1) return;
+            pdsSlideshowInterval = setInterval(() => {
+                pdpCurrentGalleryIndex = (pdpCurrentGalleryIndex + 1) % pdpImages.length;
+                const nextSrc = pdpImages[pdpCurrentGalleryIndex];
+                const thumbs = document.querySelectorAll('.pdp-thumb');
+                if (thumbs[pdpCurrentGalleryIndex]) {
+                    pdpSetImage(nextSrc, thumbs[pdpCurrentGalleryIndex], true);
+                }
+            }, SLIDE_DURATION);
+        }
+
+        function stopSlideshow() {
+            if (pdsSlideshowInterval) clearInterval(pdsSlideshowInterval);
+        }
+
+        function pdpSetImage(src, thumbEl, isAutomatic = false) {
             const mainImg = document.getElementById('pdpMainImg');
             mainImg.style.opacity = '0';
-            setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 150);
+            setTimeout(() => { 
+                mainImg.src = src; 
+                mainImg.style.opacity = '1'; 
+            }, 150);
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
             thumbEl.classList.add('active');
-            currentLightboxSrc = src;
+            
+            // Actualizar el índice actual para el slideshow
+            pdpCurrentGalleryIndex = Array.from(document.querySelectorAll('.pdp-thumb')).indexOf(thumbEl);
+
+            // Si el usuario hace click manualmente, reiniciamos el timer
+            if (!isAutomatic) {
+                startSlideshow();
+            }
         }
+
+        // Iniciar slideshow al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            startSlideshow();
+            const galleryArea = document.querySelector('.pdp-gallery');
+            if (galleryArea) {
+                galleryArea.addEventListener('mouseenter', stopSlideshow);
+                galleryArea.addEventListener('mouseleave', startSlideshow);
+            }
+        });
 
         function pdpOpenLightbox() {
             const idx = pdpImages.indexOf(currentLightboxSrc);

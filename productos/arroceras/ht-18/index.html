@@ -466,7 +466,17 @@
         btn.setAttribute('aria-expanded', open);
         body.classList.toggle('open', open);
     }
-    function pdpOpenLightbox() {
+    // Iniciar slideshow al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            startSlideshow();
+            const galleryArea = document.querySelector('.pdp-gallery');
+            if (galleryArea) {
+                galleryArea.addEventListener('mouseenter', stopSlideshow);
+                galleryArea.addEventListener('mouseleave', startSlideshow);
+            }
+        });
+
+        function pdpOpenLightbox() {
         const idx = pdpImages.indexOf(currentLightboxSrc);
         pdpLightboxIndex = idx >= 0 ? idx : 0;
         document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
