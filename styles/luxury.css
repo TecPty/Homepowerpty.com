@@ -1018,7 +1018,26 @@ section { padding: 80px 0; }
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.contact-container { display: flex; gap: 60px; }
+.contact-container { display: flex; gap: 48px; align-items: flex-start; }
+
+.contact-info {
+    flex: 0 0 240px;
+}
+
+.contact-heading {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.contact-info p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 10px;
+}
 
 .contact-form-wrapper { 
     flex: 1; 
@@ -1411,8 +1430,9 @@ body.menu-open {
     .hero-container, .contact-container { flex-direction: column; text-align: center; }
     /* Reducir secciones contact y footer en mobile */
     .contact-section { padding: 32px 0; }
-    .contact-info h2 { font-size: 1.6rem !important; margin-bottom: 12px !important; }
-    .contact-info p { display: none; }
+    .contact-info { flex: 0 0 auto; width: 100%; }
+    .contact-heading { font-size: 1.4rem !important; margin-bottom: 10px !important; }
+    .contact-info p { font-size: 0.8rem; margin-bottom: 6px; }
     .contact-info br { display: none; }
     .contact-form-wrapper { padding: 20px 16px; }
     .luxury-form { gap: 12px; }
