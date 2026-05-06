@@ -109,9 +109,19 @@
 
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
+                                onclick="pdpSetImage('./img/DETAIL_SPECIFIC.webp', this)"
+                                aria-label="Ver imagen 1" role="listitem">
+                            <img src="./img/DETAIL_SPECIFIC.webp" alt="Vista 1">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_KITCKEN.webp', this)"
+                                aria-label="Ver imagen 2" role="listitem">
+                            <img src="./img/LIFESTYLE_KITCKEN.webp" alt="Vista 2">
+                        </button>
+                        <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
-                                aria-label="Ver vista principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
+                                aria-label="Ver imagen 3" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista 3">
                         </button>
                     </div>
                 </div>
@@ -222,9 +232,19 @@
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
                     <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Vista principal">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal" loading="lazy">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar imagen 1">
+                            <img src="./img/DETAIL_SPECIFIC.webp" alt="Vista 1" loading="lazy">
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar imagen 2">
+                            <img src="./img/LIFESTYLE_KITCKEN.webp" alt="Vista 2" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Ampliar imagen 3">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista 3" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -296,33 +316,33 @@
                     <h2 class="pdp-related-title">Productos similares</h2>
                     <ul class="pdp-related-grid">
                         <li class="pdp-related-card">
-                            <a href="../ck-02-18/" class="pdp-related-img-wrap">
-                                <img src="../ck-02-18/img/PRODUCTO_PRINCIPAL.webp" alt="Olla de Presión 3.2L — 18cm" loading="lazy">
+                            <a href="../hp-035/" class="pdp-related-img-wrap">
+                                <img src="../hp-035/img/PRODUCTO_PRINCIPAL.webp" alt="Olla a Presión 4L Aluminio" loading="lazy">
                             </a>
                             <div class="pdp-related-info">
-                                <span class="pdp-related-mod">CK-02-18</span>
-                                <h3 class="pdp-related-name"><a href="../ck-02-18/">Olla de Presión 3.2L — 18cm</a></h3>
-                                <a href="../ck-02-18/" class="pdp-related-cta">Ver producto</a>
+                                <span class="pdp-related-mod">HP-035</span>
+                                <h3 class="pdp-related-name"><a href="../hp-035/">Olla a Presión 4L Aluminio</a></h3>
+                                <a href="../hp-035/" class="pdp-related-cta">Ver producto</a>
                             </div>
                         </li>
                         <li class="pdp-related-card">
-                            <a href="../ck-02-20/" class="pdp-related-img-wrap">
-                                <img src="../ck-02-20/img/PRODUCTO_PRINCIPAL.webp" alt="Olla de Presión 4.2L — 20cm" loading="lazy">
+                            <a href="../hp-036/" class="pdp-related-img-wrap">
+                                <img src="../hp-036/img/PRODUCTO_PRINCIPAL.webp" alt="Olla a Presión 5L Aluminio" loading="lazy">
                             </a>
                             <div class="pdp-related-info">
-                                <span class="pdp-related-mod">CK-02-20</span>
-                                <h3 class="pdp-related-name"><a href="../ck-02-20/">Olla de Presión 4.2L — 20cm</a></h3>
-                                <a href="../ck-02-20/" class="pdp-related-cta">Ver producto</a>
+                                <span class="pdp-related-mod">HP-036</span>
+                                <h3 class="pdp-related-name"><a href="../hp-036/">Olla a Presión 5L Aluminio</a></h3>
+                                <a href="../hp-036/" class="pdp-related-cta">Ver producto</a>
                             </div>
                         </li>
                         <li class="pdp-related-card">
-                            <a href="../ck-02-22/" class="pdp-related-img-wrap">
-                                <img src="../ck-02-22/img/PRODUCTO_PRINCIPAL.webp" alt="Olla de Presión" loading="lazy">
+                            <a href="../hp-038/" class="pdp-related-img-wrap">
+                                <img src="../hp-038/img/PRODUCTO_PRINCIPAL.webp" alt="Olla a Presión 9L Aluminio" loading="lazy">
                             </a>
                             <div class="pdp-related-info">
-                                <span class="pdp-related-mod">CK-02-22</span>
-                                <h3 class="pdp-related-name"><a href="../ck-02-22/">Olla de Presión</a></h3>
-                                <a href="../ck-02-22/" class="pdp-related-cta">Ver producto</a>
+                                <span class="pdp-related-mod">HP-038</span>
+                                <h3 class="pdp-related-name"><a href="../hp-038/">Olla a Presión 9L Aluminio</a></h3>
+                                <a href="../hp-038/" class="pdp-related-cta">Ver producto</a>
                             </div>
                         </li>
                     </ul>
@@ -360,6 +380,8 @@
 
     <script>
         const pdpImages = [
+            './img/DETAIL_SPECIFIC.webp',
+            './img/LIFESTYLE_KITCKEN.webp',
             './img/PRODUCTO_PRINCIPAL.webp',
         ];
         let pdpLightboxIndex = 0;

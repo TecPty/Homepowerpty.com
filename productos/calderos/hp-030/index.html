@@ -109,9 +109,14 @@
 
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
+                                onclick="pdpSetImage('./img/LIFESTYLE.webp', this)"
+                                aria-label="Ver imagen 1" role="listitem">
+                            <img src="./img/LIFESTYLE.webp" alt="Vista 1">
+                        </button>
+                        <button class="pdp-thumb"
                                 onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
-                                aria-label="Ver vista principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
+                                aria-label="Ver imagen 2" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista 2">
                         </button>
                     </div>
                 </div>
@@ -222,9 +227,15 @@
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
                     <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Vista principal">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal" loading="lazy">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar imagen 1">
+                            <img src="./img/LIFESTYLE.webp" alt="Vista 1" loading="lazy">
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar imagen 2">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista 2" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -296,33 +307,33 @@
                     <h2 class="pdp-related-title">Productos similares</h2>
                     <ul class="pdp-related-grid">
                         <li class="pdp-related-card">
-                            <a href="../hp-025/" class="pdp-related-img-wrap">
-                                <img src="../hp-025/img/PRODUCTO_PRINCIPAL.webp" alt="Caldero 20cm Tapa Aluminio" loading="lazy">
+                            <a href="../hp-031/" class="pdp-related-img-wrap">
+                                <img src="../hp-031/img/PRODUCTO_PRINCIPAL.webp" alt="Caldero 24cm Tapa Vidrio" loading="lazy">
                             </a>
                             <div class="pdp-related-info">
-                                <span class="pdp-related-mod">HP-025</span>
-                                <h3 class="pdp-related-name"><a href="../hp-025/">Caldero 20cm Tapa Aluminio</a></h3>
-                                <a href="../hp-025/" class="pdp-related-cta">Ver producto</a>
+                                <span class="pdp-related-mod">HP-031</span>
+                                <h3 class="pdp-related-name"><a href="../hp-031/">Caldero 24cm Tapa Vidrio</a></h3>
+                                <a href="../hp-031/" class="pdp-related-cta">Ver producto</a>
                             </div>
                         </li>
                         <li class="pdp-related-card">
-                            <a href="../hp-026/" class="pdp-related-img-wrap">
-                                <img src="../hp-026/img/PRODUCTO_PRINCIPAL.webp" alt="Caldero 24cm Tapa Aluminio" loading="lazy">
+                            <a href="../hp-032/" class="pdp-related-img-wrap">
+                                <img src="../hp-032/img/PRODUCTO_PRINCIPAL.webp" alt="Caldero 26cm Tapa Vidrio" loading="lazy">
                             </a>
                             <div class="pdp-related-info">
-                                <span class="pdp-related-mod">HP-026</span>
-                                <h3 class="pdp-related-name"><a href="../hp-026/">Caldero 24cm Tapa Aluminio</a></h3>
-                                <a href="../hp-026/" class="pdp-related-cta">Ver producto</a>
+                                <span class="pdp-related-mod">HP-032</span>
+                                <h3 class="pdp-related-name"><a href="../hp-032/">Caldero 26cm Tapa Vidrio</a></h3>
+                                <a href="../hp-032/" class="pdp-related-cta">Ver producto</a>
                             </div>
                         </li>
                         <li class="pdp-related-card">
-                            <a href="../hp-027/" class="pdp-related-img-wrap">
-                                <img src="../hp-027/img/PRODUCTO_PRINCIPAL.webp" alt="Caldero 26cm Tapa Aluminio" loading="lazy">
+                            <a href="../hp-033/" class="pdp-related-img-wrap">
+                                <img src="../hp-033/img/PRODUCTO_PRINCIPAL.webp" alt="Caldero 34cm Tapa Vidrio" loading="lazy">
                             </a>
                             <div class="pdp-related-info">
-                                <span class="pdp-related-mod">HP-027</span>
-                                <h3 class="pdp-related-name"><a href="../hp-027/">Caldero 26cm Tapa Aluminio</a></h3>
-                                <a href="../hp-027/" class="pdp-related-cta">Ver producto</a>
+                                <span class="pdp-related-mod">HP-033</span>
+                                <h3 class="pdp-related-name"><a href="../hp-033/">Caldero 34cm Tapa Vidrio</a></h3>
+                                <a href="../hp-033/" class="pdp-related-cta">Ver producto</a>
                             </div>
                         </li>
                     </ul>
@@ -360,6 +371,7 @@
 
     <script>
         const pdpImages = [
+            './img/LIFESTYLE.webp',
             './img/PRODUCTO_PRINCIPAL.webp',
         ];
         let pdpLightboxIndex = 0;

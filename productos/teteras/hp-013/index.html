@@ -113,6 +113,26 @@
                                 aria-label="Ver vista principal" role="listitem">
                             <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
                         </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL_LOGO.webp', this)"
+                                aria-label="Ver detalle logo" role="listitem">
+                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle logo">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_TEA.webp', this)"
+                                aria-label="Ver estilo de vida té" role="listitem">
+                            <img src="./img/LIFESTYLE_TEA.webp" alt="Estilo de vida té">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_FAMILY.webp', this)"
+                                aria-label="Ver estilo de vida familia" role="listitem">
+                            <img src="./img/LIFESTYLE_FAMILY.webp" alt="Estilo de vida familia">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_HONEY.webp', this)"
+                                aria-label="Ver estilo de vida miel" role="listitem">
+                            <img src="./img/LIFESTYLE_HONEY.webp" alt="Estilo de vida miel">
+                        </button>
                     </div>
                 </div>
 
@@ -224,6 +244,22 @@
                     <div class="pdp-gallery-strip-grid">
                         <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Vista principal">
                             <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar Detalle logo">
+                            <img src="./img/DETAIL_LOGO.webp" alt="Detalle logo" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Ampliar Estilo de vida té">
+                            <img src="./img/LIFESTYLE_TEA.webp" alt="Estilo de vida té" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(3)" role="button" tabindex="0" aria-label="Ampliar Estilo de vida familia">
+                            <img src="./img/LIFESTYLE_FAMILY.webp" alt="Estilo de vida familia" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Ampliar Estilo de vida miel">
+                            <img src="./img/LIFESTYLE_HONEY.webp" alt="Estilo de vida miel" loading="lazy">
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                     </div>
@@ -361,6 +397,10 @@
     <script>
         const pdpImages = [
             './img/PRODUCTO_PRINCIPAL.webp',
+            './img/DETAIL_LOGO.webp',
+            './img/LIFESTYLE_TEA.webp',
+            './img/LIFESTYLE_FAMILY.webp',
+            './img/LIFESTYLE_HONEY.webp',
         ];
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;
@@ -387,10 +427,20 @@
         function pdpSetImage(src, thumbEl, isAutomatic = false) {
             const mainImg = document.getElementById('pdpMainImg');
             mainImg.style.opacity = '0';
-            setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 150);
+            setTimeout(() => { 
+                mainImg.src = src; 
+                mainImg.style.opacity = '1'; 
+            }, 150);
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
             thumbEl.classList.add('active');
-            currentLightboxSrc = src;
+            
+            // Actualizar el índice actual para el slideshow
+            pdpCurrentGalleryIndex = Array.from(document.querySelectorAll('.pdp-thumb')).indexOf(thumbEl);
+
+            // Si el usuario hace click manualmente, reiniciamos el timer
+            if (!isAutomatic) {
+                startSlideshow();
+            }
         }
 
         // Iniciar slideshow al cargar
@@ -404,7 +454,9 @@
         });
 
         function pdpOpenLightbox() {
-            const idx = pdpImages.indexOf(currentLightboxSrc);
+            const mainImg = document.getElementById('pdpMainImg');
+            const currentSrc = mainImg.getAttribute('src');
+            const idx = pdpImages.indexOf(currentSrc);
             pdpLightboxIndex = idx >= 0 ? idx : 0;
             document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
             document.getElementById('pdpLightbox').classList.add('active');

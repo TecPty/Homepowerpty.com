@@ -123,9 +123,13 @@ const Catalog = {
     }
 
     function scrollToCatalog() {
-      if (window.innerWidth < 1024) {
-        const el = document.getElementById('catalogo');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      const el = document.getElementById('catalogo');
+      if (el) {
+        // En desktop bajamos un poco más para que la búsqueda/filtros no queden pegados arriba
+        const offset = window.innerWidth >= 1024 ? 60 : 0;
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     }
 
