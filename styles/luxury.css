@@ -1041,6 +1041,7 @@ section { padding: 80px 0; }
 
 .contact-form-wrapper { 
     flex: 1; 
+    max-width: 480px;
     padding: 40px; 
     border-radius: 15px; 
     border: 1px solid rgba(201,168,76,0.3); 
