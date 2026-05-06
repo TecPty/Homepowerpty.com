@@ -1022,6 +1022,22 @@ section { padding: 80px 0; }
 
 .contact-info {
     flex: 0 0 240px;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+}
+
+.contact-avatar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 90%;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .contact-heading {
@@ -1432,7 +1448,8 @@ body.menu-open {
     .hero-container, .contact-container { flex-direction: column; text-align: center; }
     /* Reducir secciones contact y footer en mobile */
     .contact-section { padding: 32px 0; }
-    .contact-info { flex: 0 0 auto; width: 100%; }
+    .contact-info { flex: 0 0 auto; width: 100%; min-height: 0; overflow: visible; }
+    .contact-avatar { display: none; }
     .contact-heading { font-size: 1.4rem !important; margin-bottom: 10px !important; }
     .contact-info p { font-size: 0.8rem; margin-bottom: 6px; }
     .contact-info br { display: none; }
