@@ -1026,7 +1026,7 @@ section { padding: 80px 0; }
 
 .contact-avatar {
     flex: 0 0 auto;
-    height: 340px;
+    height: 500px;
     width: auto;
     object-fit: contain;
     align-self: flex-end;
