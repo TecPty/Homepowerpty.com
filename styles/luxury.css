@@ -1032,12 +1032,13 @@ section { padding: 80px 0; }
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: 90%;
+    height: 99%;
     width: auto;
     object-fit: contain;
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
+    filter: drop-shadow(0 0 15px rgba(214, 181, 94, 0.45));
 }
 
 .contact-heading {
