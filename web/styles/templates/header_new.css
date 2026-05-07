@@ -1,0 +1,214 @@
+﻿.header {
+    width: 100%;
+    height: 140px; /* Aumentado para acomodar el logo mÃ¡s grande */
+    position: fixed;
+    top: 50px; /* Ajustado para el social header */
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1200; /* above social bar so burger is clickable */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header.active {
+    top: 0;
+    height: 90px; /* MÃ¡s pequeÃ±o al hacer scroll */
+    background: rgba(255, 255, 255, 0.95); /* MÃ¡s transparente */
+    backdrop-filter: blur(15px);
+    padding: 0 3%;
+}
+
+.logo_container {
+    height: 140px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header.active .logo_container {
+    height: 70px;
+    transform: translateX(-20px);
+}
+
+.logo_icon {
+    height: 100%;
+    width: auto;
+    max-height: 140px; /* Aumentado para un logo mÃ¡s grande */
+    object-fit: contain;
+    transform-origin: left center;
+    transition: all 0.3s ease;
+    image-rendering: -webkit-optimize-contrast; /* Mejor renderizado en webkit */
+    image-rendering: crisp-edges; /* Mejor renderizado en otros navegadores */
+}
+
+.nav_bar {
+    margin-left: auto;
+    margin-right: 3rem;
+    transition: all 0.3s ease;
+}
+
+.header.active .nav_bar {
+    opacity: 0.7; /* Se desvanece ligeramente al hacer scroll */
+    transform: scale(0.95);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.menu_item {
+    position: relative;
+}
+
+.menu_link {
+    color: var(--color_black);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.menu_link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color_orange);
+    transition: width 0.3s ease;
+}
+
+.menu_link:hover {
+    color: var(--color_orange);
+}
+
+.menu_link:hover::after {
+    width: 100%;
+}
+
+/* Estilos para el botÃ³n de contacto */
+.contact_btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color_orange);
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(250, 170, 1, 0.3);
+}
+
+.contact_btn_icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+/* Mobile menu */
+.btn_menu {
+    display: none !important; /* evitar solaparse con el nuevo menÃº */
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+    /* Mantener header visible y a lo ancho en mÃ³vil */
+    .btn_menu { display: none; }
+
+    .header {
+        width: 100%;
+        height: 90px;
+        left: 0;
+    right: 0;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 4%;
+    }
+
+    .logo_container {
+        height: 80px;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .logo_icon {
+        max-height: 70px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    .nav_bar { margin: 0; width: auto; }
+
+    .menu { flex-direction: column; width: 100%; padding: 0 20px; }
+
+    .menu_link { padding: 12px 0; font-size: 18px; }
+
+    .contact_btn { width: auto; margin: 0; }
+}
+
+/* Alinear el header por debajo de la barra social mÃ³vil (min-height 80px) */
+@media screen and (max-width: 768px) {
+    .header { top: 80px; }
+}
+
+/* Afinar tamaños en teléfonos pequeños */
+@media screen and (max-width: 480px) {
+    .logo_container { height: 84px; }
+    .logo_icon { max-height: 72px; }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav_bar {
+        display: none;
+    }
+
+    .menu-burger {
+        display: flex;
+    }
+    
+    .contact_btn {
+        display: none;
+    }
+}
+
+/* Ocultar header al hacer scroll */
+.header.hide{ transform: translateY(-150%); transition: transform .3s ease; }
+
+@media screen and (max-width: 890px) { .header { right: 0; } }
+
+
+
+
+
+
+
