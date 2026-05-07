@@ -122,14 +122,17 @@ const Catalog = {
       activeCategory = item.dataset.category;
     }
 
-    function scrollToCatalog() {
+    function scrollToCatalog(immediate = false) {
       const el = document.getElementById('catalogo');
       if (el) {
         // En desktop bajamos un poco más para que la búsqueda/filtros no queden pegados arriba
         const offset = window.innerWidth >= 1024 ? 60 : 0;
         const rect = el.getBoundingClientRect();
         const top = rect.top + window.pageYOffset - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({ 
+          top, 
+          behavior: immediate ? 'auto' : 'smooth' 
+        });
       }
     }
 
@@ -204,8 +207,8 @@ const Catalog = {
         setActiveFilter(targetItem);
         showProducts(catParam);
         
-        // Scroll diferido para asegurar que el DOM esté listo
-        setTimeout(scrollToCatalog, 500);
+        // Scroll inmediato si venimos de una categoría (evita el "rebote" por el anclaje #productos)
+        scrollToCatalog(true);
       }
     }
 
