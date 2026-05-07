@@ -185,6 +185,30 @@ const Catalog = {
       });
     }
 
+    // --- LÓGICA DE FILTRO POR URL ---
+    const params = new URLSearchParams(window.location.search);
+    const catParam = params.get('cat');
+    if (catParam) {
+      const targetItem = Array.from(filterItems).find(i => i.dataset.category === catParam);
+      if (targetItem) {
+        // Determinamos el grupo para activar el tab correspondiente
+        const groupKey = CAT_TO_GROUP[catParam];
+        if (groupKey) {
+          const targetTab = Array.from(groupTabs).find(t => t.dataset.group === groupKey);
+          if (targetTab) {
+            setActiveGroup(targetTab);
+            showSubFilters(groupKey);
+          }
+        }
+        
+        setActiveFilter(targetItem);
+        showProducts(catParam);
+        
+        // Scroll diferido para asegurar que el DOM esté listo
+        setTimeout(scrollToCatalog, 500);
+      }
+    }
+
     showSubFilters('all');
     prioritizeProductsWithImages();
   },
