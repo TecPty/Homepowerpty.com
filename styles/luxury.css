@@ -1603,10 +1603,14 @@ body.menu-open {
         padding: 0;
         border-radius: 8px;
         overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .featured-products-grid .product_content {
         display: block;
         padding: 6px 6px 4px;
+        flex-grow: 1;
     }
     .featured-products-grid .product_sku,
     .featured-products-grid .product_features,
@@ -1621,11 +1625,14 @@ body.menu-open {
     }
     .featured-products-grid .product_name a { color: rgba(255,255,255,0.85); }
     .featured-products-grid .product_image_wrapper {
+        width: 100%;
         height: auto;
         aspect-ratio: 1 / 1;
         margin-bottom: 0;
         border-radius: 8px 8px 0 0;
         padding: 8px;
+        flex: 0 0 auto;
+        box-sizing: border-box;
     }
 }
 

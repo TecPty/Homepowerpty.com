@@ -1,1 +1,0 @@
-System.register(["./luxury-legacy-Qx-gKmBT.js","./modulepreload-polyfill-legacy-C0sDFElv.js","./page-legacy-mXfMYKwR.js"],function(e,n){return{setters:[function(e){},function(e){},function(e){}],execute:function(){}}});

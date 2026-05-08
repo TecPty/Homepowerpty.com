@@ -1,1 +1,0 @@
-System.register(["./luxury-legacy-Qx-gKmBT.js","./gold-breeze-legacy-Dn34Wbx_.js"],function(e,n){return{setters:[function(e){},function(e){}],execute:function(){}}});
