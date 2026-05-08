@@ -1,0 +1,1 @@
+import{n as e,t}from"./header-BopO3uog.js";document.addEventListener(`DOMContentLoaded`,()=>{t.init(),e.init()});

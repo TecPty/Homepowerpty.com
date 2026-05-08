@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/web_productos_licuadoras_mm-111_index-backup-CLai5kZ6.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

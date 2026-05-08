@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/web_productos_ollas_ck-02-24_index-backup-CO2-KQnj.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_arroceras_ht-22a_index-backup-Ab4sd6N3.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

@@ -110,13 +110,28 @@
                     <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
                                 onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
-                                aria-label="Ver vista principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
+                                aria-label="Ver vista 1" role="listitem">
+                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista 1">
                         </button>
                         <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/BOX.webp', this)"
-                                aria-label="Ver caja" role="listitem">
-                            <img src="./img/BOX.webp" alt="Caja">
+                                onclick="pdpSetImage('./img/BRAND_COMMERCIAL.webp', this)"
+                                aria-label="Ver vista 2" role="listitem">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Vista 2">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/DETAIL.webp', this)"
+                                aria-label="Ver vista 3" role="listitem">
+                            <img src="./img/DETAIL.webp" alt="Vista 3">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/FLAT_LAY.webp', this)"
+                                aria-label="Ver vista 4" role="listitem">
+                            <img src="./img/FLAT_LAY.webp" alt="Vista 4">
+                        </button>
+                        <button class="pdp-thumb"
+                                onclick="pdpSetImage('./img/LIFESTYLE_DAY.webp', this)"
+                                aria-label="Ver vista 5" role="listitem">
+                            <img src="./img/LIFESTYLE_DAY.webp" alt="Vista 5">
                         </button>
                     </div>
                 </div>
@@ -232,11 +247,25 @@
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                         <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar Vista 2">
-                            <img src="./img/BOX.webp" alt="Vista 2" loading="lazy">
+                            <img src="./img/BRAND_COMMERCIAL.webp" alt="Vista 2" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(2)" role="button" tabindex="0" aria-label="Ampliar Vista 3">
+                            <img src="./img/DETAIL.webp" alt="Vista 3" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(3)" role="button" tabindex="0" aria-label="Ampliar Vista 4">
+                            <img src="./img/FLAT_LAY.webp" alt="Vista 4" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Ampliar Vista 5">
+                            <img src="./img/LIFESTYLE_DAY.webp" alt="Vista 5" loading="lazy">
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                     </div>
-                        </div>
+                    </div>
+                </div>
+            </div>
                     </div>
                 </div>
             </section>
@@ -411,7 +440,10 @@
     <script>
         const pdpImages = [
             './img/PRODUCTO_PRINCIPAL.webp',
-            './img/BOX.webp',
+            './img/BRAND_COMMERCIAL.webp',
+            './img/DETAIL.webp',
+            './img/FLAT_LAY.webp',
+            './img/LIFESTYLE_DAY.webp',
         ];
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;

@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/web_productos_arroceras_ht-22a_index-backup-D4-RivNO.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

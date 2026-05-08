@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/web_productos_percoladoras_hp-049_index-HEFy8fOh.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}import"./modulepreload-polyfill-CWkzE_uJ.js";import"./header-BOs4ApGa.js";import"./page-Cq8UXGB2.js";

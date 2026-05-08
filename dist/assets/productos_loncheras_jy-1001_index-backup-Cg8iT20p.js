@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_loncheras_jy-1001_index-backup-Cg8iT20p.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

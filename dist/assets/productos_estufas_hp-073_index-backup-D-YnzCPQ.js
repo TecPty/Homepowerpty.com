@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_estufas_hp-073_index-backup-D-YnzCPQ.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

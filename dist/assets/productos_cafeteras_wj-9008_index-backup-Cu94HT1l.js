@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_cafeteras_wj-9008_index-backup-Cu94HT1l.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

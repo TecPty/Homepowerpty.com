@@ -1,0 +1,85 @@
+<!-- Test Page - Clear Session and Show Carnival Modal -->
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="module" crossorigin src="/assets/polyfills-DwiVaxOR.js"></script>
+
+    <title>Test Carnival Modal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #FF9F1C;
+            margin-bottom: 20px;
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+  <script async type="module" crossorigin src="/assets/test_carnival-Cv4wLBnA.js"></script>
+  <script type="module">import'data:text/javascript,if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';import.meta.url;import("_").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎉 Test Modal Carnavales</h1>
+        
+        <div id="status" class="status info">
+            ⏳ Limpiando sessionStorage y redirigiendo...
+        </div>
+        
+        <p>• Limpiando session storage</p>
+        <p>• Esperando carga de página</p>
+        <p>• El modal debería aparecer en 1.5 segundos</p>
+    </div>
+
+    <script>
+        console.log('🎉 TEST PAGE LOADED');
+        
+        // Limpiar sessionStorage para probar modal
+        console.log('Limpiando: carnivalModalShown');
+        sessionStorage.removeItem('carnivalModalShown');
+        console.log('✅ SessionStorage limpiado');
+        
+        // Verificar que se limpió
+        console.log('Contenido de sessionStorage:', {...sessionStorage});
+        
+        // Redirigir a index.html después de 1 segundo
+        setTimeout(() => {
+            document.getElementById('status').textContent = '✅ Redirigiendo a index.html...';
+            document.getElementById('status').className = 'status success';
+            console.log('Redirigiendo a index.html');
+            window.location.href = 'index.html';
+        }, 1000);
+    </script>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-CgY1ZJOY.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/test_carnival-legacy-DHCPzZKp.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>

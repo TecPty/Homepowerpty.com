@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/web_productos_estufas_2020a_index-backup-BG-jLh-h.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

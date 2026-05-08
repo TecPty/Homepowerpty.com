@@ -413,7 +413,11 @@ section { padding: 80px 0; }
 ----------------------------- */
 .showcase-section {
     background-color: var(--color-primary);
-    padding: 60px 0 50px;
+    padding: 60px 0 30px;
+}
+
+.featured-products-section {
+    padding-top: 60px;
 }
 
 .showcase-header {

@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_ollas_ck-02-22_index-backup--jK6AxEC.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}
