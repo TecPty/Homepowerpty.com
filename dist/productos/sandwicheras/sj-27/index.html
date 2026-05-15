@@ -554,6 +554,7 @@
             './img/LIFESTYLE_LIGTH.webp',
             './img/LIFESTYLE_MORNING_PANINI.webp',
         ];
+        let currentLightboxSrc = pdpImages[0] || '';
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;
         let pdpCurrentGalleryIndex = 0;
@@ -585,6 +586,7 @@
             }, 150);
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
             thumbEl.classList.add('active');
+            currentLightboxSrc = src;
             
             // Actualizar el índice actual para el slideshow
             pdpCurrentGalleryIndex = Array.from(document.querySelectorAll('.pdp-thumb')).indexOf(thumbEl);

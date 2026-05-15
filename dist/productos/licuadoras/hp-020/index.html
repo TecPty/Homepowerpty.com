@@ -479,6 +479,7 @@
             './img/BOX_1.webp',
             './img/BOX_2.webp'
         ];
+        let currentLightboxSrc = pdpImages[0] || '';
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;
         let pdpCurrentGalleryIndex = 0;
@@ -507,6 +508,7 @@
             }, 150);
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
             thumbEl.classList.add('active');
+            currentLightboxSrc = src;
             currentLightboxSrc = src;
             
             // Actualizar el índice actual para el slideshow

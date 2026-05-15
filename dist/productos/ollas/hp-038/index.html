@@ -431,6 +431,7 @@
             './img/LIFESTYLE_.webp',
             './img/PRODUCTO_PRINCIPAL.webp',
         ];
+        let currentLightboxSrc = pdpImages[0] || '';
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;
         let pdpCurrentGalleryIndex = 0;
@@ -459,6 +460,7 @@
             setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 150);
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
             thumbEl.classList.add('active');
+            currentLightboxSrc = src;
             currentLightboxSrc = src;
         }
 
