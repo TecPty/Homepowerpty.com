@@ -1,1 +1,0 @@
-import'data:text/javascript,"assets/productos_tostadoras_hp-018_index-backup-_IruXF4L.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

@@ -1,1 +1,0 @@
-import'data:text/javascript,"assets/web_productos_cafeteras_wj-9008_index-backup-B9qb2Nwr.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

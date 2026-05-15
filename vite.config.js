@@ -46,6 +46,28 @@ function copyStaticAssets() {
     }
   }
 
+  // Copia todas las carpetas img/ de los productos al dist/
+  function copyProductImages() {
+    const productosDir = path.resolve(__dirname, 'productos');
+    const distProductosDir = path.join('dist', 'productos');
+    if (!fs.existsSync(productosDir)) return;
+
+    let copied = 0;
+    for (const categoria of fs.readdirSync(productosDir)) {
+      const catPath = path.join(productosDir, categoria);
+      if (!fs.statSync(catPath).isDirectory()) continue;
+      for (const sku of fs.readdirSync(catPath)) {
+        const imgSrc  = path.join(catPath, sku, 'img');
+        const imgDest = path.join(distProductosDir, categoria, sku, 'img');
+        if (fs.existsSync(imgSrc)) {
+          copyDir(imgSrc, imgDest);
+          copied++;
+        }
+      }
+    }
+    console.log(`  ✅ Copiadas: ${copied} carpetas img/ de productos → dist/productos/`);
+  }
+
   return {
     name: 'copy-static-assets',
     closeBundle() {
@@ -60,6 +82,7 @@ function copyStaticAssets() {
           console.log(`  ✅ Copiado: ${file} → dist/${file}`);
         }
       }
+      copyProductImages();
     }
   };
 }

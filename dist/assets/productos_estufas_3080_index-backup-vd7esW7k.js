@@ -1,1 +1,0 @@
-import'data:text/javascript,"assets/productos_estufas_3080_index-backup-vd7esW7k.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}

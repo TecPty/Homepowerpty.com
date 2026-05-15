@@ -1,1 +1,0 @@
-import'data:text/javascript,"assets/productos_sandwicheras_sj-22_index-backup-B3RoLB3z.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}
