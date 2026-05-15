@@ -33,7 +33,8 @@ function getHtmlEntries(dir, fileList = {}) {
 
 // ── Plugin: copia assets estáticos al dist/ post-build ──────────────────────
 function copyStaticAssets() {
-  const STATIC_DIRS = ['styles', 'media', 'scripts'];
+  const STATIC_DIRS  = ['styles', 'media', 'scripts'];
+  const STATIC_FILES = ['robots.txt', 'sitemap.xml'];
 
   function copyDir(src, dest) {
     if (!fs.existsSync(src)) return;
@@ -51,6 +52,13 @@ function copyStaticAssets() {
       for (const dir of STATIC_DIRS) {
         copyDir(path.resolve(__dirname, dir), path.join('dist', dir));
         console.log(`  ✅ Copiado: ${dir}/ → dist/${dir}/`);
+      }
+      for (const file of STATIC_FILES) {
+        const src = path.resolve(__dirname, file);
+        if (fs.existsSync(src)) {
+          fs.copyFileSync(src, path.join('dist', file));
+          console.log(`  ✅ Copiado: ${file} → dist/${file}`);
+        }
       }
     }
   };
