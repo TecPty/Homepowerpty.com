@@ -80,6 +80,7 @@ const Catalog = {
             <img src="${v.image}" alt="${v.alt}" loading="lazy">
         </a>`
       )).join('');
+      const skuHtml = codes.map(c => `<span class="sku-code">${c}</span>`).join(' · ');
 
       const card = document.createElement('li');
       card.className = 'product product--grouped';
@@ -93,8 +94,8 @@ const Catalog = {
           <img src="${primary.image}" alt="${primary.alt}" class="product_img" loading="lazy">
         </a>
         <div class="product_content">
-          <span class="product_sku">MOD: ${codes.join(' · ')}</span>
           <h3 class="product_name"><a href="${primary.href}">${groupTitle}</a></h3>
+          <span class="product_sku">${skuHtml}</span>
           <ul class="product_features">
             ${isSimple
               ? `<li>${variants.length} Medidas disponibles</li>`
@@ -236,6 +237,17 @@ const Catalog = {
     if (!groupTabs.length && !filterItems.length) return; // guard
 
     groupCatalogVariants();
+
+    // Strip "MOD: " prefix and move SKU below title for all static product cards
+    document.querySelectorAll('.product:not(.product--grouped) .product_content').forEach(content => {
+      const sku = content.querySelector('.product_sku');
+      const name = content.querySelector('.product_name');
+      if (sku) sku.textContent = sku.textContent.replace(/^\s*MOD:\s*/i, '').trim();
+      if (sku && name && content.firstElementChild === sku) {
+        // Move SKU to after the name
+        name.insertAdjacentElement('afterend', sku);
+      }
+    });
 
     let products = getProducts();
     let activeGroup    = 'all';
