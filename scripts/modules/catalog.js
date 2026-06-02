@@ -86,6 +86,8 @@ const Catalog = {
       card.dataset.category = category;
       card.dataset.variants = codes.join(' ');
 
+      const isSimple = options.simple || false;
+
       card.innerHTML = `
         <a href="${primary.href}" class="product_image_wrapper">
           <img src="${primary.image}" alt="${primary.alt}" class="product_img" loading="lazy">
@@ -94,15 +96,19 @@ const Catalog = {
           <span class="product_sku">MOD: ${codes.join(' · ')}</span>
           <h3 class="product_name"><a href="${primary.href}">${groupTitle}</a></h3>
           <ul class="product_features">
-            <li>${variants.length} códigos disponibles</li>
-            <li>Medidas: ${labels.join(', ')}</li>
+            ${isSimple
+              ? `<li>${variants.length} Medidas disponibles</li>`
+              : `<li>${variants.length} códigos disponibles</li>
+            <li>Medidas: ${labels.join(', ')}</li>`
+            }
           </ul>
+          ${isSimple ? '' : `
           <div class="product_variants" aria-label="Variantes disponibles">
             ${variantList}
           </div>
           <div class="product_variant_gallery" aria-label="Imágenes de variantes">
             ${thumbs}
-          </div>
+          </div>`}
         </div>`;
 
       return card;
@@ -123,43 +129,50 @@ const Catalog = {
           category: 'extension',
           models: ['HP-050', 'HP-051', 'HP-052', 'HP-053', 'HP-054'],
           templateBase: 'productos/extensiones/cable-extension/',
-          groupTitle: 'Cable Extensión (Variantes)',
+          groupTitle: 'Extension Blanca',
+          simple: true,
         },
         {
           category: 'extension',
           models: ['HP-055', 'HP-056', 'HP-057', 'HP-058', 'HP-059', 'HP-060', 'HP-061'],
           templateBase: 'productos/extensiones/extension-naranja/',
-          groupTitle: 'Extensión Naranja (Variantes)',
+          groupTitle: 'Extensión Naranja',
+          simple: true,
         },
         {
           category: 'extension',
           models: ['HP-062', 'HP-063', 'HP-064', 'HP-065', 'HP-066', 'HP-067', 'HP-068'],
           templateBase: 'productos/extensiones/extension-amarilla/',
-          groupTitle: 'Extensión Amarilla (Variantes)',
+          groupTitle: 'Extensión Amarilla',
+          simple: true,
         },
         {
           category: 'caldero',
           models: ['HP-030', 'HP-031', 'HP-032', 'HP-033', 'HP-034'],
           templateBase: 'productos/calderos/caldero-vidrio/',
-          groupTitle: 'Caldero Tapa Vidrio (Variantes)',
+          groupTitle: 'Caldero Tapa Vidrio',
+          simple: true,
         },
         {
           category: 'caldero',
           models: ['HP-025', 'HP-026', 'HP-027', 'HP-028', 'HP-029'],
           templateBase: 'productos/calderos/caldero-aluminio/',
-          groupTitle: 'Caldero Tapa Aluminio (Variantes)',
+          groupTitle: 'Caldero Tapa Aluminio',
+          simple: true,
         },
         {
           category: 'pressure_cooker',
           models: ['HP-035', 'HP-036', 'HP-037', 'HP-038', 'HP-039'],
           templateBase: 'productos/ollas/olla-presion-aluminio/',
-          groupTitle: 'Olla a Presión Aluminio (Variantes)',
+          groupTitle: 'Ollas a Presion Aluminio Pulido',
+          simple: true,
         },
         {
           category: 'pressure_cooker',
           models: ['CK-02-18', 'CK-02-20', 'CK-02-22', 'CK-02-24', 'CK-02-26'],
           templateBase: 'productos/ollas/olla-presion-ck02/',
-          groupTitle: 'Olla Presión CK-02 (Variantes)',
+          groupTitle: 'Ollas a Presion Aluminio',
+          simple: true,
         },
         {
           category: 'rice_cooker',
@@ -171,7 +184,8 @@ const Catalog = {
             'HT-22': 'productos/arroceras/ht-22/',
           },
           templateBase: 'productos/arroceras/arrocera-ht/',
-          groupTitle: 'Arrocera HT (Variantes)',
+          groupTitle: 'Arrocera sin Vaporera',
+          simple: true,
         },
         {
           category: 'rice_cooker',
@@ -182,7 +196,8 @@ const Catalog = {
             'HT-22A': 'productos/arroceras/ht-22a/',
           },
           templateBase: 'productos/arroceras/arrocera-vaporera-hta/',
-          groupTitle: 'Arrocera con Vaporera (Variantes)',
+          groupTitle: 'Arrocera con Vaporera',
+          simple: true,
         },
       ];
 
@@ -208,6 +223,7 @@ const Catalog = {
           models: group.models,
           templateBase: group.templateBase,
           groupTitle: group.groupTitle,
+          simple: group.simple || false,
         });
         if (!groupedCard) return;
 
