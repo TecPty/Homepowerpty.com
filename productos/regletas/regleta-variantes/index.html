@@ -7,11 +7,124 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../../../media/icons/favicon/favicon-32x32.png" type="image/png">
-    <title>Olla de Presión 3.2L — 18cm — HomePower PTY</title>
-    <meta name="description" content="Olla de presión de aluminio tamaño 3.2 litros (18cm). Compacta e ideal para porciones individuales o parejas. Distribuidor B2B exclusivo en Panamá.">
+    <title>Extensión Amarilla (Variantes) — HomePower PTY</title>
+    <meta name="description" content="Extensión Amarilla (Variantes) — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="../../../styles/luxury.css">
     <link rel="stylesheet" href="../../../styles/product-v2.css">
+    <style>
+        .pdp-variant-picker {
+            margin: 14px 0;
+        }
+        .pdp-variant-picker-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.55);
+            margin: 0 0 8px;
+        }
+        .pdp-variant-picker-list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .pdp-variant-btn {
+            width: 88px;
+            min-height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(214, 181, 94, 0.5);
+            background: rgba(214, 181, 94, 0.08);
+            color: var(--color-accent);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+        .pdp-variant-btn.active {
+            background: var(--color-accent);
+            color: #141414;
+        }
+        .pdp-variants-section {
+            padding: 36px 0 8px;
+        }
+        .pdp-variants-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+            list-style: none;
+            margin: 14px 0 0;
+            padding: 0;
+        }
+        .pdp-variant-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(214, 181, 94, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+        .pdp-variant-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(214, 181, 94, 0.5);
+        }
+        .pdp-variant-card.active {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 1px rgba(214, 181, 94, 0.35);
+        }
+        .pdp-variant-card-btn {
+            width: 100%;
+            background: transparent;
+            color: inherit;
+            border: 0;
+            padding: 0;
+            text-align: left;
+            cursor: pointer;
+        }
+        .pdp-variant-card-btn img {
+            width: 100%;
+            height: 110px;
+            object-fit: contain;
+            background: #131313;
+            padding: 8px;
+            border-bottom: 1px solid rgba(214, 181, 94, 0.12);
+        }
+        .pdp-variant-card-body {
+            padding: 8px 10px 10px;
+        }
+        .pdp-variant-card-code {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin: 0 0 4px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+        .pdp-variant-card-name {
+            font-size: 0.86rem;
+            color: #fff;
+            margin: 0;
+            line-height: 1.3;
+            min-height: 2.2em;
+        }
+        @media (max-width: 1024px) {
+            .pdp-variants-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 640px) {
+            .pdp-variants-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .pdp-variant-card-btn img {
+                height: 92px;
+            }
+        }
+    </style>
 </head>
 <body class="product-page">
 
@@ -41,17 +154,16 @@
             </nav>
             <div class="header-actions">
                 <a href="https://wa.me/50769838322" class="btn-outline-gold" target="_blank" rel="noopener">Consultar</a>
-
-            <!-- Hamburger (visible only on mobile) -->
-            <button class="hamburger-btn" id="menuBurger" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <button class="hamburger-btn" id="menuBurger" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
-    <!-- Fullscreen mobile menu -->
+
+    <!-- FULLSCREEN MOBILE MENU -->
     <div class="fullscreen-menu" id="fullscreenMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
         <button class="fullscreen-menu__close" id="menuClose" aria-label="Cerrar menú">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -79,21 +191,20 @@
                 <span class="crumb-sep" aria-hidden="true">›</span>
                 <a href="../../../index.html#productos">Electrodomésticos</a>
                 <span class="crumb-sep" aria-hidden="true">›</span>
-                <a href="../../../index.html#productos">Ollas de Presión</a>
+                <a href="../../../index.html#productos">Extensiones</a>
                 <span class="crumb-sep" aria-hidden="true">›</span>
-                <span class="crumb-current">Olla de Presión 3.2L — 18cm</span>
+                <span class="crumb-current" id="variantBreadcrumb">Extensión Amarilla (Variantes)</span>
             </nav>
         </div>
     </div>
 
-    <!-- MAIN PRODUCT — SPLIT COLUMN -->
+    <!-- MAIN PRODUCT -->
     <main>
         <section class="pdp-main">
             <div class="pdp-grid">
 
                 <!-- LEFT: GALLERY -->
                 <div class="pdp-gallery">
-
                     <div class="pdp-main-img-wrap"
                          id="pdpMainImgWrap"
                          onclick="pdpOpenLightbox()"
@@ -101,67 +212,49 @@
                          tabindex="0"
                          aria-label="Ampliar imagen">
                         <img id="pdpMainImg"
-                             src="./img/PRODUCTO_PRINCIPAL.webp"
-                             alt="Olla de Presión 3.2L — 18cm — HomePower PTY">
+                                 src="../hp-062/img/PRODUCTO_PRINCIPAL.webp"
+                                 alt="Extensión Amarilla — HomePower PTY">
                         <div class="pdp-zoom-hint" aria-hidden="true">
                             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                             Ampliar
                         </div>
                     </div>
 
-                    <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
+                                        <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
                         <button class="pdp-thumb active"
-                                onclick="pdpSetImage('./img/PRODUCTO_PRINCIPAL.webp', this)"
-                                aria-label="Ver imagen principal" role="listitem">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
-                        </button>
-                        <button class="pdp-thumb"
-                                onclick="pdpSetImage('./img/CAJA.webp', this)"
-                                aria-label="Ver caja" role="listitem">
-                            <img src="./img/CAJA.webp" alt="Caja">
+                                onclick="pdpSetImage('../hp-062/img/PRODUCTO_PRINCIPAL.webp', this)"
+                                aria-label="Ver vista principal" role="listitem">
+                            <img src="../hp-062/img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal">
                         </button>
                     </div>
-
                 </div>
 
                 <!-- RIGHT: INFO PANEL -->
                 <div class="pdp-info">
-
-                    <span class="pdp-badge">NUEVO</span>
+                    <span class="pdp-badge">PREMIUM</span>
                     <p class="pdp-brand">HomePower</p>
-                    <h1 class="pdp-name">Olla de Presión 3.2L — 18cm</h1>
-                    <p class="pdp-model">CK-02-18</p>
-                    <p class="pdp-barcode">CÓD. BARRAS: 732129008512</p>
+                    <h1 class="pdp-name" id="variantName">Extensión Amarilla (Variantes)</h1>
+                    <p class="pdp-model" id="variantModel">HP-062 · HP-063 · HP-064 · HP-065 · HP-066 · HP-067 · HP-068</p>
 
                     <div class="pdp-divider" aria-hidden="true"></div>
 
-                    <p class="pdp-short-desc">Olla de presión de aluminio tamaño 3.2 litros (18cm). Compacta e ideal para porciones individuales o parejas.</p>
+                    <p class="pdp-short-desc" id="variantDesc">Extensión Amarilla (Variantes) — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.</p>
 
-                    <div class="pdp-spec-pills">
-                        <div class="pdp-spec-pill">
-                            <span class="pill-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L7 14h6l-1 8 7-12h-6L13 2z"/></svg></span>
-                            <span class="pill-key">Potencia</span>
-                            <span class="pill-val">N/A (Estufa)</span>
-                        </div>
-                        <div class="pdp-spec-pill">
-                            <span class="pill-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></span>
-                            <span class="pill-key">Capacidad</span>
-                            <span class="pill-val">3.2 Litros — 18cm</span>
-                        </div>
-                        <div class="pdp-spec-pill">
-                            <span class="pill-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></span>
-                            <span class="pill-key">Voltaje</span>
-                            <span class="pill-val">N/A</span>
-                        </div>
-                        <div class="pdp-spec-pill">
-                            <span class="pill-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                            <span class="pill-key">Garantía</span>
-                            <span class="pill-val">1 Año</span>
-                        </div>
+                    <div class="pdp-variant-picker" id="variantPicker">
+                        <p class="pdp-variant-picker-label">Selecciona el metraje</p>
+                        <div class="pdp-variant-picker-list" id="variantPickerList"></div>
+                    </div>
+
+                    <div class="pdp-spec-pills" id="variantPills">
+                        <div class="pdp-spec-pill"><span>1 Toma Polarizada</span></div>
+                        <div class="pdp-spec-pill"><span>1.8 Metros</span></div>
+                        <div class="pdp-spec-pill"><span>110V</span></div>
+                        <div class="pdp-spec-pill"><span>Uso Interior</span></div>
                     </div>
 
                     <div class="pdp-cta-group">
-                        <a href="https://wa.me/50769838322?text=Hola,%20me%20interesa%20el%20producto%20CK-02-18"
+                                <a href="https://wa.me/50769838322?text=Hola%2C%20me%20interesa%20el%20producto%20Extensi%C3%B3n%20Amarilla%20HP-062"
+                                    id="variantPrimaryCta"
                            class="pdp-btn-primary"
                            target="_blank"
                            rel="noopener">
@@ -176,7 +269,6 @@
 
                     <!-- ACCORDION -->
                     <div class="pdp-accordion">
-
                         <div class="pdp-accordion-item">
                             <button class="pdp-accordion-trigger open"
                                     onclick="pdpToggle(this)"
@@ -188,13 +280,12 @@
                             <div class="pdp-accordion-body open" id="acc-specs" role="region">
                                 <div class="pdp-accordion-content">
                                     <table class="pdp-specs-table">
-                                        <tbody>
-                                            <tr><td>Modelo</td><td>CK-02-18</td></tr>
-                                            <tr><td>Colores</td><td>Aluminio / Negro</td></tr>
-                                            <tr><td>Potencia</td><td>N/A (Estufa)</td></tr>
-                                            <tr><td>Voltaje</td><td>N/A</td></tr>
-                                            <tr><td>Capacidad</td><td>3.2 Litros — 18cm</td></tr>
-                                            <tr><td>Garantía</td><td>1 Año</td></tr>
+                                        <tbody id="variantSpecsBody">
+                                            <tr><td>Modelo</td><td>HP-062</td></tr>
+                                            <tr><td colspan="2">1 Toma Polarizada</td></tr>
+                                            <tr><td colspan="2">1.8 Metros</td></tr>
+                                            <tr><td colspan="2">110V</td></tr>
+                                            <tr><td colspan="2">Uso Interior</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -237,69 +328,24 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
-
             </div>
         </section>
 
-        <!-- GALLERY STRIP + TRUST + CTA -->
+        <!-- BELOW FOLD -->
         <div class="pdp-below">
 
             <section class="pdp-gallery-strip">
                 <div class="container">
                     <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
-                    <div class="pdp-gallery-strip-grid">
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar Producto Principal">
-                            <img src="./img/PRODUCTO_PRINCIPAL.webp" alt="Producto Principal" loading="lazy">
-                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-                        </div>
-                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(1)" role="button" tabindex="0" aria-label="Ampliar Caja">
-                            <img src="./img/CAJA.webp" alt="Caja" loading="lazy">
+                                        <div class="pdp-gallery-strip-grid" id="variantStrip">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar vista principal">
+                            <img src="../hp-062/img/PRODUCTO_PRINCIPAL.webp" alt="Vista principal" loading="lazy">
                             <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-                        <section class="pdp-related">
-                <div class="container">
-                    <p class="section-eyebrow">TAMBIÉN TE PUEDE INTERESAR</p>
-                    <h2 class="pdp-related-title">Productos similares</h2>
-                    <ul class="pdp-related-grid">
-                        <li class="pdp-related-card">
-                            <a href="../ck-02-20/" class="pdp-related-img-wrap">
-                                <img src="../ck-02-20/img/PRODUCTO_PRINCIPAL.webp" alt="Olla de Presión 4.2L — 20cm" loading="lazy">
-                            </a>
-                            <div class="pdp-related-info">
-                                <span class="pdp-related-mod">CK-02-20</span>
-                                <h3 class="pdp-related-name"><a href="../ck-02-20/">Olla de Presión 4.2L — 20cm</a></h3>
-                                <a href="../ck-02-20/" class="pdp-related-cta">Ver producto</a>
-                            </div>
-                        </li>
-                        <li class="pdp-related-card">
-                            <a href="../ck-02-22/" class="pdp-related-img-wrap">
-                                <img src="../ck-02-22/img/PRODUCTO_PRINCIPAL.webp" alt="Olla de Presión 5.5L Profesional" loading="lazy">
-                            </a>
-                            <div class="pdp-related-info">
-                                <span class="pdp-related-mod">CK-02-22</span>
-                                <h3 class="pdp-related-name"><a href="../ck-02-22/">Olla de Presión 5.5L Profesional</a></h3>
-                                <a href="../ck-02-22/" class="pdp-related-cta">Ver producto</a>
-                            </div>
-                        </li>
-                        <li class="pdp-related-card">
-                            <a href="../ck-02-24/" class="pdp-related-img-wrap">
-                                <img src="../ck-02-24/img/PRODUCTO_PRINCIPAL.webp" alt="Olla de Presión Premium 7L" loading="lazy">
-                            </a>
-                            <div class="pdp-related-info">
-                                <span class="pdp-related-mod">CK-02-24</span>
-                                <h3 class="pdp-related-name"><a href="../ck-02-24/">Olla de Presión Premium 7L</a></h3>
-                                <a href="../ck-02-24/" class="pdp-related-cta">Ver producto</a>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </section>
 
@@ -350,7 +396,8 @@
                 <div class="container">
                     <h2>¿Listo para incluir este producto<br>en su catálogo?</h2>
                     <p>Cotización B2B personalizada para distribuidores. Respuesta en menos de 10 minutos.</p>
-                    <a href="https://wa.me/50769838322?text=Hola,%20me%20interesa%20el%20producto%20CK-02-18"
+                          <a href="https://wa.me/50769838322?text=Hola%2C%20me%20interesa%20el%20producto%20Extensi%C3%B3n%20Amarilla%20HP-062"
+                              id="variantBandCta"
                        class="pdp-btn-primary pdp-btn-cta-centered"
                        target="_blank"
                        rel="noopener">
@@ -362,7 +409,54 @@
             </section>
 
         </div>
-    </main>
+    
+            <section class="pdp-variants-section">
+                <div class="container">
+                    <p class="section-eyebrow">TODAS LAS VARIANTES DISPONIBLES</p>
+                    <h2 class="pdp-related-title">Elige el código que necesitas</h2>
+                    <ul class="pdp-variants-grid" id="allVariantsGrid"></ul>
+                </div>
+            </section>
+
+            <section class="pdp-related">
+                <div class="container">
+                    <p class="section-eyebrow">TAMBIÉN TE PUEDE INTERESAR</p>
+                    <h2 class="pdp-related-title">Productos similares</h2>
+                    <ul class="pdp-related-grid">
+                        <li class="pdp-related-card">
+                            <a href="../extension-naranja/?mod=HP-055" class="pdp-related-img-wrap">
+                                <img src="../hp-055/img/PRODUCTO_PRINCIPAL.webp" alt="Extensión Naranja 2.8m" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HP-055</span>
+                                <h3 class="pdp-related-name"><a href="../extension-naranja/?mod=HP-055">Extensión Naranja 2.8m</a></h3>
+                                <a href="../extension-naranja/?mod=HP-055" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                        <li class="pdp-related-card">
+                            <a href="../extension-naranja/?mod=HP-061" class="pdp-related-img-wrap">
+                                <img src="../hp-061/img/PRODUCTO_PRINCIPAL.webp" alt="Extensión Naranja 21m" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HP-061</span>
+                                <h3 class="pdp-related-name"><a href="../extension-naranja/?mod=HP-061">Extensión Naranja 21m</a></h3>
+                                <a href="../extension-naranja/?mod=HP-061" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                        <li class="pdp-related-card">
+                            <a href="../cable-extension/?mod=HP-054" class="pdp-related-img-wrap">
+                                <img src="../hp-054/img/PRODUCTO_PRINCIPAL.webp" alt="Cable Extensión 7.5m" loading="lazy">
+                            </a>
+                            <div class="pdp-related-info">
+                                <span class="pdp-related-mod">HP-054</span>
+                                <h3 class="pdp-related-name"><a href="../cable-extension/?mod=HP-054">Cable Extensión 7.5m</a></h3>
+                                <a href="../cable-extension/?mod=HP-054" class="pdp-related-cta">Ver producto</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
 
     <!-- FOOTER -->
         <!-- FOOTER -->
@@ -427,20 +521,218 @@
     <div class="pdp-lightbox" id="pdpLightbox" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
         <button class="pdp-lightbox-close" onclick="pdpCloseLightbox()" aria-label="Cerrar visor">&#x2715;</button>
         <button class="pdp-lightbox-prev" onclick="pdpLightboxMove(-1)" aria-label="Imagen anterior">&#8592;</button>
-        <img class="pdp-lightbox-img" id="pdpLightboxImg"  alt="Imagen ampliada del producto">
+        <img class="pdp-lightbox-img" id="pdpLightboxImg" src="../hp-062/img/PRODUCTO_PRINCIPAL.webp" alt="Imagen ampliada del producto">
         <button class="pdp-lightbox-next" onclick="pdpLightboxMove(1)" aria-label="Imagen siguiente">&#8594;</button>
     </div>
 
     <script>
-        const pdpImages = [
-            './img/PRODUCTO_PRINCIPAL.webp',
-            './img/CAJA.webp',
-        ];
-        let currentLightboxSrc = pdpImages[0] || '';
+        const VARIANTS = {
+            'HP-062': {
+                code: 'HP-062',
+                name: 'Extensión Amarilla 3m',
+                length: '3 Metros',
+                folder: '../hp-062/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+            'HP-063': {
+                code: 'HP-063',
+                name: 'Extensión Amarilla 5m',
+                length: '5 Metros',
+                folder: '../hp-063/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+            'HP-064': {
+                code: 'HP-064',
+                name: 'Extensión Amarilla 8m',
+                length: '8 Metros',
+                folder: '../hp-064/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+            'HP-065': {
+                code: 'HP-065',
+                name: 'Extensión Amarilla 10m',
+                length: '10 Metros',
+                folder: '../hp-065/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+            'HP-066': {
+                code: 'HP-066',
+                name: 'Extensión Amarilla 15m',
+                length: '15 Metros',
+                folder: '../hp-066/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+            'HP-067': {
+                code: 'HP-067',
+                name: 'Extensión Amarilla 20m',
+                length: '20 Metros',
+                folder: '../hp-067/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+            'HP-068': {
+                code: 'HP-068',
+                name: 'Extensión Amarilla 25m',
+                length: '25 Metros',
+                folder: '../hp-068/img',
+                images: ['PRODUCTO_PRINCIPAL.webp'],
+            },
+        };
+
+        let pdpImages = [];
+        let currentLightboxSrc = '';
         let pdpLightboxIndex = 0;
         let pdsSlideshowInterval;
         let pdpCurrentGalleryIndex = 0;
+        let activeVariantCode = 'HP-062';
         const SLIDE_DURATION = 2500;
+
+        function resolveImagePath(variant, imageFile) {
+            return `${variant.folder}/${imageFile}`;
+        }
+
+        function buildThumbs(variant) {
+            const wrap = document.querySelector('.pdp-thumbs');
+            if (!wrap) return;
+            wrap.innerHTML = variant.images.map((img, idx) => {
+                const src = resolveImagePath(variant, img);
+                const active = idx === 0 ? ' active' : '';
+                const label = idx === 0 ? 'vista principal' : `detalle ${idx}`;
+                return `<button class="pdp-thumb${active}" onclick="pdpSetImage('${src}', this)" aria-label="Ver ${label}" role="listitem"><img src="${src}" alt="${label}"></button>`;
+            }).join('');
+        }
+
+        function buildStrip(variant) {
+            const strip = document.getElementById('variantStrip');
+            if (!strip) return;
+            strip.innerHTML = variant.images.map((img, idx) => {
+                const src = resolveImagePath(variant, img);
+                return `<div class="pdp-strip-item" onclick="pdpOpenLightboxAt(${idx})" role="button" tabindex="0" aria-label="Ampliar imagen ${idx + 1}">
+                            <img src="${src}" alt="Vista ${idx + 1}" loading="lazy">
+                            <div class="pdp-strip-overlay" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                        </div>`;
+            }).join('');
+        }
+
+        function buildSpecs(variant) {
+            const body = document.getElementById('variantSpecsBody');
+            if (!body) return;
+            body.innerHTML = `
+                <tr><td>Modelo</td><td>${variant.code}</td></tr>
+                <tr><td colspan="2">1 Toma Polarizada</td></tr>
+                <tr><td colspan="2">${variant.length}</td></tr>
+                <tr><td colspan="2">110V</td></tr>
+                <tr><td colspan="2">Uso Interior</td></tr>`;
+        }
+
+        function updatePills(variant) {
+            const pills = document.getElementById('variantPills');
+            if (!pills) return;
+            pills.innerHTML = `
+                <div class="pdp-spec-pill"><span>1 Toma Polarizada</span></div>
+                <div class="pdp-spec-pill"><span>${variant.length}</span></div>
+                <div class="pdp-spec-pill"><span>110V</span></div>
+                <div class="pdp-spec-pill"><span>Uso Interior</span></div>`;
+        }
+
+        function updateMeta(variant) {
+            const title = `${variant.name} — HomePower PTY`;
+            const desc = `${variant.name} — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.`;
+            document.title = title;
+            const meta = document.querySelector('meta[name="description"]');
+            if (meta) meta.setAttribute('content', desc);
+
+            const nameEl = document.getElementById('variantName');
+            const modelEl = document.getElementById('variantModel');
+            const descEl = document.getElementById('variantDesc');
+            const breadcrumb = document.getElementById('variantBreadcrumb');
+
+            if (nameEl) nameEl.textContent = variant.name;
+            if (modelEl) modelEl.textContent = variant.code;
+            if (descEl) descEl.textContent = desc;
+            if (breadcrumb) breadcrumb.textContent = variant.name;
+        }
+
+        function updateWhatsApp(variant) {
+            const text = encodeURIComponent(`Hola, me interesa el producto ${variant.name} ${variant.code}`);
+            const href = `https://wa.me/50769838322?text=${text}`;
+            const primary = document.getElementById('variantPrimaryCta');
+            const band = document.getElementById('variantBandCta');
+            if (primary) primary.href = href;
+            if (band) band.href = href;
+        }
+
+        function renderVariantButtons(activeCode) {
+            const wrap = document.getElementById('variantPickerList');
+            if (!wrap) return;
+            const codes = Object.keys(VARIANTS);
+            wrap.innerHTML = codes.map(code => {
+                const active = code === activeCode ? ' active' : '';
+                const metraje = (VARIANTS[code].length || '').replace(/\s*Metros?$/i, 'm');
+                return `<button class="pdp-variant-btn${active}" data-variant="${code}" type="button">${metraje}</button>`;
+            }).join('');
+
+            wrap.querySelectorAll('.pdp-variant-btn').forEach(btn => {
+                btn.addEventListener('click', () => setVariant(btn.dataset.variant));
+            });
+        }
+
+        function renderAllVariantsGrid(activeCode) {
+            const grid = document.getElementById('allVariantsGrid');
+            if (!grid) return;
+            const cards = Object.values(VARIANTS).map(variant => {
+                const src = resolveImagePath(variant, variant.images[0]);
+                const active = variant.code === activeCode ? ' active' : '';
+                return `<li class="pdp-variant-card${active}">
+                    <button class="pdp-variant-card-btn" type="button" data-variant="${variant.code}" aria-label="Ver variante ${variant.code}">
+                        <img src="${src}" alt="${variant.name}" loading="lazy">
+                        <div class="pdp-variant-card-body">
+                            <p class="pdp-variant-card-code">${variant.code}</p>
+                            <p class="pdp-variant-card-name">${variant.name}</p>
+                        </div>
+                    </button>
+                </li>`;
+            }).join('');
+
+            grid.innerHTML = cards;
+            grid.querySelectorAll('.pdp-variant-card-btn').forEach(btn => {
+                btn.addEventListener('click', () => setVariant(btn.dataset.variant));
+            });
+        }
+
+        function setVariant(code, pushHistory = true) {
+            const variant = VARIANTS[code] || VARIANTS['HP-062'];
+            activeVariantCode = variant.code;
+
+            pdpImages = variant.images.map(img => resolveImagePath(variant, img));
+            currentLightboxSrc = pdpImages[0] || '';
+            pdpCurrentGalleryIndex = 0;
+
+            const mainImg = document.getElementById('pdpMainImg');
+            if (mainImg) {
+                mainImg.src = currentLightboxSrc;
+                mainImg.alt = `${variant.name} — HomePower PTY`;
+            }
+
+            const lightboxImg = document.getElementById('pdpLightboxImg');
+            if (lightboxImg) lightboxImg.src = currentLightboxSrc;
+
+            buildThumbs(variant);
+            buildStrip(variant);
+            buildSpecs(variant);
+            updatePills(variant);
+            updateMeta(variant);
+            updateWhatsApp(variant);
+            renderVariantButtons(variant.code);
+            renderAllVariantsGrid(variant.code);
+
+            if (pushHistory) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('mod', variant.code);
+                window.history.replaceState({}, '', url.toString());
+            }
+
+            startSlideshow();
+        }
 
         function startSlideshow() {
             stopSlideshow();
@@ -462,26 +754,16 @@
         function pdpSetImage(src, thumbEl, isAutomatic = false) {
             const mainImg = document.getElementById('pdpMainImg');
             mainImg.style.opacity = '0';
-            setTimeout(() => { 
-                mainImg.src = src; 
-                mainImg.style.opacity = '1'; 
-            }, 150);
+            setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 150);
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
-            thumbEl.classList.add('active');
+            if (thumbEl) thumbEl.classList.add('active');
             currentLightboxSrc = src;
-            
-            // Actualizar el índice actual para el slideshow
-            pdpCurrentGalleryIndex = Array.from(document.querySelectorAll('.pdp-thumb')).indexOf(thumbEl);
-
-            // Si el usuario hace click manualmente, reiniciamos el timer
-            if (!isAutomatic) {
-                startSlideshow();
-            }
         }
 
-        // Iniciar slideshow al cargar
         document.addEventListener('DOMContentLoaded', () => {
-            startSlideshow();
+            const queryCode = (new URLSearchParams(window.location.search).get('mod') || 'HP-062').toUpperCase();
+            setVariant(queryCode, false);
+
             const galleryArea = document.querySelector('.pdp-gallery');
             if (galleryArea) {
                 galleryArea.addEventListener('mouseenter', stopSlideshow);
@@ -497,9 +779,9 @@
             document.body.style.overflow = 'hidden';
         }
 
-        function pdpOpenLightboxAt(index) {
-            pdpLightboxIndex = index;
-            document.getElementById('pdpLightboxImg').src = pdpImages[index];
+        function pdpOpenLightboxAt(idx) {
+            pdpLightboxIndex = idx;
+            document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
             document.getElementById('pdpLightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -514,39 +796,44 @@
             document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
         }
 
-        document.getElementById('pdpLightbox').addEventListener('click', function(e) {
-            if (e.target === this) pdpCloseLightbox();
-        });
+        function pdpToggle(btn) {
+            const body = btn.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            body.classList.toggle('open', !isOpen);
+            btn.classList.toggle('open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        }
 
         document.addEventListener('keydown', e => {
             if (!document.getElementById('pdpLightbox').classList.contains('active')) return;
             if (e.key === 'Escape') pdpCloseLightbox();
-            if (e.key === 'ArrowLeft') pdpLightboxMove(-1);
             if (e.key === 'ArrowRight') pdpLightboxMove(1);
+            if (e.key === 'ArrowLeft') pdpLightboxMove(-1);
         });
 
-        document.getElementById('pdpMainImgWrap').addEventListener('keydown', e => {
-            if (e.key === 'Enter') pdpOpenLightbox();
-        });
-
-        function pdpToggle(trigger) {
-            const item = trigger.closest('.pdp-accordion-item');
-            const body = item.querySelector('.pdp-accordion-body');
-            const isOpen = body.classList.contains('open');
-            document.querySelectorAll('.pdp-accordion-body.open').forEach(b => {
-                b.classList.remove('open');
-                b.previousElementSibling.classList.remove('open');
-                b.previousElementSibling.setAttribute('aria-expanded', 'false');
+        const burger = document.getElementById('menuBurger');
+        const menu   = document.getElementById('fullscreenMenu');
+        const close  = document.getElementById('menuClose');
+        if (burger && menu && close) {
+            burger.addEventListener('click', () => {
+                menu.classList.add('open');
+                burger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
             });
-            if (!isOpen) {
-                body.classList.add('open');
-                trigger.classList.add('open');
-                trigger.setAttribute('aria-expanded', 'true');
-            }
+            close.addEventListener('click', () => {
+                menu.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+            menu.querySelectorAll('.fullscreen-menu-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('open');
+                    burger.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
         }
     </script>
-
     <script type="module" src="../../../scripts/page.js"></script>
 </body>
 </html>
-
