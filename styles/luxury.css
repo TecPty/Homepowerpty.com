@@ -1127,20 +1127,18 @@ section { padding: 80px 0; }
     align-items: flex-start;
 }
 
-.catalog-sidebar {
-    width: 260px; /* Slightly wider to accommodate tabs */
-    position: sticky;
-    top: 120px;
-    flex-shrink: 0;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid rgba(214, 181, 94, 0.1);
-    
-    /* Internal scroll for long lists */
-    max-height: calc(100vh - 160px); 
-    overflow-y: auto;
-    scrollbar-width: none; 
+.catalog-sidebar { 
+    width: 100%; 
+    position: static; 
+    max-height: none; 
+    padding: 10px 0 4px;
+    background: transparent;
+    border: none;
+    display: block;
+}
+
+.catalog-sidebar.open { 
+    display: block; 
 }
 
 .catalog-sidebar::-webkit-scrollbar {
@@ -1238,7 +1236,7 @@ section { padding: 80px 0; }
 }
 
 /* Filter toggle — desktop: hidden; shown only in mobile media query */
-.catalog-filter-toggle { display: none; }
+.catalog-filter-toggle { display: none !important; }
 
 /* Featured Grid Adjustment */
 .featured-products-grid {
