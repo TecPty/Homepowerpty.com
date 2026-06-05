@@ -17,7 +17,6 @@
     box-sizing: border-box;
 }
 
-/* Wrapper para informaciÃ³n de contacto */
 .contact_info_wrapper {
     display: flex;
     align-items: center;

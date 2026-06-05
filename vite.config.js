@@ -97,6 +97,12 @@ export default defineConfig({
     }),
     copyStaticAssets()
   ],
+server: {
+  host: true,
+  allowedHosts: [
+    '.tunnelmole.net'
+  ]
+},
   build: {
     target: 'es2015',
     rollupOptions: {

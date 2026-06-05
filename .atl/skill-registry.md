@@ -14,6 +14,7 @@ See `_shared/skill-resolver.md` for the full resolution protocol.
 | When writing Go tests, using teatest, or adding test coverage | go-testing | `c:\Users\HP 15\.copilot\skills\go-testing\SKILL.md` |
 | When creating a GitHub issue, reporting a bug, or requesting a feature | issue-creation | `c:\Users\HP 15\.copilot\skills\issue-creation\SKILL.md` |
 | When user says "judgment day", "judgment-day", "review adversarial", "dual review", "doble review", "juzgar", "que lo juzguen" | judgment-day | `c:\Users\HP 15\.copilot\skills\judgment-day\SKILL.md` |
+| When auditing UX/UI, CRO, accessibility, performance, or WhatsApp conversion for Home Power PTY | homepower-wholesale-ux-audit | `c:\Users\HP 15\Homepowerpty.com\.config\skills\homepower-wholesale-ux-audit\SKILL.md` |
 | When user asks to create a new skill, add agent instructions, or document patterns for AI | skill-creator | `c:\Users\HP 15\.copilot\skills\skill-creator\SKILL.md` |
 
 ---
@@ -52,6 +53,15 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 - Max 2 iterations before final report; re-judge only if fixes were applied
 - Inject project compact rules (from `.atl/skill-registry.md`) into BOTH judge prompts AND fix agent prompt
 
+### homepower-wholesale-ux-audit
+- Default to Spanish-first copy for all user-facing text unless the user explicitly requests another language
+- Treat the site as a mobile-first B2B wholesale catalog; optimize for trust, product discovery, and WhatsApp conversion, not cart/checkout flows
+- Keep recommendations stack-safe: HTML5, CSS3, Vanilla JS, PHP 8+, no framework or heavy dependency suggestions by default
+- Prioritize broken functionality, mobile usability, WhatsApp CTA clarity, accessibility, trust, and performance in that order
+- For audits, classify findings as Confirmed, Likely, or Needs Validation and include exact affected files plus evidence for Critical/High issues
+- Respect repository constraints: preserve structure, naming, deployment flow, PHP endpoints, and brand consistency unless explicitly approved
+- WCAG 2.1 AA is required on all changes; verify semantics, labels, focus states, contrast, and modal/form accessibility
+
 ### skill-creator
 - Create `skills/{skill-name}/SKILL.md` with YAML frontmatter including `name`, `description`, `license`, `metadata`
 - Frontmatter `description` MUST include `Trigger:` phrase — this is how skills are auto-detected and loaded
@@ -66,6 +76,8 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 | File | Path | Notes |
 |------|------|-------|
 | homepower-stack.instructions.md | `.github/instructions/homepower-stack.instructions.md` | Stack constraints, non-negotiable rules, and B2B wholesale context for all HTML/CSS/JS/PHP work |
+| openspec config | `openspec/config.yaml` | SDD config with detected stack, strict TDD, and testing capabilities |
+| homepower-wholesale-ux-audit skill | `.config/skills/homepower-wholesale-ux-audit/SKILL.md` | Home Power PTY UX/CRO/accessibility audit workflow |
 
 ### homepower-stack compact rules
 - Stack is fixed: HTML5 + CSS3 + Vanilla JS + PHP 8+ — do NOT recommend React, Vue, Angular, Next.js, jQuery, Bootstrap, Tailwind, or heavy libraries
@@ -88,6 +100,15 @@ Pre-digested rules per skill. Delegators copy matching blocks into sub-agent pro
 - WebServer auto-starts via `python -m http.server 8080` — no manual step needed
 - Test artefacts (`playwright-report/`, `test-results/`) are excluded from FTP deploy
 
+### homepower-wholesale-ux-audit compact rules
+- Keep audits stack-safe: HTML5, CSS3, Vanilla JS, PHP 8+ only; do not recommend framework migrations or heavy dependencies by default
+- Optimize for Spanish-first wholesale lead generation, not DTC checkout behavior; WhatsApp is the primary conversion path
+- Prioritize mobile usability, trust signals, accessibility, and performance; desktop polish must never regress mobile behavior
+- Use the repository evidence rule: exact files, exact flows, and Confirmed/Likely/Needs Validation labels for findings
+- Critical and High findings must include affected files, broken flow, evidence, user impact, business impact, minimal safe fix, and risks/dependencies
+- Keep changes incremental and preserve structure, naming, deployment flow, and PHP endpoints unless the user explicitly approves a bigger change
+- WCAG 2.1 AA matters on every recommendation: semantics, keyboard flow, labels, contrast, focus states, and modal/form accessibility
+
 ---
 
-*Generated: 2026-04-23 | Project: Homepowerpty.com*
+*Generated: 2026-06-02 | Project: Homepowerpty.com*

@@ -34,7 +34,7 @@
     <meta name="twitter:title" content="Home Power PTY - Electrodomésticos de Calidad en Panamá">
     <meta name="twitter:description"
         content="Stock exclusivo para negocios que buscan lo mejor en calidad y tecnología.">
-    <meta name="twitter:image" content="https://www.homepowerpty.com/media/images/og/homepower-1200x630-branded.webp">
+    <meta name="twitter:image" content="https://www.homepowerpty.com/media/images/og/homepower-1200x630-branded.png">
     <meta name="theme-color" content="#FF9F1C">
 
     <link rel="apple-touch-icon" href="media/icons/favicon/apple-touch-icon.png" type="image/png" />
@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/luxury.css">
     <link rel="stylesheet" href="styles/gold-breeze.css">
+    <link rel="stylesheet" href="styles/hero.css">
     <title>Home Power PTY - Electrodomésticos de Calidad en Panamá</title>
     <meta name="robots" content="index, follow">
 </head>
@@ -116,7 +117,6 @@
                     <li><a href="#catalogo">Catálogo</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#clientes">Clientes</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
                     <li><a href="#contacto">Consulta</a></li>
                     <li><a href="#oportunidades">Oportunidades</a></li>
                 </ul>
@@ -158,7 +158,6 @@
                 <li><a href="#catalogo" class="fullscreen-menu-link">Catálogo</a></li>
                 <li><a href="#nosotros" class="fullscreen-menu-link">Nosotros</a></li>
                 <li><a href="#clientes" class="fullscreen-menu-link">Clientes</a></li>
-                <li><a href="#testimonios" class="fullscreen-menu-link">Testimonios</a></li>
                 <li><a href="#contacto" class="fullscreen-menu-link">Consulta</a></li>
                 <li><a href="#oportunidades" class="fullscreen-menu-link">Oportunidades</a></li>
             </ul>
@@ -174,26 +173,140 @@
     </div>
 
     <main class="main">
-        <!-- HERO SECTION -->
-        <section class="hero-section" id="inicio">
-            <canvas id="particle-canvas"></canvas>
-            <div id="vignette-effect"></div>
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Potencia e<br><span>Innovación</span> para<br>tu hogar</h1>
-                    <div class="hero-actions">
-                        <a href="#productos" class="btn-solid-gold">Ver Selección</a>
-                    </div>
-                </div>
-                <div class="hero-image-wrapper">
-                    <div class="badge-best-seller">Más<br>Vendidos</div>
-                    <div class="hero-image-frame">
-                        <img src="media/images/banner/banner-hero.webp" alt="Electrodomésticos Homepower"
-                            class="hero-img" loading="eager">
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- HERO SECTION -->
+
+<section class="hero-section" id="inicio">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div id="vignette-effect" aria-hidden="true"></div>
+
+  <div class="hero-container container">
+
+    <!-- ── COLUMNA IZQUIERDA ─────────────────────────────── -->
+    <div class="hero-left__col">
+      <span class="hero-left__eyebrow" aria-label="Categoría destacada">Cafeteras</span>
+
+      <h1 class="hero-left__title">
+        <span class="hero-left__title--gold">Potencia e Innovación</span>
+        <span class="hero-left__title--white">para tu hogar</span>
+      </h1>
+
+      <p class="hero-left__subtitle">
+        Electrodomésticos prácticos, modernos y accesibles
+        para tu cocina y tu día a día.
+      </p>
+
+      <div class="hero-left__ctas">
+        <a href="#productos" class="hero-left__btn hero-left__btn--primary">
+          Ver Catálogo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/50769838322" target="_blank" rel="noopener"
+           class="hero-left__btn hero-left__btn--ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+          </svg>
+          Contactar por WhatsApp
+        </a>
+      </div>
+
+      <div class="hero-left__trust" role="list" aria-label="Beneficios">
+        <div class="hero-left__trust-item" role="listitem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h4l3 5v3h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          <span>Entrega en Panamá</span>
+        </div>
+        <div class="hero-left__trust-item" role="listitem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+          <span>Productos garantizados</span>
+        </div>
+        <div class="hero-left__trust-item" role="listitem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            <line x1="9" y1="10" x2="15" y2="10"/>
+          </svg>
+          <span>Atención rápida por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COLUMNA DERECHA — SLIDER ──────────────────────── -->
+    <div class="hero-slider__wrapper" role="region" aria-label="Productos destacados">
+
+      <div class="hero-slider__card">
+        <!-- Badge -->
+        <div class="hero-slider__badge" aria-label="Más vendidos">
+          Más<br>Vendidos
+        </div>
+
+        <!-- Flechas -->
+        <button class="hero-slider__arrow hero-slider__arrow--prev"
+                id="hero-prev" aria-label="Producto anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button class="hero-slider__arrow hero-slider__arrow--next"
+                id="hero-next" aria-label="Producto siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+
+        <!-- Track de imagen -->
+        <div class="hero-slider__track">
+                    <img src="productos/cafeteras/cm02/img/BRAND_COMMERCIAL.webp"
+               alt="Cafetera 12 tazas"
+               class="hero-slider__img"
+               loading="eager">
+        </div>
+
+        <!-- Overlay de texto -->
+        <div class="hero-slider__overlay">
+          <span class="hero-slider__category">Cafeteras</span>
+          <h2 class="hero-slider__title">Disfruta tu café,<br>todos los días</h2>
+          <p class="hero-slider__desc">Prácticas, elegantes y perfectas para tu rutina.</p>
+          <a href="#productos" class="hero-slider__cta">Ver Producto</a>
+        </div>
+
+        <!-- Dots -->
+        <div class="hero-slider__dots" role="tablist" aria-label="Diapositivas">
+          <button class="hero-slider__dot active" role="tab"
+                  aria-selected="true" aria-label="Diapositiva 1"></button>
+          <button class="hero-slider__dot" role="tab"
+                  aria-selected="false" aria-label="Diapositiva 2"></button>
+          <button class="hero-slider__dot" role="tab"
+                  aria-selected="false" aria-label="Diapositiva 3"></button>
+          <button class="hero-slider__dot" role="tab"
+                  aria-selected="false" aria-label="Diapositiva 4"></button>
+          <button class="hero-slider__dot" role="tab"
+                  aria-selected="false" aria-label="Diapositiva 5"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
         <!-- STATS BAR -->
         <section class="stats-section">
@@ -2263,6 +2376,7 @@
             }
         }, true);
     </script>
+    <script defer src="scripts/hero-slider.js"></script>
 </body>
 
 </html>

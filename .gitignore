@@ -27,3 +27,4 @@ fix_lightbox*.py
 __pycache__/
 
 dist/
+.atl/

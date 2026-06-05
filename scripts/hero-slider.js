@@ -26,7 +26,7 @@
       category: 'Air Fryer',
       title: 'Cocina sin aceite,<br>vive mejor',
       desc: 'Digital 4.5L con 8 programas automáticos.',
-      img: BASE + 'productos/freidoras-de-aire/af3201/img/LIFESTYLE_KITCHEN_BLANCO.webp',
+      img: BASE + 'productos/freidoras-de-aire/af3201/img/LIFESTYLE_DARK_HERO.png',
       href: BASE + 'productos/freidoras-de-aire/af3201/'
     },
     {
@@ -47,7 +47,7 @@
       category: 'Licuadoras',
       title: 'Potencia en cada<br>preparación',
       desc: 'Motor 500W, jarra de vidrio 1.5L.',
-      img: BASE + 'productos/licuadoras/mm-931/img/LIFESTYLE_DARK_NEGRO.webp',
+      img: BASE + 'productos/licuadoras/mm-931/img/LIFESTYLE_DARK_HERO.png',
       href: BASE + 'productos/licuadoras/mm-931/'
     }
   ];

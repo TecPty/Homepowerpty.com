@@ -164,7 +164,7 @@ section { padding: 80px 0; }
 }
 
 .logo-container .luxury-logo {
-    max-height: 100px;
+    max-height: 130px;
     width: auto; /* Evita estiramiento horizontal */
     display: block;
     object-fit: contain;
@@ -179,12 +179,12 @@ section { padding: 80px 0; }
 }
 
 .logo-container .luxury-logo:hover {
-    transform: scale(1.05);
+    transform: scale(2.05);
 }
 
 .luxury-footer .luxury-logo {
     max-height: 120px !important;
-    width: auto !important; /* Fuerza el ratio original */
+    width: auto !important; 
     height: auto !important;
     display: block;
     object-fit: contain;
@@ -196,7 +196,7 @@ section { padding: 80px 0; }
 }
 
 .luxury-nav .nav-links a {
-    color: #FFFFFF; /* Letras Blancas */
+    color: #FFFFFF; 
     font-size: 0.95rem;
     font-weight: 500;
     text-transform: none; 
@@ -212,10 +212,10 @@ section { padding: 80px 0; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--color-accent); /* Dorado Oro Viejo */
+    background-color: var(--color-accent); 
     color: #111111;
     padding: 10px 24px;
-    border-radius: 100px; /* Pill shape */
+    border-radius: 100px; 
     font-weight: 700;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -286,13 +286,6 @@ section { padding: 80px 0; }
 
 /* -----------------------------
    HERO SECTION
------------------------------ */
-/* ============================================================
-   HERO STYLES — HomePower PTY
-   Archivo: styles/hero.css
-   Linkear en index.html DESPUÉS de luxury.css:
-   <link rel="stylesheet" href="styles/hero.css">
-   ============================================================ */
 
 /* ── SECCIÓN BASE ─────────────────────────────────────────── */
 .hero-section {
@@ -302,7 +295,7 @@ section { padding: 80px 0; }
   position: relative;
   display: flex;
   align-items: center;
-  padding: 140px 0 80px;
+  padding: 70px 0 80px;
   overflow: hidden;
 }
 
