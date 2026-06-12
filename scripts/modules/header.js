@@ -4,33 +4,69 @@
  */
 const Header = {
   init() {
-    // ── Menú fullscreen (implementación activa) ─────────────────
+    // ── Menú mobile / fullscreen (implementación activa) ───────
     const menuBurger = document.getElementById('menuBurger');
-    const fullscreenMenu = document.getElementById('fullscreenMenu');
+    const activeMenu = document.getElementById('mobileMenu') || document.getElementById('fullscreenMenu');
     const menuClose = document.getElementById('menuClose');
-    const menuLinks = document.querySelectorAll('.fullscreen-menu-link');
+    const menuLinks = activeMenu
+      ? activeMenu.querySelectorAll('.mobile-menu-link, .fullscreen-menu-link')
+      : [];
 
-    if (menuBurger && fullscreenMenu) {
+    if (menuBurger && activeMenu) {
+      const isCompactMenu = activeMenu.classList.contains('mobile-menu');
+      const openClass = isCompactMenu ? 'is-open' : 'active';
+
       const openMenu = () => {
-        fullscreenMenu.classList.add('active');
+        activeMenu.classList.add(openClass);
         menuBurger.classList.add('active');
         menuBurger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('menu-open');
+        activeMenu.setAttribute('aria-hidden', 'false');
+        if (!isCompactMenu) document.body.classList.add('menu-open');
       };
+
       const closeMenu = () => {
-        fullscreenMenu.classList.remove('active');
+        activeMenu.classList.remove(openClass);
         menuBurger.classList.remove('active');
         menuBurger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('menu-open');
+        activeMenu.setAttribute('aria-hidden', 'true');
+        if (!isCompactMenu) document.body.classList.remove('menu-open');
       };
-      menuBurger.addEventListener('click', openMenu);
+
+      const toggleMenu = (event) => {
+        event.stopPropagation();
+        if (activeMenu.classList.contains(openClass)) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      };
+
+      menuBurger.addEventListener('click', toggleMenu);
       if (menuClose) menuClose.addEventListener('click', closeMenu);
       if (menuLinks && menuLinks.length) {
         menuLinks.forEach(link => link.addEventListener('click', closeMenu));
       }
+
+      if (isCompactMenu) {
+        document.addEventListener('click', (e) => {
+          if (!activeMenu.classList.contains(openClass)) return;
+          if (activeMenu.contains(e.target) || menuBurger.contains(e.target)) return;
+          closeMenu();
+        });
+      }
+
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) closeMenu();
+        if (e.key === 'Escape' && activeMenu.classList.contains(openClass)) {
+          closeMenu();
+          menuBurger.focus();
+        }
       });
+
+      if (isCompactMenu) {
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      }
     }
 
     // ── Menú legacy + scroll behavior + anchors ─────────────────
