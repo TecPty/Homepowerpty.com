@@ -992,7 +992,7 @@ section { padding: 80px 0; }
 }
 
 .showcase-strip__label {
-    font-size: 0.7rem;
+    font-size: 0.77rem;  /* +10%: 0.7 → 0.77 */
     font-weight: 700;
     color: var(--color-accent);
     text-transform: uppercase;
@@ -1001,7 +1001,7 @@ section { padding: 80px 0; }
 
 .showcase-strip__name {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.65rem;  /* +10%: 1.5 → 1.65 */
     color: #fff;
     margin: 0;
     line-height: 1.15;
@@ -1021,7 +1021,7 @@ section { padding: 80px 0; }
     align-items: center;
     gap: 10px;
     color: rgba(255, 255, 255, 0.75);
-    font-size: 0.875rem;
+    font-size: 0.963rem;  /* +10%: 0.875 → 0.963 */
     font-weight: 500;
 }
 
@@ -1038,6 +1038,21 @@ section { padding: 80px 0; }
     background-position: center;
 }
 
+.showcase-strip__model {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.showcase-strip__desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+    margin: 0;
+}
+
 .showcase-strip__cta {
     display: inline-flex;
     align-items: center;
@@ -1047,7 +1062,7 @@ section { padding: 80px 0; }
     padding: 13px 22px;
     border-radius: 8px;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.88rem;  /* +10%: 0.8 → 0.88 */
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: background 0.3s ease;
@@ -1057,6 +1072,39 @@ section { padding: 80px 0; }
 
 .showcase-strip__cta:hover {
     background: var(--color-accent-hover);
+}
+
+/* ─── SHOWCASE STRIP: promocional (imagen completa, sin panel de texto) ─── */
+.showcase-strip--promo {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-inline: auto;
+}
+
+.showcase-strip--promo .showcase-strip__img {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    background: #0e0e0e;
+}
+
+.showcase-strip--promo .showcase-strip__img img {
+    object-fit: contain;
+}
+
+.showcase-strip--promo:hover .showcase-strip__img img {
+    transform: none;
+}
+
+/* Flyers promo en fila de 2 columnas */
+.showcase-promo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.showcase-promo-grid .showcase-strip--promo {
+    max-width: none;
+    margin-inline: 0;
 }
 
 /* -----------------------------
@@ -2319,18 +2367,97 @@ body.menu-open {
     .footer-col a, .footer-col p { font-size: 0.75rem; margin-bottom: 10px; }
     .featured-products-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .showcase-grid { grid-template-columns: repeat(2, 1fr); }
-    .showcase-strip,
-    .showcase-strip--reverse { grid-template-columns: 1fr; }
-    .showcase-strip__img { height: auto; aspect-ratio: 4 / 3; }
-    .showcase-strip__img img { object-fit: contain; padding: 0; background: #0e0e0e; }
-    .showcase-strip--reverse .showcase-strip__img { order: -1; }
-    .showcase-strip--reverse .showcase-strip__content { border-right: none; border-left: 3px solid var(--color-accent); }
-    .showcase-strip__content { gap: 6px; padding: 16px 20px; }
-    /* Mobile: solo el botón CTA */
-    .showcase-strip__features,
-    .showcase-strip__label,
-    .showcase-strip__name { display: none; }
-    .showcase-strip__cta { align-self: center; }
+    /* ── Showcase mobile: clean strips = horizontal, promo = columna única ── */
+    .showcase-strip:not(.showcase-strip--promo) {
+        grid-template-columns: 48% 52%;
+        min-height: 175px;
+    }
+    .showcase-strip--reverse:not(.showcase-strip--promo) {
+        grid-template-columns: 52% 48%;
+    }
+    /* Imagen en clean strips: cover de toda la celda */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__img {
+        height: auto;
+        aspect-ratio: unset;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__img img {
+        object-fit: cover;
+        height: 100%;
+        padding: 0;
+        background: none;
+    }
+    /* Contenido en clean strips: compacto, sin overflow */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__content {
+        padding: 10px 11px;
+        gap: 4px;
+        min-width: 0;
+    }
+    /* Borde dorado: reverse tiene borde derecho en horizontal */
+    .showcase-strip--reverse:not(.showcase-strip--promo) .showcase-strip__content {
+        border-left: none;
+        border-right: 3px solid var(--color-accent);
+    }
+    /* Eyebrow */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__label {
+        font-size: 0.60rem;
+        letter-spacing: 1.2px;
+        line-height: 1;
+    }
+    /* Título */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__name {
+        font-size: clamp(0.9rem, 3.2vw, 1.08rem);
+        line-height: 1.04;
+    }
+    /* Marca/modelo */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__model {
+        font-size: 0.56rem;
+        line-height: 1.1;
+        letter-spacing: 0.8px;
+    }
+    /* Descripción: oculta en mobile horizontal */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__desc { display: none; }
+    /* Bullets */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__features {
+        gap: 4px;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__features li {
+        font-size: 0.64rem;
+        line-height: 1.14;
+        gap: 5px;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__features li::before {
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+        background-size: 8px;
+    }
+    /* Botón CTA */
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__cta {
+        padding: 7px 9px;
+        font-size: 0.64rem;
+        letter-spacing: 0.3px;
+        gap: 4px;
+        border-radius: 6px;
+        white-space: nowrap;
+        margin-top: 2px;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__cta svg {
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+    }
+    /* Promo strips: columna única (igual que desktop) */
+    .showcase-strip--promo { grid-template-columns: 1fr; }
+    .showcase-strip--promo .showcase-strip__img { height: auto; aspect-ratio: 4 / 5; max-width: 100%; }
+    .showcase-strip--promo .showcase-strip__img img { object-fit: contain; padding: 0; background: #0e0e0e; }
+    .showcase-promo-grid { grid-template-columns: 1fr; }
+    /* Contenido general */
+    .showcase-strip__content { gap: 8px; padding: 20px; }
+    /* Texto siempre visible en mobile */
+    .showcase-strip__features { display: flex; flex-direction: column; }
+    .showcase-strip__label { display: block; }
+    .showcase-strip__name { display: block; }
+    .showcase-strip__cta { align-self: flex-start; }
     /* Scroll-reveal — progressive enhancement: strips son visibles por defecto.
        El JS agrega .strip--init para ocultarlas. Si JS falla → siempre visibles. */
     .showcase-strips { overflow: hidden; }
@@ -2526,7 +2653,7 @@ body.menu-open {
 @media (max-width: 480px) {
     .featured-products-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .showcase-grid { grid-template-columns: 1fr; }
-    .showcase-strip__name { font-size: 1.35rem; }
+    .showcase-strip__name { font-size: 1.485rem; }  /* +10%: 1.35 → 1.485 */
     .hero-title { font-size: 2.4rem; }
     .announcement-bar { display: none; } /* Muy estrecho, se cae todo */
     
@@ -2541,5 +2668,28 @@ body.menu-open {
      
     .product_sku {
         display: none;
+    }
+}
+
+@media (max-width: 390px) {
+    /* Pantallas muy pequeñas: proporciones más ajustadas, MANTENER horizontal */
+    .showcase-strip:not(.showcase-strip--promo) {
+        grid-template-columns: 46% 54%;
+        min-height: 162px;
+    }
+    .showcase-strip--reverse:not(.showcase-strip--promo) {
+        grid-template-columns: 54% 46%;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__content {
+        padding: 8px 9px;
+        gap: 3px;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__name {
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        line-height: 1.02;
+    }
+    .showcase-strip:not(.showcase-strip--promo) .showcase-strip__cta {
+        padding: 6px 8px;
+        font-size: 0.60rem;
     }
 }

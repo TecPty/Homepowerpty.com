@@ -967,3 +967,43 @@
         margin-inline: auto;
     }
 }
+
+/* ─── BACK BUTTON (mobile only) ─────────────────────────
+   Inyectado vía page.js. Solo visible en mobile.
+   ─────────────────────────────────────────────────────── */
+.pdp-back-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .pdp-back-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        z-index: 5001;
+        width: 44px;
+        height: 44px;
+        background: rgba(10, 10, 10, 0.80);
+        border: 1.5px solid rgba(214, 181, 94, 0.45);
+        border-radius: 10px;
+        color: #d6b55e;
+        cursor: pointer;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        transition: background 0.2s ease, border-color 0.2s ease;
+        flex-shrink: 0;
+    }
+    .pdp-back-btn:active,
+    .pdp-back-btn:focus-visible {
+        background: rgba(214, 181, 94, 0.18);
+        border-color: #d6b55e;
+        outline: none;
+    }
+    /* Shift logo a la derecha para que no quede tapado por la flecha */
+    .product-page .header-container {
+        padding-left: 66px;
+    }
+}
