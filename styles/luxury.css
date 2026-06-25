@@ -696,7 +696,10 @@ section { padding: 80px 0; }
   }
 
   .hero-left__ctas {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
   }
 
   .hero-left__trust {
