@@ -7,9 +7,11 @@ import path from 'path';
 // ── Exclusiones del build ────────────────────────────────────────────────────
 const EXCLUDED_DIRS  = new Set([
   'node_modules', '.git', 'dist',
-  'playwright-report', 'test-results', 'web'
+  'playwright-report', 'test-results', 'web',
+  'backups', 'tools', 'tests', '.venv', '.venv-1',
+  '.claude', '.config', '.atl', 'openspec', '__pycache__'
 ]);
-const EXCLUDED_FILES = /-backup\.html$/;
+const EXCLUDED_FILES = /-backup\.html$|^test_carnival\.html$/;
 
 // ── Scan recursivo de HTML entries ───────────────────────────────────────────
 function getHtmlEntries(dir, fileList = {}) {
