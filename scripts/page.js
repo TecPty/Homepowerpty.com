@@ -79,7 +79,9 @@ function injectBackButton() {
     </svg>`;
   btn.addEventListener('click', goBack);
 
-  header.appendChild(btn);
+  // prepend (no append): mantiene el tab order alineado con el orden visual
+  // (la flecha se ve a la izquierda del logo en mobile y desktop).
+  header.prepend(btn);
 }
 
 // ─── Init ─────────────────────────────────────────────────────────────────────

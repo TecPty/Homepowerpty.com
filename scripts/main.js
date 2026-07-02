@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   ScrollReveal.init();
 
   // ─── Guardar punto de retorno antes de navegar a cualquier producto ─────
+  // Se usa link.pathname (resuelto por el browser) en vez de getAttribute('href')
+  // crudo: los links del catálogo son relativos ("productos/x/", sin "/" inicial),
+  // así que un match de substring contra "/productos/" nunca matcheaba.
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    if (!href || !href.includes('/productos/')) return;
+    if (!link || !link.pathname.includes('/productos/')) return;
 
     sessionStorage.setItem('hpReturnUrl',
       window.location.pathname + window.location.search + window.location.hash);
