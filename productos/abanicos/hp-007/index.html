@@ -136,6 +136,10 @@
                         <button class="pdp-thumb" onclick="pdpSetImage('./img/LIFESTYLE_SUN.webp', this)" aria-label="Ambiente sol" role="listitem">
                             <img src="./img/LIFESTYLE_SUN.webp" alt="Ambiente sol">
                         </button>
+
+                        <button class="pdp-thumb" onclick="pdpSetImage('./img/CAJA.webp', this)" aria-label="Caja del producto" role="listitem">
+                            <img src="./img/CAJA.webp" alt="Caja">
+                        </button>
                     </div>
                 </div>
 
@@ -259,6 +263,9 @@
                         </div>
                         <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(4)" role="button" tabindex="0" aria-label="Vista 5">
                             <img src="./img/LIFESTYLE_SUN.webp" alt="Vista 5" loading="lazy">
+                        </div>
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(5)" role="button" tabindex="0" aria-label="Vista 6 - Caja">
+                            <img src="./img/CAJA.webp" alt="Vista 6 - Caja" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -438,6 +445,7 @@
             './img/LIFESTYLE_OFFICE.webp',
             './img/LIFESTYLE_PANAMA.webp',
             './img/LIFESTYLE_SUN.webp',
+            './img/CAJA.webp',
         ];
         let currentLightboxSrc = pdpImages[0] || '';
         let pdpLightboxIndex = 0;
