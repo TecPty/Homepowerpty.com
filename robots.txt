@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Bloquear carpetas de desarrollo y herramientas
+Disallow: /tools/
+Disallow: /scripts/
+Disallow: /tests/
+Disallow: /backups/
+Disallow: /node_modules/
+
+Sitemap: https://www.homepowerpty.com/sitemap.xml

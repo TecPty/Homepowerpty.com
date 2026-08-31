@@ -1,0 +1,91 @@
+/* HomePower PTY — Design Tokens
+   Única fuente de verdad CSS. Todas las variables del proyecto se
+   definen aquí. Los aliases legacy se eliminan en Fase 4 una vez
+   que luxury.css y gold-breeze.css migren a nombres kebab-case.
+   ================================================================ */
+
+:root {
+  /* ── Paleta base ───────────────────────────────────────────── */
+  --color-bg-primary:    #111111;
+  --color-bg-secondary:  #1a1a1a;
+  --color-bg-surface:    #222222;
+
+  /* ── Acento dorado (brand) ─────────────────────────────────── */
+  --color-accent:        #D6B55E;
+  --color-accent-hover:  #b49542;
+  --color-accent-dim:    rgba(201, 168, 76, 0.15);
+  --color-accent-border: rgba(201, 168, 76, 0.25);
+
+  /* ── Texto ─────────────────────────────────────────────────── */
+  --color-text:          #f5f5f5;
+  --color-text-muted:    rgba(255, 255, 255, 0.55);
+  --color-text-disabled: rgba(255, 255, 255, 0.30);
+
+  /* ── Bordes ────────────────────────────────────────────────── */
+  --color-border:        rgba(201, 168, 76, 0.20);
+  --color-border-strong: rgba(201, 168, 76, 0.40);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* ── Utilidad ──────────────────────────────────────────────── */
+  --color-whatsapp:      #25D366;
+  --color-error:         #e05a5a;
+  --color-success:       #4caf82;
+
+  /* ── Tipografía ────────────────────────────────────────────── */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.75rem;
+
+  /* ── Espaciado ─────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  --max-width:        1200px;
+  --max-width-narrow: 800px;
+  --border-radius-sm: 6px;
+  --border-radius:    12px;
+  --border-radius-lg: 20px;
+
+  /* ── Sombras ───────────────────────────────────────────────── */
+  --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg:   0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 24px rgba(201, 168, 76, 0.15);
+
+  /* ── Transiciones ──────────────────────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* ── Z-index ───────────────────────────────────────────────── */
+  --z-base:    0;
+  --z-above:   10;
+  --z-modal:   100;
+  --z-toast:   200;
+  --z-overlay: 300;
+
+  /* ── Aliases legacy (eliminar en Fase 4) ───────────────────── */
+  --color_accent:     var(--color-accent);
+  --color_black:      #2c3e50;
+  --color_white:      #ffffff;
+  --color-gold:       var(--color-accent);
+  --color-gold-hover: var(--color-accent-hover);
+  --luxury-accent:    var(--color-accent);
+}

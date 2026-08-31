@@ -1,0 +1,191 @@
+/* =====================================================
+   MODAL CARNAVALES - Estilo y Animaciones
+   ===================================================== */
+
+.carnival-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.carnival-modal.active {
+    display: flex;
+    pointer-events: auto;
+}
+
+.carnival-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carnival-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    z-index: 2;
+    pointer-events: auto;
+    animation: fadeInScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.carnival-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background-image: url('../../media/images/Promocion/carnival_bg_desktop.png');
+}
+
+@media (max-width: 768px) {
+    .carnival-bg {
+        background-image: url('../../media/images/Promocion/carnival_bg_mobile.png');
+    }
+}
+
+/* Canvas para animación de rebote */
+#carnivalCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+/* Botón cerrar */
+.carnival-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    color: #FF9F1C;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carnival-close:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.carnival-close:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .carnival-container {
+        width: 95%;
+        max-width: 800px;
+        aspect-ratio: 16 / 10;
+    }
+
+    .carnival-close {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carnival-modal {
+        align-items: flex-end;
+        padding-bottom: 20px;
+    }
+
+    .carnival-container {
+        width: 95%;
+        max-width: 500px;
+        aspect-ratio: 9 / 16;
+    }
+
+    .carnival-close {
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carnival-container {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 9 / 16;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .carnival-bg {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .carnival-overlay {
+        bottom: 0;
+    }
+}
+
+/* Animación de pulsó en productos (opcional feedback visual) */
+@keyframes productPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Accesibilidad */
+.carnival-close:focus-visible {
+    outline: 3px solid #FF9F1C;
+    outline-offset: 2px;
+}
+
+.carnival-modal[role="dialog"] {
+    border: none;
+}

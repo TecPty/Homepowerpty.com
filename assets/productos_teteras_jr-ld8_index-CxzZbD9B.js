@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_teteras_jr-ld8_index-CxzZbD9B.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}/* empty css               */import"./header-CV_-Pxcz.js";/* empty css                   */import"./page-WZw5CZu_.js";
