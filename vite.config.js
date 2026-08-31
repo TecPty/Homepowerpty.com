@@ -43,6 +43,7 @@ function copyStaticAssets() {
     if (!fs.existsSync(src)) return;
     fs.mkdirSync(dest, { recursive: true });
     for (const entry of fs.readdirSync(src)) {
+      if (entry === '.gitignore') continue;
       if (excludeExt.some(ext => entry.endsWith(ext))) continue;
       const s = path.join(src, entry);
       const d = path.join(dest, entry);
