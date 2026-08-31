@@ -1,12 +1,15 @@
-name: Deploy to Hostinger
+name: Deploy to Production Branch
 
 on:
   push:
     branches:
-      - main
+      - recovery/homepower-git-deploy
+
+permissions:
+  contents: write
 
 jobs:
-  deploy:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,27 +17,68 @@ jobs:
         with:
           lfs: true
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftp
-          local-dir: ./
-          server-dir: ./
-          dangerous-clean-slate: true
-          exclude: |
-            **/.git*
-            **/.github/**
-            **/node_modules/**
-            **/.DS_Store
-            **/Thumbs.db
-            **/playwright-report/**
-            **/test-results/**
-            **/.atl/**
-            **/package.json
-            **/package-lock.json
-            **/playwright.config.js
-            **/tests/**
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: QA artifact
+        run: |
+          set -euo pipefail
+
+          test -f dist/index.html || { echo "MISSING dist/index.html"; exit 1; }
+          test -f dist/.htaccess || { echo "MISSING dist/.htaccess"; exit 1; }
+          test -d dist/styles || { echo "MISSING dist/styles"; exit 1; }
+          test -d dist/media || { echo "MISSING dist/media"; exit 1; }
+          test -d dist/scripts || { echo "MISSING dist/scripts"; exit 1; }
+
+          HTML_COUNT=$(find dist -name '*.html' | wc -l)
+          echo "DIST_HTML_COUNT=$HTML_COUNT"
+          if [ "$HTML_COUNT" -ne 130 ]; then
+            echo "HTML COUNT MISMATCH: expected 130, got $HTML_COUNT"
+            exit 1
+          fi
+
+          PY_COUNT=$(find dist -name '*.py' | wc -l)
+          PS1_COUNT=$(find dist -name '*.ps1' | wc -l)
+          if [ "$PY_COUNT" -ne 0 ] || [ "$PS1_COUNT" -ne 0 ]; then
+            echo "INTERNAL SCRIPTS LEAKED INTO ARTIFACT (py=$PY_COUNT ps1=$PS1_COUNT)"
+            exit 1
+          fi
+
+          echo "QA PASS"
+
+      - name: Publish dist to production branch
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          SOURCE_SHA="${{ github.sha }}"
+          git fetch origin production 2>/dev/null || true
+
+          if git rev-parse --verify -q origin/production >/dev/null; then
+            git worktree add ../production-worktree origin/production
+          else
+            git worktree add --detach ../production-worktree
+            git -C ../production-worktree checkout --orphan production
+          fi
+
+          find ../production-worktree -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a dist/. ../production-worktree/
+
+          cd ../production-worktree
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish to production"
+          else
+            git commit -m "deploy: Home Power from ${SOURCE_SHA}"
+            git push origin HEAD:production
+          fi
