@@ -36,15 +36,17 @@ function getHtmlEntries(dir, fileList = {}) {
 // ── Plugin: copia assets estáticos al dist/ post-build ──────────────────────
 function copyStaticAssets() {
   const STATIC_DIRS  = ['styles', 'media', 'scripts'];
-  const STATIC_FILES = ['robots.txt', 'sitemap.xml'];
+  const STATIC_FILES = ['robots.txt', 'sitemap.xml', '.htaccess'];
+  const NON_PUBLIC_EXT = { scripts: ['.py', '.ps1'] };
 
-  function copyDir(src, dest) {
+  function copyDir(src, dest, excludeExt = []) {
     if (!fs.existsSync(src)) return;
     fs.mkdirSync(dest, { recursive: true });
     for (const entry of fs.readdirSync(src)) {
+      if (excludeExt.some(ext => entry.endsWith(ext))) continue;
       const s = path.join(src, entry);
       const d = path.join(dest, entry);
-      fs.statSync(s).isDirectory() ? copyDir(s, d) : fs.copyFileSync(s, d);
+      fs.statSync(s).isDirectory() ? copyDir(s, d, excludeExt) : fs.copyFileSync(s, d);
     }
   }
 
@@ -74,7 +76,7 @@ function copyStaticAssets() {
     name: 'copy-static-assets',
     closeBundle() {
       for (const dir of STATIC_DIRS) {
-        copyDir(path.resolve(__dirname, dir), path.join('dist', dir));
+        copyDir(path.resolve(__dirname, dir), path.join('dist', dir), NON_PUBLIC_EXT[dir] || []);
         console.log(`  ✅ Copiado: ${dir}/ → dist/${dir}/`);
       }
       for (const file of STATIC_FILES) {
