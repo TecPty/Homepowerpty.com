@@ -1,0 +1,162 @@
+name: Repair Lockfile (Temporary)
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - recovery/homepower-lockfix-ci
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.2'
+
+      - name: Report initial versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Pin npm to 10.9.8 if needed
+        run: |
+          set -euo pipefail
+          CURRENT_NPM=$(npm --version)
+          if [ "$CURRENT_NPM" != "10.9.8" ]; then
+            echo "npm is $CURRENT_NPM, installing 10.9.8"
+            npm install -g npm@10.9.8
+          fi
+          echo "--- final versions ---"
+          node --version
+          npm --version
+
+      - name: Backup lockfile
+        run: |
+          cp package-lock.json package-lock.before.json
+          sha256sum package-lock.json
+
+      - name: Repair lockfile
+        run: |
+          set -euo pipefail
+          rm -rf node_modules
+          npm install \
+            --package-lock-only \
+            --ignore-scripts \
+            --no-audit \
+            --no-fund \
+            --include=optional
+
+      - name: Diff gate
+        run: |
+          set -euo pipefail
+          echo "--- git diff --stat ---"
+          git diff --stat
+          echo "--- git diff --name-only ---"
+          git diff --name-only
+
+          CHANGED=$(git diff --name-only)
+          if [ "$CHANGED" != "package-lock.json" ]; then
+            echo "FAIL: expected only package-lock.json to change, got:"
+            echo "$CHANGED"
+            exit 1
+          fi
+          echo "Diff gate PASS: only package-lock.json changed"
+
+      - name: Direct dependency drift check
+        run: |
+          set -euo pipefail
+          node -e "
+            const lock = require('./package-lock.json');
+            const expected = {
+              'vite': '8.0.11',
+              '@vitejs/plugin-legacy': '8.0.1',
+              '@playwright/test': '1.59.1',
+              'playwright': '1.59.1',
+              'playwright-core': '1.59.1',
+              'archiver': '8.0.0'
+            };
+            let failed = false;
+            for (const [pkg, expectedVersion] of Object.entries(expected)) {
+              const entry = lock.packages['node_modules/' + pkg];
+              const actual = entry && entry.version;
+              console.log(pkg + ': expected=' + expectedVersion + ' actual=' + actual);
+              if (actual !== expectedVersion) failed = true;
+            }
+            if (failed) {
+              console.log('FAIL: DIRECT DEPENDENCY DRIFT');
+              process.exit(1);
+            }
+            console.log('Direct dependency drift check PASS');
+          "
+
+      - name: Report emnapi / rolldown wasm32-wasi resolution
+        if: always()
+        run: |
+          echo "--- @emnapi/core entries ---"
+          grep -n '"node_modules/.*@emnapi/core"' package-lock.json || echo "none found"
+          echo "--- @emnapi/runtime entries ---"
+          grep -n '"node_modules/.*@emnapi/runtime"' package-lock.json || echo "none found"
+          echo "--- @emnapi/wasi-threads entries ---"
+          grep -n '"node_modules/.*@emnapi/wasi-threads"' package-lock.json || echo "none found"
+          echo "--- @rolldown/binding-wasm32-wasi ---"
+          grep -A6 '"node_modules/@rolldown/binding-wasm32-wasi"' package-lock.json || echo "none found"
+
+      - name: Validate npm ci
+        run: |
+          rm -rf node_modules
+          npm ci
+
+      - name: Validate build
+        run: npm run build
+
+      - name: Artifact QA
+        run: |
+          set -euo pipefail
+          test -f dist/index.html || { echo "MISSING dist/index.html"; exit 1; }
+          test -f dist/.htaccess || { echo "MISSING dist/.htaccess"; exit 1; }
+
+          HTML_COUNT=$(find dist -name '*.html' | wc -l)
+          echo "DIST_HTML_COUNT=$HTML_COUNT"
+          if [ "$HTML_COUNT" -ne 130 ]; then
+            echo "HTML COUNT MISMATCH: expected 130, got $HTML_COUNT"
+            exit 1
+          fi
+
+          PY_COUNT=$(find dist -name '*.py' | wc -l)
+          PS1_COUNT=$(find dist -name '*.ps1' | wc -l)
+          if [ "$PY_COUNT" -ne 0 ] || [ "$PS1_COUNT" -ne 0 ]; then
+            echo "INTERNAL SCRIPTS LEAKED INTO ARTIFACT (py=$PY_COUNT ps1=$PS1_COUNT)"
+            exit 1
+          fi
+
+          echo "QA PASS"
+
+      - name: Publish candidate lockfile to output branch
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          cp package-lock.json /tmp/repaired-package-lock.json
+
+          git fetch origin recovery/homepower-git-deploy
+          git worktree add ../lockfix-output origin/recovery/homepower-git-deploy
+
+          cp /tmp/repaired-package-lock.json ../lockfix-output/package-lock.json
+
+          cd ../lockfix-output
+          git checkout -b recovery/homepower-lockfix-ci-output
+          git add package-lock.json
+          git commit -m "fix(build): repair Linux-compatible npm lockfile"
+          git push origin HEAD:recovery/homepower-lockfix-ci-output
