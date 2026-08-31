@@ -1,10 +1,11 @@
 # OPTIMIZACION PARA HOME POWER PTY
 # Configuración de rendimiento y SEO
 
-# Forzar HTTPS (Seguridad)
+# Forzar HTTPS + host canonico (www)
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\.homepowerpty\.com$ [NC]
+RewriteRule ^ https://www.homepowerpty.com%{REQUEST_URI} [R=301,L]
 
 # Página principal
 DirectoryIndex index.html default.php
