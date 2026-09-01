@@ -21,3 +21,10 @@ test-results/
 
 # Data files — Excel sheets with product/pricing data (sensitive, local only)
 *.xlsx
+
+web/
+fix_lightbox*.py
+__pycache__/
+
+dist/
+.atl/

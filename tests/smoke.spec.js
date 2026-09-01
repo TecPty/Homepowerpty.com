@@ -1,5 +1,5 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 // ─── 1. SMOKE — La página carga correctamente ────────────────────────────────
 test('página carga con título correcto', async ({ page }) => {

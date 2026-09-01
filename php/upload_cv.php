@@ -59,5 +59,49 @@ if (!move_uploaded_file($file['tmp_name'], $dest)) {
     exit;
 }
 
+// --- NUEVA LÓGICA DE ENVÍO DE CORREO ---
+$full_name = filter_input(INPUT_POST, 'full_name', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'Postulante';
+$email     = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) ?: 'No proporcionado';
+$phone     = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'No proporcionado';
+$position  = filter_input(INPUT_POST, 'position', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'No especificada';
+$experience= filter_input(INPUT_POST, 'experience', FILTER_SANITIZE_SPECIAL_CHARS) ?: 'No especificada';
+
+$to = 'josephharari@homepowerpty.com, davidazran@homepowerpty.com, soporte@tecpty.com';
+$subject = "Nueva Solicitud de Empleo: $full_name - $position";
+
+$boundary = md5(time());
+$headers = "From: Home Power PTY <noreply@homepowerpty.com>\r\n";
+$headers .= "Reply-To: $email\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+
+$message = "--$boundary\r\n";
+$message .= "Content-Type: text/html; charset=UTF-8\r\n";
+$message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+$message .= "<html><body style='font-family: Arial, sans-serif; color: #333;'>";
+$message .= "<h2 style='color: #FF9F1C;'>Nueva Aplicación Laboral</h2>";
+$message .= "<p><strong>Nombre:</strong> $full_name</p>";
+$message .= "<p><strong>Email:</strong> $email</p>";
+$message .= "<p><strong>Teléfono:</strong> $phone</p>";
+$message .= "<p><strong>Posición:</strong> $position</p>";
+$message .= "<p><strong>Experiencia:</strong><br>" . nl2br($experience) . "</p>";
+$message .= "<p style='font-size: 12px; color: #999;'>El CV está adjunto a este correo.</p>";
+$message .= "</body></html>\r\n\r\n";
+
+$file_content = file_get_contents($dest);
+$file_encoded = chunk_split(base64_encode($file_content));
+$file_name = basename($dest);
+
+$message .= "--$boundary\r\n";
+$message .= "Content-Type: application/octet-stream; name=\"$file_name\"\r\n";
+$message .= "Content-Description: $file_name\r\n";
+$message .= "Content-Disposition: attachment; filename=\"$file_name\"; size=" . filesize($dest) . ";\r\n";
+$message .= "Content-Transfer-Encoding: base64\r\n\r\n";
+$message .= $file_encoded . "\r\n";
+$message .= "--$boundary--";
+
+mail($to, $subject, $message, $headers);
+// ---------------------------------------
+
 echo json_encode(['status'=>'success','filename'=>basename($dest)]);
 ?>

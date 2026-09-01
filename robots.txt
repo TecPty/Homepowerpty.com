@@ -1,12 +1,11 @@
 User-agent: *
 Allow: /
+
+# Bloquear carpetas de desarrollo y herramientas
 Disallow: /tools/
 Disallow: /tests/
 Disallow: /backups/
 Disallow: /node_modules/
-Disallow: /.config/
-Disallow: /openspec/
-Disallow: /php/
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -14,8 +13,5 @@ Disallow: /tools/
 Disallow: /tests/
 Disallow: /backups/
 Disallow: /node_modules/
-Disallow: /.config/
-Disallow: /openspec/
-Disallow: /php/
 
 Sitemap: https://www.homepowerpty.com/sitemap.xml

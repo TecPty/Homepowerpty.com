@@ -1,0 +1,54 @@
+{
+  "group": "extensiones_050_054",
+  "products": [
+    {
+      "slug": "hp-050",
+      "name": "Cable Extensión 1.8m",
+      "model": "HP-050",
+      "length": "1.8 Metros",
+      "images": [
+        "PRODUCTO_PRINCIPAL.webp"
+      ]
+    },
+    {
+      "slug": "hp-051",
+      "name": "Cable Extensión 3m",
+      "model": "HP-051",
+      "length": "3 Metros",
+      "images": [
+        "PRODUCTO_PRINCIPAL.webp"
+      ]
+    },
+    {
+      "slug": "hp-052",
+      "name": "Cable Extensión 4.5m",
+      "model": "HP-052",
+      "length": "4.5 Metros",
+      "images": [
+        "PRODUCTO_PRINCIPAL.webp"
+      ]
+    },
+    {
+      "slug": "hp-053",
+      "name": "Cable Extensión 6m",
+      "model": "HP-053",
+      "length": "6 Metros",
+      "images": [
+        "PRODUCTO_PRINCIPAL.webp"
+      ]
+    },
+    {
+      "slug": "hp-054",
+      "name": "Cable Extensión 7.5m",
+      "model": "HP-054",
+      "length": "7.5 Metros",
+      "images": [
+        "PRODUCTO_PRINCIPAL.webp",
+        "DETAIL_1.webp",
+        "DETAIL_2.webp",
+        "DETAIL_3.webp",
+        "DETAIL_4.webp"
+      ]
+    }
+  ]
+}

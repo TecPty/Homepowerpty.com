@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../../media/icons/favicon/favicon-32x32.png" type="image/png">
+    <title>Arrocera HT (Variantes) — HomePower PTY</title>
+    <meta name="description" content="Arrocera HT (Variantes) — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.">
+    <link rel="canonical" href="https://www.homepowerpty.com/productos/arroceras/arrocera-ht/">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://www.homepowerpty.com/productos/arroceras/arrocera-ht/">
+    <meta property="og:title" content="Arrocera HT (Variantes) — HomePower PTY">
+    <meta property="og:description" content="Arrocera HT (Variantes) — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.">
+    <meta property="og:image" content="https://www.homepowerpty.com/media/icons/og-default.webp">
+    <meta property="og:site_name" content="HomePower PTY">
+    <meta property="og:locale" content="es_PA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arrocera HT (Variantes) — HomePower PTY">
+    <meta name="twitter:description" content="Arrocera HT (Variantes) — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.">
+    <meta name="twitter:image" content="https://www.homepowerpty.com/media/icons/og-default.webp">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../../../styles/luxury.css">
+    <link rel="stylesheet" href="../../../styles/product-v2.css">
+    <style>
+        .pdp-variant-picker { margin: 14px 0; }
+        .pdp-variant-picker-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.55);
+            margin: 0 0 8px;
+        }
+        .pdp-variant-picker-list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .pdp-variant-btn {
+            width: 88px;
+            min-height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(214, 181, 94, 0.5);
+            background: rgba(214, 181, 94, 0.08);
+            color: var(--color-accent);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+        .pdp-variant-btn.active {
+            background: var(--color-accent);
+            color: #141414;
+        }
+        .pdp-variants-section { padding: 36px 0 8px; }
+        .pdp-variants-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            list-style: none;
+            margin: 14px 0 0;
+            padding: 0;
+        }
+        .pdp-variant-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(214, 181, 94, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+        .pdp-variant-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(214, 181, 94, 0.5);
+        }
+        .pdp-variant-card.active {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 1px rgba(214, 181, 94, 0.35);
+        }
+        .pdp-variant-card-btn {
+            width: 100%;
+            background: transparent;
+            color: inherit;
+            border: 0;
+            padding: 0;
+            text-align: left;
+            cursor: pointer;
+        }
+        .pdp-variant-card-btn img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            background: #131313;
+            padding: 8px;
+            border-bottom: 1px solid rgba(214, 181, 94, 0.12);
+        }
+        .pdp-variant-card-body { padding: 8px 10px 10px; }
+        .pdp-variant-card-code {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin: 0 0 4px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+        .pdp-variant-card-name {
+            font-size: 0.86rem;
+            color: #fff;
+            margin: 0;
+            line-height: 1.3;
+            min-height: 2.2em;
+        }
+        @media (max-width: 1024px) {
+            .pdp-variants-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 640px) {
+            .pdp-variants-grid { gap: 10px; }
+            .pdp-variant-card-btn img { height: 98px; }
+        }
+    </style>
+</head>
+<body class="product-page">
+    <div class="announcement-bar">
+        <div class="container text-center">
+            <span>Stock exclusivo · Garantía 1 año · WhatsApp: (507) 6983-8322</span>
+        </div>
+    </div>
+
+    <header class="luxury-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="../../../index.html">
+                    <img src="../../../media/icons/logo/logo.png" alt="Home Power PTY" class="luxury-logo">
+                </a>
+            </div>
+            <nav class="luxury-nav">
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li><a href="../../../index.html#catalogo">Catálogo</a></li>
+                    <li><a href="../../../index.html#nosotros">Nosotros</a></li>
+                    <li><a href="../../../index.html#clientes">Clientes</a></li>
+                    <li><a href="../../../index.html#contacto">Consulta</a></li>
+                    <li><a href="../../../index.html#oportunidades">Oportunidades</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/50769838322" class="btn-outline-gold" target="_blank" rel="noopener">Consultar</a>
+                <button class="hamburger-btn" id="menuBurger" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+        <button class="fullscreen-menu__close" id="menuClose" aria-label="Cerrar menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <nav>
+            <ul class="fullscreen-menu__links">
+                <li><a href="../../../index.html" class="fullscreen-menu-link">Inicio</a></li>
+                <li><a href="../../../index.html#catalogo" class="fullscreen-menu-link">Catálogo</a></li>
+                <li><a href="../../../index.html#nosotros" class="fullscreen-menu-link">Nosotros</a></li>
+                <li><a href="../../../index.html#clientes" class="fullscreen-menu-link">Clientes</a></li>
+                <li><a href="../../../index.html#contacto" class="fullscreen-menu-link">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/50769838322" class="fullscreen-menu__cta" target="_blank" rel="noopener">Consultar</a>
+    </div>
+
+    <div class="pdp-breadcrumb">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <a href="../../../index.html">Inicio</a>
+                <span class="crumb-sep" aria-hidden="true">›</span>
+                <a href="../../../index.html#catalogo">Electrodomésticos</a>
+                <span class="crumb-sep" aria-hidden="true">›</span>
+                <a href="../../../index.html#catalogo">Arroceras</a>
+                <span class="crumb-sep" aria-hidden="true">›</span>
+                <span class="crumb-current" id="variantBreadcrumb">Arrocera HT (Variantes)</span>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <section class="pdp-main">
+            <div class="pdp-grid">
+                <div class="pdp-gallery">
+                    <div class="pdp-main-img-wrap" id="pdpMainImgWrap" onclick="pdpOpenLightbox()" role="button" tabindex="0" aria-label="Ampliar imagen">
+                        <img id="pdpMainImg" src="../ht-03/img/PRODUCTO_PRINCIPAL_0.3.webp" alt="Arrocera HT — HomePower PTY">
+                        <div class="pdp-zoom-hint" aria-hidden="true">Ampliar</div>
+                    </div>
+                    <div class="pdp-thumbs" role="list" aria-label="Imágenes del producto">
+                        <button class="pdp-thumb active" onclick="pdpSetImage('../ht-03/img/PRODUCTO_PRINCIPAL_0.3.webp', this)" aria-label="Ver vista principal" role="listitem">
+                            <img src="../ht-03/img/PRODUCTO_PRINCIPAL_0.3.webp" alt="Vista principal">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pdp-info">
+                    <span class="pdp-badge" id="variantBadge">MINI</span>
+                    <p class="pdp-brand">HomePower</p>
+                    <h1 class="pdp-name" id="variantName">Arrocera HT (Variantes)</h1>
+                    <p class="pdp-model" id="variantModel">HT-03 · HT-15 · HT-18 · HT-22</p>
+
+                    <div class="pdp-divider" aria-hidden="true"></div>
+
+                    <p class="pdp-short-desc" id="variantDesc">Arrocera HT (Variantes) — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.</p>
+
+                    <div class="pdp-variant-picker" id="variantPicker">
+                        <p class="pdp-variant-picker-label">Selecciona la capacidad</p>
+                        <div class="pdp-variant-picker-list" id="variantPickerList"></div>
+                    </div>
+
+                    <div class="pdp-spec-pills" id="variantPills"></div>
+
+                    <div class="pdp-cta-group">
+                        <a href="https://wa.me/50769838322?text=Hola%2C%20me%20interesa%20el%20producto%20Arrocera%20HT%20%28Variantes%29%20%28Mod.%20HT-03%20%C2%B7%20HT-15%20%C2%B7%20HT-18%20%C2%B7%20HT-22%29.%20Quisiera%20informaci%C3%B3n%20sobre%20disponibilidad%20y%20precios." id="variantPrimaryCta" class="pdp-btn-primary" target="_blank" rel="noopener">
+                            Solicitar cotización B2B
+                        </a>
+                        <a href="../../../index.html#catalogo" class="pdp-btn-secondary">Ver más productos</a>
+                    </div>
+
+                    <div class="pdp-accordion">
+                        <div class="pdp-accordion-item">
+                            <button class="pdp-accordion-trigger open" onclick="pdpToggle(this)" aria-expanded="true" aria-controls="acc-specs">Especificaciones técnicas</button>
+                            <div class="pdp-accordion-body open" id="acc-specs" role="region">
+                                <div class="pdp-accordion-content">
+                                    <table class="pdp-specs-table"><tbody id="variantSpecsBody"></tbody></table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdp-accordion-item">
+                            <button class="pdp-accordion-trigger" onclick="pdpToggle(this)" aria-expanded="false" aria-controls="acc-shipping">Distribución y envío</button>
+                            <div class="pdp-accordion-body" id="acc-shipping" role="region">
+                                <div class="pdp-accordion-content">
+                                    <div class="pdp-shipping-list">
+                                        <div class="pdp-shipping-item"><div><strong>Entrega en 2 días hábiles</strong> Logística directa para distribuidores en toda Panamá.</div></div>
+                                        <div class="pdp-shipping-item"><div><strong>Factura disponible</strong> Documentación formal para empresas y cadenas.</div></div>
+                                        <div class="pdp-shipping-item"><div><strong>Stock exclusivo</strong> Importación directa para canal mayorista.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdp-below">
+            <section class="pdp-gallery-strip">
+                <div class="container">
+                    <p class="section-eyebrow pdp-gallery-eyebrow">GALERÍA COMPLETA</p>
+                    <div class="pdp-gallery-strip-grid" id="variantStrip">
+                        <div class="pdp-strip-item" onclick="pdpOpenLightboxAt(0)" role="button" tabindex="0" aria-label="Ampliar vista principal">
+                            <img src="../ht-03/img/PRODUCTO_PRINCIPAL_0.3.webp" alt="Vista principal" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pdp-cta-band">
+                <div class="container">
+                    <h2>¿Listo para incluir esta arrocera<br>en su catálogo?</h2>
+                    <p>Cotización B2B personalizada para distribuidores. Respuesta rápida por WhatsApp.</p>
+                    <a href="https://wa.me/50769838322?text=Hola%2C%20me%20interesa%20el%20producto%20Arrocera%20HT%20%28Variantes%29%20%28Mod.%20HT-03%20%C2%B7%20HT-15%20%C2%B7%20HT-18%20%C2%B7%20HT-22%29.%20Quisiera%20informaci%C3%B3n%20sobre%20disponibilidad%20y%20precios." id="variantBandCta" class="pdp-btn-primary pdp-btn-cta-centered" target="_blank" rel="noopener">Consultar precio B2B</a>
+                    <p class="pdp-cta-note">Sin compromiso · Toda Panamá · Stock disponible</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="pdp-variants-section">
+            <div class="container">
+                <p class="section-eyebrow">TODAS LAS VARIANTES DISPONIBLES</p>
+                <h2 class="pdp-related-title">Elige el código que necesitas</h2>
+                <ul class="pdp-variants-grid" id="allVariantsGrid"></ul>
+            </div>
+        </section>
+
+        <section class="pdp-related">
+            <div class="container">
+                <p class="section-eyebrow">TAMBIÉN TE PUEDE INTERESAR</p>
+                <h2 class="pdp-related-title">Productos similares</h2>
+                <ul class="pdp-related-grid">
+                    <li class="pdp-related-card">
+                        <a href="../ht-15a/" class="pdp-related-img-wrap"><img src="../ht-15a/img/PRODUCTO_PRINCIPAL_1.5A.webp" alt="Arrocera Eléctrica HT-15A" loading="lazy"></a>
+                        <div class="pdp-related-info"><span class="pdp-related-mod">HT-15A</span><h3 class="pdp-related-name"><a href="../ht-15a/">Arrocera Eléctrica 1.5L</a></h3><a href="../ht-15a/" class="pdp-related-cta">Ver producto</a></div>
+                    </li>
+                    <li class="pdp-related-card">
+                        <a href="../ht-22a/" class="pdp-related-img-wrap"><img src="../ht-22a/img/PRODUCTO_PRINCIPAL_2.2A.webp" alt="Arrocera con Vaporera HT-22A" loading="lazy"></a>
+                        <div class="pdp-related-info"><span class="pdp-related-mod">HT-22A</span><h3 class="pdp-related-name"><a href="../ht-22a/">Arrocera con Vaporera 2.2L</a></h3><a href="../ht-22a/" class="pdp-related-cta">Ver producto</a></div>
+                    </li>
+                    <li class="pdp-related-card">
+                        <a href="../ht-18a/" class="pdp-related-img-wrap"><img src="../ht-18a/img/PRODUCTO_PRINCIPAL_1.8A.webp" alt="Arrocera Pro HT-18A" loading="lazy"></a>
+                        <div class="pdp-related-info"><span class="pdp-related-mod">HT-18A</span><h3 class="pdp-related-name"><a href="../ht-18a/">Arrocera 1.8L Pro</a></h3><a href="../ht-18a/" class="pdp-related-cta">Ver producto</a></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="luxury-footer">
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <div class="footer-copyright">© 2026 HOMEPOWER PTY. TODOS LOS DERECHOS RESERVADOS.</div>
+                <div class="footer-legal-links">
+                    <a href="../../../aviso-de-privacidad/index.html">Aviso de Privacidad</a>
+                    <a href="../../../#">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="pdp-lightbox" id="pdpLightbox" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+        <button class="pdp-lightbox-close" onclick="pdpCloseLightbox()" aria-label="Cerrar visor">&#x2715;</button>
+        <button class="pdp-lightbox-prev" onclick="pdpLightboxMove(-1)" aria-label="Imagen anterior">&#8592;</button>
+        <img class="pdp-lightbox-img" id="pdpLightboxImg" src="../ht-03/img/PRODUCTO_PRINCIPAL_0.3.webp" alt="Imagen ampliada del producto">
+        <button class="pdp-lightbox-next" onclick="pdpLightboxMove(1)" aria-label="Imagen siguiente">&#8594;</button>
+    </div>
+
+    <script>
+        const VARIANTS = {
+            'HT-03': {
+                code: 'HT-03',
+                name: 'Arrocera Mini 0.3L',
+                capacity: '0.3L',
+                power: '200W',
+                badge: 'MINI',
+                barcode: '732129008642',
+                interior: 'Antiadherente',
+                steamer: 'Incluido',
+                description: 'Arrocera compacta de 0.3L para porciones individuales con vaporizador.',
+                folder: '../ht-03/img',
+                images: ['PRODUCTO_PRINCIPAL_0.3.webp', 'BRAND_COMMERCIAL.webp', 'CAJA_0.3.webp', 'COMPARATION.webp', 'COMPARETION_1.webp', 'LIFESTYLE_DARK.webp', 'LIFESTYLE_KITCHEN.webp']
+            },
+            'HT-15': {
+                code: 'HT-15',
+                name: 'Arrocera Eléctrica 1.5L',
+                capacity: '1.5L',
+                power: '500W',
+                badge: 'INDISPENSABLE',
+                barcode: '732129008468',
+                interior: 'Sin recubrimiento (spray)',
+                steamer: 'Incluido',
+                description: 'Arrocera eléctrica de 1.5L con cocción automática y función mantener caliente.',
+                folder: '../ht-15/img',
+                images: ['PRODUCTO_PRINCIPAL_1.5.webp', 'DETAIL_LOGO.webp', 'BRAND_COMMERCIAL.webp', 'CAJA_1.5.webp', 'LIFESTYLE_DARK.webp', 'LIFESTYLE_KITCHEN.webp']
+            },
+            'HT-18': {
+                code: 'HT-18',
+                name: 'Arrocera Eléctrica 1.8L',
+                capacity: '1.8L',
+                power: '700W',
+                badge: 'INDISPENSABLE',
+                barcode: '732129008482',
+                interior: 'Sin recubrimiento (spray)',
+                steamer: 'Incluido',
+                description: 'Arrocera eléctrica de 1.8L para uso constante en hogares y comercios.',
+                folder: '../ht-18/img',
+                images: ['PRODUCTO_PRINCIPAL_1.8.webp', 'DETAIL_LOGO.webp', 'BRAND_COMMERCIAL.webp', 'CAJA_1.8.webp', 'LIFESTYLE_DARK.webp', 'LIFESTYLE_KITCHEN.webp']
+            },
+            'HT-22': {
+                code: 'HT-22',
+                name: 'Arrocera 2.2L sin Recubrimiento',
+                capacity: '2.2L',
+                power: '900W',
+                badge: 'NUEVO',
+                barcode: '732129008505',
+                interior: 'Sin recubrimiento (spray)',
+                steamer: 'Incluido',
+                description: 'Arrocera de 2.2L de alta durabilidad para uso intensivo mayorista.',
+                folder: '../ht-22/img',
+                images: ['PRODUCTO_PRINCIPAL_2.2.webp', 'DETAIL_LOGO.webp', 'BRAND_COMMERCIAL.webp', 'CAJA_2.2.webp', 'LIFESTYLE_DARK.webp', 'LIFESTYLE_KITCHEN.webp']
+            }
+        };
+
+        let pdpImages = [];
+        let currentLightboxSrc = '';
+        let pdpLightboxIndex = 0;
+        let pdsSlideshowInterval;
+        let pdpCurrentGalleryIndex = 0;
+        const SLIDE_DURATION = 2500;
+
+        function resolveImagePath(variant, imageFile) {
+            return `${variant.folder}/${imageFile}`;
+        }
+
+        function buildThumbs(variant) {
+            const wrap = document.querySelector('.pdp-thumbs');
+            if (!wrap) return;
+            wrap.innerHTML = variant.images.map((img, idx) => {
+                const src = resolveImagePath(variant, img);
+                const active = idx === 0 ? ' active' : '';
+                return `<button class="pdp-thumb${active}" onclick="pdpSetImage('${src}', this)" aria-label="Ver imagen ${idx + 1}" role="listitem"><img src="${src}" alt="Imagen ${idx + 1}"></button>`;
+            }).join('');
+        }
+
+        function buildStrip(variant) {
+            const strip = document.getElementById('variantStrip');
+            if (!strip) return;
+            strip.innerHTML = variant.images.map((img, idx) => {
+                const src = resolveImagePath(variant, img);
+                return `<div class="pdp-strip-item" onclick="pdpOpenLightboxAt(${idx})" role="button" tabindex="0" aria-label="Ampliar imagen ${idx + 1}"><img src="${src}" alt="Vista ${idx + 1}" loading="lazy"></div>`;
+            }).join('');
+        }
+
+        function buildSpecs(variant) {
+            const body = document.getElementById('variantSpecsBody');
+            if (!body) return;
+            body.innerHTML = `
+                <tr><td>Modelo</td><td>${variant.code}</td></tr>
+                <tr><td>Cód. Barras</td><td>${variant.barcode}</td></tr>
+                <tr><td>Potencia</td><td>${variant.power}</td></tr>
+                <tr><td>Voltaje</td><td>110V / 60Hz</td></tr>
+                <tr><td>Capacidad</td><td>${variant.capacity}</td></tr>
+                <tr><td>Interior</td><td>${variant.interior}</td></tr>
+                <tr><td>Vaporizador</td><td>${variant.steamer}</td></tr>
+                <tr><td>Garantía</td><td>1 Año</td></tr>`;
+        }
+
+        function updatePills(variant) {
+            const pills = document.getElementById('variantPills');
+            if (!pills) return;
+            pills.innerHTML = `
+                <div class="pdp-spec-pill"><span>${variant.capacity} Capacidad</span></div>
+                <div class="pdp-spec-pill"><span>${variant.power} Potencia</span></div>
+                <div class="pdp-spec-pill"><span>${variant.interior}</span></div>
+                <div class="pdp-spec-pill"><span>Vaporizador ${variant.steamer}</span></div>`;
+        }
+
+        function updateMeta(variant) {
+            const title = `${variant.name} — HomePower PTY`;
+            const desc = `${variant.name} — Consulta disponibilidad y precios mayoristas en Home Power PTY, Panamá.`;
+            document.title = title;
+            const meta = document.querySelector('meta[name="description"]');
+            if (meta) meta.setAttribute('content', desc);
+
+            const nameEl = document.getElementById('variantName');
+            const modelEl = document.getElementById('variantModel');
+            const descEl = document.getElementById('variantDesc');
+            const breadcrumb = document.getElementById('variantBreadcrumb');
+            const badge = document.getElementById('variantBadge');
+
+            if (nameEl) nameEl.textContent = variant.name;
+            if (modelEl) modelEl.textContent = variant.code;
+            if (descEl) descEl.textContent = variant.description;
+            if (breadcrumb) breadcrumb.textContent = variant.name;
+            if (badge) badge.textContent = variant.badge;
+        }
+
+        function updateWhatsApp(variant) {
+            const text = encodeURIComponent(`Hola, me interesa el producto ${variant.name} ${variant.code}`);
+            const href = `https://wa.me/50769838322?text=Hola%2C%20me%20interesa%20el%20producto%20Arrocera%20HT%20%28Variantes%29%20%28Mod.%20HT-03%20%C2%B7%20HT-15%20%C2%B7%20HT-18%20%C2%B7%20HT-22%29.%20Quisiera%20informaci%C3%B3n%20sobre%20disponibilidad%20y%20precios.
+            const primary = document.getElementById('variantPrimaryCta');
+            const band = document.getElementById('variantBandCta');
+            if (primary) primary.href = href;
+            if (band) band.href = href;
+        }
+
+        function renderVariantButtons(activeCode) {
+            const wrap = document.getElementById('variantPickerList');
+            if (!wrap) return;
+            const codes = Object.keys(VARIANTS);
+            wrap.innerHTML = codes.map(code => {
+                const active = code === activeCode ? ' active' : '';
+                const size = VARIANTS[code].capacity || '';
+                return `<button class="pdp-variant-btn${active}" data-variant="${code}" type="button">${size}</button>`;
+            }).join('');
+            wrap.querySelectorAll('.pdp-variant-btn').forEach(btn => {
+                btn.addEventListener('click', () => setVariant(btn.dataset.variant));
+            });
+        }
+
+        function renderAllVariantsGrid(activeCode) {
+            const grid = document.getElementById('allVariantsGrid');
+            if (!grid) return;
+            grid.innerHTML = Object.values(VARIANTS).map(variant => {
+                const src = resolveImagePath(variant, variant.images[0]);
+                const active = variant.code === activeCode ? ' active' : '';
+                return `<li class="pdp-variant-card${active}">
+                    <button class="pdp-variant-card-btn" type="button" data-variant="${variant.code}" aria-label="Ver variante ${variant.code}">
+                        <img src="${src}" alt="${variant.name}" loading="lazy">
+                        <div class="pdp-variant-card-body">
+                            <p class="pdp-variant-card-code">${variant.code}</p>
+                            <p class="pdp-variant-card-name">${variant.name}</p>
+                        </div>
+                    </button>
+                </li>`;
+            }).join('');
+            grid.querySelectorAll('.pdp-variant-card-btn').forEach(btn => {
+                btn.addEventListener('click', () => setVariant(btn.dataset.variant));
+            });
+        }
+
+        function setVariant(code, pushHistory = true) {
+            const variant = VARIANTS[code] || VARIANTS['HT-03'];
+            pdpImages = variant.images.map(img => resolveImagePath(variant, img));
+            currentLightboxSrc = pdpImages[0] || '';
+            pdpCurrentGalleryIndex = 0;
+
+            const mainImg = document.getElementById('pdpMainImg');
+            if (mainImg) {
+                mainImg.src = currentLightboxSrc;
+                mainImg.alt = `${variant.name} — HomePower PTY`;
+            }
+
+            const lightboxImg = document.getElementById('pdpLightboxImg');
+            if (lightboxImg) lightboxImg.src = currentLightboxSrc;
+
+            buildThumbs(variant);
+            buildStrip(variant);
+            buildSpecs(variant);
+            updatePills(variant);
+            updateMeta(variant);
+            updateWhatsApp(variant);
+            renderVariantButtons(variant.code);
+            renderAllVariantsGrid(variant.code);
+
+            if (pushHistory) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('mod', variant.code);
+                window.history.replaceState({}, '', url.toString());
+            }
+
+            startSlideshow();
+        }
+
+        function startSlideshow() {
+            stopSlideshow();
+            if (pdpImages.length <= 1) return;
+            pdsSlideshowInterval = setInterval(() => {
+                pdpCurrentGalleryIndex = (pdpCurrentGalleryIndex + 1) % pdpImages.length;
+                const nextSrc = pdpImages[pdpCurrentGalleryIndex];
+                const thumbs = document.querySelectorAll('.pdp-thumb');
+                if (thumbs[pdpCurrentGalleryIndex]) {
+                    pdpSetImage(nextSrc, thumbs[pdpCurrentGalleryIndex], true);
+                }
+            }, SLIDE_DURATION);
+        }
+
+        function stopSlideshow() {
+            if (pdsSlideshowInterval) clearInterval(pdsSlideshowInterval);
+        }
+
+        function pdpSetImage(src, thumbEl) {
+            const mainImg = document.getElementById('pdpMainImg');
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 150);
+            document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+            if (thumbEl) thumbEl.classList.add('active');
+            currentLightboxSrc = src;
+        }
+
+        function pdpOpenLightbox() {
+            const idx = pdpImages.indexOf(currentLightboxSrc);
+            pdpLightboxIndex = idx >= 0 ? idx : 0;
+            document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
+            document.getElementById('pdpLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function pdpOpenLightboxAt(idx) {
+            pdpLightboxIndex = idx;
+            document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
+            document.getElementById('pdpLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function pdpCloseLightbox() {
+            document.getElementById('pdpLightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function pdpLightboxMove(dir) {
+            pdpLightboxIndex = (pdpLightboxIndex + dir + pdpImages.length) % pdpImages.length;
+            document.getElementById('pdpLightboxImg').src = pdpImages[pdpLightboxIndex];
+        }
+
+        function pdpToggle(btn) {
+            const body = btn.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            body.classList.toggle('open', !isOpen);
+            btn.classList.toggle('open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const queryCode = (new URLSearchParams(window.location.search).get('mod') || 'HT-03').toUpperCase();
+            setVariant(queryCode, false);
+
+            const galleryArea = document.querySelector('.pdp-gallery');
+            if (galleryArea) {
+                galleryArea.addEventListener('mouseenter', stopSlideshow);
+                galleryArea.addEventListener('mouseleave', startSlideshow);
+            }
+
+            const burger = document.getElementById('menuBurger');
+            const menu = document.getElementById('fullscreenMenu');
+            const close = document.getElementById('menuClose');
+            if (burger && menu && close) {
+                burger.addEventListener('click', () => {
+                    menu.classList.add('open');
+                    burger.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                });
+                close.addEventListener('click', () => {
+                    menu.classList.remove('open');
+                    burger.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+                menu.querySelectorAll('.fullscreen-menu-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.remove('open');
+                        burger.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
+
+        document.addEventListener('keydown', e => {
+            if (!document.getElementById('pdpLightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') pdpCloseLightbox();
+            if (e.key === 'ArrowRight') pdpLightboxMove(1);
+            if (e.key === 'ArrowLeft') pdpLightboxMove(-1);
+        });
+    </script>
+    <script type="module" src="../../../scripts/page.js"></script>
+</body>
+</html>

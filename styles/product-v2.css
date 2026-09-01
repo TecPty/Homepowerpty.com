@@ -959,4 +959,87 @@
     .pdp-related-title {
         font-size: 1.2rem;
     }
+
+    /* Orphan fix: last card alone in its row → center it at half-column width */
+    .pdp-related-grid > li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 6px);
+        margin-inline: auto;
+    }
+}
+
+/* ─── BACK BUTTON (todas las resoluciones) ──────────────
+   Inyectado vía page.js. Overlay fijo/absoluto sobre el
+   header para no interferir con el layout flex del logo,
+   nav y CTA. Estilo compartido; solo cambia el positioning
+   scheme entre mobile (fixed) y tablet/desktop (absolute,
+   centrado verticalmente dentro del header sticky).
+   ─────────────────────────────────────────────────────── */
+.pdp-back-btn {
+    display: none;
+}
+
+.pdp-back-btn {
+    align-items: center;
+    justify-content: center;
+    z-index: 2001;
+    width: 44px;
+    height: 44px;
+    background: rgba(10, 10, 10, 0.80);
+    border: 1.5px solid rgba(214, 181, 94, 0.45);
+    border-radius: 10px;
+    color: #d6b55e;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.pdp-back-btn:hover,
+.pdp-back-btn:active,
+.pdp-back-btn:focus-visible {
+    background: rgba(214, 181, 94, 0.18);
+    border-color: #d6b55e;
+    outline: none;
+}
+
+.pdp-back-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .pdp-back-btn {
+        display: flex;
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        /* > z-index de .header-container (5001) en este breakpoint: con
+           empate, el DOM order manda y .header-container (prepend deja
+           la flecha ANTES en el DOM) ganaría el stacking y taparía el botón. */
+        z-index: 5002;
+    }
+    .pdp-back-btn:hover {
+        transform: none;
+    }
+    /* Shift logo a la derecha para que no quede tapado por la flecha */
+    .product-page .header-container {
+        padding-left: 66px;
+    }
+}
+
+/* ─── Tablet + desktop: overlay absoluto, centrado verticalmente
+   dentro del header sticky (que actúa de containing block). ─── */
+@media (min-width: 769px) {
+    .pdp-back-btn {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+    }
+    /* Shift logo a la derecha para que no quede tapado por la flecha */
+    .product-page .header-container {
+        padding-left: 84px;
+    }
 }
