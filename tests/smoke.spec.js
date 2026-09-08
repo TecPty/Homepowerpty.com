@@ -33,6 +33,13 @@ test('filtro de catálogo muestra solo productos de la categoría seleccionada',
   // Scroll al catálogo para activar el JS del filtro
   await page.locator('#catalogo').scrollIntoViewIfNeeded();
 
+  // En mobile los filtros viven dentro de un panel colapsado.
+  const mobileFilterToggle = page.locator('.catalog-filter-toggle');
+  if (await mobileFilterToggle.isVisible()) {
+    await mobileFilterToggle.click();
+    await expect(page.locator('#catalog-sidebar')).toHaveClass(/open/);
+  }
+
   // Click en "Batidoras"
   const filterBatidoras = page.locator('.filter-item[data-category="mixer"]');
   await filterBatidoras.click();
