@@ -7,7 +7,7 @@ test('página carga con título correcto', async ({ page }) => {
 
   await expect(page).toHaveTitle(/Home Power/i);
   await expect(page.locator('header.luxury-header')).toBeVisible();
-  await expect(page.locator('h1.hero-title')).toBeVisible();
+  await expect(page.locator('h1.hero-left__title')).toBeVisible();
   await expect(page.locator('#catalogo')).toBeVisible();
 });
 
@@ -32,6 +32,13 @@ test('filtro de catálogo muestra solo productos de la categoría seleccionada',
 
   // Scroll al catálogo para activar el JS del filtro
   await page.locator('#catalogo').scrollIntoViewIfNeeded();
+
+  // En mobile los filtros viven dentro de un panel colapsado.
+  const mobileFilterToggle = page.locator('.catalog-filter-toggle');
+  if (await mobileFilterToggle.isVisible()) {
+    await mobileFilterToggle.click();
+    await expect(page.locator('#catalog-sidebar')).toHaveClass(/open/);
+  }
 
   // Click en "Batidoras"
   const filterBatidoras = page.locator('.filter-item[data-category="mixer"]');
@@ -75,19 +82,22 @@ test('formulario de contacto tiene campos requeridos y botón de envío', async 
   await expect(page).toHaveURL('/');
 });
 
-// ─── 5. LINKS WHATSAPP DE PRODUCTO — Formato correcto en CTAs del catálogo ───
-test('CTAs de productos tienen href de WhatsApp con texto prefillado', async ({ page }) => {
+// ─── 5. CATÁLOGO → PDP — Las tarjetas navegan a la ficha del producto ─────────
+test('tarjeta de catálogo abre una ficha de producto válida', async ({ page }) => {
   await page.goto('/');
 
-  const productCtas = page.locator('.product_cta');
-  const count = await productCtas.count();
-  expect(count).toBeGreaterThan(0);
+  const firstProductLink = page.locator('.product .product_name a').first();
+  await expect(firstProductLink).toBeVisible();
 
-  // Verificamos el primer CTA visible
-  const firstCta = productCtas.first();
-  const href = await firstCta.getAttribute('href');
-  expect(href).toMatch(/^https:\/\/wa\.me\/507/);
-  expect(href).toContain('text=');
+  const href = await firstProductLink.getAttribute('href');
+  expect(href).toMatch(/^productos\/.+\/$/);
+
+  await firstProductLink.click();
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page).toHaveURL(/\/productos\/.+\/$/);
+  await expect(page.locator('body.product-page')).toBeVisible();
+  await expect(page.locator('h1.pdp-name')).toBeVisible();
 });
 
 // ─── 6. ANCHOR #testimonios — scroll al carrusel de clientes ─────────────────
