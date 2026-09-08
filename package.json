@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "test": "playwright test",
-    "test:smoke": "playwright test tests/smoke",
+    "test:smoke": "playwright test tests/smoke.spec.js",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report"
   },

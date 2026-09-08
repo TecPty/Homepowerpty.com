@@ -1,6 +1,9 @@
 name: Deploy to Production Branch
 
 on:
+  pull_request:
+    branches:
+      - "**"
   push:
     branches:
       - main
@@ -27,6 +30,12 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run browser smoke tests
+        run: npm run test:smoke
 
       - name: QA artifact
         run: |
@@ -55,6 +64,7 @@ jobs:
           echo "QA PASS"
 
       - name: Publish dist to production branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
 
