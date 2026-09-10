@@ -53,7 +53,7 @@ const Catalog = {
         return {
           model,
           name,
-          href: `${templateBase}?mod=${encodeURIComponent(model)}`,
+          href: item.querySelector('.product_image_wrapper')?.getAttribute('href') || nameEl?.getAttribute('href') || '',
           image: imgEl?.getAttribute('src') || '',
           alt: imgEl?.getAttribute('alt') || name,
           label: parseVariantLabel(name),
@@ -90,11 +90,11 @@ const Catalog = {
       const isSimple = options.simple || false;
 
       card.innerHTML = `
-        <a href="${primary.href}" class="product_image_wrapper">
+        <a href="${templateBase}" class="product_image_wrapper">
           <img src="${primary.image}" alt="${primary.alt}" class="product_img" loading="lazy">
         </a>
         <div class="product_content">
-          <h3 class="product_name"><a href="${primary.href}">${groupTitle}</a></h3>
+          <h3 class="product_name"><a href="${templateBase}">${groupTitle}</a></h3>
           <span class="product_sku">${skuHtml}</span>
           <ul class="product_features">
             ${isSimple
