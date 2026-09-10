@@ -3,6 +3,9 @@
 
 # Forzar HTTPS + host canonico (www)
 RewriteEngine On
+
+# HP-SEO-AI-001D — normalize duplicate grouped endpoint
+RewriteRule ^productos/regletas/regleta-variantes/?$ https://www.homepowerpty.com/productos/extensiones/extension-amarilla/ [R=301,L,NE]
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^www\.homepowerpty\.com$ [NC]
 RewriteRule ^ https://www.homepowerpty.com%{REQUEST_URI} [R=301,L]
