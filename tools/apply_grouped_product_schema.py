@@ -384,23 +384,17 @@ def normalize_catalog(text: str) -> str:
 
 def normalize_sitemap(text: str) -> str:
     nl = newline_for(text)
-    pattern = re.compile(
-        r"[ \t]*<url>\s*<loc>"
-        + re.escape(DUPLICATE_SITEMAP_URL)
-        + r"</loc>\s*</url>\s*",
-        re.I,
+    block = (
+        f"  <url>{nl}"
+        f"    <loc>{DUPLICATE_SITEMAP_URL}</loc>{nl}"
+        f"  </url>{nl}"
     )
-    matches = list(pattern.finditer(text))
-    if len(matches) == 1:
-        start, end = matches[0].span()
-        replacement = ""
-        updated = text[:start] + replacement + text[end:]
-        # Keep the XML readable if the removed block consumed surrounding whitespace.
-        updated = updated.replace(f"</url>{nl}<urlset", f"</url>{nl}</urlset") if False else updated
-        return updated
-    if len(matches) == 0 and DUPLICATE_SITEMAP_URL not in text:
+    matches = text.count(block)
+    if matches == 1:
+        return text.replace(block, "", 1)
+    if matches == 0 and DUPLICATE_SITEMAP_URL not in text:
         return text
-    raise ValueError(f"expected one duplicate sitemap entry, got {len(matches)}")
+    raise ValueError(f"expected one duplicate sitemap entry, got {matches}")
 
 
 def normalize_htaccess(text: str) -> str:
