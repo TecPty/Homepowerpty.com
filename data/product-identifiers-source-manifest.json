@@ -1,0 +1,17 @@
+{
+  "manifest_schema_version": 1,
+  "contract": "HP-SEO-AI-001F-1R1",
+  "business_source": {
+    "name": "EXCEL DE PRODUCTOS PARA MKT.xlsx",
+    "type": "spreadsheet",
+    "system": "Google Drive",
+    "created_at": "2026-04-07T14:40:02.367Z",
+    "modified_at": "2026-04-10T20:45:45.247Z",
+    "expected_record_count": 59
+  },
+  "derived_snapshot": {
+    "path": "tools/products_from_excel.json",
+    "sha256": "a3927eb2c0f444334fd6fcd02205a8208e7ab23001d45b6e415ceba392e69547",
+    "sha256_normalization": "line-endings normalized to LF before hashing; independent of local checkout CRLF/LF materialization"
+  }
+}

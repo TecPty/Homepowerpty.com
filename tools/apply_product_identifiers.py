@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
 """
-HP-SEO-AI-001F-1 -- deterministic applier for validated product identifiers.
+HP-SEO-AI-001F-1R1 -- deterministic applier for validated product identifiers.
 
 Reads data/product-identifiers.json (already built and validated by
 validate_product_identifiers.py) and inserts gtin12/gtin13 into the existing
-Product JSON-LD block of each PDP, but ONLY for records whose gtin_status is
-exactly "validated" and gtin_publishable is true.
+Product JSON-LD block of each PDP, but ONLY for records whose
+publishing_status is exactly "validated" and gtin_publishable is true.
+
+Defense-in-depth (Section 19): this applier does NOT blindly trust that the
+registry never contains conflicting records. Before any write, it builds an
+index by matched_product_id across every "validated" record. If more than one
+record targets the same Product -- even with different GTIN types (gtin12 vs
+gtin13) -- this is FATAL and nothing is written. A defective validator must
+never be able to silently publish two conflicting identifiers to one Product.
 
 SKU is never applied by this script: sku_publishable is always false under
-this contract (Seccion 5.4), and this applier enforces that as a hard
-defensive check regardless of what the registry says.
+this contract, and this applier enforces that as a hard defensive check
+regardless of what the registry says.
 
 Modes:
   --check  Full preflight/dry-run. Reports what WOULD change. Never writes.
@@ -93,28 +100,70 @@ def load_registry() -> dict:
         return json.load(f)
 
 
+def defense_in_depth_conflict_check(records: list[dict]) -> list[str]:
+    """Seccion 19. Construye un indice por matched_product_id sobre TODOS los
+    records validated/publishable, sin asumir que el validator los produjo
+    correctamente. Mas de un record apuntando al mismo Product es FATAL, sin
+    importar si los tipos de GTIN son distintos (gtin12 vs gtin13) -- ese es
+    exactamente el modo de fallo silencioso que este chequeo existe para
+    cerrar."""
+    by_product: dict[str, list[dict]] = {}
+    for record in records:
+        if record.get("publishing_status") != "validated" or not record.get("gtin_publishable"):
+            continue
+        product_id = record.get("matched_product_id")
+        if not product_id:
+            continue
+        by_product.setdefault(product_id, []).append(record)
+
+    errors: list[str] = []
+    for product_id, group in by_product.items():
+        if len(group) > 1:
+            details = ", ".join(
+                f"{r['record_id']} ({r.get('gtin_type')}={r['barcode_raw']})" for r in group
+            )
+            errors.append(
+                f"CONFLICTING PUBLISHABLE RECORDS for matched_product_id={product_id!r}: {details}"
+            )
+    return errors
+
+
 def preflight(registry: dict) -> dict:
+    records = registry["records"]
+
+    # Defense-in-depth: corre ANTES que cualquier otra cosa. Si falla, no se
+    # procesa ni se escribe absolutamente nada.
+    conflict_errors = defense_in_depth_conflict_check(records)
+    if conflict_errors:
+        return {
+            "errors": conflict_errors,
+            "pending": {},
+            "applied": 0,
+            "already_applied": 0,
+            "blocked": 0,
+        }
+
     errors: list[str] = []
     pending: dict[Path, str] = {}
     already_applied = 0
     blocked = 0
     applied = 0
 
-    for record in registry["records"]:
+    for record in records:
         if record["sku_publishable"]:
             errors.append(
                 f"{record['record_id']}: sku_publishable=true is forbidden under this contract"
             )
             continue
 
-        if not (record["gtin_status"] == "validated" and record["gtin_publishable"]):
+        if not (record["publishing_status"] == "validated" and record["gtin_publishable"]):
             blocked += 1
             continue
 
-        gtin_type = record["gtin_structural"]["gtin_type_candidate"]
+        gtin_type = record["gtin_type"]
         if gtin_type not in ("gtin12", "gtin13"):
             errors.append(
-                f"{record['record_id']}: validated but gtin_type_candidate is '{gtin_type}'"
+                f"{record['record_id']}: validated but gtin_type is '{gtin_type}'"
             )
             continue
 
@@ -147,6 +196,16 @@ def preflight(registry: dict) -> dict:
             errors.append(
                 f"{record['record_id']}: {rel(pdp_path)} already has {gtin_type}="
                 f"{entity.get(gtin_type)!r}, conflicts with validated {barcode!r}"
+            )
+            continue
+        # Defensa adicional: si el PDP ya tiene CUALQUIER otro gtin (del tipo
+        # que sea) proveniente de una escritura previa, no lo pisamos ni lo
+        # ignoramos silenciosamente.
+        existing_gtin_keys = [k for k in ("gtin12", "gtin13") if k in entity]
+        if existing_gtin_keys:
+            errors.append(
+                f"{record['record_id']}: {rel(pdp_path)} already has {existing_gtin_keys}, "
+                f"refusing to add a second gtin identifier to the same Product"
             )
             continue
 

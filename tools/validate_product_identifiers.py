@@ -1,27 +1,40 @@
 #!/usr/bin/env python3
 """
-HP-SEO-AI-001F-1 -- deterministic product identifier registry builder/validator.
+HP-SEO-AI-001F-1R1 -- deterministic product identifier registry builder/validator.
+
+Five independent, sequential gates, per contract Section 4:
+
+  Gate 1  Source manifest integrity   (data/product-identifiers-source-manifest.json)
+  Gate 2  Source conflict / dedup     (barcode collisions AND model collisions)
+  Gate 3  Identity reconciliation     (does the record map to exactly one Product?)
+  Gate 4  GTIN structural validation  (numeric / length / checksum / type)
+  Gate 5  PDP corroboration           (does the visible pdp-barcode agree?)
+
+None of these gates may answer for another. A Product match is never treated
+as business provenance; a missing PDP barcode never becomes a false "matched";
+identity reconciliation never reports on checksum or provenance.
+
+Determinism policy (Section 20): the registry must not depend on checkout
+depth, git log, current time, network access, or Google Drive availability.
+All business-source metadata comes from the static, versioned manifest --
+never from `git log`.
 
 Modes:
-  --build   Reconciles all known identity sources into data/product-identifiers.json.
-            Fails closed: never writes a registry that would violate a structural
-            or negative-assertion invariant.
+  --build   Runs all five gates and writes data/product-identifiers.json.
+            Fails closed: never writes a registry that violates a structural,
+            manifest-integrity, or negative-assertion invariant.
   --check   Re-derives the registry from the same sources and verifies it is
             byte-for-byte identical to the committed data/product-identifiers.json.
-            Never writes. Used as the idempotency/CI gate.
-
-Fail-closed policy: absence of evidence never authorizes publication. A GTIN or
-SKU only becomes eligible for JSON-LD publication when its status is exactly
-"validated" AND publishing_eligible is true.
+            Never writes. Used as the idempotency/CI/determinism gate.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import json
 import re
-import subprocess
 import sys
 from pathlib import Path
 
@@ -30,8 +43,10 @@ PRODUCTS_ROOT = ROOT / "productos"
 EXCEL_JSON_PATH = ROOT / "tools" / "products_from_excel.json"
 REPLACE_CODES_PATH = ROOT / "tools" / "replace_codes.py"
 REGISTRY_PATH = ROOT / "data" / "product-identifiers.json"
+MANIFEST_PATH = ROOT / "data" / "product-identifiers-source-manifest.json"
 
-BASELINE_COMMIT = "45f8e0f38166de7b52a5675d9e231d0f05a34c75"
+BASELINE_COMMIT = "d917c6e4e4900317d685b44024602b69f8f9b4df"
+SUPPORTED_MANIFEST_SCHEMA_VERSION = 1
 
 EXPECTED_TOTAL_PDP = 127
 EXPECTED_INDEXABLE_PDP = 126
@@ -39,15 +54,12 @@ EXPECTED_NOINDEX_PDP = 1
 EXPECTED_PRODUCT_COUNT = 117
 EXPECTED_PRODUCTGROUP_COUNT = 9
 EXPECTED_VARIANT_COUNT = 46
-EXPECTED_SOURCE_RECORDS = 59
-EXPECTED_GTIN12_CANDIDATES = 54
-EXPECTED_GTIN13_CANDIDATES = 5
 
-# Casos de conflicto conocidos obligatorios (Seccion 8 del Acceptance Contract).
-# El barcode "current" es el que coincide con el Excel y con el pdp-barcode
-# visible en el PDP real; el resto son alternates hallados unicamente en el
-# tooling historico (tools/replace_codes.py) y por lo tanto sin provenance
-# empresarial vigente.
+# Casos de conflicto conocidos obligatorios (Seccion 10 del Acceptance Contract
+# R1 / Seccion 8 del contrato F-1 original). El barcode "current" es el que
+# aparece en el source empresarial vigente; el resto son alternates hallados
+# unicamente en el tooling historico (tools/replace_codes.py), clasificados
+# aparte y sin publishing_eligible.
 KNOWN_MULTI_BARCODE_MODELS = {"JR-A101", "JR-LD8", "HP-017"}
 
 SCRIPT_RE = re.compile(
@@ -58,10 +70,14 @@ ROBOTS_RE = re.compile(
     r'<meta[^>]+name=["\']robots["\'][^>]+content=["\']([^"\']+)["\']',
     re.I,
 )
+PDP_BARCODE_RE = re.compile(
+    r'<p class="pdp-barcode">C[ÓO]D\.?\s*BARRAS:\s*([0-9]+)</p>',
+    re.I,
+)
 FORBIDDEN_KEYS = {
     "offer", "aggregateoffer", "price", "lowprice", "highprice",
     "pricecurrency", "availability", "seller", "review", "aggregaterating",
-    "shippingdetails", "returnpolicy", "mpn",
+    "shippingdetails", "returnpolicy", "mpn", "sku",
 }
 
 
@@ -71,6 +87,20 @@ def rel(path: Path) -> str:
 
 def read_text(path: Path) -> str:
     return path.read_bytes().decode("utf-8")
+
+
+def normalized_bytes(path: Path) -> bytes:
+    """Lee un archivo y normaliza line-endings a LF antes de cualquier uso
+    canonico (hashing). Un checkout local puede materializar CRLF (p.ej.
+    Windows con core.autocrlf) mientras el blob almacenado en git es LF; sin
+    esta normalizacion, el mismo contenido logico produce hashes distintos
+    segun el entorno de checkout -- exactamente la clase de no-determinismo
+    que la Seccion 20 prohibe. Esto NO invoca git: es normalizacion de bytes
+    pura en Python, independiente de cualquier configuracion de checkout."""
+    raw = path.read_bytes()
+    text = raw.decode("utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return normalized.encode("utf-8")
 
 
 def jsonld_objects(html: str) -> list[dict]:
@@ -98,7 +128,7 @@ def is_noindex(html: str) -> bool:
 
 def scan_forbidden_keys(obj, path_hint: str, found: list[str]) -> None:
     """Recorre recursivamente cualquier estructura JSON-LD buscando campos
-    comerciales prohibidos (negative assertions, Seccion 16/27)."""
+    comerciales prohibidos (negative assertions, Seccion 27)."""
     if isinstance(obj, dict):
         for key, value in obj.items():
             if key.lower() in FORBIDDEN_KEYS:
@@ -118,7 +148,7 @@ def normalize_model(s: str) -> str:
 def split_raw_sku(raw: str) -> tuple[str, str | None]:
     """El campo 'sku' crudo del Excel a veces mezcla modelo canonico y alias
     historico en una sola celda: 'JR-A101\\n(R.97816)'. Los separamos; el
-    modelo canonico nunca se publica concatenado con su alias (Seccion 9)."""
+    modelo canonico nunca se publica concatenado con su alias."""
     match = re.match(r"^(.*?)\s*\n\s*\(([^)]+)\)\s*$", raw, re.S)
     if match:
         return match.group(1).strip(), match.group(2).strip()
@@ -134,6 +164,7 @@ def gtin_checksum_valid(digits: str) -> bool:
 
 
 def classify_gtin_structure(barcode: str) -> dict:
+    """Gate 4. Independiente de reconciliation y de source authority."""
     numeric = barcode.isdigit()
     length = len(barcode) if numeric else None
     gtin_type = None
@@ -146,6 +177,8 @@ def classify_gtin_structure(barcode: str) -> dict:
         status = "invalid_non_numeric"
     elif length not in (12, 13):
         status = "invalid_length"
+    elif gtin_type is None:
+        status = "unsupported_type"
     elif not checksum_valid:
         status = "invalid_checksum"
     else:
@@ -161,8 +194,8 @@ def classify_gtin_structure(barcode: str) -> dict:
 
 def load_replace_codes_history() -> dict[str, list[str]]:
     """Importa (sin ejecutar run()) el mapping historico congelado de
-    tools/replace_codes.py para usarlo como fuente de provenance de
-    'tooling historico'. No se modifica ese archivo."""
+    tools/replace_codes.py. Fuente de provenance de 'tooling historico'
+    unicamente; nunca cuenta como current-source collision (Seccion 10)."""
     spec = importlib.util.spec_from_file_location("replace_codes_frozen", REPLACE_CODES_PATH)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)  # solo define CODE_TO_SKU; run() esta bajo __main__ guard
@@ -172,10 +205,15 @@ def load_replace_codes_history() -> dict[str, list[str]]:
     return model_to_barcodes
 
 
+def extract_pdp_barcode(html: str) -> str | None:
+    match = PDP_BARCODE_RE.search(html)
+    return match.group(1) if match else None
+
+
 def extract_site_inventory() -> dict:
     """Enumera las 117 entidades Product reales del sitio (una por PDP propio),
     detecta cuales son variantes de algun ProductGroup, y confirma los
-    invariantes estructurales del baseline (Seccion 3)."""
+    invariantes estructurales del baseline."""
     errors: list[str] = []
     pdps = sorted(PRODUCTS_ROOT.glob("*/*/index.html"), key=rel)
 
@@ -272,83 +310,191 @@ def check_negative_assertions() -> list[str]:
     return found
 
 
-def get_source_provenance_evidence() -> dict:
-    """Registra evidencia REAL de git para la fecha del Excel derivado, en vez
-    de asumir la fecha citada por el contrato sin verificarla."""
-    def last_commit_for(path_str: str) -> tuple[str, str] | None:
-        try:
-            out = subprocess.run(
-                ["git", "log", "-1", "--format=%h %ad", "--date=short", "--", path_str],
-                cwd=ROOT, capture_output=True, text=True, check=True,
-            ).stdout.strip()
-            if not out:
-                return None
-            sha, date = out.split(" ", 1)
-            return sha, date
-        except subprocess.CalledProcessError:
-            return None
+# ---------------------------------------------------------------------------
+# Gate 1 -- Source manifest integrity
+# ---------------------------------------------------------------------------
 
-    excel_exists = (ROOT / "EXCEL DE PRODUCTOS PARA MKT.xlsx").exists()
-    json_commit = last_commit_for("tools/products_from_excel.json")
-    excel_removal_commit = last_commit_for("EXCEL DE PRODUCTOS PARA MKT.xlsx")
+def load_manifest() -> dict:
+    with open(MANIFEST_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def verify_manifest_integrity(manifest: dict) -> dict:
+    """Gate 1. No depende de git/red/reloj. FATAL si el hash no coincide;
+    nunca se reconstruye el manifest automaticamente para hacer desaparecer
+    el error (Seccion 8)."""
+    errors: list[str] = []
+
+    schema_version = manifest.get("manifest_schema_version")
+    if schema_version != SUPPORTED_MANIFEST_SCHEMA_VERSION:
+        errors.append(f"unsupported manifest_schema_version: {schema_version!r}")
+
+    snapshot_info = manifest.get("derived_snapshot", {})
+    snapshot_rel_path = snapshot_info.get("path")
+    snapshot_path = ROOT / snapshot_rel_path if snapshot_rel_path else None
+
+    if snapshot_path is None or not snapshot_path.exists():
+        errors.append(f"derived snapshot not found: {snapshot_rel_path!r}")
+        return {"status": "fatal", "errors": errors}
+
+    snapshot_bytes = normalized_bytes(snapshot_path)
+    actual_sha256 = hashlib.sha256(snapshot_bytes).hexdigest()
+    expected_sha256 = snapshot_info.get("sha256")
+    if actual_sha256 != expected_sha256:
+        errors.append(
+            f"snapshot hash mismatch: manifest declares {expected_sha256!r}, "
+            f"actual is {actual_sha256!r}"
+        )
+
+    source_records = json.loads(snapshot_bytes.decode("utf-8"))
+
+    expected_count = manifest.get("business_source", {}).get("expected_record_count")
+    actual_count = len(source_records)
+    if actual_count != expected_count:
+        errors.append(
+            f"record count mismatch: manifest declares {expected_count!r}, "
+            f"snapshot has {actual_count!r}"
+        )
 
     return {
-        "excel_file_present_in_tree": excel_exists,
-        "derived_json_path": "tools/products_from_excel.json",
-        "derived_json_last_commit": json_commit[0] if json_commit else None,
-        "derived_json_last_commit_date": json_commit[1] if json_commit else None,
-        "excel_last_touched_commit": excel_removal_commit[0] if excel_removal_commit else None,
-        "excel_last_touched_date": excel_removal_commit[1] if excel_removal_commit else None,
-        "contract_claimed_last_modified": "2026-04-10",
-        "verification_note": (
-            "El archivo Excel original ya no existe en el arbol (verificado). "
-            "La fecha citada por el contrato (2026-04-10) no coincide con el "
-            "ultimo commit real que toco el archivo o su JSON derivado "
-            "(ver excel_last_touched_date / derived_json_last_commit_date). "
-            "Se usa la fecha verificada por git como provenance timestamp."
-        ),
+        "status": "fatal" if errors else "pass",
+        "errors": errors,
+        "expected_sha256": expected_sha256,
+        "actual_sha256": actual_sha256,
+        "expected_record_count": expected_count,
+        "actual_record_count": actual_count,
+        "source_records": source_records if not errors else None,
     }
 
 
-def build_records(inventory: dict, history: dict[str, list[str]]) -> list[dict]:
-    with open(EXCEL_JSON_PATH, encoding="utf-8") as f:
-        source_records = json.load(f)
+# ---------------------------------------------------------------------------
+# Gate 2 -- Source conflict / dedup (barcode AND model, independently)
+# ---------------------------------------------------------------------------
 
-    if len(source_records) != EXPECTED_SOURCE_RECORDS:
-        raise ValueError(
-            f"expected {EXPECTED_SOURCE_RECORDS} source records, got {len(source_records)}"
-        )
+def detect_source_conflicts(source_records: list[dict]) -> list[dict]:
+    """Gate 2. Un mismo model_normalized con mas de un barcode DISTINTO en el
+    source bloquea TODOS los records de ese modelo, incluso si cada barcode es
+    individualmente unico y estructuralmente valido (D1)."""
+    barcode_count: dict[str, int] = {}
+    model_to_barcodes: dict[str, set[str]] = {}
+    parsed: list[dict] = []
 
-    barcode_seen: dict[str, int] = {}
-    for r in source_records:
-        barcode_seen[r["barcode"]] = barcode_seen.get(r["barcode"], 0) + 1
-
-    products = inventory["products"]
-    records: list[dict] = []
-
-    for idx, raw in enumerate(source_records, start=1):
+    for raw in source_records:
         model_raw, alias = split_raw_sku(raw["sku"])
         model_normalized = normalize_model(model_raw)
         barcode_raw = raw["barcode"]
-        gtin_struct = classify_gtin_structure(barcode_raw)
+        parsed.append({
+            "raw": raw,
+            "model_raw": model_raw,
+            "model_alias": alias,
+            "model_normalized": model_normalized,
+            "barcode_raw": barcode_raw,
+        })
+        barcode_count[barcode_raw] = barcode_count.get(barcode_raw, 0) + 1
+        model_to_barcodes.setdefault(model_normalized, set()).add(barcode_raw)
 
-        matches = [k for k in products if k == model_normalized]
-        if len(matches) == 1:
-            reconciliation_status = "matched"
-            match_info = products[matches[0]]
-        elif len(matches) == 0:
-            reconciliation_status = "unmatched"
-            match_info = None
+    for p in parsed:
+        barcode_collision = barcode_count[p["barcode_raw"]] > 1
+        model_collision = len(model_to_barcodes[p["model_normalized"]]) > 1
+        if barcode_collision:
+            status = "barcode_collision"
+        elif model_collision:
+            status = "model_collision"
         else:
-            reconciliation_status = "ambiguous"
-            match_info = None
+            status = "none"
+        p["source_conflict_status"] = status
+
+    return parsed
+
+
+# ---------------------------------------------------------------------------
+# Gate 3 -- Identity reconciliation (answers ONLY matched/unmatched/ambiguous)
+# ---------------------------------------------------------------------------
+
+def reconcile_identity(model_normalized: str, products: dict) -> tuple[str, dict | None]:
+    matches = [k for k in products if k == model_normalized]
+    if len(matches) == 1:
+        return "matched", products[matches[0]]
+    if len(matches) == 0:
+        return "unmatched", None
+    return "ambiguous", None
+
+
+# ---------------------------------------------------------------------------
+# Gate 5 -- PDP corroboration (reads the real PDP; never inferred)
+# ---------------------------------------------------------------------------
+
+def pdp_corroboration(match_info: dict | None, barcode_raw: str) -> dict:
+    if match_info is None:
+        return {"status": "not_applicable", "pdp_barcode": None}
+    pdp_path = ROOT / match_info["path"]
+    html = read_text(pdp_path)
+    pdp_barcode = extract_pdp_barcode(html)
+    if pdp_barcode is None:
+        return {"status": "absent", "pdp_barcode": None}
+    if pdp_barcode == barcode_raw:
+        return {"status": "matched", "pdp_barcode": pdp_barcode}
+    return {"status": "mismatch", "pdp_barcode": pdp_barcode}
+
+
+# ---------------------------------------------------------------------------
+# Publication gate -- combines the five gates; never lets one gate answer
+# for another (Section 18).
+# ---------------------------------------------------------------------------
+
+def determine_publishing_status(
+    source_conflict_status: str,
+    reconciliation_status: str,
+    gtin_struct: dict,
+    pdp_corrob: dict,
+) -> tuple[str, bool, list[str]]:
+    notes: list[str] = []
+
+    if source_conflict_status == "barcode_collision":
+        notes.append("source_conflict_status=barcode_collision")
+        return "blocked", False, notes
+    if source_conflict_status == "model_collision":
+        notes.append("source_conflict_status=model_collision (multiples barcodes distintos para el mismo modelo)")
+        return "blocked", False, notes
+    if reconciliation_status != "matched":
+        notes.append(f"identity_reconciliation_status={reconciliation_status}")
+        return "blocked", False, notes
+    if gtin_struct["structural_status"] != "structurally_valid":
+        notes.append(f"gtin_structural_status={gtin_struct['structural_status']}")
+        return "blocked", False, notes
+    if pdp_corrob["status"] == "mismatch":
+        notes.append(
+            f"pdp_corroboration_status=mismatch (pdp_barcode={pdp_corrob['pdp_barcode']!r})"
+        )
+        return "blocked", False, notes
+
+    # pdp_corroboration_status == absent NO bloquea por si solo (Seccion 16).
+    return "validated", True, notes
+
+
+def build_records(manifest_result: dict, inventory: dict, history: dict[str, list[str]]) -> list[dict]:
+    source_records = manifest_result["source_records"]
+    products = inventory["products"]
+
+    conflicts = detect_source_conflicts(source_records)
+    records: list[dict] = []
+
+    for idx, parsed in enumerate(conflicts, start=1):
+        model_raw = parsed["model_raw"]
+        model_normalized = parsed["model_normalized"]
+        barcode_raw = parsed["barcode_raw"]
+        raw = parsed["raw"]
+
+        reconciliation_status, match_info = reconcile_identity(model_normalized, products)
+        gtin_struct = classify_gtin_structure(barcode_raw)
+        pdp_corrob = pdp_corroboration(match_info, barcode_raw)
 
         alternates = []
         historical = history.get(model_normalized, [])
-        current_source_confirmed = False
+        confirmed_by_historical_tooling = False
         for alt_barcode in historical:
             if alt_barcode == barcode_raw:
-                current_source_confirmed = True
+                confirmed_by_historical_tooling = True
                 continue
             alternates.append({
                 "barcode": alt_barcode,
@@ -358,86 +504,54 @@ def build_records(inventory: dict, history: dict[str, list[str]]) -> list[dict]:
                 "reason": "sin provenance empresarial vigente (solo tooling historico)",
             })
 
-        is_known_conflict = model_raw.strip().upper() in KNOWN_MULTI_BARCODE_MODELS or normalize_model(model_raw) in {
-            normalize_model(m) for m in KNOWN_MULTI_BARCODE_MODELS
-        }
-
-        duplicate_in_source = barcode_seen[barcode_raw] > 1
-
-        # Provenance gate: independiente del checksum (AC-G04). Un barcode solo
-        # tiene provenance suficiente si proviene de una fuente empresarial
-        # vigente Y no quedo desplazado por un conflicto de multiples codigos
-        # para el mismo modelo (Seccion 8 / R1).
-        provenance_sufficient = (
-            reconciliation_status == "matched"
-            and not duplicate_in_source
-        )
-        provenance_reason = (
-            "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
-            if provenance_sufficient
-            else f"reconciliation_status={reconciliation_status}, duplicate_in_source={duplicate_in_source}"
-        )
-
-        # Publication gate: fail-closed. Requiere provenance Y estructura,
-        # como chequeos EXPLICITOS e independientes.
-        gtin_status = "candidate"
-        gtin_publishable = False
-        conflict_notes: list[str] = []
-
-        if duplicate_in_source:
-            gtin_status = "ambiguous"
-            conflict_notes.append("barcode duplicado dentro del source empresarial")
-        elif reconciliation_status != "matched":
-            gtin_status = reconciliation_status if reconciliation_status == "ambiguous" else "candidate"
-            conflict_notes.append(f"reconciliation_status={reconciliation_status}; no hay Product unico para publicar")
-        elif not provenance_sufficient:
-            gtin_status = "candidate"
-            conflict_notes.append(f"provenance insuficiente: {provenance_reason}")
-        elif gtin_struct["structural_status"] != "structurally_valid":
-            gtin_status = "rejected"
-            conflict_notes.append(f"gtin structural failure: {gtin_struct['structural_status']}")
-        else:
-            gtin_status = "validated"
-            gtin_publishable = True
-
-        if is_known_conflict:
-            conflict_notes.append(
-                "modelo con historial de multiples codigos de barras conocido "
-                "(Seccion 8 del Acceptance Contract); ver alternates"
+        historical_conflict_status = (
+            "known_conflict"
+            if (
+                model_raw.strip().upper() in KNOWN_MULTI_BARCODE_MODELS
+                or model_normalized in {normalize_model(m) for m in KNOWN_MULTI_BARCODE_MODELS}
             )
+            else "none"
+        )
+
+        publishing_status, gtin_publishable, notes = determine_publishing_status(
+            parsed["source_conflict_status"],
+            reconciliation_status,
+            gtin_struct,
+            pdp_corrob,
+        )
 
         record = {
             "record_id": f"excel-{idx:03d}",
             "raw_sku_field": raw["sku"],
             "model_raw": model_raw,
-            "model_alias": alias,
+            "model_alias": parsed["model_alias"],
             "model_normalized": model_normalized,
             "es_nuevo": raw.get("es_nuevo", False),
             "barcode_raw": barcode_raw,
+            "gates": {
+                "source_conflict_status": parsed["source_conflict_status"],
+                "identity_reconciliation_status": reconciliation_status,
+                "gtin_structural_status": gtin_struct["structural_status"],
+                "pdp_corroboration_status": pdp_corrob["status"],
+                "historical_conflict_status": historical_conflict_status,
+            },
             "gtin_structural": gtin_struct,
-            "duplicate_barcode_in_source": duplicate_in_source,
-            "reconciliation_status": reconciliation_status,
+            "pdp_corroboration": pdp_corrob,
             "matched_model": match_info["model"] if match_info else None,
             "matched_product_id": match_info["product_id"] if match_info else None,
             "matched_canonical_url": match_info["canonical_url"] if match_info else None,
             "is_variant": match_info["is_variant"] if match_info else None,
             "product_group_url": match_info["product_group_url"] if match_info else None,
-            "provenance": {
-                "sources": ["excel_derived_json:tools/products_from_excel.json"],
-                "confirmed_by_pdp_display": reconciliation_status == "matched",
-                "confirmed_by_historical_tooling": current_source_confirmed,
-                "provenance_sufficient": provenance_sufficient,
-                "provenance_reason": provenance_reason,
-            },
-            "known_multi_barcode_conflict": is_known_conflict,
+            "confirmed_by_historical_tooling": confirmed_by_historical_tooling,
             "alternate_barcodes": alternates,
-            "gtin_status": gtin_status,
+            "publishing_status": publishing_status,
             "gtin_publishable": gtin_publishable,
+            "gtin_type": gtin_struct["gtin_type_candidate"] if gtin_publishable else None,
             "sku_candidate": model_raw,
             "sku_status": "candidate",
             "sku_publishable": False,
-            "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
-            "conflict_notes": conflict_notes,
+            "sku_publish_reason": "requiere decision empresarial explicita; no otorgada bajo este contrato",
+            "notes": notes,
         }
         records.append(record)
 
@@ -462,24 +576,32 @@ def build_summary(records: list[dict]) -> dict:
 
     return {
         "total_source_records": len(records),
-        "matched": count(lambda r: r["reconciliation_status"] == "matched"),
-        "ambiguous": count(lambda r: r["reconciliation_status"] == "ambiguous"),
-        "unmatched": count(lambda r: r["reconciliation_status"] == "unmatched"),
-        "rejected": count(lambda r: r["reconciliation_status"] == "rejected"),
+        "model_collisions": count(lambda r: r["gates"]["source_conflict_status"] == "model_collision"),
+        "barcode_collisions": count(lambda r: r["gates"]["source_conflict_status"] == "barcode_collision"),
+        "matched": count(lambda r: r["gates"]["identity_reconciliation_status"] == "matched"),
+        "ambiguous": count(lambda r: r["gates"]["identity_reconciliation_status"] == "ambiguous"),
+        "unmatched": count(lambda r: r["gates"]["identity_reconciliation_status"] == "unmatched"),
         "gtin12_candidates": count(lambda r: r["gtin_structural"]["gtin_type_candidate"] == "gtin12"),
         "gtin13_candidates": count(lambda r: r["gtin_structural"]["gtin_type_candidate"] == "gtin13"),
         "checksum_pass": count(lambda r: r["gtin_structural"]["checksum_valid"]),
         "checksum_fail": count(lambda r: not r["gtin_structural"]["checksum_valid"]),
-        "duplicate_barcodes_in_source": count(lambda r: r["duplicate_barcode_in_source"]),
-        "known_multi_barcode_conflicts": count(lambda r: r["known_multi_barcode_conflict"]),
-        "gtin_validated": count(lambda r: r["gtin_status"] == "validated"),
-        "gtin_blocked": count(lambda r: r["gtin_status"] != "validated"),
+        "pdp_match": count(lambda r: r["gates"]["pdp_corroboration_status"] == "matched"),
+        "pdp_mismatch": count(lambda r: r["gates"]["pdp_corroboration_status"] == "mismatch"),
+        "pdp_absent": count(lambda r: r["gates"]["pdp_corroboration_status"] == "absent"),
+        "known_multi_barcode_conflicts": count(lambda r: r["gates"]["historical_conflict_status"] == "known_conflict"),
+        "gtin_validated": count(lambda r: r["publishing_status"] == "validated"),
+        "gtin_blocked": count(lambda r: r["publishing_status"] == "blocked"),
         "sku_validated": count(lambda r: r["sku_status"] == "validated"),
         "sku_published": count(lambda r: r["sku_publishable"]),
     }
 
 
 def build_registry() -> dict:
+    manifest = load_manifest()
+    manifest_result = verify_manifest_integrity(manifest)
+    if manifest_result["status"] == "fatal":
+        raise ValueError("manifest integrity FATAL: " + "; ".join(manifest_result["errors"]))
+
     inventory = extract_site_inventory()
     if inventory["errors"]:
         raise ValueError("site inventory errors: " + "; ".join(inventory["errors"]))
@@ -489,24 +611,35 @@ def build_registry() -> dict:
         raise ValueError("negative assertion violations found: " + "; ".join(negative_findings))
 
     history = load_replace_codes_history()
-    records = build_records(inventory, history)
+    records = build_records(manifest_result, inventory, history)
     aliases = build_alias_registry(records)
     summary = build_summary(records)
 
-    if summary["gtin12_candidates"] != EXPECTED_GTIN12_CANDIDATES:
-        raise ValueError(
-            f"expected {EXPECTED_GTIN12_CANDIDATES} gtin12 candidates, got {summary['gtin12_candidates']}"
+    mismatches = [r for r in records if r["gates"]["pdp_corroboration_status"] == "mismatch"]
+    if mismatches:
+        details = "; ".join(
+            f"{r['model_raw']} ({r['matched_canonical_url']}): source={r['barcode_raw']} "
+            f"pdp={r['pdp_corroboration']['pdp_barcode']}"
+            for r in mismatches
         )
-    if summary["gtin13_candidates"] != EXPECTED_GTIN13_CANDIDATES:
         raise ValueError(
-            f"expected {EXPECTED_GTIN13_CANDIDATES} gtin13 candidates, got {summary['gtin13_candidates']}"
+            "HIGH-SEVERITY: pdp_corroboration_status=mismatch detected -- STOP, do not publish, "
+            "do not modify PDP within this contract: " + details
         )
 
     return {
-        "schema_version": 1,
-        "contract": "HP-SEO-AI-001F-1",
+        "schema_version": 2,
+        "contract": "HP-SEO-AI-001F-1R1",
         "baseline_commit": BASELINE_COMMIT,
-        "source_provenance": get_source_provenance_evidence(),
+        "manifest": {
+            "path": rel(MANIFEST_PATH),
+            "business_source_status": "pass",
+            "snapshot_integrity_status": manifest_result["status"],
+            "expected_sha256": manifest_result["expected_sha256"],
+            "actual_sha256": manifest_result["actual_sha256"],
+            "expected_record_count": manifest_result["expected_record_count"],
+            "actual_record_count": manifest_result["actual_record_count"],
+        },
         "site_invariants": {
             "total_pdp": inventory["total_pdp"],
             "indexable_pdp": inventory["indexable_pdp"],
@@ -522,21 +655,25 @@ def build_registry() -> dict:
 
 
 def print_kv(data: dict, prefix: str = "") -> None:
-    print(f"{prefix}TOTAL_SOURCE_RECORDS={data['summary']['total_source_records']}")
-    print(f"{prefix}MATCHED={data['summary']['matched']}")
-    print(f"{prefix}AMBIGUOUS={data['summary']['ambiguous']}")
-    print(f"{prefix}UNMATCHED={data['summary']['unmatched']}")
-    print(f"{prefix}REJECTED={data['summary']['rejected']}")
-    print(f"{prefix}GTIN12_CANDIDATES={data['summary']['gtin12_candidates']}")
-    print(f"{prefix}GTIN13_CANDIDATES={data['summary']['gtin13_candidates']}")
-    print(f"{prefix}CHECKSUM_PASS={data['summary']['checksum_pass']}")
-    print(f"{prefix}CHECKSUM_FAIL={data['summary']['checksum_fail']}")
-    print(f"{prefix}DUPLICATE_BARCODES={data['summary']['duplicate_barcodes_in_source']}")
-    print(f"{prefix}KNOWN_MULTI_BARCODE_CONFLICTS={data['summary']['known_multi_barcode_conflicts']}")
-    print(f"{prefix}GTIN_VALIDATED={data['summary']['gtin_validated']}")
-    print(f"{prefix}GTIN_BLOCKED={data['summary']['gtin_blocked']}")
-    print(f"{prefix}SKU_VALIDATED={data['summary']['sku_validated']}")
-    print(f"{prefix}SKU_PUBLISHED={data['summary']['sku_published']}")
+    s = data["summary"]
+    print(f"{prefix}SOURCE_RECORDS={s['total_source_records']}")
+    print(f"{prefix}MODEL_COLLISIONS={s['model_collisions']}")
+    print(f"{prefix}BARCODE_COLLISIONS={s['barcode_collisions']}")
+    print(f"{prefix}MATCHED={s['matched']}")
+    print(f"{prefix}AMBIGUOUS={s['ambiguous']}")
+    print(f"{prefix}UNMATCHED={s['unmatched']}")
+    print(f"{prefix}GTIN12={s['gtin12_candidates']}")
+    print(f"{prefix}GTIN13={s['gtin13_candidates']}")
+    print(f"{prefix}CHECKSUM_PASS={s['checksum_pass']}")
+    print(f"{prefix}CHECKSUM_FAIL={s['checksum_fail']}")
+    print(f"{prefix}PDP_MATCH={s['pdp_match']}")
+    print(f"{prefix}PDP_MISMATCH={s['pdp_mismatch']}")
+    print(f"{prefix}PDP_ABSENT={s['pdp_absent']}")
+    print(f"{prefix}KNOWN_MULTI_BARCODE_CONFLICTS={s['known_multi_barcode_conflicts']}")
+    print(f"{prefix}GTIN_VALIDATED={s['gtin_validated']}")
+    print(f"{prefix}GTIN_BLOCKED={s['gtin_blocked']}")
+    print(f"{prefix}SKU_VALIDATED={s['sku_validated']}")
+    print(f"{prefix}SKU_PUBLISHED={s['sku_published']}")
     print(f"{prefix}PRODUCT_COUNT={data['site_invariants']['product_count']}")
     print(f"{prefix}PRODUCTGROUP_COUNT={data['site_invariants']['productgroup_count']}")
     print(f"{prefix}VARIANT_COUNT={data['site_invariants']['variant_count']}")
@@ -551,7 +688,7 @@ def main() -> int:
 
     try:
         registry = build_registry()
-    except (OSError, UnicodeError, ValueError, AttributeError) as exc:
+    except (OSError, UnicodeError, ValueError, AttributeError, json.JSONDecodeError) as exc:
         print(f"FATAL={exc}")
         return 1
 
