@@ -89,6 +89,20 @@ def read_text(path: Path) -> str:
     return path.read_bytes().decode("utf-8")
 
 
+def normalized_bytes(path: Path) -> bytes:
+    """Lee un archivo y normaliza line-endings a LF antes de cualquier uso
+    canonico (hashing). Un checkout local puede materializar CRLF (p.ej.
+    Windows con core.autocrlf) mientras el blob almacenado en git es LF; sin
+    esta normalizacion, el mismo contenido logico produce hashes distintos
+    segun el entorno de checkout -- exactamente la clase de no-determinismo
+    que la Seccion 20 prohibe. Esto NO invoca git: es normalizacion de bytes
+    pura en Python, independiente de cualquier configuracion de checkout."""
+    raw = path.read_bytes()
+    text = raw.decode("utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return normalized.encode("utf-8")
+
+
 def jsonld_objects(html: str) -> list[dict]:
     objects: list[dict] = []
     for match in SCRIPT_RE.finditer(html):
@@ -323,7 +337,8 @@ def verify_manifest_integrity(manifest: dict) -> dict:
         errors.append(f"derived snapshot not found: {snapshot_rel_path!r}")
         return {"status": "fatal", "errors": errors}
 
-    actual_sha256 = hashlib.sha256(snapshot_path.read_bytes()).hexdigest()
+    snapshot_bytes = normalized_bytes(snapshot_path)
+    actual_sha256 = hashlib.sha256(snapshot_bytes).hexdigest()
     expected_sha256 = snapshot_info.get("sha256")
     if actual_sha256 != expected_sha256:
         errors.append(
@@ -331,8 +346,7 @@ def verify_manifest_integrity(manifest: dict) -> dict:
             f"actual is {actual_sha256!r}"
         )
 
-    with open(snapshot_path, encoding="utf-8") as f:
-        source_records = json.load(f)
+    source_records = json.loads(snapshot_bytes.decode("utf-8"))
 
     expected_count = manifest.get("business_source", {}).get("expected_record_count")
     actual_count = len(source_records)

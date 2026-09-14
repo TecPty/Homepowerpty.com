@@ -11,6 +11,7 @@
   },
   "derived_snapshot": {
     "path": "tools/products_from_excel.json",
-    "sha256": "75c8fb5f5ad61eba2bb9cda910ff459a40bb41d9772311cae3ea97b9f04aa27b"
+    "sha256": "a3927eb2c0f444334fd6fcd02205a8208e7ab23001d45b6e415ceba392e69547",
+    "sha256_normalization": "line-endings normalized to LF before hashing; independent of local checkout CRLF/LF materialization"
   }
 }

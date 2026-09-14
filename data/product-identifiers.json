@@ -6,8 +6,8 @@
     "path": "data/product-identifiers-source-manifest.json",
     "business_source_status": "pass",
     "snapshot_integrity_status": "pass",
-    "expected_sha256": "75c8fb5f5ad61eba2bb9cda910ff459a40bb41d9772311cae3ea97b9f04aa27b",
-    "actual_sha256": "75c8fb5f5ad61eba2bb9cda910ff459a40bb41d9772311cae3ea97b9f04aa27b",
+    "expected_sha256": "a3927eb2c0f444334fd6fcd02205a8208e7ab23001d45b6e415ceba392e69547",
+    "actual_sha256": "a3927eb2c0f444334fd6fcd02205a8208e7ab23001d45b6e415ceba392e69547",
     "expected_record_count": 59,
     "actual_record_count": 59
   },
