@@ -1,0 +1,2514 @@
+{
+  "schema_version": 1,
+  "contract": "HP-SEO-AI-001F-1",
+  "baseline_commit": "45f8e0f38166de7b52a5675d9e231d0f05a34c75",
+  "source_provenance": {
+    "excel_file_present_in_tree": false,
+    "derived_json_path": "tools/products_from_excel.json",
+    "derived_json_last_commit": "63f657c",
+    "derived_json_last_commit_date": "2026-04-17",
+    "excel_last_touched_commit": "675c0cb",
+    "excel_last_touched_date": "2026-04-23",
+    "contract_claimed_last_modified": "2026-04-10",
+    "verification_note": "El archivo Excel original ya no existe en el arbol (verificado). La fecha citada por el contrato (2026-04-10) no coincide con el ultimo commit real que toco el archivo o su JSON derivado (ver excel_last_touched_date / derived_json_last_commit_date). Se usa la fecha verificada por git como provenance timestamp."
+  },
+  "site_invariants": {
+    "total_pdp": 127,
+    "indexable_pdp": 126,
+    "noindex_pdp": 1,
+    "product_count": 117,
+    "productgroup_count": 9,
+    "variant_count": 46
+  },
+  "records": [
+    {
+      "record_id": "excel-001",
+      "raw_sku_field": "JD389",
+      "model_raw": "JD389",
+      "model_alias": null,
+      "model_normalized": "JD389",
+      "es_nuevo": false,
+      "barcode_raw": "732129008888",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "JD389",
+      "matched_product_id": "https://www.homepowerpty.com/productos/freidoras-de-aire/jd389/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/freidoras-de-aire/jd389/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "JD389",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-002",
+      "raw_sku_field": "AF3201",
+      "model_raw": "AF3201",
+      "model_alias": null,
+      "model_normalized": "AF3201",
+      "es_nuevo": true,
+      "barcode_raw": "732129008635",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "AF3201",
+      "matched_product_id": "https://www.homepowerpty.com/productos/freidoras-de-aire/af3201/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/freidoras-de-aire/af3201/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "AF3201",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-003",
+      "raw_sku_field": "OC-506",
+      "model_raw": "OC-506",
+      "model_alias": null,
+      "model_normalized": "OC506",
+      "es_nuevo": false,
+      "barcode_raw": "732129008413",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "OC-506",
+      "matched_product_id": "https://www.homepowerpty.com/productos/freidoras-de-aire/oc-506/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/freidoras-de-aire/oc-506/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "OC-506",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-004",
+      "raw_sku_field": "MM-111",
+      "model_raw": "MM-111",
+      "model_alias": null,
+      "model_normalized": "MM111",
+      "es_nuevo": false,
+      "barcode_raw": "6902468910348",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 13,
+        "gtin_type_candidate": "gtin13",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "MM-111",
+      "matched_product_id": "https://www.homepowerpty.com/productos/licuadoras/mm-111/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/licuadoras/mm-111/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "MM-111",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-005",
+      "raw_sku_field": "VB-999",
+      "model_raw": "VB-999",
+      "model_alias": null,
+      "model_normalized": "VB999",
+      "es_nuevo": false,
+      "barcode_raw": "732129008895",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "VB-999",
+      "matched_product_id": "https://www.homepowerpty.com/productos/licuadoras/vb-999/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/licuadoras/vb-999/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "VB-999",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-006",
+      "raw_sku_field": "MM-931",
+      "model_raw": "MM-931",
+      "model_alias": null,
+      "model_normalized": "MM931",
+      "es_nuevo": false,
+      "barcode_raw": "732129008390",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "MM-931",
+      "matched_product_id": "https://www.homepowerpty.com/productos/licuadoras/mm-931/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/licuadoras/mm-931/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "MM-931",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-007",
+      "raw_sku_field": "MM-933",
+      "model_raw": "MM-933",
+      "model_alias": null,
+      "model_normalized": "MM933",
+      "es_nuevo": false,
+      "barcode_raw": "732129008406",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "MM-933",
+      "matched_product_id": "https://www.homepowerpty.com/productos/licuadoras/mm-933/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/licuadoras/mm-933/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "MM-933",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-008",
+      "raw_sku_field": "HP-024",
+      "model_raw": "HP-024",
+      "model_alias": null,
+      "model_normalized": "HP024",
+      "es_nuevo": true,
+      "barcode_raw": "732129008949",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-024",
+      "matched_product_id": "https://www.homepowerpty.com/productos/batidoras/hp-024/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/batidoras/hp-024/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-024",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-009",
+      "raw_sku_field": "HP-044",
+      "model_raw": "HP-044",
+      "model_alias": null,
+      "model_normalized": "HP044",
+      "es_nuevo": true,
+      "barcode_raw": "694943899199",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-044",
+      "matched_product_id": "https://www.homepowerpty.com/productos/batidoras/hp-044/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/batidoras/hp-044/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-044",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-010",
+      "raw_sku_field": "HP-045",
+      "model_raw": "HP-045",
+      "model_alias": null,
+      "model_normalized": "HP045",
+      "es_nuevo": true,
+      "barcode_raw": "694943899205",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-045",
+      "matched_product_id": "https://www.homepowerpty.com/productos/batidoras/hp-045/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/batidoras/hp-045/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-045",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-011",
+      "raw_sku_field": "F-010E-1",
+      "model_raw": "F-010E-1",
+      "model_alias": null,
+      "model_normalized": "F010E1",
+      "es_nuevo": false,
+      "barcode_raw": "732129008901",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "F-010E-1",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/f-010e-1/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/f-010e-1/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "F-010E-1",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-012",
+      "raw_sku_field": "2020B\n(F-011A-1)",
+      "model_raw": "2020B",
+      "model_alias": "F-011A-1",
+      "model_normalized": "2020B",
+      "es_nuevo": false,
+      "barcode_raw": "732129008918",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "2020B",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/2020b/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/2020b/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "2020B",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-013",
+      "raw_sku_field": "1010A",
+      "model_raw": "1010A",
+      "model_alias": null,
+      "model_normalized": "1010A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008581",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "1010A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/1010a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/1010a/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "1010A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-014",
+      "raw_sku_field": "2020A",
+      "model_raw": "2020A",
+      "model_alias": null,
+      "model_normalized": "2020A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008598",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "2020A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/2020a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/2020a/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "2020A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-015",
+      "raw_sku_field": "2050A",
+      "model_raw": "2050A",
+      "model_alias": null,
+      "model_normalized": "2050A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008437",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "2050A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/2050a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/2050a/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "2050A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-016",
+      "raw_sku_field": "3080",
+      "model_raw": "3080",
+      "model_alias": null,
+      "model_normalized": "3080",
+      "es_nuevo": true,
+      "barcode_raw": "732129008666",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "3080",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/3080/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/3080/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "3080",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-017",
+      "raw_sku_field": "3076K",
+      "model_raw": "3076K",
+      "model_alias": null,
+      "model_normalized": "3076K",
+      "es_nuevo": false,
+      "barcode_raw": "732129008420",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "3076K",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/3076k/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/3076k/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "3076K",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-018",
+      "raw_sku_field": "3081K",
+      "model_raw": "3081K",
+      "model_alias": null,
+      "model_normalized": "3081K",
+      "es_nuevo": true,
+      "barcode_raw": "732129008673",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "3081K",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/3081k/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/3081k/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "3081K",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-019",
+      "raw_sku_field": "HP-073",
+      "model_raw": "HP-073",
+      "model_alias": null,
+      "model_normalized": "HP073",
+      "es_nuevo": true,
+      "barcode_raw": "694943899489",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-073",
+      "matched_product_id": "https://www.homepowerpty.com/productos/estufas/hp-073/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/estufas/hp-073/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-073",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-020",
+      "raw_sku_field": "CM02",
+      "model_raw": "CM02",
+      "model_alias": null,
+      "model_normalized": "CM02",
+      "es_nuevo": false,
+      "barcode_raw": "732129008932",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "CM02",
+      "matched_product_id": "https://www.homepowerpty.com/productos/cafeteras/cm02/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/cafeteras/cm02/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "CM02",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-021",
+      "raw_sku_field": "WJ-9008",
+      "model_raw": "WJ-9008",
+      "model_alias": null,
+      "model_normalized": "WJ9008",
+      "es_nuevo": false,
+      "barcode_raw": "732129008567",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "WJ-9008",
+      "matched_product_id": "https://www.homepowerpty.com/productos/cafeteras/wj-9008/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/cafeteras/wj-9008/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "WJ-9008",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-022",
+      "raw_sku_field": "WJ-9009",
+      "model_raw": "WJ-9009",
+      "model_alias": null,
+      "model_normalized": "WJ9009",
+      "es_nuevo": false,
+      "barcode_raw": "732129008574",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "WJ-9009",
+      "matched_product_id": "https://www.homepowerpty.com/productos/cafeteras/wj-9009/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/cafeteras/wj-9009/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "WJ-9009",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-023",
+      "raw_sku_field": "WJ-9001",
+      "model_raw": "WJ-9001",
+      "model_alias": null,
+      "model_normalized": "WJ9001",
+      "es_nuevo": true,
+      "barcode_raw": "732129008680",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "WJ-9001",
+      "matched_product_id": "https://www.homepowerpty.com/productos/cafeteras/wj-9001/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/cafeteras/wj-9001/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "WJ-9001",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-024",
+      "raw_sku_field": "WJ-9002",
+      "model_raw": "WJ-9002",
+      "model_alias": null,
+      "model_normalized": "WJ9002",
+      "es_nuevo": true,
+      "barcode_raw": "732129008697",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "WJ-9002",
+      "matched_product_id": "https://www.homepowerpty.com/productos/cafeteras/wj-9002/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/cafeteras/wj-9002/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "WJ-9002",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-025",
+      "raw_sku_field": "WJ-9011",
+      "model_raw": "WJ-9011",
+      "model_alias": null,
+      "model_normalized": "WJ9011",
+      "es_nuevo": true,
+      "barcode_raw": "732129008703",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "WJ-9011",
+      "matched_product_id": "https://www.homepowerpty.com/productos/cafeteras/wj-9011/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/cafeteras/wj-9011/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "WJ-9011",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-026",
+      "raw_sku_field": "HP-046",
+      "model_raw": "HP-046",
+      "model_alias": null,
+      "model_normalized": "HP046",
+      "es_nuevo": true,
+      "barcode_raw": "694943899212",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-046",
+      "matched_product_id": "https://www.homepowerpty.com/productos/percoladoras/hp-046/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/percoladoras/hp-046/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-046",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-027",
+      "raw_sku_field": "HP-047",
+      "model_raw": "HP-047",
+      "model_alias": null,
+      "model_normalized": "HP047",
+      "es_nuevo": true,
+      "barcode_raw": "694943899229",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-047",
+      "matched_product_id": "https://www.homepowerpty.com/productos/percoladoras/hp-047/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/percoladoras/hp-047/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-047",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-028",
+      "raw_sku_field": "HP-048",
+      "model_raw": "HP-048",
+      "model_alias": null,
+      "model_normalized": "HP048",
+      "es_nuevo": true,
+      "barcode_raw": "694943899236",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-048",
+      "matched_product_id": "https://www.homepowerpty.com/productos/percoladoras/hp-048/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/percoladoras/hp-048/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-048",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-029",
+      "raw_sku_field": "HP-049",
+      "model_raw": "HP-049",
+      "model_alias": null,
+      "model_normalized": "HP049",
+      "es_nuevo": true,
+      "barcode_raw": "694943899243",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-049",
+      "matched_product_id": "https://www.homepowerpty.com/productos/percoladoras/hp-049/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/percoladoras/hp-049/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-049",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-030",
+      "raw_sku_field": "R.91171B",
+      "model_raw": "R.91171B",
+      "model_alias": null,
+      "model_normalized": "R91171B",
+      "es_nuevo": false,
+      "barcode_raw": "6942368204482",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 13,
+        "gtin_type_candidate": "gtin13",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "R.91171B",
+      "matched_product_id": "https://www.homepowerpty.com/productos/planchas/r91171b/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/planchas/r91171b/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "R.91171B",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-031",
+      "raw_sku_field": "HP-012",
+      "model_raw": "HP-012",
+      "model_alias": null,
+      "model_normalized": "HP012",
+      "es_nuevo": true,
+      "barcode_raw": "732129008840",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-012",
+      "matched_product_id": "https://www.homepowerpty.com/productos/planchas/hp012/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/planchas/hp012/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-012",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-032",
+      "raw_sku_field": "R.1808B",
+      "model_raw": "R.1808B",
+      "model_alias": null,
+      "model_normalized": "R1808B",
+      "es_nuevo": false,
+      "barcode_raw": "6975069407036",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 13,
+        "gtin_type_candidate": "gtin13",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "R.1808B",
+      "matched_product_id": "https://www.homepowerpty.com/productos/planchas/r-1808b/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/planchas/r-1808b/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "R.1808B",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-033",
+      "raw_sku_field": "R.91261",
+      "model_raw": "R.91261",
+      "model_alias": null,
+      "model_normalized": "R91261",
+      "es_nuevo": false,
+      "barcode_raw": "6975069402017",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 13,
+        "gtin_type_candidate": "gtin13",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "R.91261",
+      "matched_product_id": "https://www.homepowerpty.com/productos/planchas/r-91261/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/planchas/r-91261/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "R.91261",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-034",
+      "raw_sku_field": "R.92003",
+      "model_raw": "R.92003",
+      "model_alias": null,
+      "model_normalized": "R92003",
+      "es_nuevo": false,
+      "barcode_raw": "6975069407234",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 13,
+        "gtin_type_candidate": "gtin13",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "R.92003",
+      "matched_product_id": "https://www.homepowerpty.com/productos/planchas/r-92003/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/planchas/r-92003/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "R.92003",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-035",
+      "raw_sku_field": "JR-A101\n(R.97816)",
+      "model_raw": "JR-A101",
+      "model_alias": "R.97816",
+      "model_normalized": "JRA101",
+      "es_nuevo": false,
+      "barcode_raw": "732129008611",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "JR-A101",
+      "matched_product_id": "https://www.homepowerpty.com/productos/teteras/jr-a101/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/teteras/jr-a101/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": true,
+      "alternate_barcodes": [
+        {
+          "barcode": "6975069407975",
+          "classification": "alternate",
+          "source": [
+            "historical_tooling:tools/replace_codes.py"
+          ],
+          "publishing_eligible": false,
+          "reason": "sin provenance empresarial vigente (solo tooling historico)"
+        }
+      ],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "JR-A101",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": [
+        "modelo con historial de multiples codigos de barras conocido (Seccion 8 del Acceptance Contract); ver alternates"
+      ]
+    },
+    {
+      "record_id": "excel-036",
+      "raw_sku_field": "JR-LD8\n(R.97928)",
+      "model_raw": "JR-LD8",
+      "model_alias": "R.97928",
+      "model_normalized": "JRLD8",
+      "es_nuevo": false,
+      "barcode_raw": "732129008628",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "JR-LD8",
+      "matched_product_id": "https://www.homepowerpty.com/productos/teteras/jr-ld8/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/teteras/jr-ld8/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": true,
+      "alternate_barcodes": [
+        {
+          "barcode": "6975069401331",
+          "classification": "alternate",
+          "source": [
+            "historical_tooling:tools/replace_codes.py"
+          ],
+          "publishing_eligible": false,
+          "reason": "sin provenance empresarial vigente (solo tooling historico)"
+        }
+      ],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "JR-LD8",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": [
+        "modelo con historial de multiples codigos de barras conocido (Seccion 8 del Acceptance Contract); ver alternates"
+      ]
+    },
+    {
+      "record_id": "excel-037",
+      "raw_sku_field": "H208",
+      "model_raw": "H208",
+      "model_alias": null,
+      "model_normalized": "H208",
+      "es_nuevo": false,
+      "barcode_raw": "732129008604",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "H208",
+      "matched_product_id": "https://www.homepowerpty.com/productos/teteras/h208/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/teteras/h208/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "H208",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-038",
+      "raw_sku_field": "SJ-24",
+      "model_raw": "SJ-24",
+      "model_alias": null,
+      "model_normalized": "SJ24",
+      "es_nuevo": false,
+      "barcode_raw": "732129008369",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "SJ-24",
+      "matched_product_id": "https://www.homepowerpty.com/productos/sandwicheras/sj-24/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/sandwicheras/sj-24/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "SJ-24",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-039",
+      "raw_sku_field": "SJ-22",
+      "model_raw": "SJ-22",
+      "model_alias": null,
+      "model_normalized": "SJ22",
+      "es_nuevo": false,
+      "barcode_raw": "732129008352",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "SJ-22",
+      "matched_product_id": "https://www.homepowerpty.com/productos/sandwicheras/sj-22/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/sandwicheras/sj-22/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "SJ-22",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-040",
+      "raw_sku_field": "SJ-40",
+      "model_raw": "SJ-40",
+      "model_alias": null,
+      "model_normalized": "SJ40",
+      "es_nuevo": false,
+      "barcode_raw": "732129008376",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "SJ-40",
+      "matched_product_id": "https://www.homepowerpty.com/productos/sandwicheras/sj-40/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/sandwicheras/sj-40/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "SJ-40",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-041",
+      "raw_sku_field": "SJ-40A",
+      "model_raw": "SJ-40A",
+      "model_alias": null,
+      "model_normalized": "SJ40A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008383",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "SJ-40A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/sandwicheras/sj-40a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/sandwicheras/sj-40a/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "SJ-40A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-042",
+      "raw_sku_field": "SJ-27",
+      "model_raw": "SJ-27",
+      "model_alias": null,
+      "model_normalized": "SJ27",
+      "es_nuevo": true,
+      "barcode_raw": "732129008727",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "SJ-27",
+      "matched_product_id": "https://www.homepowerpty.com/productos/sandwicheras/sj-27/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/sandwicheras/sj-27/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "SJ-27",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-043",
+      "raw_sku_field": "SJ-35",
+      "model_raw": "SJ-35",
+      "model_alias": null,
+      "model_normalized": "SJ35",
+      "es_nuevo": true,
+      "barcode_raw": "732129008710",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "SJ-35",
+      "matched_product_id": "https://www.homepowerpty.com/productos/sandwicheras/sj35/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/sandwicheras/sj35/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "SJ-35",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-044",
+      "raw_sku_field": "HP-017",
+      "model_raw": "HP-017",
+      "model_alias": null,
+      "model_normalized": "HP017",
+      "es_nuevo": true,
+      "barcode_raw": "694943899502",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-017",
+      "matched_product_id": "https://www.homepowerpty.com/productos/tostadoras/hp-017/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/tostadoras/hp-017/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": true,
+      "alternate_barcodes": [
+        {
+          "barcode": "6942368206585",
+          "classification": "alternate",
+          "source": [
+            "historical_tooling:tools/replace_codes.py"
+          ],
+          "publishing_eligible": false,
+          "reason": "sin provenance empresarial vigente (solo tooling historico)"
+        }
+      ],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-017",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": [
+        "modelo con historial de multiples codigos de barras conocido (Seccion 8 del Acceptance Contract); ver alternates"
+      ]
+    },
+    {
+      "record_id": "excel-045",
+      "raw_sku_field": "HP-018",
+      "model_raw": "HP-018",
+      "model_alias": null,
+      "model_normalized": "HP018",
+      "es_nuevo": true,
+      "barcode_raw": "694943899519",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HP-018",
+      "matched_product_id": "https://www.homepowerpty.com/productos/tostadoras/hp-018/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/tostadoras/hp-018/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HP-018",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-046",
+      "raw_sku_field": "PN09",
+      "model_raw": "PN09",
+      "model_alias": null,
+      "model_normalized": "PN09",
+      "es_nuevo": false,
+      "barcode_raw": "732129008444",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "PN-09",
+      "matched_product_id": "https://www.homepowerpty.com/productos/hornitos/pn-09/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/hornitos/pn-09/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "PN09",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-047",
+      "raw_sku_field": "JY-1001",
+      "model_raw": "JY-1001",
+      "model_alias": null,
+      "model_normalized": "JY1001",
+      "es_nuevo": true,
+      "barcode_raw": "732129008659",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "JY-1001",
+      "matched_product_id": "https://www.homepowerpty.com/productos/loncheras/jy-1001/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/loncheras/jy-1001/",
+      "is_variant": false,
+      "product_group_url": null,
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "JY-1001",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-048",
+      "raw_sku_field": "HT-03",
+      "model_raw": "HT-03",
+      "model_alias": null,
+      "model_normalized": "HT03",
+      "es_nuevo": false,
+      "barcode_raw": "732129008642",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-03",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-03/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-03/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-ht/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-03",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-049",
+      "raw_sku_field": "HT-15A",
+      "model_raw": "HT-15A",
+      "model_alias": null,
+      "model_normalized": "HT15A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008451",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-15A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-15a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-15a/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-vaporera-hta/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-15A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-050",
+      "raw_sku_field": "HT-15",
+      "model_raw": "HT-15",
+      "model_alias": null,
+      "model_normalized": "HT15",
+      "es_nuevo": false,
+      "barcode_raw": "732129008468",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-15",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-15/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-15/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-ht/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-15",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-051",
+      "raw_sku_field": "HT-18A",
+      "model_raw": "HT-18A",
+      "model_alias": null,
+      "model_normalized": "HT18A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008475",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-18A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-18a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-18a/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-vaporera-hta/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-18A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-052",
+      "raw_sku_field": "HT-18",
+      "model_raw": "HT-18",
+      "model_alias": null,
+      "model_normalized": "HT18",
+      "es_nuevo": false,
+      "barcode_raw": "732129008482",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-18",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-18/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-18/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-ht/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-18",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-053",
+      "raw_sku_field": "HT-22A",
+      "model_raw": "HT-22A",
+      "model_alias": null,
+      "model_normalized": "HT22A",
+      "es_nuevo": false,
+      "barcode_raw": "732129008499",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-22A",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-22a/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-22a/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-vaporera-hta/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-22A",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-054",
+      "raw_sku_field": "HT-22",
+      "model_raw": "HT-22",
+      "model_alias": null,
+      "model_normalized": "HT22",
+      "es_nuevo": false,
+      "barcode_raw": "732129008505",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "HT-22",
+      "matched_product_id": "https://www.homepowerpty.com/productos/arroceras/ht-22/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/arroceras/ht-22/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/arroceras/arrocera-ht/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "HT-22",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-055",
+      "raw_sku_field": "CK-02-18",
+      "model_raw": "CK-02-18",
+      "model_alias": null,
+      "model_normalized": "CK0218",
+      "es_nuevo": false,
+      "barcode_raw": "732129008512",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "CK-02-18",
+      "matched_product_id": "https://www.homepowerpty.com/productos/ollas/ck-02-18/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/ollas/ck-02-18/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/ollas/olla-presion-ck02/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "CK-02-18",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-056",
+      "raw_sku_field": "CK-02-20",
+      "model_raw": "CK-02-20",
+      "model_alias": null,
+      "model_normalized": "CK0220",
+      "es_nuevo": false,
+      "barcode_raw": "732129008529",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "CK-02-20",
+      "matched_product_id": "https://www.homepowerpty.com/productos/ollas/ck-02-20/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/ollas/ck-02-20/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/ollas/olla-presion-ck02/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "CK-02-20",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-057",
+      "raw_sku_field": "CK-02-22",
+      "model_raw": "CK-02-22",
+      "model_alias": null,
+      "model_normalized": "CK0222",
+      "es_nuevo": false,
+      "barcode_raw": "732129008536",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "CK-02-22",
+      "matched_product_id": "https://www.homepowerpty.com/productos/ollas/ck-02-22/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/ollas/ck-02-22/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/ollas/olla-presion-ck02/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "CK-02-22",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-058",
+      "raw_sku_field": "CK-02-24",
+      "model_raw": "CK-02-24",
+      "model_alias": null,
+      "model_normalized": "CK0224",
+      "es_nuevo": false,
+      "barcode_raw": "732129008543",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "CK-02-24",
+      "matched_product_id": "https://www.homepowerpty.com/productos/ollas/ck-02-24/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/ollas/ck-02-24/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/ollas/olla-presion-ck02/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "CK-02-24",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    },
+    {
+      "record_id": "excel-059",
+      "raw_sku_field": "CK-02-26",
+      "model_raw": "CK-02-26",
+      "model_alias": null,
+      "model_normalized": "CK0226",
+      "es_nuevo": false,
+      "barcode_raw": "732129008550",
+      "gtin_structural": {
+        "numeric": true,
+        "length": 12,
+        "gtin_type_candidate": "gtin12",
+        "checksum_valid": true,
+        "structural_status": "structurally_valid"
+      },
+      "duplicate_barcode_in_source": false,
+      "reconciliation_status": "matched",
+      "matched_model": "CK-02-26",
+      "matched_product_id": "https://www.homepowerpty.com/productos/ollas/ck-02-26/#product",
+      "matched_canonical_url": "https://www.homepowerpty.com/productos/ollas/ck-02-26/",
+      "is_variant": true,
+      "product_group_url": "https://www.homepowerpty.com/productos/ollas/olla-presion-ck02/",
+      "provenance": {
+        "sources": [
+          "excel_derived_json:tools/products_from_excel.json"
+        ],
+        "confirmed_by_pdp_display": true,
+        "confirmed_by_historical_tooling": true,
+        "provenance_sufficient": true,
+        "provenance_reason": "fuente empresarial (excel_derived_json) reconciliada 1:1 contra un Product unico del sitio"
+      },
+      "known_multi_barcode_conflict": false,
+      "alternate_barcodes": [],
+      "gtin_status": "validated",
+      "gtin_publishable": true,
+      "sku_candidate": "CK-02-26",
+      "sku_status": "candidate",
+      "sku_publishable": false,
+      "sku_publish_reason": "requiere decision empresarial explicita (Seccion 5.4); no otorgada en este contrato",
+      "conflict_notes": []
+    }
+  ],
+  "aliases": [
+    {
+      "canonical_model": "2020B",
+      "alias": "F-011A-1",
+      "source": "excel_derived_json:tools/products_from_excel.json"
+    },
+    {
+      "canonical_model": "JR-A101",
+      "alias": "R.97816",
+      "source": "excel_derived_json:tools/products_from_excel.json"
+    },
+    {
+      "canonical_model": "JR-LD8",
+      "alias": "R.97928",
+      "source": "excel_derived_json:tools/products_from_excel.json"
+    }
+  ],
+  "summary": {
+    "total_source_records": 59,
+    "matched": 59,
+    "ambiguous": 0,
+    "unmatched": 0,
+    "rejected": 0,
+    "gtin12_candidates": 54,
+    "gtin13_candidates": 5,
+    "checksum_pass": 59,
+    "checksum_fail": 0,
+    "duplicate_barcodes_in_source": 0,
+    "known_multi_barcode_conflicts": 3,
+    "gtin_validated": 59,
+    "gtin_blocked": 0,
+    "sku_validated": 0,
+    "sku_published": 0
+  }
+}
