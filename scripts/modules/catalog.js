@@ -411,6 +411,13 @@ const Catalog = {
         searchQuery = this.value;
         showProducts(activeCategory);
       });
+
+      searchInput.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          scrollToCatalog();
+        }
+      });
     }
 
     // --- LÓGICA DE FILTRO POR URL ---
