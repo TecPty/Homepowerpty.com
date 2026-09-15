@@ -282,6 +282,53 @@ def _find_matching_close(text, open_pos):
     raise Defect("unbalanced brackets while scanning JSON text")
 
 
+def _find_root_level_array(raw_content, key):
+    """Scan raw_content (a single JSON object literal, starting at its own opening '{')
+    and return the index of the '[' for `"<key>": [` only when it appears as a DIRECT
+    property of the root object (bracket depth == 1, i.e. immediately inside the
+    object's own braces) -- never a match nested inside "brand" or any other nested
+    object/array. Returns None if no root-level occurrence exists."""
+    depth = 0
+    i = 0
+    n = len(raw_content)
+    in_string = False
+    escape = False
+    pending_key_start = None
+    while i < n:
+        ch = raw_content[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+                if depth == 1 and pending_key_start is not None:
+                    literal = raw_content[pending_key_start:i]
+                    if literal == key:
+                        j = i + 1
+                        while j < n and raw_content[j] in " \t\r\n":
+                            j += 1
+                        if j < n and raw_content[j] == ":":
+                            j += 1
+                            while j < n and raw_content[j] in " \t\r\n":
+                                j += 1
+                            if j < n and raw_content[j] == "[":
+                                return j
+                    pending_key_start = None
+            i += 1
+            continue
+        if ch == '"':
+            in_string = True
+            pending_key_start = i + 1
+        elif ch in "{[":
+            depth += 1
+        elif ch in "}]":
+            depth -= 1
+        i += 1
+    return None
+
+
 def _format_managed_entry(indent, entry):
     lines = ["%s{" % indent]
     lines.append('%s  "@type": %s,' % (indent, json.dumps(entry["@type"], ensure_ascii=False)))
@@ -314,10 +361,9 @@ def _insert_before_close(raw_content, close_pos, new_items_text, item_indent, cl
 def _merge_into_existing_additional_property(raw_content, pending_ap_names, expected_ap, prop_indent):
     """additionalProperty already exists as a key: insert only the PENDING managed entries
     into the existing array, preserving every foreign/compliant entry untouched."""
-    m_ap = re.search(r'"additionalProperty"\s*:\s*(\[)', raw_content)
-    if not m_ap:
+    open_pos = _find_root_level_array(raw_content, "additionalProperty")
+    if open_pos is None:
         raise Defect("additionalProperty key reported present but not found in raw text")
-    open_pos = m_ap.start(1)
     close_pos = _find_matching_close(raw_content, open_pos)
 
     item_indent = prop_indent + "  "
@@ -345,7 +391,7 @@ def apply_surgical_insertion(raw_content, expected, states):
     prop_indent = m2.group(1)
 
     working = raw_content
-    ap_already_exists = bool(re.search(r'"additionalProperty"\s*:\s*\[', working))
+    ap_already_exists = _find_root_level_array(working, "additionalProperty") is not None
 
     if pending_ap_names and ap_already_exists:
         working = _merge_into_existing_additional_property(
@@ -386,6 +432,64 @@ def apply_surgical_insertion(raw_content, expected, states):
         working, closing_brace_pos, top_level_insertion, prop_indent, closing_indent, is_object=True
     )
     return new_working
+
+
+def _prepare_output(report):
+    """Render and validate one pending output without touching its file."""
+    block = report["product_block"]
+    new_raw_content = apply_surgical_insertion(
+        block["raw_content"], report["expected"], report["states"]
+    )
+    new_work_text = (
+        report["work_text"][: block["content_start"]]
+        + new_raw_content
+        + report["work_text"][block["content_end"] :]
+    )
+    final_text = (
+        new_work_text.replace("\n", report["newline_style"])
+        if report["newline_style"] == "\r\n"
+        else new_work_text
+    )
+
+    if report["newline_style"] == "\r\n":
+        if "\n" in final_text.replace("\r\n", ""):
+            raise Defect("newline preservation failed: mixed LF/CRLF output")
+    elif "\r" in final_text:
+        raise Defect("newline preservation failed: CR found in LF output")
+
+    reparsed_blocks = find_ldjson_blocks(new_work_text)
+    product_blocks = [
+        candidate for candidate in reparsed_blocks
+        if isinstance(candidate["obj"], dict) and candidate["obj"].get("@type") == "Product"
+    ]
+    expected_id = block["obj"].get("@id")
+    matching_products = [candidate for candidate in product_blocks if candidate["obj"].get("@id") == expected_id]
+    if len(matching_products) != 1:
+        raise Defect("rendered output does not contain exactly one expected Product")
+
+    product_obj = matching_products[0]["obj"]
+    after_states = classify_state(report["expected"], product_obj)["states"]
+    if any(state in ("PENDING", "BLOCKED") for state in after_states.values()):
+        raise Defect("rendered output failed managed-property validation")
+    if check_identity(new_work_text, product_obj):
+        raise Defect("rendered output failed Product identity validation")
+
+    ignored_keys = {"color", "additionalProperty"}
+    before_invariants = {
+        key: value for key, value in block["obj"].items() if key not in ignored_keys
+    }
+    after_invariants = {
+        key: value for key, value in product_obj.items() if key not in ignored_keys
+    }
+    if before_invariants != after_invariants:
+        raise Defect("rendered output changed unmanaged Product properties")
+
+    return {"report": report, "final_text": final_text}
+
+
+def _prepare_outputs(pending_files):
+    """Prepare every pending output before the first write."""
+    return [_prepare_output(report) for report in pending_files]
 
 
 def process_file(path):
@@ -551,18 +655,20 @@ def run_release(mode):
         return 0
 
     # mode == "apply"
+    try:
+        prepared_outputs = _prepare_outputs(pending_files)
+    except (Defect, ValueError, TypeError) as exc:
+        print()
+        print("RENDER_PRECHECK_PASS = false")
+        print("RENDER_PRECHECK_ERROR =", exc)
+        print("ZERO WRITES")
+        return 1
+
     written = 0
-    for r in pending_files:
-        block = r["product_block"]
-        new_raw_content = apply_surgical_insertion(block["raw_content"], r["expected"], r["states"])
-        new_work_text = (
-            r["work_text"][: block["content_start"]]
-            + new_raw_content
-            + r["work_text"][block["content_end"] :]
-        )
-        final_text = new_work_text.replace("\n", r["newline_style"]) if r["newline_style"] == "\r\n" else new_work_text
-        with open(r["path"], "wb") as fh:
-            fh.write(final_text.encode("utf-8"))
+    for prepared in prepared_outputs:
+        report = prepared["report"]
+        with open(report["path"], "wb") as fh:
+            fh.write(prepared["final_text"].encode("utf-8"))
         written += 1
 
     print()
@@ -706,7 +812,48 @@ def selftest():
         if len(garantia3) != 1:
             failures.append("T3: managed Garantía entry not inserted alongside foreign entry: %s" % ap3)
 
-        # Test 4: conflicting existing value -> BLOCKED, and one BLOCKED file must zero out the whole batch
+        # Test 4: nested additionalProperty must not be mistaken for Product root state
+        p_nested = _make_sample(
+            tmpdir, "nested4",
+            "        <tr><td>Garantía</td><td>1 Año</td></tr>\n",
+        )
+        nested_text = open(p_nested, "r", encoding="utf-8").read()
+        nested_text = nested_text.replace(
+            '"@id": "https://example.test/#organization"\n      }',
+            '"@id": "https://example.test/#organization",\n'
+            '        "name": "Home Power",\n'
+            '        "additionalProperty": [{"@type": "PropertyValue", "name": "BrandInternal", "value": "X"}]\n'
+            '      }',
+        )
+        with open(p_nested, "w", encoding="utf-8", newline="") as fh:
+            fh.write(nested_text)
+        r_nested = process_file(p_nested)
+        nested_before = r_nested["product_block"]["obj"]["brand"]["additionalProperty"][:]
+        nested_raw = apply_surgical_insertion(
+            r_nested["product_block"]["raw_content"], r_nested["expected"], r_nested["states"]
+        )
+        nested_work = (
+            r_nested["work_text"][: r_nested["product_block"]["content_start"]]
+            + nested_raw
+            + r_nested["work_text"][r_nested["product_block"]["content_end"] :]
+        )
+        nested_after = next(
+            b["obj"] for b in find_ldjson_blocks(nested_work)
+            if b["obj"] and b["obj"].get("@type") == "Product"
+        )
+        if nested_after.get("brand", {}).get("additionalProperty") != nested_before:
+            failures.append("T4: nested brand additionalProperty was modified")
+        if [e.get("name") for e in nested_after.get("additionalProperty", [])] != ["Garantía"]:
+            failures.append("T4: Product root Garantía was not inserted")
+        second_nested = apply_surgical_insertion(
+            next(b["raw_content"] for b in find_ldjson_blocks(nested_work) if b["obj"] and b["obj"].get("@type") == "Product"),
+            r_nested["expected"],
+            classify_state(r_nested["expected"], nested_after)["states"],
+        )
+        if second_nested != next(b["raw_content"] for b in find_ldjson_blocks(nested_work) if b["obj"] and b["obj"].get("@type") == "Product"):
+            failures.append("T4: nested Product second execution was not a no-op")
+
+        # Test 5: conflicting existing value -> BLOCKED, and one BLOCKED file must zero out the whole batch
         p4 = _make_sample(
             tmpdir, "conflict4",
             "        <tr><td>Garantía</td><td>1 Año</td></tr>\n",
@@ -714,9 +861,9 @@ def selftest():
         )
         r4 = process_file(p4)
         if r4["states"]["Garantía"] != "BLOCKED":
-            failures.append("T4: conflicting Garantía should be BLOCKED: %s" % r4["states"])
+            failures.append("T5: conflicting Garantía should be BLOCKED: %s" % r4["states"])
 
-        # Test 5: stale conflict -- managed property present but source no longer eligible
+        # Test 6: stale conflict -- managed property present but source no longer eligible
         p5 = _make_sample(
             tmpdir, "stale5",
             "        <tr><td>Voltaje</td><td>N/A</td></tr>\n",
@@ -724,9 +871,9 @@ def selftest():
         )
         r5 = process_file(p5)
         if r5["states"]["Voltaje"] != "BLOCKED":
-            failures.append("T5: stale managed Voltaje should be BLOCKED (STALE_CONFLICT): %s" % r5["states"])
+            failures.append("T6: stale managed Voltaje should be BLOCKED (STALE_CONFLICT): %s" % r5["states"])
 
-        # Test 6: duplicate managed name -> BLOCKED
+        # Test 7: duplicate managed name -> BLOCKED
         p6 = _make_sample(
             tmpdir, "dup6",
             "        <tr><td>Garantía</td><td>1 Año</td></tr>\n",
@@ -739,24 +886,48 @@ def selftest():
         )
         r6 = process_file(p6)
         if r6["states"]["Garantía"] != "BLOCKED":
-            failures.append("T6: duplicate managed name should be BLOCKED: %s" % r6["states"])
+            failures.append("T7: duplicate managed name should be BLOCKED: %s" % r6["states"])
 
-        # Test 7: transactionality -- one BLOCKED among many must force zero writes for the whole set
+        # Test 8: blocked preflight -- one BLOCKED among many must force zero writes for the whole set
         reports = [r1, r4]  # r1 clean (already written+compliant above), r4 has a BLOCKED
         any_blocked = any(s == "BLOCKED" for r in reports for s in r["states"].values())
         if not any_blocked:
-            failures.append("T7 setup invalid: expected at least one BLOCKED among synthetic reports")
+            failures.append("T8 setup invalid: expected at least one BLOCKED among synthetic reports")
         # simulate precheck: PRECHECK_PASS must be False for the whole batch
         precheck_pass = not any_blocked
         if precheck_pass:
-            failures.append("T7: PRECHECK_PASS should be False when any file is BLOCKED")
+            failures.append("T8: PRECHECK_PASS should be False when any file is BLOCKED")
+
+        # Test 9: render transactionality -- a later render failure must cause zero writes
+        p7 = _make_sample(
+            tmpdir, "render7",
+            "        <tr><td>Garantía</td><td>1 Año</td></tr>\n",
+        )
+        p8 = _make_sample(
+            tmpdir, "render8",
+            "        <tr><td>Garantía</td><td>1 Año</td></tr>\n",
+        )
+        r7 = process_file(p7)
+        r8 = process_file(p8)
+        before7 = open(p7, "rb").read()
+        before8 = open(p8, "rb").read()
+        r8["product_block"]["raw_content"] = r8["product_block"]["raw_content"].replace(
+            '"@context"', '"@ctx"'
+        )
+        try:
+            _prepare_outputs([r7, r8])
+            failures.append("T9: invalid later render unexpectedly passed")
+        except Defect:
+            pass
+        if open(p7, "rb").read() != before7 or open(p8, "rb").read() != before8:
+            failures.append("T9: render failure modified a temporary file")
 
     if failures:
         print("SELFTEST: FAIL (%d failure(s))" % len(failures))
         for f in failures:
             print("  -", f)
         return 1
-    print("SELFTEST: PASS (7/7 checks)")
+    print("SELFTEST: PASS (9/9 checks)")
     return 0
 
 
