@@ -254,8 +254,9 @@ const Catalog = {
     let activeCategory = 'all';
     let searchQuery    = '';
 
-    // Elemento de búsqueda
-    const searchInput = document.getElementById('catalog-search');
+    // Shared search state across the header and catalog inputs.
+    const headerSearchInput = document.getElementById('header-search');
+    const catalogSearchInput = document.getElementById('catalog-search');
 
     // Mensaje de sin resultados (lo insertamos una vez)
     let noResultsEl = productsGrid ? productsGrid.querySelector('.catalog-no-results') : null;
@@ -361,6 +362,13 @@ const Catalog = {
       }
     }
 
+    function updateSearchQuery(value, source) {
+      searchQuery = value;
+      const targetInput = source === 'header' ? catalogSearchInput : headerSearchInput;
+      if (targetInput && targetInput.value !== value) targetInput.value = value;
+      showProducts(activeCategory);
+    }
+
     groupTabs.forEach(tab => {
       tab.addEventListener('click', function () {
         setActiveGroup(this);
@@ -406,17 +414,21 @@ const Catalog = {
       });
     });
 
-    if (searchInput) {
-      searchInput.addEventListener('input', function () {
-        searchQuery = this.value;
-        showProducts(activeCategory);
+    if (headerSearchInput) {
+      headerSearchInput.addEventListener('input', function () {
+        updateSearchQuery(this.value, 'header');
       });
-
-      searchInput.addEventListener('keydown', function (event) {
+      headerSearchInput.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
           event.preventDefault();
           scrollToCatalog();
         }
+      });
+    }
+
+    if (catalogSearchInput) {
+      catalogSearchInput.addEventListener('input', function () {
+        updateSearchQuery(this.value, 'catalog');
       });
     }
 
