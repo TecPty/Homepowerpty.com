@@ -7,6 +7,7 @@ const Header = {
     // ── Menú mobile / fullscreen (implementación activa) ───────
     const menuBurger = document.getElementById('menuBurger');
     const activeMenu = document.getElementById('mobileMenu') || document.getElementById('fullscreenMenu');
+    let closeActiveMenu = null;
     const menuClose = document.getElementById('menuClose');
     const menuLinks = activeMenu
       ? activeMenu.querySelectorAll('.mobile-menu-link, .fullscreen-menu-link')
@@ -31,6 +32,7 @@ const Header = {
         activeMenu.setAttribute('aria-hidden', 'true');
         if (!isCompactMenu) document.body.classList.remove('menu-open');
       };
+      closeActiveMenu = closeMenu;
 
       const toggleMenu = (event) => {
         event.stopPropagation();
@@ -68,6 +70,37 @@ const Header = {
         });
       }
     }
+
+    // Keep the sticky header visible until the catalog search reaches it.
+    const luxuryHeader = document.querySelector('.luxury-header');
+    const catalogSearchBar = document.querySelector('#catalogo .catalog-search-bar');
+    let visibilityFrame = 0;
+
+    const updateCatalogHeaderVisibility = () => {
+      visibilityFrame = 0;
+      if (!luxuryHeader || !catalogSearchBar) return;
+
+      const headerHeight = luxuryHeader.getBoundingClientRect().height;
+      const headerTop = parseFloat(getComputedStyle(luxuryHeader).top) || 0;
+      const catalogSearchTop = catalogSearchBar.getBoundingClientRect().top;
+      const hideHeader = catalogSearchTop <= headerTop + headerHeight;
+      const hiddenClass = 'header-hidden-at-catalog';
+
+      if (hideHeader && !luxuryHeader.classList.contains(hiddenClass)) {
+        if (closeActiveMenu) closeActiveMenu();
+        luxuryHeader.classList.add(hiddenClass);
+      } else if (!hideHeader && luxuryHeader.classList.contains(hiddenClass)) {
+        luxuryHeader.classList.remove(hiddenClass);
+      }
+    };
+
+    const scheduleCatalogHeaderVisibility = () => {
+      if (!visibilityFrame) visibilityFrame = requestAnimationFrame(updateCatalogHeaderVisibility);
+    };
+
+    window.addEventListener('scroll', scheduleCatalogHeaderVisibility, { passive: true });
+    window.addEventListener('resize', scheduleCatalogHeaderVisibility);
+    scheduleCatalogHeaderVisibility();
 
     // ── Menú legacy + scroll behavior + anchors ─────────────────
     const header = document.getElementById('header');
