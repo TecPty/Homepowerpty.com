@@ -1,1 +1,0 @@
-System.register(["./luxury-legacy-CJbImdWU.js","./product-v2-legacy-DjAyMze8.js"],function(e,t){return{setters:[function(e){},function(e){}],execute:function(){}}});

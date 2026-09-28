@@ -71,20 +71,20 @@ const Header = {
       }
     }
 
-    // Keep the sticky header visible until the catalog search reaches it.
+    // Keep the sticky header (and its search) visible until the footer reaches it.
     const luxuryHeader = document.querySelector('.luxury-header');
-    const catalogSearchBar = document.querySelector('#catalogo .catalog-search-bar');
+    const luxuryFooter = document.querySelector('.luxury-footer');
     let visibilityFrame = 0;
 
-    const updateCatalogHeaderVisibility = () => {
+    const updateFooterHeaderVisibility = () => {
       visibilityFrame = 0;
-      if (!luxuryHeader || !catalogSearchBar) return;
+      if (!luxuryHeader || !luxuryFooter) return;
 
       const headerHeight = luxuryHeader.getBoundingClientRect().height;
       const headerTop = parseFloat(getComputedStyle(luxuryHeader).top) || 0;
-      const catalogSearchTop = catalogSearchBar.getBoundingClientRect().top;
-      const hideHeader = catalogSearchTop <= headerTop + headerHeight;
-      const hiddenClass = 'header-hidden-at-catalog';
+      const footerTop = luxuryFooter.getBoundingClientRect().top;
+      const hideHeader = footerTop <= headerTop + headerHeight;
+      const hiddenClass = 'header-hidden-at-footer';
 
       if (hideHeader && !luxuryHeader.classList.contains(hiddenClass)) {
         if (closeActiveMenu) closeActiveMenu();
@@ -94,13 +94,13 @@ const Header = {
       }
     };
 
-    const scheduleCatalogHeaderVisibility = () => {
-      if (!visibilityFrame) visibilityFrame = requestAnimationFrame(updateCatalogHeaderVisibility);
+    const scheduleHeaderVisibility = () => {
+      if (!visibilityFrame) visibilityFrame = requestAnimationFrame(updateFooterHeaderVisibility);
     };
 
-    window.addEventListener('scroll', scheduleCatalogHeaderVisibility, { passive: true });
-    window.addEventListener('resize', scheduleCatalogHeaderVisibility);
-    scheduleCatalogHeaderVisibility();
+    window.addEventListener('scroll', scheduleHeaderVisibility, { passive: true });
+    window.addEventListener('resize', scheduleHeaderVisibility);
+    scheduleHeaderVisibility();
 
     // ── Menú legacy + scroll behavior + anchors ─────────────────
     const header = document.getElementById('header');
