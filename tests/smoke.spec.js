@@ -152,3 +152,46 @@ test('config_new.css no está linkeado en el head de la página', async ({ page 
   const linkCount = await page.locator('link[href*="config_new"]').count();
   expect(linkCount).toBe(0);
 });
+
+// ─── 10. BÚSQUEDA — tolera acentos, guiones y nombres de categoría ──────────
+test('búsqueda del catálogo encuentra por modelo, categoría y sin acentos', async ({ page }) => {
+  await page.goto('/');
+  const search = page.locator('#catalog-search');
+  const visibleSkus = () => page.$$eval('.featured-products-grid .product', els =>
+    els.filter(e => e.style.display !== 'none')
+      .map(e => (e.querySelector('.product_sku')?.textContent || '').trim()));
+
+  await search.fill('oc506');
+  await expect.poll(visibleSkus).toEqual(['OC-506']);
+
+  await search.fill('freidora');
+  await expect.poll(async () => (await visibleSkus()).sort()).toEqual(['AF3201', 'JD389', 'OC-506']);
+
+  await search.fill('bascula');
+  await expect.poll(visibleSkus).toEqual(['HP-023']);
+});
+
+// ─── 11. BÚSQUEDA + GRUPO — la búsqueda respeta el grupo activo ─────────────
+test('búsqueda respeta el grupo de productos seleccionado', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('#catalogo').scrollIntoViewIfNeeded();
+
+  const mobileFilterToggle = page.locator('.catalog-filter-toggle');
+  if (await mobileFilterToggle.isVisible()) await mobileFilterToggle.click();
+
+  await page.locator('.catalog-group-tab[data-group="electrico"]').click();
+  await page.locator('#catalog-search').fill('hp');
+
+  await expect.poll(() => page.$$eval('.featured-products-grid .product', els =>
+    [...new Set(els.filter(e => e.style.display !== 'none').map(e => e.dataset.category))].sort()
+  )).toEqual(['extension', 'power_strip', 'tv_mount']);
+});
+
+// ─── 12. WHATSAPP PDP — el mensaje contextual no contiene HTML ──────────────
+test('WhatsApp de ficha de producto incluye el modelo sin etiquetas HTML', async ({ page }) => {
+  await page.goto('/productos/freidoras-de-aire/oc-506/');
+  const href = await page.locator('a[href*="wa.me/507"][href*="text="]').first().getAttribute('href');
+  const text = decodeURIComponent(new URL(href).searchParams.get('text') || '');
+  expect(text).toContain('OC-506');
+  expect(text).not.toMatch(/<[^>]+>/);
+});
