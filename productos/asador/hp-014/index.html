@@ -532,6 +532,7 @@
 
         function stopSlideshow() {
             if (pdsSlideshowInterval) clearInterval(pdsSlideshowInterval);
+            pdsSlideshowInterval = null;
         }
 
         function pdpSetImage(src, thumbEl, isAutomatic = false) {
@@ -541,6 +542,12 @@
             document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
             thumbEl.classList.add('active');
             currentLightboxSrc = src;
+            // Selección manual: el slideshow continúa desde la imagen elegida
+            // y reinicia su temporizador (si está corriendo).
+            if (!isAutomatic) {
+                pdpCurrentGalleryIndex = Math.max(0, pdpImages.indexOf(src));
+                if (pdsSlideshowInterval) startSlideshow();
+            }
         }
 
         // Iniciar slideshow al cargar
@@ -551,6 +558,12 @@
                 galleryArea.addEventListener('mouseenter', stopSlideshow);
                 galleryArea.addEventListener('mouseleave', startSlideshow);
             }
+            // Activación por teclado (Enter/Espacio) de los div role="button"
+            document.querySelectorAll('#pdpMainImgWrap, .pdp-strip-item').forEach(el => {
+                el.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+                });
+            });
         });
 
         function pdpOpenLightbox() {
