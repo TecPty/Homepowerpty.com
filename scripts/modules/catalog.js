@@ -295,17 +295,53 @@ const Catalog = {
         .forEach(({ product }) => productsGrid.appendChild(product));
     }
 
+    // Búsqueda tolerante: sin acentos ("bascula" → Básculas) y sin guiones
+    // ("oc506" → OC-506). Incluye la categoría visible y la carpeta de la URL
+    // del producto ("freidora" → productos/freidoras-de-aire/).
+    function normalize(text) {
+      return (text || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .toLowerCase().replace(/[-_/]+/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    function compact(text) {
+      return normalize(text).replace(/[^a-z0-9]/g, '');
+    }
+
+    const CATEGORY_LABELS = {};
+    filterItems.forEach(item => { CATEGORY_LABELS[item.dataset.category] = item.textContent; });
+
+    const searchIndex = new WeakMap();
+    function getSearchData(p) {
+      if (!searchIndex.has(p)) {
+        const href = decodeURIComponent(
+          p.querySelector('.product_image_wrapper')?.getAttribute('href') || '');
+        const codes = [p.querySelector('.product_sku')?.textContent, p.dataset.variants].join(' ');
+        searchIndex.set(p, {
+          text: normalize([
+            p.querySelector('.product_name')?.textContent,
+            codes,
+            CATEGORY_LABELS[p.dataset.category],
+            href.split('/')[1],
+          ].join(' ')),
+          codes: compact(codes),
+        });
+      }
+      return searchIndex.get(p);
+    }
+
     function showProducts(cat) {
-      const q = searchQuery.trim().toLowerCase();
+      const q = normalize(searchQuery);
+      const qCompact = compact(searchQuery);
+      const groupCats = activeGroup !== 'all' ? GROUPS[activeGroup] : null;
       let visible = 0;
       products.forEach(p => {
-        const catMatch  = cat === 'all' || p.dataset.category === cat;
+        const catMatch  = cat === 'all'
+          ? (!groupCats || groupCats.includes(p.dataset.category))
+          : p.dataset.category === cat;
         let   textMatch = true;
         if (q) {
-          const name = (p.querySelector('.product_name')?.textContent || '').toLowerCase();
-          const sku  = (p.querySelector('.product_sku')?.textContent || '').toLowerCase();
-          const variants = (p.dataset.variants || '').toLowerCase();
-          textMatch  = name.includes(q) || sku.includes(q) || variants.includes(q);
+          const data = getSearchData(p);
+          textMatch  = data.text.includes(q) || (qCompact.length > 1 && data.codes.includes(qCompact));
         }
         const show = catMatch && textMatch;
         if (show) {
@@ -383,24 +419,7 @@ const Catalog = {
           }
         }
 
-        if (activeGroup === 'all') {
-          showProducts('all');
-        } else {
-          products.forEach(p => {
-            const belongs = GROUPS[activeGroup].includes(p.dataset.category);
-            if (belongs) {
-              p.style.display = 'flex';
-              requestAnimationFrame(() => {
-                p.style.opacity = '1';
-                p.style.transform = 'scale(1)';
-              });
-            } else {
-              p.style.opacity = '0';
-              p.style.transform = 'scale(0.95)';
-              setTimeout(() => { if (p.style.opacity === '0') p.style.display = 'none'; }, 350);
-            }
-          });
-        }
+        showProducts(activeCategory);
 
         scrollToCatalog();
       });
