@@ -2791,7 +2791,7 @@ body.menu-open {
 @media (max-width: 768px) {
   .hero-section {
     min-height: 0;
-    padding: 16px 0 80px;
+    padding: 0 0 80px;
     align-items: flex-start;
   }
 
