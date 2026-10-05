@@ -2816,7 +2816,7 @@ body.menu-open {
 
   .hero-slider__card {
     aspect-ratio: auto;
-    height: clamp(110px, calc(100svh - 480px), 300px);
+    height: var(--mobile-hero-card-height, clamp(110px, calc(100svh - 480px), 300px));
   }
 
   .hero-slider__track {
