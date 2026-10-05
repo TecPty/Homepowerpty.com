@@ -68,7 +68,7 @@
   var btnNext  = document.getElementById('hero-next');
   var wrapper  = document.querySelector('.hero-slider__wrapper');
   var leftCol  = document.querySelector('.hero-left__col');
-  var ctas = document.querySelector('.hero-left__ctas');
+  var subtitle = document.querySelector('.hero-left__subtitle');
 
   if (!img || !overlay || !btnPrev || !btnNext) return;
 
@@ -76,11 +76,11 @@
   var originalNextSibling = wrapper ? wrapper.nextSibling : null;
 
   function placeSliderForViewport(isMobile) {
-    if (!wrapper || !leftCol || !ctas || !originalParent) return;
+    if (!wrapper || !leftCol || !subtitle || !originalParent) return;
 
     if (isMobile) {
       if (!leftCol.contains(wrapper)) {
-        leftCol.insertBefore(wrapper, ctas);
+        leftCol.insertBefore(wrapper, subtitle);
       }
       return;
     }
@@ -105,6 +105,51 @@
     mobileQuery.addListener(function (event) {
       placeSliderForViewport(event.matches);
     });
+  }
+
+  // Size the mobile carousel using the actual header and text heights.
+  function fitMobileHero() {
+    if (!mobileQuery.matches || !wrapper || !leftCol) {
+      if (wrapper) wrapper.style.removeProperty('--mobile-hero-card-height');
+      return;
+    }
+    var hero = wrapper.closest('.hero-section');
+    var card = wrapper.querySelector('.hero-slider__card');
+    if (!hero || !card) return;
+    var heroStyle = getComputedStyle(hero);
+    var colStyle = getComputedStyle(leftCol);
+    var visibleChildren = Array.prototype.filter.call(leftCol.children, function (child) {
+      return getComputedStyle(child).display !== 'none';
+    });
+    var otherHeight = visibleChildren.reduce(function (total, child) {
+      if (child === wrapper) return total;
+      var style = getComputedStyle(child);
+      return total + child.getBoundingClientRect().height +
+        (parseFloat(style.marginTop) || 0) + (parseFloat(style.marginBottom) || 0);
+    }, 0);
+    var gaps = (parseFloat(colStyle.rowGap) || 0) * Math.max(0, visibleChildren.length - 1);
+    var header = document.querySelector('.luxury-header');
+    var topbar = document.querySelector('.announcement-bar');
+    var headerHeight = header ? header.getBoundingClientRect().height : 0;
+    if (topbar && getComputedStyle(topbar).display !== 'none') {
+      headerHeight += topbar.getBoundingClientRect().height;
+    }
+    var viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    var available = viewportHeight - headerHeight - otherHeight - gaps -
+      (parseFloat(heroStyle.paddingTop) || 0) - (parseFloat(heroStyle.paddingBottom) || 0) - 8;
+    wrapper.style.setProperty('--mobile-hero-card-height', Math.max(100, Math.min(300, Math.floor(available))) + 'px');
+  }
+  function scheduleHeroFit() {
+    window.requestAnimationFrame(fitMobileHero);
+  }
+  scheduleHeroFit();
+  window.addEventListener('resize', scheduleHeroFit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', scheduleHeroFit);
+  if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', scheduleHeroFit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleHeroFit);
+  if (window.ResizeObserver) {
+    var heroHeader = document.querySelector('.luxury-header');
+    if (heroHeader) new ResizeObserver(scheduleHeroFit).observe(heroHeader);
   }
 
   /* ── Estado ──────────────────────────────────────────────── */
