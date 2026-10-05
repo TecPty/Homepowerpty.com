@@ -68,7 +68,7 @@
   var btnNext  = document.getElementById('hero-next');
   var wrapper  = document.querySelector('.hero-slider__wrapper');
   var leftCol  = document.querySelector('.hero-left__col');
-  var trustBar = document.querySelector('.hero-left__trust');
+  var ctas = document.querySelector('.hero-left__ctas');
 
   if (!img || !overlay || !btnPrev || !btnNext) return;
 
@@ -76,11 +76,11 @@
   var originalNextSibling = wrapper ? wrapper.nextSibling : null;
 
   function placeSliderForViewport(isMobile) {
-    if (!wrapper || !leftCol || !trustBar || !originalParent) return;
+    if (!wrapper || !leftCol || !ctas || !originalParent) return;
 
     if (isMobile) {
       if (!leftCol.contains(wrapper)) {
-        leftCol.insertBefore(wrapper, trustBar);
+        leftCol.insertBefore(wrapper, ctas);
       }
       return;
     }

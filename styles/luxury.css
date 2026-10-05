@@ -736,8 +736,7 @@ header.luxury-header {
   }
 
   .hero-left__trust {
-    justify-content: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: none;
   }
 
   .hero-slider__wrapper {
@@ -2553,7 +2552,7 @@ body.menu-open {
     .hero-title { order: 1; margin-bottom: 16px; }
     .hero-actions { order: 3; justify-content: center; }
     .category-sticky-bar { top: 70px; }
-    .logo-container .luxury-logo { max-height: 80px; }
+    .luxury-header .logo-container .luxury-logo { max-height: 104px; }
     .catalog-search-bar { max-width: 100%; }
     #catalog-search { font-size: 16px; }
     /* Stats: cinta dorada compacta */
@@ -2727,8 +2726,8 @@ body.menu-open {
         right: 20px;
     }
     .fwb-text { display: none; }
-    .logo-container .luxury-logo {
-        max-height: 65px;
+    .luxury-header .logo-container .luxury-logo {
+        max-height: 84.5px;
     }
      
     .product_sku {
