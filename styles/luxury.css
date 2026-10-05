@@ -2852,3 +2852,12 @@ body.menu-open {
     font-size: 0.65rem;
   }
 }
+
+/* Keep the enlarged mobile header logo fixed, including touch hover states. */
+@media (max-width: 768px) {
+  .luxury-header .logo-container .luxury-logo,
+  .luxury-header .logo-container .luxury-logo:hover {
+    transform: scale(2.05);
+    transition: none;
+  }
+}
