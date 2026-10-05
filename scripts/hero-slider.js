@@ -68,7 +68,7 @@
   var btnNext  = document.getElementById('hero-next');
   var wrapper  = document.querySelector('.hero-slider__wrapper');
   var leftCol  = document.querySelector('.hero-left__col');
-  var ctas = document.querySelector('.hero-left__ctas');
+  var subtitle = document.querySelector('.hero-left__subtitle');
 
   if (!img || !overlay || !btnPrev || !btnNext) return;
 
@@ -76,11 +76,11 @@
   var originalNextSibling = wrapper ? wrapper.nextSibling : null;
 
   function placeSliderForViewport(isMobile) {
-    if (!wrapper || !leftCol || !ctas || !originalParent) return;
+    if (!wrapper || !leftCol || !subtitle || !originalParent) return;
 
     if (isMobile) {
       if (!leftCol.contains(wrapper)) {
-        leftCol.insertBefore(wrapper, ctas);
+        leftCol.insertBefore(wrapper, subtitle);
       }
       return;
     }
