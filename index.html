@@ -145,7 +145,10 @@
             <nav class="luxury-nav">
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li class="nav-has-submenu"><a href="#catalogo">Catálogo</a>
+                        <!-- Subcategorías: se generan automáticamente desde el sidebar del catálogo (catalog.js) -->
+                        <div class="nav-submenu" data-catalog-submenu="desktop"></div>
+                    </li>
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#clientes">Clientes</a></li>
                     <li><a href="#contacto">Consulta</a></li>
@@ -186,7 +189,10 @@
         <nav>
             <ul class="mobile-menu__links">
                 <li><a href="#inicio" class="mobile-menu-link">Inicio</a></li>
-                <li><a href="#catalogo" class="mobile-menu-link">Catálogo</a></li>
+                <li class="mobile-menu__catalog"><a href="#catalogo" class="mobile-menu-link">Catálogo</a>
+                    <!-- Subcategorías: se generan automáticamente desde el sidebar del catálogo (catalog.js) -->
+                    <ul class="mobile-submenu" data-catalog-submenu="mobile"></ul>
+                </li>
                 <li><a href="#nosotros" class="mobile-menu-link">Nosotros</a></li>
                 <li><a href="#clientes" class="mobile-menu-link">Clientes</a></li>
                 <li><a href="#contacto" class="mobile-menu-link">Consulta</a></li>
