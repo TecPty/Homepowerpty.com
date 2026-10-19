@@ -48,6 +48,10 @@ const Header = {
       if (menuLinks && menuLinks.length) {
         menuLinks.forEach(link => link.addEventListener('click', closeMenu));
       }
+      // Subcategorías del catálogo (generadas por catalog.js) también cierran el menú
+      activeMenu.addEventListener('click', (e) => {
+        if (e.target.closest('.mobile-submenu a')) closeMenu();
+      });
 
       if (isCompactMenu) {
         document.addEventListener('click', (e) => {

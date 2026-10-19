@@ -165,6 +165,7 @@ section { padding: 80px 0; }
 
 header.luxury-header {
     position: sticky;
+    z-index: 2000; /* gold-breeze.css baja .luxury-header a z-index 10; el submenú de Catálogo necesita quedar sobre el hero */
 }
 
 .header-container {
@@ -215,6 +216,81 @@ header.luxury-header {
 
 .luxury-nav .nav-links a:hover {
     color: var(--color-accent);
+}
+
+/* ─── Submenú de categorías (desktop) ─── */
+.luxury-nav .nav-has-submenu { position: relative; }
+.luxury-nav .nav-has-submenu > a::after {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    margin-left: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-3px) rotate(45deg);
+    opacity: 0.7;
+}
+.luxury-nav .nav-submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 8px);
+    margin-top: 14px;
+    display: flex;
+    gap: 28px;
+    padding: 20px 24px;
+    background: #080808;
+    border: 1px solid rgba(214, 177, 80, 0.45);
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 3000;
+    white-space: nowrap;
+}
+.luxury-nav .nav-submenu:empty { display: none; }
+/* puente invisible para que el hover no se corte entre el link y el panel */
+.luxury-nav .nav-submenu::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: -16px; height: 16px;
+}
+.luxury-nav .nav-has-submenu:hover .nav-submenu,
+.luxury-nav .nav-has-submenu:focus-within .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+.luxury-nav .nav-submenu__col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 150px;
+}
+.luxury-nav .nav-submenu__title {
+    color: var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.luxury-nav .nav-submenu a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    padding: 5px 8px;
+    margin: 0 -8px;
+    border-radius: 6px;
+    color: #e8e8e8;
+}
+.luxury-nav .nav-submenu a:hover,
+.luxury-nav .nav-submenu a:focus-visible {
+    color: var(--color-accent);
+    background: rgba(214, 177, 80, 0.1);
+    outline: none;
 }
 
 .header-search-bar {
@@ -2391,6 +2467,34 @@ body.menu-open {
         color: #e0bd59 !important;
         border-color: rgba(214, 177, 80, 0.24) !important;
         outline: none !important;
+    }
+
+    /* ─── Subcategorías del catálogo dentro del menú móvil ─── */
+    .mobile-menu {
+        width: 290px !important;
+        max-height: calc(100vh - 170px) !important;
+        max-height: calc(100dvh - 170px) !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+    }
+    .mobile-menu ul.mobile-submenu {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2px 4px !important;
+        margin: 2px 0 6px !important;
+        padding: 6px 0 8px 10px !important;
+        border-left: 1px solid rgba(214, 177, 80, 0.35) !important;
+        margin-left: 12px !important;
+        width: calc(100% - 12px) !important;
+    }
+    .mobile-menu ul.mobile-submenu:empty { display: none !important; }
+    .mobile-menu .mobile-submenu a {
+        padding: 6px 8px !important;
+        font-size: 12.5px !important;
+        font-weight: 500 !important;
+        color: rgba(255, 255, 255, 0.78) !important;
+        border-radius: 8px !important;
+        white-space: normal !important;
     }
 
     .mobile-menu__cta {

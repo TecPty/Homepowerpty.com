@@ -451,28 +451,89 @@ const Catalog = {
       });
     }
 
+    // Activa una categoría (tab de grupo + pill) y filtra. Devuelve true si existe.
+    function selectCategory(cat, { immediate = false } = {}) {
+      const targetItem = Array.from(filterItems).find(i => i.dataset.category === cat);
+      if (!targetItem) return false;
+      const groupKey = CAT_TO_GROUP[cat];
+      const targetTab = Array.from(groupTabs).find(t => t.dataset.group === (groupKey || 'all'));
+      if (targetTab) {
+        setActiveGroup(targetTab);
+        showSubFilters(activeGroup);
+      }
+      setActiveFilter(targetItem);
+      showProducts(activeCategory);
+      scrollToCatalog(immediate);
+      return true;
+    }
+
+    // --- SUBMENÚ DE CATEGORÍAS EN LA BARRA (desktop + menú móvil) ---
+    // Se construye desde los .filter-item del sidebar, así cualquier categoría
+    // nueva que se agregue al catálogo aparece sola en el menú.
+    function buildNavSubmenus() {
+      const cats = Array.from(filterItems)
+        .filter(i => i.dataset.category !== 'all')
+        .map(i => ({ cat: i.dataset.category, label: i.textContent.trim() }));
+      if (!cats.length) return;
+
+      const makeLink = ({ cat, label }) => {
+        const a = document.createElement('a');
+        a.href = `?cat=${encodeURIComponent(cat)}#catalogo`;
+        a.dataset.cat = cat;
+        a.textContent = label;
+        a.addEventListener('click', (e) => {
+          if (selectCategory(cat)) {
+            e.preventDefault();
+            history.replaceState(null, '', `?cat=${encodeURIComponent(cat)}#catalogo`);
+          }
+        });
+        return a;
+      };
+
+      // Desktop: columnas por grupo (Línea de Cocina / Planchas & Ventilación / Eléctrico)
+      const desktop = document.querySelector('[data-catalog-submenu="desktop"]');
+      if (desktop) {
+        const groupLabel = {};
+        groupTabs.forEach(t => { groupLabel[t.dataset.group] = t.textContent.replace(/\s+/g, ' ').trim(); });
+        const byGroup = {};
+        cats.forEach(c => {
+          const g = CAT_TO_GROUP[c.cat] || 'otros';
+          (byGroup[g] = byGroup[g] || []).push(c);
+        });
+        // Mismo orden que los tabs del sidebar
+        const order = Array.from(groupTabs).map(t => t.dataset.group);
+        Object.keys(byGroup)
+          .sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99))
+          .forEach(g => {
+          const col = document.createElement('div');
+          col.className = 'nav-submenu__col';
+          const h = document.createElement('span');
+          h.className = 'nav-submenu__title';
+          h.textContent = groupLabel[g] || 'Otros';
+          col.appendChild(h);
+          byGroup[g].forEach(c => col.appendChild(makeLink(c)));
+          desktop.appendChild(col);
+        });
+      }
+
+      // Móvil: lista compacta visible directamente debajo de "Catálogo"
+      const mobile = document.querySelector('[data-catalog-submenu="mobile"]');
+      if (mobile) {
+        cats.forEach(c => {
+          const li = document.createElement('li');
+          li.appendChild(makeLink(c));
+          mobile.appendChild(li);
+        });
+      }
+    }
+    buildNavSubmenus();
+
     // --- LÓGICA DE FILTRO POR URL ---
     const params = new URLSearchParams(window.location.search);
     const catParam = params.get('cat');
     if (catParam) {
-      const targetItem = Array.from(filterItems).find(i => i.dataset.category === catParam);
-      if (targetItem) {
-        // Determinamos el grupo para activar el tab correspondiente
-        const groupKey = CAT_TO_GROUP[catParam];
-        if (groupKey) {
-          const targetTab = Array.from(groupTabs).find(t => t.dataset.group === groupKey);
-          if (targetTab) {
-            setActiveGroup(targetTab);
-            showSubFilters(groupKey);
-          }
-        }
-        
-        setActiveFilter(targetItem);
-        showProducts(catParam);
-        
-        // Scroll inmediato si venimos de una categoría (evita el "rebote" por el anclaje #productos)
-        scrollToCatalog(true);
-      }
+      // Scroll inmediato si venimos de una categoría (evita el "rebote" por el anclaje)
+      selectCategory(catParam, { immediate: true });
     }
 
     products = getProducts();
