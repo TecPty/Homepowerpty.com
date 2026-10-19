@@ -1,1 +1,0 @@
-System.register(["./luxury-legacy-CGlfeYlA.js","./gold-breeze-legacy-Ck-fRXje.js"],function(e,t){return{setters:[function(e){},function(e){}],execute:function(){}}});

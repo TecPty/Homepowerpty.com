@@ -1,0 +1,1 @@
+import'data:text/javascript,"assets/productos_ollas_hp-036_index-CRIW9ij2.js";if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';export function __vite_legacy_guard(){import.meta.url,import(`_`).catch(()=>1),(async function*(){})().next()}/* empty css               */import"./header-3tkCS-SS.js";/* empty css                   */import"./page-BoT2s8lX.js";
