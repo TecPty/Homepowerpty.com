@@ -156,7 +156,7 @@ test('config_new.css no está linkeado en el head de la página', async ({ page 
 // ─── 10. BÚSQUEDA — tolera acentos, guiones y nombres de categoría ──────────
 test('búsqueda del catálogo encuentra por modelo, categoría y sin acentos', async ({ page }) => {
   await page.goto('/');
-  const search = page.locator('#catalog-search');
+  const search = page.locator('#header-search');
   const visibleSkus = () => page.$$eval('.featured-products-grid .product', els =>
     els.filter(e => e.style.display !== 'none')
       .map(e => (e.querySelector('.product_sku')?.textContent || '').trim()));
@@ -180,7 +180,7 @@ test('búsqueda respeta el grupo de productos seleccionado', async ({ page }) =>
   if (await mobileFilterToggle.isVisible()) await mobileFilterToggle.click();
 
   await page.locator('.catalog-group-tab[data-group="electrico"]').click();
-  await page.locator('#catalog-search').fill('hp');
+  await page.locator('#header-search').fill('hp');
 
   await expect.poll(() => page.$$eval('.featured-products-grid .product', els =>
     [...new Set(els.filter(e => e.style.display !== 'none').map(e => e.dataset.category))].sort()
