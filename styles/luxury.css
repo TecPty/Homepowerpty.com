@@ -1944,6 +1944,33 @@ header.luxury-header {
     background-color: #bfa530;
 }
 
+/* Botón flotante de Instagram (encima del de WhatsApp) */
+.floating-instagram-btn {
+    position: fixed;
+    bottom: 104px;
+    right: 36px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111111;
+    color: var(--color-accent);
+    border: 1px solid rgba(214, 181, 94, 0.55);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 9999;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.floating-instagram-btn:hover,
+.floating-instagram-btn:focus-visible {
+    transform: translateY(-4px) scale(1.05);
+    background: var(--color-accent);
+    color: #111111;
+    outline: none;
+}
+
 /* Responsive */
 /* ─── HAMBURGER BUTTON ─────────────────────────── */
 .hamburger-btn {
@@ -2828,6 +2855,10 @@ body.menu-open {
     .floating-whatsapp-btn {
         bottom: 20px;
         right: 20px;
+    }
+    .floating-instagram-btn {
+        bottom: 92px;
+        right: 26px;
     }
     .fwb-text { display: none; }
     .luxury-header .logo-container .luxury-logo {
