@@ -1,0 +1,1 @@
+System.register(["./luxury-legacy-5lbLFXrz.js","./header-legacy-DvTq0XtV.js","./product-v2-legacy-BescnWr8.js","./page-legacy-DP0ZpyVR.js"],function(e,n){return{setters:[function(e){},function(e){},function(e){},function(e){}],execute:function(){}}});
