@@ -1,3 +1,9 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.webp filter=lfs diff=lfs merge=lfs -text
 media/** filter=lfs diff=lfs merge=lfs -text
+# Imágenes de productos nuevos (nov 2026) guardadas sin LFS
+productos/cafeteras/hp-083/img/*.webp -filter -diff -merge -text
+productos/palomiteras/hp-091/img/*.webp -filter -diff -merge -text
+productos/pizzeras/hp-089/img/*.webp -filter -diff -merge -text
+productos/planchas/hp-087/img/*.webp -filter -diff -merge -text
+productos/wafleras/hp-088/img/*.webp -filter -diff -merge -text

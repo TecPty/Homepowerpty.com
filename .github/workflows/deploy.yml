@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,8 +49,8 @@ jobs:
 
           HTML_COUNT=$(find dist -name '*.html' | wc -l)
           echo "DIST_HTML_COUNT=$HTML_COUNT"
-          if [ "$HTML_COUNT" -ne 130 ]; then
-            echo "HTML COUNT MISMATCH: expected 130, got $HTML_COUNT"
+          if [ "$HTML_COUNT" -ne 135 ]; then
+            echo "HTML COUNT MISMATCH: expected 135, got $HTML_COUNT"
             exit 1
           fi
 
